@@ -1,0 +1,49 @@
+# **********************************************************
+#
+# Clamp position offsets of a channel
+#
+# Unit: 0.1um
+#
+# **********************************************************
+#
+# -----------------------------------
+#  1.clamp position offset group
+# -----------------------------------
+#
+pzv_grp[0].achse[0].versatz                           0             ( P-CLMP-00001 : [0.1um] Offset of first channel axis
+pzv_grp[0].achse[1].versatz                           0             ( P-CLMP-00001 : [0.1um] Offset of second channel axis
+pzv_grp[0].achse[2].versatz                           0             ( P-CLMP-00001 : [0.1um] Offset of third channel axis
+#
+# -----------------------------------
+#  2.clamp position offset group
+# -----------------------------------
+#
+pzv_grp[1].achse[0].versatz                           0
+pzv_grp[1].achse[1].versatz                           0
+pzv_grp[1].achse[2].versatz                           0
+#
+# -----------------------------------
+#  3.clamp position offset group
+# -----------------------------------
+#
+pzv_grp[2].achse[0].versatz                           0
+pzv_grp[2].achse[1].versatz                           0
+pzv_grp[2].achse[2].versatz                           0
+#
+# -----------------------------------
+#  4.clamp position offset group
+# -----------------------------------
+#
+pzv_grp[3].achse[0].versatz                           0
+pzv_grp[3].achse[1].versatz                           0
+pzv_grp[3].achse[2].versatz                           0
+#
+# -----------------------------------
+#  5.clamp position offset group
+# -----------------------------------
+#
+pzv_grp[4].achse[0].versatz                           0
+pzv_grp[4].achse[1].versatz                           0
+pzv_grp[4].achse[2].versatz                           0
+#
+Ende

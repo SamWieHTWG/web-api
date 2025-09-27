@@ -1,0 +1,28 @@
+# ****************************************                   
+#                                                            
+# External Variables
+#                                                            
+# ****************************************                   
+#                                                            
+name_rd_global_array      cnc_ve_%s_[%d]_r
+name_wr_global_array      cnc_ve_%s_[%d]_w
+name_rd_channel_array     mc_ve_%s_[%d]_r
+name_wr_channel_array     mc_ve_%s_[%d]_w
+name_rd_global            cnc_ve_%s_r
+name_wr_global            cnc_ve_%s_w
+name_rd_channel           mc_ve_%s_r
+name_wr_channel           mc_ve_%s_w
+#
+use_extended_string_var                               1
+#                                                            
+number_used_variables                                 1
+#                                                            
+var[0].name                                           Template
+var[0].type                                           REAL64
+var[0].scope                                          GLOBAL
+var[0].synchronisation                                TRUE
+var[0].access_rights                                  READ_WRITE
+var[0].array_size                                     0
+#
+Ende                                                         
+

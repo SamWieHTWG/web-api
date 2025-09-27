@@ -1,0 +1,31 @@
+# ****************************************
+#
+# Axis compensation for X-Axis
+#
+# ****************************************
+#
+kopf.achs_nr                                          1              ( P-COMP-00001 : Logical axis number
+kopf.log_achs_name                              X_ACHSE              ( P-COMP-00002 : Axis name
+#
+#
+kw.ssfk.interval                                 200000              ( P-COMP-00018 : Distance between interpolation points
+kw.ssfk.kw_startpos                                   0              ( P-COMP-00019 : Start position of compensation values
+kw.ssfk.kw_nr_max                                     5              ( P-COMP-00020 : Number of compensation values
+kw.ssfk.modulo                                        0              ( P-COMP-00022 : Compensation of a modulo axis
+kw.ssfk.unit                                          1              ( P-COMP-00017 : Unit of the length entries, 0:Increments 1:Metric
+kw.ssfk.bilateral                                     1              ( P-COMP-00021 : Operation mode of compensation
+#
+kw.ssfk.table[0].pos                                  0  /* 0  */    ( P-COMP-00023 : Compensation value in positive direction
+kw.ssfk.table[1].pos                                  0  /* 20 */    ( P-COMP-00023 : Compensation value in positive direction
+kw.ssfk.table[2].pos                                  0  /* 40 */    ( P-COMP-00023 : Compensation value in positive direction
+kw.ssfk.table[3].pos                                  0  /* 60 */    ( P-COMP-00023 : Compensation value in positive direction
+kw.ssfk.table[4].pos                                  0  /* 80 */    ( P-COMP-00023 : Compensation value in positive direction
+#
+kw.ssfk.table[0].neg                                  0  /*  0 */    ( P-COMP-00024 : Compensation value in negative direction
+kw.ssfk.table[1].neg                                  0  /* 20 */    ( P-COMP-00024 : Compensation value in negative direction
+kw.ssfk.table[2].neg                                  0  /* 40 */    ( P-COMP-00024 : Compensation value in negative direction
+kw.ssfk.table[3].neg                                  0  /* 60 */    ( P-COMP-00024 : Compensation value in negative direction
+kw.ssfk.table[4].neg                                  0  /* 80 */    ( P-COMP-00024 : Compensation value in negative direction
+#
+Ende
+

@@ -1,0 +1,696 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_0_1_MICROMETER</Id>
+    <Text Language="en">0.1µm</Text>
+    <Text Language="de">0.1µm</Text>
+    <TextASCII Language="en">0.1um</TextASCII>
+    <TextASCII Language="de">0.1um</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_0_1_MILLIDEGREE</Id>
+    <Text Language="en">0.1m°</Text>
+    <Text Language="de">0.1m°</Text>
+    <TextASCII Language="en">0.1mdeg</TextASCII>
+    <TextASCII Language="de">0.1mdeg</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-SECO-00001</Id>
+    <Name>collision_detected_outputfile</Name>
+    <ShortDescription>
+      <Text Language="en">Filename of the state image</Text>
+      <Text Language="de">Dateiname des Zustandsabbildes.</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This element specifies the name of the file to which the current status image is written in case of a collision. The string contains the path and the filename. It can be specified as both absolute and relative.</Text>
+      <Text Language="de">Mit diesem Element wird der Name der Datei festgelegt, in welche im Kollisionsfall das aktuelle Zustandsabbild geschrieben wird. Der String beinhaltet den Pfad und den Namen der Datei. Dieser kann sowohl absolut als auch relativ angegeben werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 135 characters</Text>
+      <Text Language="de">Maximal135 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>135</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052502027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052502027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00002</Id>
+    <Name>path_to_geometry</Name>
+    <ShortDescription>
+      <Text Language="en">Path to the enveloping bodies</Text>
+      <Text Language="de">Pfad zu den Hüllkörpern.</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This element specifies the path to the enveloping bodies which are monitored for collision. It can be specified as both absolute and relative.The length of the path is limited to 103 characters.</Text>
+      <Text Language="de">Über dieses Element kann der Pfad zu den Hüllkörpern angegeben, die auf Kollision überwacht werden. Der Pfad kann sowohl absolut als auch relativ angegeben werden.Die Länge des Pfades ist auf 103 Zeichen begrenzt.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 103 characters</Text>
+      <Text Language="de">Maximal 103 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>103</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052513419</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052513419</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00003</Id>
+    <Name>use_collision_detection</Name>
+    <ShortDescription>
+      <Text Language="en">Activating collision monitoring</Text>
+      <Text Language="de">Aktivieren der Kollisionsüberwachung.</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This element always enables collision monitoring for the channel.</Text>
+      <Text Language="de">Mit diesem Element wird die Kollisionsüberwachung für den Kanal grundsätzlich eingeschaltet.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0 / 1</Text>
+      <Text Language="de">0 / 1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052526347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052526347</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00004</Id>
+    <Name>collision_reaction</Name>
+    <ShortDescription>
+      <Text Language="en">Reaction after collision</Text>
+      <Text Language="de">Reaktion nach Kollision.</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the reaction of the controller in case of a collision. The parameter entry is only set after each CNC reset.The reaction can be changed in the NC program by the #COLL SET [ REACTION=.. ] command.</Text>
+      <Text Language="de">Mit diesem Parameter kann die Reaktion der Steuerung im Kollisionsfall festgelegt werden. Der Eintrag des Parameters wird nach jedem Reset der CNC zunächst gesetzt.Das verhalten kann im NC-Programm durch den Befehl #COLL SET [ REACTION=.. ] geändert werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 – Abort before collision (default)2 – Wait for user release before collision3 – Abort after collision4 – Wait for user release after collision</Text>
+      <Text Language="de">1 – Abbruch vor Kollision (Standard)2 – Warten auf Benutzerfreigabe vor Kollision3 – Abbruch nach Kollision4 – Warten auf Benutzerfreigabe nach Kollision</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052537739</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052537739</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00005</Id>
+    <Name>mode</Name>
+    <ShortDescription>
+      <Text Language="en">Consistency check of data models</Text>
+      <Text Language="de">Konsistenzprüfung der Datenmodelle</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter influences the consistency check of data models in the collision library.By default, the consistency of the data model is checked. The check can be disabled if the data models (DCP files) are always verified. This reduces the process time when new geometries are read in.</Text>
+      <Text Language="de">Mit diesem Parameter kann die Konsistenzprüfung von Datenmodellen in der Kollisionsbibliothek beeinflusst werden.Im Standardfall wird die Konsistenz der Datenmodelle überprüft. Diese Überprüfung kann, falls die Datenmodelle (DCP-Dateien) grundsätzlich verifiziert wurden, ausgeschaltet werden. Hierdurch kann die Rechenzeit beim Einlesen neuer Geometrien verringert werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 : Debug mode; the consistency of the data model is checked (default)!= 0 : Release mode; the data model is no longer checked for consistency</Text>
+      <Text Language="de">0 : Debugmodus, Konsistenz des Datenmodells wird überprüft (Standard)!= 0 : Releasemodus, Datenmodell wird nicht mehr auf Konsistenz überprüft</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052550667</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052550667</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00006</Id>
+    <Name>collided_gobject_suffix</Name>
+    <ShortDescription>
+      <Text Language="en">Suffix of colliding objects</Text>
+      <Text Language="de">Suffix kollidierter Objekte</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies a file extension (suffix) which, in the event of a collision, extends the two colliding graphical objects with the suffix and also creates these files.This highlights the colliding objects in colour. If motion continues after collision (collision_reaction = 2 / 4), the two created graphical objects are deleted after user confirmation.</Text>
+      <Text Language="de">Mit diesem Parameter kann eine Dateiendung (Suffix) angegeben werden, der im Kollisionsfall die beiden kollidierten grafischen Objekte mit der Endung erweitert und diese Dateien zusätzlich angelegt.Hierdurch lassen sich die kollidierten Objekte farblich hervorheben. Wird nach dem Kollisionsfall weitergefahren (collision_reaction = 2 oder 4), so werden die beiden angelegten grafischen Objekte nach der Benutzerquittierung wieder gelöscht.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 39 characters</Text>
+      <Text Language="de">Maximal 39 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052563595</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052563595</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00007</Id>
+    <Name>path_to_collided_geometry</Name>
+    <ShortDescription>
+      <Text Language="en">Path to collision geometry</Text>
+      <Text Language="de">Pfad zur Kollisionsgeometrie</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies a relative path that is added to the filename of the colliding graphical objects. The path is used to search for the description of the temporarily saved graphical objects (complete file:= &lt;path_to_geometry&gt;&lt;path_to_collided_geometry&gt;&lt;GOBJECT::filename&gt;).The graphical description of the colliding objects can be highlighted in colour and should be slightly larger than the original object since the additional graphical object is displayed at the same position and would otherwise be poorly visible.</Text>
+      <Text Language="de">Mit diesem Parameter kann ein relativer Pfad angegeben werden, welcher an den Dateinamen der kollidierten grafischen Objekte angehängt wird. Unter diesem Pfad wird die Beschreibung der temporär angelegten grafischen Objekte gesucht (Gesamtdatei := &lt;path_to_geometry&gt;&lt;path_to_collided_geometry&gt;&lt;GOBJECT::filename&gt;).Die grafische Beschreibung der kollidierten Objekte kann farblich hervorgehoben sein und sollte das Originalobjekt in der Größe etwas überragen, da das zusätzliche grafische Objekt an der identischen Position eingeblendet wird und ansonsten schlecht sichtbar wäre.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 103 characters</Text>
+      <Text Language="de">Maximal 103 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>103</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052575755</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052575755</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00008</Id>
+    <Name>time_stamp</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00009</Id>
+    <Name>cnc_channel</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00010</Id>
+    <Name>coll_log_file</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>239</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00020</Id>
+    <Name>gobject[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the graphical object</Text>
+      <Text Language="de">Name des grafischen Objektes</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the name of a graphical object.</Text>
+      <Text Language="de">Mit diesem Parameter kann der Name des grafischen Objekts definiert werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 39 characters</Text>
+      <Text Language="de">Maximal 39 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="gobject">512</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052589451</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052589451</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00021</Id>
+    <Name>gobject[].filename</Name>
+    <ShortDescription>
+      <Text Language="en">Filename of geometric data</Text>
+      <Text Language="de">Dateiname der Geometriedaten</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the name of the file which stores the information required to describe the geometry of the graphical object.Only the filename is specified with no file extension or path.</Text>
+      <Text Language="de">Mit diesem Parameter kann der Name der Datei definiert werden, in der die, für die Beschreibung der Geometrie des grafischen Objektes, notwendigen Informationen abgelegt sind.Es wird nur der Dateiname angegeben, ohne Dateiendung und ohne Pfadangabe.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 135 characters</Text>
+      <Text Language="de">Maximal 135 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>135</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="gobject">512</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052605451</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052605451</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00022</Id>
+    <Name>gobject[].linkpoint</Name>
+    <ShortDescription>
+      <Text Language="en">Node point name</Text>
+      <Text Language="de">Name des Knotenpunktes</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the name of the node (LINKPOINT) of the kinematic chain. It is attached to the graphical object. Here, for example, enter the axis name to which the kinematic chain is attached. If the graphical name is not attached to a node point, enter GROUND.</Text>
+      <Text Language="de">Mit diesem Parameter wird der Knotenname (LINKPOINT) der kinematischen Kette definiert. An diesem wird das das grafische Objekt gehängt. Zum Beispiel wird hier der Achsname eingetragen, an dem die kinematische Kette angehängt ist. Sollte das grafische Objekt an keinem Knotenpunkt hängen, wird GROUND angegeben.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 39 characters</Text>
+      <Text Language="de">Maximal 39 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="gobject">512</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052624139</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052624139</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00025</Id>
+    <Name>gobject[].cs.position[]</Name>
+    <ShortDescription>
+      <Text Language="en">Definition of translation</Text>
+      <Text Language="de">Definition der Verschiebung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the translation of an element in Cartesian form (x/y/z).The parameter to translate an element is used in the following structures:gobject[i].cs.position[j]linkpoint[i].cs_init.position[j]linkpoint[i].cs_actual.position[j]</Text>
+      <Text Language="de">In diesem Parameter wird die Verschiebung eines Elements in kartesischer Form (x/y/z) definiert.Dieser Parameter zur Verschiebung eines Elements wird in folgenden Strukturen verwendet:gobject[i].cs.position[j]linkpoint[i].cs_init.position[j]linkpoint[i].cs_actual.position[j]</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(REAL64) ≤ P-SECO-00025 ≤ MAX(REAL64)</Text>
+      <Text Language="de">MIN(REAL64) ≤ P-SECO-00025 ≤ MAX(REAL64)</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="gobject">512</ArrayIndex>
+      <ArrayIndex No="1" Name="position">3</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052477195</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052477195</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00026</Id>
+    <Name>gobject[].cs.orientation[][]</Name>
+    <ShortDescription>
+      <Text Language="en">Definition of rotation</Text>
+      <Text Language="de">Definition der Drehung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The static rotation of an element in relation to the node point about the three main axes is described in this parameter as a 3 x 3 rotation matrix.The parameter to rotate an element is used in the following structures:gobject[i].cs.orientation[j][k]linkpoint[i].cs_init.orientation[j][k]linkpoint [i].cs_actual.orientation[j][k]</Text>
+      <Text Language="de">Die statische Drehung des Elements bezüglich des Knotenpunkts um die drei Hauptachsen wird in diesem Parameter als 3 x 3 Rotationsmatrix beschrieben.Dieser Parameter zur Drehung eines Elements wird in folgenden Strukturen verwendet:gobject[i].cs.orientation[j][k]linkpoint[i].cs_init.orientation[j][k]linkpoint [i].cs_actual.orientation[j][k]</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">-1 &lt;= P-SECO-00026 &lt;= 1</Text>
+      <Text Language="de">-1 &lt;= P-SECO-00026 &lt;= 1</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="gobject">512</ArrayIndex>
+      <ArrayIndex No="1" Name="orientation">3</ArrayIndex>
+      <ArrayIndex No="2" Name="orientation">3</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052478347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052478347</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00027</Id>
+    <Name>gobject[].key[]</Name>
+    <ShortDescription>
+      <Text Language="en">Key (category)</Text>
+      <Text Language="de">Schlüssel (Kategorie)</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines a key for a value pair.</Text>
+      <Text Language="de">Über diesen Parameter kann ein Schlüssel für ein Wertepaar definiert werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 39 characters</Text>
+      <Text Language="de">Maximal 39 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="gobject">512</ArrayIndex>
+      <ArrayIndex No="1" Name="key">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052671499</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052671499</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00028</Id>
+    <Name>gobject[].value[]</Name>
+    <ShortDescription>
+      <Text Language="en">Value</Text>
+      <Text Language="de">Wert</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines a value for a value pair.</Text>
+      <Text Language="de">Über diesen Parameter kann ein Wert für ein Wertepaar definiert werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 39 characters</Text>
+      <Text Language="de">Maximal 39 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="gobject">512</ArrayIndex>
+      <ArrayIndex No="1" Name="value">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052671499</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052671499</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00060</Id>
+    <Name>group[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the group</Text>
+      <Text Language="de">Name der Gruppe</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the name of a group.</Text>
+      <Text Language="de">Mit diesem Parameter kann der Name einer Gruppe definiert werden</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 39 characters</Text>
+      <Text Language="de">Maximal 39 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="group">64</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052841227</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052841227</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00061</Id>
+    <Name>group[].gobject[]</Name>
+    <ShortDescription>
+      <Text Language="en">Names of the graphical objects</Text>
+      <Text Language="de">Namen der grafischen Objekte</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies the name of a graphical object that should be part of the group.</Text>
+      <Text Language="de">Mit diesem Parameter wird der Name eines grafischen Objektes angegeben, welches Teil der Gruppe sein soll.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 39 characters</Text>
+      <Text Language="de">Maximal 39 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="group">64</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">128</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1052858763</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1052858763</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00080</Id>
+    <Name>collision_pair[].name</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00081</Id>
+    <Name>collision_pair[].gobject[]</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">2</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00082</Id>
+    <Name>collision_pair[].valid</Name>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00083</Id>
+    <Name>collision_pair[].active</Name>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00084</Id>
+    <Name>collision_pair[].distance_warning</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00085</Id>
+    <Name>collision_pair[].distance_error</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00086</Id>
+    <Name>collision_pair[].distance_actual</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00087</Id>
+    <Name>collision_pair[].normal_vector[]</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_pair">2048</ArrayIndex>
+      <ArrayIndex No="1" Name="normal_vector">3</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00100</Id>
+    <Name>collision_def[].name</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_def">128</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00101</Id>
+    <Name>collision_def[].gobject[]</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_def">128</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">2</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00102</Id>
+    <Name>collision_def[].group[]</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_def">128</ArrayIndex>
+      <ArrayIndex No="1" Name="group">2</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00103</Id>
+    <Name>collision_def[].monitoring_is_on</Name>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_def">128</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00104</Id>
+    <Name>collision_def[].distance_warning</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_def">128</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-SECO-00105</Id>
+    <Name>collision_def[].distance_error</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="collision_def">128</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+</Parameters>

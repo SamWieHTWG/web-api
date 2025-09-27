@@ -1,0 +1,497 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_MICROSECOND</Id>
+    <Text Language="en">µs</Text>
+    <Text Language="de">µs</Text>
+    <TextASCII Language="en">us</TextASCII>
+    <TextASCII Language="de">us</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-RTCF-00001</Id>
+    <Name>interrupt_source</Name>
+    <ShortDescription>
+      <Text Language="en">Source of the interrupt that triggers the start of a new NC cycle.</Text>
+      <Text Language="de">Quelle des Interrupts, der den Beginn eines neuen NC-Zyklus auslöst.</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">A distinction is made between an external interrupt (e.g. from SERCOS hardware) and an internal interrupt (timer interrupt of the real-time operating system). If an external interrupt is available, execution of the NC-synchronous thread is coupled directly to it. The operating system's higher-resolution timer interrupt is then merely needed to possibly stop the asynchronous thread. The NC cycle time and timer interrupt do not run synchronously. This also means that suspension of the asynchronous thread can vary by the amount of P-RTCF-00003 (time_slice).If no external interrupt is available, only a high-resolution timer interrupt of the operating system is used to start the NC-synchronous thread (with every nth timer interrupt). The NC cycle time and timer interrupt then run synchronously. When an external operating system semaphore is used, the semaphore's name is defined by P-RTCF-00005 (external_object_name).</Text>
+      <Text Language="de">Es wird zwischen externem Interrupt (z.B. SERCOS Hardware) und internem Interrupt (Timer-Interrupt des Echtzeitbetriebssystems) unterschieden. Falls ein externer Interrupt zur Verfügung steht, wird die Ausführung des NC-synchronen Thread direkt an diesen gekoppelt. Der höher auflösende Timer-Interrupt des Betriebssystems wird dann lediglich zur eventuellen Suspendierung des asynchronen Threads benötigt. NC-Zykluszeit und Timer-Interrupt laufen dabei nicht synchron. Das bedeutet auch, dass die Suspendierung des asynchronen Threads um den Betrag von P-RTCF-00003 (time_slice) variieren kann.Steht kein externer Interrupt zur Verfügung, dann wird nur ein hochauflösender Timer-Interrupt des Betriebssystems zum Starten des NC-synchronen Threads (bei jedem n–ten Timer Interrupt) herangezogen. NC-Zykluszeit und Timer-Interrupt laufen dann synchron. Bei Verwendung eines externen Betriebssystem-Semaphore wird der Name des Semaphores mit P-RTCF-00005 (external_object_name) definiert.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">1: Hardware ISR2: Real-time operating system timer3: Real-time operating system semaphore</Text>
+      <Text Language="de">1: Hardware ISR2: Echtzeitbetriebssystem Timer3: Echtzeitbetriebssystem Semaphore</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108349835</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108349835</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00002</Id>
+    <Name>cycle_time</Name>
+    <ShortDescription>
+      <Text Language="en">NC cycle time</Text>
+      <Text Language="de">NC-Zykluszeit</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The NC cycle time must always be an integer multiple of the cycle time of the real-time operating system timer interrupt P-RTCF-00003 (time_slice). If this is not the case, it is rounded up to the next higher integer multiple.</Text>
+      <Text Language="de">Die NC-Zykluszeit muss stets ein ganzzahliges Vielfaches der Zykluszeit des Timer-Interrupts des Echtzeitbetriebssystems P-RTCF-00003 (time_slice) sein. Ist dies nicht der Fall, so wird sie auf das nächste größere ganzzahlige Vielfache aufgerundet.</Text>
+    </LongDescription>
+    <Quantity>TIME</Quantity>
+    <Units>
+      <Unit>UNIT_MICROSECOND</Unit>
+    </Units>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">0 &lt; cycle_time &lt; MAX(UNS32)</Text>
+      <Text Language="de">0 &lt; cycle_time &lt; MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108351371</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108351371</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00003</Id>
+    <Name>time_slice</Name>
+    <ShortDescription>
+      <Text Language="en">Timer-interrupt time distance of the real-time operating system</Text>
+      <Text Language="de">Timer-Interrupt Zeitdistanz des Echtzeitbetriebssystems</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The timer-interrupt time distance of the real-time operating system should be clearly less than the NC cycle time (e.g. by a factor of 3 to 20) However, an error is generated only if the ratio is less than 1.The internal time can be set with VxWorks and RTX operating systems.</Text>
+      <Text Language="de">Die Timer-Interrupt Zeitdistanz des Echtzeitbetriebssystems sollte deutlich geringer (z.B. Faktor 3 bis 20) als die NC-Zykluszeit sein. Ein Fehler wird jedoch nur dann erzeugt, wenn das Verhältnis kleiner als 1 ist.Bei den Betriebssystemen VxWorks und RTX kann der interne Timer eingestellt werden.</Text>
+    </LongDescription>
+    <Quantity>TIME</Quantity>
+    <Units>
+      <Unit>UNIT_MICROSECOND</Unit>
+    </Units>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">0 &lt; time_slice &lt; MAX(UNS32)</Text>
+      <Text Language="de">0 &lt; time_slice &lt; MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108352907</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108352907</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00004</Id>
+    <Name>windows_time</Name>
+    <ShortDescription>
+      <Text Language="en">Guaranteed Windows computing time within one NC cycle</Text>
+      <Text Language="de">Garantierte Windows-Rechenzeit innerhalb eines NC-Zyklus</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The windows_time must be an integer multiple of the time_slice. If this is not the case, it is rounded down to the next lower integer multiple. If the predecessor thread is prematurely complete, the remaining time period up to the end of the cycle time is made available to Windows as computing time.If the guaranteed computing time of Windows is truncated by the predecessor thread, it is stopped by the timer ISR.Furthermore, the selected windows_time must not be so large, otherwise the threads that can be stopped by Windows (all threads except the GEO task) will not receive sufficient computing time (or none at all). If windows_time is selected smaller then P-RTCF-00003 (time_slice), an error message is output.</Text>
+      <Text Language="de">Die Windows-Rechenzeit windows_time muss ein ganzzahliges Vielfaches des time_slice sein. Ist dies nicht der Fall, so wird sie auf das nächste kleinere ganzzahlige Vielfache abgerundet. Ist der Vorgänger-Thread vorzeitig fertig, wird der verbleibende Zeitraum, bis zum Ende der Zykluszeit Windows als Rechenzeit bereitgestellt.Falls die garantierte Rechenzeit von Windows durch den Vorgänger–Thread beschnitten wird, erfolgt dessen Suspendierung durch die Timer ISR.Weiter darf die windows_time nicht zu groß gewählt werden, da sonst die von Windows suspendierbaren Threads (alle Threads außer der GEO-Task ) nicht genügend ( bzw. gar keine ) Rechenzeit erhalten. Wird die windows_time kleiner als P-RTCF-00003 (time_slice) gewählt, wird eine Fehlermeldung ausgegeben.</Text>
+    </LongDescription>
+    <Quantity>TIME</Quantity>
+    <Units>
+      <Unit>UNIT_MICROSECOND</Unit>
+    </Units>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">0 &lt; windows_time &lt; MAX(UNS16)</Text>
+      <Text Language="de">0 &lt; windows_time &lt; MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108354443</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108354443</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00005</Id>
+    <Name>external_object_name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the external operating system semaphore</Text>
+      <Text Language="de">Name des externen Betriebssystem-Semaphore</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the name of the semaphore for P-RTCF-00001 (interrupt source).</Text>
+      <Text Language="de">Der Parameter legt den Namen des Semaphors für P-RTCF-00001 (interrupt source) fest.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum name length dependent on operating system</Text>
+      <Text Language="de">Maximale Namenslänge abhängig vom Betriebssystem</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>127</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108355979</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108355979</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00006</Id>
+    <Name>external_thread[].cycle</Name>
+    <ShortDescription>
+      <Text Language="en">Cycle time of an external thread</Text>
+      <Text Language="de">Zykluszeit eines externen Threads</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines whether the scheduler calls the external thread in every interval or only in every nth interval. This is why the chosen value of the parameter must be an integer multiple of the cycle time. If this is not the case, the value is rounded up to the next integer multiple of the NC cycle time.</Text>
+      <Text Language="de">Mit diesem Parameter wird festgelegt, ob der externe Thread in jedem oder nur in jedem n-ten Intervall durch den Scheduler aufgerufen wird. Deshalb muss der Wert des Parameters als ganzzahliges Vielfaches der Zykluszeit gewählt werden. Ist das nicht der Fall, wird der Wert auf das nächste ganzzahlige Vielfache der NC-Zykluszeit aufgerundet.</Text>
+    </LongDescription>
+    <Quantity>TIME</Quantity>
+    <Units>
+      <Unit>UNIT_MICROSECOND</Unit>
+    </Units>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">n * cycle_time (P-RTCF-00002)</Text>
+      <Text Language="de">n * cycle_time (P-RTCF-00002)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="external_thread">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108538635</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108538635</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00007</Id>
+    <Name>external_thread[].semaphore_name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the semaphore of an external thread</Text>
+      <Text Language="de">Name der Semaphore eines externen Threads</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the name of the semaphore of an external thread</Text>
+      <Text Language="de">Der Parameter legt den Namen des Semaphors eines externen Threads fest.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 127 characters</Text>
+      <Text Language="de">Maximal 127 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>127</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="external_thread">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108540171</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108540171</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00008</Id>
+    <Name>thread[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the thread in the scheduler</Text>
+      <Text Language="de">Name des Threads im Scheduling</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the name of the thread in the scheduler.</Text>
+      <Text Language="de">Der Parameter legt den Namen des Threads im Scheduling fest.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 127 characters</Text>
+      <Text Language="de">Maximal 127 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>127</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108359051</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108359051</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00009</Id>
+    <Name>thread[].cycle</Name>
+    <ShortDescription>
+      <Text Language="en">Cycle time of the thread</Text>
+      <Text Language="de">Zykluszeit des Threads</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines whether the scheduler calls the thread in every interval or only in every nth interval. This is why the chosen value of the parameter must be an integer multiple of the cycle time. If this is not the case, the value is rounded up to the next integer multiple of the NC cycle time.</Text>
+      <Text Language="de">Mit diesem Parameter wird festgelegt, ob der Thread in jedem oder nur in jedem n-ten Intervall durch den Scheduler aufgerufen wird. Deshalb muss der Wert des Parameters als ganzzahliges Vielfaches der Zykluszeit gewählt werden. Ist das nicht der Fall, wird der Wert auf das nächste ganzzahlige Vielfache der NC-Zykluszeit aufgerundet.</Text>
+    </LongDescription>
+    <Quantity>TIME</Quantity>
+    <Units>
+      <Unit>UNIT_MICROSECOND</Unit>
+    </Units>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">n * cycle_time (P-RTCF-00002)</Text>
+      <Text Language="de">n * cycle_time (P-RTCF-00002)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108360587</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108360587</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00010</Id>
+    <Name>thread[].priority</Name>
+    <ShortDescription>
+      <Text Language="en">Defines the thread call sequence in the scheduler</Text>
+      <Text Language="de">Festlegung der Aufrufreihenfolge des Threads innerhalb des Schedulings</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the call sequence of the thread in the scheduler.</Text>
+      <Text Language="de">Mit diesem Parameter wird die Aufrufreihenfolge des Threads innerhalb des Schedulings festgelegt.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Dependent on the operating system:In the case of RTX: 0 … 127 (127 = highest)In the case of VxWorks: 255 ... 0 (0 = highest)</Text>
+      <Text Language="de">Betriebssystemabhängig:Bei RTX: 0 … 127 (127 = highest)Bei VxWorks: 255 ... 0 (0 = highest)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108362123</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108362123</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00011</Id>
+    <Name>thread[].error_on_overflow</Name>
+    <ShortDescription>
+      <Text Language="en">Error message when the related thread overflows</Text>
+      <Text Language="de">Fehlermeldung bei Überlauf des betreffenden Threads</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines whether an error message is output when the related thread overflows.</Text>
+      <Text Language="de">Parameter legt fest, ob eine Fehlermeldung bei Überlauf des betreffenden Threads ausgegeben wird.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>TRUE</DefaultValue>
+    <Range>
+      <Text Language="en">0: No error message output1: Error message output on thread overflow</Text>
+      <Text Language="de">0: Keine Ausgabe einer Fehlermeldung1: Ausgabe einer Fehlermeldung bei Threadüberlauf</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108363659</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108363659</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00012</Id>
+    <Name>thread[].function[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the function within a thread</Text>
+      <Text Language="de">Name einer Funktion innerhalb eines Threads</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the name of a function within the thread.</Text>
+      <Text Language="de">Der Parameter legt den Namen einer Funktion innerhalb des Threads fest.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 127 charactersThe names to be used are already permanently compiled in the source. The following parameter assignments are allowed:task_rnd: Rotating thread with FB SDAtask_int: Interrupt thread with FB GEOtask_com: Communication thread with FB COMtask_mmi_driver: System sequential control</Text>
+      <Text Language="de">Maximal 127 ZeichenDie zu verwendenden Namen sind bereits im Source fest eincompiliert. Folgende Parameterbelegungen sind erlaubt:task_rnd: Rundlauf Thread mit FB SDAtask_int: Interrupt Thread mit FB GEOtask_com: Kommunikations Thread mit FB COMtask_mmi_driver: Systemablaufsteuerung</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>127</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+      <ArrayIndex No="1" Name="function">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108524043</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108524043</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00013</Id>
+    <Name>thread[].function[].calls_per_cycle</Name>
+    <ShortDescription>
+      <Text Language="en">Number of calls for a specific function in a thread.</Text>
+      <Text Language="de">Anzahl der Aufrufe für eine bestimmte Funktion innerhalb eines Threads</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the number of calls for a specific function in a thread.</Text>
+      <Text Language="de">Dieser Parameter legt die Anzahl der Aufrufe für eine bestimmte Funktion innerhalb eines Threads fest.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">0 &lt; P-RTFC-00013 &lt; MAX(UNS32)</Text>
+      <Text Language="de">0 &lt; P-RTFC-00013 &lt; MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+      <ArrayIndex No="1" Name="function">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108525579</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108525579</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00014</Id>
+    <Name>thread[].function[].trace_bit</Name>
+    <ShortDescription>
+      <Text Language="en">Flag bit of a thread function for diagnostic purposes</Text>
+      <Text Language="de">Markierungsbit einer Thread-Funktion zur Diagnose</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">For diagnosis with an oscilloscope, the start and end of a thread function can be displayed by setting a bit on the parallel interface. The timing of the scheduler can then be recorded.</Text>
+      <Text Language="de">Zur Diagnose mit dem Oszilloskop besteht die Möglichkeit, Anfang und Ende einer Thread-Funktion durch Setzen eines Bit auf der Parallelschnittstelle anzuzeigen. Das Zeitverhalten des Schedulings kann somit aufgezeichnet werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">0 ... 70: No flag set</Text>
+      <Text Language="de">0 ... 70: Keine Markierung gesetzt</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+      <ArrayIndex No="1" Name="function">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108527115</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108527115</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00017</Id>
+    <Name>thread[].context_info</Name>
+    <ShortDescription>
+      <Text Language="en">Context information of a thread</Text>
+      <Text Language="de">Kontextinformation eines Threads</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter assigns the thread to a context. Set the appropriate channel parameters P-CHAN-00410 and P-CHAN-00411 to assign the GEO or SDA task of a channel to the same context.</Text>
+      <Text Language="de">Mit Angabe dieses Parameters kann die Abbildung von Kanal auf Thread (CPU) angegeben werden.Um den GEO-, SDA- bzw. COM-Task eines Kanals dem gleichen Kontext zuzuordnen, müssen die eingetragenen Werte der Kanalparameter P-CHAN-00410, P-CHAN-00411 bzw. P-CHAN-00409 entsprechend gesetzt werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">0 &lt;= thread[i].context_info</Text>
+      <Text Language="de">0 &lt;= thread[i].context_info</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="thread">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#717571339</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#717872395</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#774861067</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#717571339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#717872395</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#774861067</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-RTCF-00018</Id>
+    <Name>schedule</Name>
+    <ShortDescription>
+      <Text Language="en">Schedule</Text>
+      <Text Language="de">Schedule</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Defines the order in which the axis actual values are read in.For the output in which axis command values and interpolation are processed, see CNC scheduler.</Text>
+      <Text Language="de">Definiert die Reihenfolge, in der Einlesen von Achs-Istwerten, Ausgabe von Achs-Sollwerten und Interpolation abgearbeitet werden, siehe CNC-Scheduling.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">STANDARDCOMLETESWITCHED</Text>
+      <Text Language="de">STANDARDCOMLETESWITCHED</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>ALL</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>STANDARD</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>COMPLETE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>SWITCHED</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#717627403</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#774861067</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#717627403</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#774861067</Link>
+    </Help>
+  </Parameter>
+</Parameters>

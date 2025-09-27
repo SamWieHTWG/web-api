@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_0_1_MICROMETER</Id>
+    <Text Language="en">0.1µm</Text>
+    <Text Language="de">0.1µm</Text>
+    <TextASCII Language="en">0.1um</TextASCII>
+    <TextASCII Language="de">0.1um</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_0_1_MILLIDEGREE</Id>
+    <Text Language="en">0.1m°</Text>
+    <Text Language="de">0.1m°</Text>
+    <TextASCII Language="en">0.1mdeg</TextASCII>
+    <TextASCII Language="de">0.1mdeg</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-ZERO-00001</Id>
+    <Name>g53_verfuegbar</Name>
+    <ShortDescription>
+      <Text Language="en">Deselecting zero offsets</Text>
+      <Text Language="de">Abwahl von Nullpunktverschiebungen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter allows the use of the G53 data record to define an additional offset data record.</Text>
+      <Text Language="de">Der Parameter ermöglicht die Verwendung des G53-Datensatzes für die Definition eines zusätzlichen Verschiebungsdatensatzes.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#103718027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#103718027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-ZERO-00002</Id>
+    <Name>default_index</Name>
+    <ShortDescription>
+      <Text Language="en">Default setting of zero offsets</Text>
+      <Text Language="de">Defaulteinstellung von Nullpunktverschiebungen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines what zero offsets (index) should be automatically active after program start-up.</Text>
+      <Text Language="de">Über diesen Parameter kann bestimmt werden, welche Nullpunktverschiebung (Index) nach Programmstart automatisch aktiv sein soll.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ... 96 (number of zero offset groups: 97, application-specific)</Text>
+      <Text Language="de">0 ... 96 (Anzahl der Nullpunktverschiebungsgruppen: 97, applikationsspezifisch)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#103719563</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#103719563</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-ZERO-00003</Id>
+    <Name>np_grp[].achse[].versch</Name>
+    <ShortDescription>
+      <Text Language="en">Zero offset</Text>
+      <Text Language="de">Nullpunktverschiebung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">An offset parameter is reserved for every axis in every zero offset group.</Text>
+      <Text Language="de">Pro Nullpunktverschiebungsgruppe ist für jede Achse ein Versatzparameter reserviert.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; versch &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; versch &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="np_grp">97</ArrayIndex>
+      <ArrayIndex No="1" Name="achse">32</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#103724043</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#103724043</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-ZERO-00004</Id>
+    <Name>np_grp[].achse[].inaktiv</Name>
+    <ShortDescription>
+      <Text Language="en">Axis-specific activation</Text>
+      <Text Language="de">Achsspezifische Aktivierung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">In every zero point data block, setting the inactive code defines the axes in which the offset is to be included in the calculation or not. As a result, individual axis offsets can be hidden in specific zero offsets.If the inactive code is notassigned or is assigned with zero, the axis offset continues to remain valid. If they are set to TRUE, they are inactive, see also [PROG// Zero offsets].</Text>
+      <Text Language="de">Für jeden Nullpunktdatensatz kann durch Setzen der inaktiv-Kennung bestimmt werden, für welche Achsen der Versatz eingerechnet bzw. nicht eingerechnet werden soll. Dadurch können einzelne Achsversätze bestimmter Nullpunktverschiebungen ausgeblendet werden.Wird die Inaktiv-Kennung nicht oder mit Null belegt, sind die Achsversätze weiterhin gültig. Bei TRUE sind sie inaktiv gesetzt, siehe auch [PROG// Nullpunktverschiebungen].</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="np_grp">97</ArrayIndex>
+      <ArrayIndex No="1" Name="achse">32</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#103725579</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#103725579</Link>
+    </Help>
+  </Parameter>
+  <Section>
+    <Name>
+      <Text Language="en">General parameter</Text>
+      <Text Language="de">Allgemeine Parameter</Text>
+    </Name>
+    <Parameter>P-ZERO-00002</Parameter>
+    <Parameter>P-ZERO-00001</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Offsets --- test ---</Text>
+      <Text Language="de">Verschiebungen  --- test ---</Text>
+    </Name>
+    <Parameter>P-ZERO-00004</Parameter>
+    <Parameter>P-ZERO-00003</Parameter>
+  </Section>
+</Parameters>

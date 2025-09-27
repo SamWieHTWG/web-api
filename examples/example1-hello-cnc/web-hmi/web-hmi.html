@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNC Web HMI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">CNC Web HMI</h1>
+
+        <!-- Tick Counter Display -->
+        <div class="bg-blue-600 text-white rounded-lg shadow-md p-4 mb-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <h2 class="text-lg font-semibold">CNC Tick Counter</h2>
+                    <div id="tickStatus" class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                        <span class="text-sm">Live</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-mono font-bold" id="tickCounter">---</div>
+                    <div class="text-xs opacity-75">Last updated: <span id="tickTimestamp">--:--:--</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two-column layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column: Results -->
+            <div class="lg:col-span-1">
+                <!-- Result Display -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6 sticky top-4">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Results</h2>
+                    <div id="readResult" class="p-4 bg-gray-50 rounded-md min-h-96 max-h-96 overflow-y-auto">
+                        <h3 class="font-medium text-gray-700 mb-2">Response:</h3>
+                        <pre class="text-sm text-gray-600 whitespace-pre-wrap">No data yet...</pre>
+                    </div>
+                </div>
+
+                <!-- Connection Status -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Connection Status</h2>
+                    <div id="connectionStatus" class="flex items-center">
+                        <div class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
+                        <span class="text-gray-600">Not tested</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Controls -->
+            <div class="lg:col-span-2">
+
+        <!-- CNC Control Panel -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">CNC Control Panel</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <button onclick="enableDisableDrives()" id="drivesBtn" class="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Enable Drives
+                </button>
+                <button onclick="resetKernel()" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Reset Kernel
+                </button>
+                <button onclick="stopResumeProgram()" id="stopResumeBtn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Stop Program
+                </button>
+                <button onclick="showPositions()" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Show Positions
+                </button>
+            </div>
+        </div>
+
+        <!-- Program Control -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Program Control</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">NC Program File</label>
+                    <input type="text" id="ncProgramFile" value="nc_test.nc" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button onclick="startNcProgram()" class="w-full mt-2 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                        Start NC Program
+                    </button>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Manual Data Input (MDI)</label>
+                    <input type="text" id="mdiInput" value="X100 Y200 Z300 F100" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button onclick="startMdi()" class="w-full mt-2 bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                        Execute MDI
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagnostics -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Diagnostics & Monitoring</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <button onclick="getRuntimeStats()" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Runtime Stats
+                </button>
+                <button onclick="resetRuntimeStats()" class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Reset Stats
+                </button>
+                <button onclick="uploadDiagData()" class="bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Generate Diag
+                </button>
+                <button onclick="getTickCounter()" class="bg-teal-500 hover:bg-teal-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    Tick Counter
+                </button>
+            </div>
+        </div>
+
+        <!-- Manual API Test -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Manual API Test</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Thread ID</label>
+                    <input type="number" id="readThread" value="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Group ID</label>
+                    <input type="number" id="readGroup" value="131840" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Offset ID</label>
+                    <input type="number" id="readOffset" value="7" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Length (optional)</label>
+                <input type="number" id="readLength" placeholder="Auto-detected if empty" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <button onclick="testRead()" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                Send Read Request
+            </button>
+        </div>
+
+            </div> <!-- End of Right Column: Controls -->
+        </div> <!-- End of Two-column layout -->
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8080';
+        let drivesEnabled = false;
+        let programStopped = false;
+
+        // Core API functions
+        async function apiRead(thread, group, offset, length = null, datatype = null) {
+            const startTime = performance.now();
+            const payload = { thread, group, offset };
+            if (length) payload.length = length;
+            if (datatype !== null) payload.datatype = datatype;
+
+            const response = await fetch(`${API_BASE}/read`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+
+            console.log(`[CLIENT-TIMING] READ(${thread},${group},${offset}) -> ${duration.toFixed(2)}ms`);
+            return result;
+        }
+
+        async function apiWrite(thread, group, offset, value, datatype = null) {
+            const startTime = performance.now();
+            const payload = { thread, group, offset, value };
+            if (datatype !== null) payload.datatype = datatype;
+
+            const response = await fetch(`${API_BASE}/write`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+
+            console.log(`[CLIENT-TIMING] WRITE(${thread},${group},${offset},${JSON.stringify(value)}) -> ${duration.toFixed(2)}ms`);
+            return result;
+        }
+
+        // CNC Demo Functions Implementation
+
+        // Enable/Disable Drives (cnc_demo_enable_disable_drives)
+        async function enableDisableDrives() {
+            try {
+                updateConnectionStatus('connecting');
+
+                // Read axis IDs first (thread=3, group=0x20201, offset=0x110A)
+                const axisIds = await apiRead(3, 131585, 4362); // 0x20201 = 131585, 0x110A = 4362
+                if (!axisIds.success) {
+                    throw new Error('Failed to read axis IDs');
+                }
+
+                drivesEnabled = !drivesEnabled;
+                const driveValue = drivesEnabled ? 1 : 0;
+
+                // For demo, assume 4 axes with IDs 1,2,3,4
+                for (let i = 1; i <= 4; i++) {
+                    // ac_<i>_drive_on (group = 0x20200 + axisId, offset = 0x1101)
+                    await apiWrite(3, 131584 + i, 4353, driveValue);
+                    await sleep(50);
+
+                    // ac_<i>_torque_permission_w (offset = 0x1102)
+                    await apiWrite(3, 131584 + i, 4354, driveValue);
+                    await sleep(50);
+
+                    // ac_<i>_release_feedhold_w (offset = 0x1103)
+                    await apiWrite(3, 131584 + i, 4355, driveValue);
+                }
+
+                const btn = document.getElementById('drivesBtn');
+                btn.textContent = drivesEnabled ? 'Disable Drives' : 'Enable Drives';
+                btn.className = drivesEnabled ?
+                    'bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md transition duration-200' :
+                    'bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition duration-200';
+
+                displayResult('readResult', {
+                    action: 'enableDisableDrives',
+                    drives_enabled: drivesEnabled,
+                    message: `Drives ${drivesEnabled ? 'enabled' : 'disabled'} successfully`
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Reset Kernel (cnc_demo_reset)
+        async function resetKernel() {
+            try {
+                updateConnectionStatus('connecting');
+
+                // Read current MCM state (thread=3, group=0x20101, offset=0x103)
+                const mcmState = await apiRead(3, 131329, 259); // MCM_ACTIVE (0x103)
+
+                // Reset based on current mode (simplified - just trigger standby reset)
+                // MCM_STANDBY_RESET (offset = 0x11D = 285)
+                await apiWrite(3, 131329, 285, 1);
+
+                displayResult('readResult', {
+                    action: 'resetKernel',
+                    message: 'CNC kernel reset completed'
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Stop/Resume Program (cnc_demo_stop_resume_nc_program)
+        async function stopResumeProgram() {
+            try {
+                updateConnectionStatus('connecting');
+
+                programStopped = !programStopped;
+
+                if (programStopped) {
+                    // MCM_AUTOMATIC_STOP (thread=3, group=0x20101, offset=0x136 = 310)
+                    await apiWrite(3, 131329, 310, 1);
+                } else {
+                    // MCM_AUTOMATIC_RESUME (offset=0x137 = 311)
+                    await apiWrite(3, 131329, 311, 1);
+                }
+
+                const btn = document.getElementById('stopResumeBtn');
+                btn.textContent = programStopped ? 'Resume Program' : 'Stop Program';
+
+                displayResult('readResult', {
+                    action: 'stopResumeProgram',
+                    program_stopped: programStopped,
+                    message: `Program ${programStopped ? 'stopped' : 'resumed'}`
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Show Positions (cnc_demo_show_positions)
+        async function showPositions() {
+            try {
+                updateConnectionStatus('connecting');
+
+                // Get axis names (thread=3, group=0x20201, offset=0x1103)
+                const axisNames = await apiRead(3, 131585, 4355, 68);
+
+                // Get active positions (offset=0x1104)
+                const activePos = await apiRead(3, 131585, 4356, 32);
+
+                // Get current positions (offset=0x1105)
+                const currentPos = await apiRead(3, 131585, 4357, 32);
+
+                displayResult('readResult', {
+                    action: 'showPositions',
+                    axis_names: axisNames,
+                    active_positions: activePos,
+                    current_positions: currentPos
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Start NC Program (cnc_demo_start_nc_program)
+        async function startNcProgram() {
+            try {
+                updateConnectionStatus('connecting');
+                const filename = document.getElementById('ncProgramFile').value;
+
+                // Retry loop like in C code (up to 100 iterations)
+                for (let i = 0; i < 100; i++) {
+                    // Read active mode and state
+                    const activeState = await apiRead(3, 131329, 259); // MCM_ACTIVE (0x103)
+
+                    // Check if we're already in AUTOMATIC mode and SELECTED state
+                    // Note: This needs proper parsing of the MCM_MODE_STATE structure
+                    // For now, assume mode=1 (AUTOMATIC), state=1 (SELECTED)
+
+                    // Set mode to AUTOMATIC and state to SELECTED
+                    await apiWrite(3, 131329, 260, 2); // MCM_COMMAND_TO_MODE (0x104) AUTOMATIC=2
+                    await apiWrite(3, 131329, 261, 1); // MCM_COMMAND_TO_STATE (0x105) SELECTED=1
+                    await apiWrite(3, 131329, 262, 0); // MCM_COMMAND_FROM_MODE (0x106)
+                    await apiWrite(3, 131329, 263, 0); // MCM_COMMAND_FROM_STATE (0x107)
+
+                    await sleep(10);
+
+                    // Write filename with retry loop for busy state
+                    let paramResult;
+                    let retryCount = 0;
+                    do {
+                        paramResult = await apiWrite(3, 131329, 264, filename); // MCM_COMMAND_PARAMETER (0x108)
+                        if (paramResult.result === 1800) { // ERR_OBJ_ACCESS_BUSY = 0x0708 = 1800
+                            await sleep(10);
+                            retryCount++;
+                        }
+                    } while (paramResult.result === 1800 && retryCount < 10);
+
+                    if (paramResult.success) break;
+                    await sleep(10);
+                }
+
+                // Now set to ACTIVE state
+                await apiWrite(3, 131329, 260, 2); // MCM_COMMAND_TO_MODE (0x104) AUTOMATIC=2
+                await apiWrite(3, 131329, 261, 2); // MCM_COMMAND_TO_STATE (0x105) ACTIVE=2
+                await apiWrite(3, 131329, 262, 0); // MCM_COMMAND_FROM_MODE (0x106)
+                await apiWrite(3, 131329, 263, 0); // MCM_COMMAND_FROM_STATE (0x107)
+                await apiWrite(3, 131329, 264, filename); // MCM_COMMAND_PARAMETER (0x108)
+
+                displayResult('readResult', {
+                    action: 'startNcProgram',
+                    filename: filename,
+                    message: `Started NC program: ${filename}`
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Start Manual Data Input (cnc_demo_start_manual_data_input)
+        async function startMdi() {
+            try {
+                updateConnectionStatus('connecting');
+                const mdiCommand = document.getElementById('mdiInput').value;
+
+                // Constants from C code
+                const MCM_MODE_MDI = 3;
+                const MCM_STATE_SELECTED = 2;
+                const MCM_STATE_ACTIVE = 4;
+                const MCM_ACTIVE = 259;
+                const MCM_COMMAND_TO_MODE = 260;
+                const MCM_COMMAND_TO_STATE = 261;
+                const MCM_COMMAND_FROM_MODE = 262;
+                const MCM_COMMAND_FROM_STATE = 263;
+                const MCM_COMMAND_PARAMETER = 264;
+
+                // Data types from log analysis
+                const CNC_TYPE_NONE = 0;
+                const CNC_TYPE_SGN32 = 7;
+                const CNC_TYPE_STRING = 14;
+
+                // MCM Mode constants (from cnc_demo_samples.h)
+                const MCM_MODE_STANDBY = 1;
+                const MCM_MODE_AUTOMATIC = 2;
+
+                // MCM State constants (additional)
+                const MCM_STATE_DESELECT = 1;
+                const MCM_STATE_READY = 3;
+                const MCM_STATE_HOLD = 5;
+                const MCM_STATE_ERROR = 6;
+
+                // Function to parse MCM_MODE_STATE structure (2 x int32_t)
+                function parseMcmState(apiResult) {
+                    if (!apiResult.success || !apiResult.value) {
+                        return null;
+                    }
+
+                    // The value should be a hex string or array representing 2 x int32_t (8 bytes total)
+                    let data = apiResult.value;
+                    if (typeof data === 'string') {
+                        // If it's a hex string, convert to bytes
+                        data = data.match(/.{2}/g)?.map(byte => parseInt(byte, 16)) || [];
+                    }
+
+                    if (data.length < 8) {
+                        console.log('[MCM] Warning: MCM state data too short:', data);
+                        return null;
+                    }
+
+                    // Parse little-endian int32_t values
+                    const mode = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
+                    const state = data[4] | (data[5] << 8) | (data[6] << 16) | (data[7] << 24);
+
+                    return { mode, state };
+                }
+
+                function getModeStateName(mode, state) {
+                    const modeNames = {
+                        [MCM_MODE_STANDBY]: 'STANDBY',
+                        [MCM_MODE_AUTOMATIC]: 'AUTOMATIC',
+                        [MCM_MODE_MDI]: 'MDI'
+                    };
+                    const stateNames = {
+                        [MCM_STATE_DESELECT]: 'DESELECT',
+                        [MCM_STATE_SELECTED]: 'SELECTED',
+                        [MCM_STATE_READY]: 'READY',
+                        [MCM_STATE_ACTIVE]: 'ACTIVE',
+                        [MCM_STATE_HOLD]: 'HOLD',
+                        [MCM_STATE_ERROR]: 'ERROR'
+                    };
+                    return `${modeNames[mode] || mode}/${stateNames[state] || state}`;
+                }
+
+                console.log(`[MDI] Starting MDI command: "${mdiCommand}"`);
+
+                // Phase 1: Set to MDI mode and SELECTED state (up to 1 iteration like C code)
+                for (let i = 0; i < 1; i++) {
+                    // Read active mode and state first (with known datatype)
+                    const activeStateResult = await apiRead(3, 131329, MCM_ACTIVE, null, CNC_TYPE_NONE);
+                    console.log('[MDI] Initial state read:', activeStateResult);
+
+                    const currentState = parseMcmState(activeStateResult);
+                    if (currentState) {
+                        console.log(`[MDI] Current state: ${getModeStateName(currentState.mode, currentState.state)}`);
+
+                        // Check if already in MDI mode and SELECTED state
+                        if (currentState.mode === MCM_MODE_MDI && currentState.state === MCM_STATE_SELECTED) {
+                            console.log('[MDI] Already in MDI/SELECTED state, skipping to phase 2');
+                            break;
+                        }
+                    }
+
+                    console.log('[MDI] Setting to MDI + SELECTED state');
+                    // Set mode to MDI and state to SELECTED (with known datatypes)
+                    await apiWrite(3, 131329, MCM_COMMAND_TO_MODE, MCM_MODE_MDI, CNC_TYPE_SGN32);
+                    await apiWrite(3, 131329, MCM_COMMAND_TO_STATE, MCM_STATE_SELECTED, CNC_TYPE_SGN32);
+                    await apiWrite(3, 131329, MCM_COMMAND_FROM_MODE, 0, CNC_TYPE_SGN32);
+                    await apiWrite(3, 131329, MCM_COMMAND_FROM_STATE, 0, CNC_TYPE_SGN32);
+                    await apiWrite(3, 131329, MCM_COMMAND_PARAMETER, mdiCommand, CNC_TYPE_STRING);
+
+                    // Wait 10 CNC ticks (approximated as 10ms)
+                    await sleep(10);
+                }
+
+                // Phase 2: Wait loop to verify state change (up to 100 iterations like C code)
+                let stateReached = false;
+                for (let i = 0; i < 100; i++) {
+                    // Read active mode and state (with known datatype)
+                    const activeStateResult = await apiRead(3, 131329, MCM_ACTIVE, null, CNC_TYPE_NONE);
+                    console.log(`[MDI] Wait loop iteration ${i + 1}, state read:`, activeStateResult);
+
+                    const currentState = parseMcmState(activeStateResult);
+                    if (currentState) {
+                        console.log(`[MDI] Current state: ${getModeStateName(currentState.mode, currentState.state)}`);
+
+                        // Check if we're in MDI mode and SELECTED state (exactly like C code)
+                        if (currentState.mode === MCM_MODE_MDI && currentState.state === MCM_STATE_SELECTED) {
+                            console.log('[MDI] Successfully reached MDI/SELECTED state');
+                            stateReached = true;
+                            break;
+                        }
+                    } else {
+                        console.log('[MDI] Failed to parse MCM state data');
+                    }
+
+                    await sleep(10);
+                }
+
+                if (!stateReached) {
+                    displayResult('readResult', {
+                        action: 'startMdi',
+                        error: 'Timeout waiting for MDI SELECTED state'
+                    }, false);
+                    updateConnectionStatus('error');
+                    return;
+                }
+
+                // Phase 3: Set to ACTIVE state (with known datatypes)
+                console.log('[MDI] Setting to MDI + ACTIVE state');
+                await apiWrite(3, 131329, MCM_COMMAND_TO_MODE, MCM_MODE_MDI, CNC_TYPE_SGN32);
+                await apiWrite(3, 131329, MCM_COMMAND_TO_STATE, MCM_STATE_ACTIVE, CNC_TYPE_SGN32);
+                await apiWrite(3, 131329, MCM_COMMAND_FROM_MODE, 0, CNC_TYPE_SGN32);
+                await apiWrite(3, 131329, MCM_COMMAND_FROM_STATE, 0, CNC_TYPE_SGN32);
+                await apiWrite(3, 131329, MCM_COMMAND_PARAMETER, mdiCommand, CNC_TYPE_STRING);
+
+                console.log('[MDI] MDI command execution completed successfully');
+
+                displayResult('readResult', {
+                    action: 'startMdi',
+                    command: mdiCommand,
+                    message: `Executed MDI: ${mdiCommand}`
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Get Runtime Statistics (cnc_demo_print_runtime_statistic)
+        async function getRuntimeStats() {
+            try {
+                updateConnectionStatus('connecting');
+
+                const stats = {};
+                // Read various runtime statistics (thread=3, group=0x20101)
+                stats.cycle_update_min = await apiRead(3, 131329, 627); // 0x273
+                stats.cycle_update_max = await apiRead(3, 131329, 628); // 0x274
+                stats.cycle_update_act = await apiRead(3, 131329, 629); // 0x275
+                stats.geo_min = await apiRead(3, 131329, 600); // 0x258
+                stats.geo_max = await apiRead(3, 131329, 601); // 0x259
+                stats.geo_act = await apiRead(3, 131329, 602); // 0x25A
+
+                displayResult('readResult', {
+                    action: 'getRuntimeStats',
+                    statistics: stats
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Reset Runtime Statistics (cnc_demo_reset_runtime_statistic)
+        async function resetRuntimeStats() {
+            try {
+                updateConnectionStatus('connecting');
+
+                // Trigger reset (thread=3, group=0x20101, offset=0x261)
+                await apiWrite(3, 131329, 609, 1);
+
+                displayResult('readResult', {
+                    action: 'resetRuntimeStats',
+                    message: 'Runtime statistics reset completed'
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Upload Diagnostic Data (cnc_demo_upload_diag_data)
+        async function uploadDiagData() {
+            try {
+                updateConnectionStatus('connecting');
+
+                // Trigger diagnostic upload (thread=3, group=0x20101, offset=0x2ab)
+                await apiWrite(3, 131329, 683, true);
+
+                displayResult('readResult', {
+                    action: 'uploadDiagData',
+                    message: 'Diagnostic data upload triggered'
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Get Tick Counter
+        async function getTickCounter() {
+            try {
+                updateConnectionStatus('connecting');
+
+                // Read tick counter (thread=1, group=0x20300, offset=0x7)
+                const result = await apiRead(1, 131840, 7);
+
+                displayResult('readResult', {
+                    action: 'getTickCounter',
+                    tick_counter: result
+                }, true);
+                updateConnectionStatus('connected');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Manual API Test
+        async function testRead() {
+            const thread = parseInt(document.getElementById('readThread').value);
+            const group = parseInt(document.getElementById('readGroup').value);
+            const offset = parseInt(document.getElementById('readOffset').value);
+            const length = document.getElementById('readLength').value;
+
+            try {
+                updateConnectionStatus('connecting');
+
+                const result = await apiRead(thread, group, offset, length ? parseInt(length) : null);
+
+                displayResult('readResult', result, result.success);
+                updateConnectionStatus(result.success ? 'connected' : 'error');
+
+            } catch (error) {
+                displayResult('readResult', { error: error.message }, false);
+                updateConnectionStatus('error');
+            }
+        }
+
+        // Utility functions
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function displayResult(elementId, result, success) {
+            const resultDiv = document.getElementById(elementId);
+            const pre = resultDiv.querySelector('pre');
+
+            pre.textContent = JSON.stringify(result, null, 2);
+            resultDiv.className = `p-4 rounded-md ${success ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`;
+        }
+
+        function updateConnectionStatus(status) {
+            const statusDiv = document.getElementById('connectionStatus');
+            const dot = statusDiv.querySelector('div');
+            const text = statusDiv.querySelector('span');
+
+            switch (status) {
+                case 'connecting':
+                    dot.className = 'w-3 h-3 bg-yellow-400 rounded-full mr-2 animate-pulse';
+                    text.textContent = 'Connecting...';
+                    break;
+                case 'connected':
+                    dot.className = 'w-3 h-3 bg-green-400 rounded-full mr-2';
+                    text.textContent = 'Connected';
+                    break;
+                case 'error':
+                    dot.className = 'w-3 h-3 bg-red-400 rounded-full mr-2';
+                    text.textContent = 'Connection Error';
+                    break;
+                default:
+                    dot.className = 'w-3 h-3 bg-gray-400 rounded-full mr-2';
+                    text.textContent = 'Not tested';
+            }
+        }
+
+        // Tick Counter Auto-Update
+        async function updateTickCounter() {
+            try {
+                // Use the existing getTickCounter logic with known datatype for performance
+                const CNC_TYPE_UNS32 = 6;
+                const result = await apiRead(1, 131840, 7, 4, CNC_TYPE_UNS32);
+
+                if (result.success && result.value !== undefined) {
+                    const tickCounter = document.getElementById('tickCounter');
+                    const tickTimestamp = document.getElementById('tickTimestamp');
+                    const tickStatus = document.getElementById('tickStatus');
+
+                    // Update counter value
+                    tickCounter.textContent = result.value.toLocaleString();
+
+                    // Update timestamp
+                    const now = new Date();
+                    tickTimestamp.textContent = now.toLocaleTimeString();
+
+                    // Update status to show it's working
+                    const statusDot = tickStatus.querySelector('div');
+                    const statusText = tickStatus.querySelector('span');
+                    statusDot.className = 'w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse';
+                    statusText.textContent = 'Live';
+                } else {
+                    // Handle error state
+                    const tickStatus = document.getElementById('tickStatus');
+                    const statusDot = tickStatus.querySelector('div');
+                    const statusText = tickStatus.querySelector('span');
+                    statusDot.className = 'w-2 h-2 bg-red-400 rounded-full mr-2';
+                    statusText.textContent = 'Error';
+                }
+            } catch (error) {
+                // Handle connection error
+                const tickStatus = document.getElementById('tickStatus');
+                const statusDot = tickStatus.querySelector('div');
+                const statusText = tickStatus.querySelector('span');
+                statusDot.className = 'w-2 h-2 bg-red-400 rounded-full mr-2';
+                statusText.textContent = 'Offline';
+            }
+        }
+
+        // Start automatic tick counter updates every 100ms
+        let tickCounterInterval;
+        function startTickCounterUpdates() {
+            // Initial update
+            updateTickCounter();
+            // Set up interval for every 0.1 seconds (100ms)
+            tickCounterInterval = setInterval(updateTickCounter, 10000);
+        }
+
+        function stopTickCounterUpdates() {
+            if (tickCounterInterval) {
+                clearInterval(tickCounterInterval);
+                tickCounterInterval = null;
+            }
+        }
+
+        // Start tick counter updates when page loads
+        window.addEventListener('load', startTickCounterUpdates);
+
+        // Stop updates when page unloads to prevent errors
+        window.addEventListener('beforeunload', stopTickCounterUpdates);
+    </script>
+</body>
+</html>

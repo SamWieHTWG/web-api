@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- *********************************** -->
+<!-- CNC scheduling                      -->
+<!-- *********************************** -->
+<!--	  Windows    [0-254]  0    highest -->
+<!--	  LINUX      [0-99]   99   highest -->
+<!--	  RTX 	     [0-127]  127  highest -->
+<!--	  VXWORKS    [0-255]  0    highest -->
+<!--	  WindowsCE  [0-255]  0    highest -->
+<!-- *********************************** -->
+<RTConfiguration>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+  <GeneralParameter>
+    <!-- Interrupt source: '1' == internal time, '2' == external, '3' == external semaphore -->
+    <P-RTCF-00001 Value="3" />
+    <!-- Cycle time in mikro s -->
+    <P-RTCF-00002 Value="1000" />
+    <!-- Time slice in mikro s -->
+    <P-RTCF-00003 Value="500" />
+    <!-- Windows time in mikro s -->
+    <P-RTCF-00004 Value="500" />
+  </GeneralParameter>
+  <ThreadParameter>
+    <Thread>
+      <!-- Name of the thread -->
+      <P-RTCF-00008.0 Value="CNC_IPO" />
+      <!-- Cycle time of the thread in mikro s -->
+      <P-RTCF-00009.0 Value="1000" />
+      <!-- Priority of the thread, depending on the used real time system - "HIGHEST" -->
+      <P-RTCF-00010.0 Value="68" />
+      <!-- Error on overflow -->
+      <P-RTCF-00011.0 Value="1" />
+      <!-- CPU affinity - number of the cpu -->
+      <P-RTCF-00015.0 Value="2" />
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.0.0 Value="task_int" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.0.0 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.0.0 Value="0" />
+      </Function>
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.0.1 Value="cnc_user_event_ipo" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.0.1 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.0.1 Value="1" />
+      </Function>  
+    </Thread>
+    <Thread>
+      <!-- Name of the thread -->
+      <P-RTCF-00008.1 Value="CNC_DEC" />
+      <!-- Cycle time of the thread in mikro s -->
+      <P-RTCF-00009.1 Value="1000" />
+      <!-- Priority of the thread, depending on the used real time system - "HIGH" -->
+      <P-RTCF-00010.1 Value="51" />
+      <!-- Error on overflow -->
+      <P-RTCF-00011.1 Value="0" />
+      <!-- CPU affinity - number of the cpu -->
+      <P-RTCF-00015.1 Value="1" />
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.1.0 Value="task_rnd" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.1.0 Value="4" />
+        <!-- Trace information -->
+        <P-RTCF-00014.1.0 Value="0" />
+      </Function>
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.1.1 Value="cnc_user_event_dec" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.1.1 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.1.1 Value="0" />
+      </Function>
+    </Thread>
+    <Thread>
+      <!-- Name of the thread -->
+      <P-RTCF-00008.2 Value="CNC_HMI" />
+      <!-- Cycle time of the thread in mikro s -->
+      <P-RTCF-00009.2 Value="2000" />
+      <!-- Priority of the thread, depending on the used real time system - "MEDIUM" -->
+      <P-RTCF-00010.2 Value="41" />
+      <!-- Error on overflow -->
+      <P-RTCF-00011.2 Value="0" />
+      <!-- CPU affinity - number of the cpu -->
+      <P-RTCF-00015.2 Value="1" />
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.2.0 Value="task_com" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.2.0 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.2.0 Value="0" />
+      </Function>
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.2.1 Value="cnc_user_event_hmi" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.2.1 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.2.1 Value="0" />
+      </Function>
+    </Thread>
+    <Thread>
+      <!-- Name of the thread -->
+      <P-RTCF-00008.3 Value="CNC_SYS" />
+      <!-- Cycle time of the thread in mikro s -->
+      <P-RTCF-00009.3 Value="4000" />
+      <!-- Priority of the thread, depending on the used real time system - "LOW" -->
+      <P-RTCF-00010.3 Value="31" />
+      <!-- Error on overflow -->
+      <P-RTCF-00011.3 Value="0" />
+      <!-- CPU affinity - number of the cpu -->
+      <P-RTCF-00015.3 Value="1" />
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.3.0 Value="task_mmi_driver" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.3.0 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.3.0 Value="0" />
+      </Function>
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.3.1 Value="cnc_user_event_sys" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.3.1 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.3.1 Value="0" />
+      </Function>
+    </Thread>
+    <Thread>
+      <!-- Name of the thread -->
+      <P-RTCF-00008.4 Value="CNC_TCP" />
+      <!-- Cycle time of the thread in mikro s -->
+      <P-RTCF-00009.4 Value="4000" />
+      <!-- Priority of the thread, depending on the used real time system - "LOW" -->
+      <P-RTCF-00010.4 Value="32" />
+      <!-- Error on overflow -->
+      <P-RTCF-00011.4 Value="0" />
+      <!-- CPU affinity - number of the cpu -->
+      <P-RTCF-00015.4 Value="1" />
+      <Function>
+        <!-- Name of the function to be called -->
+        <P-RTCF-00012.4.0 Value="task_tcp" />
+        <!-- Function call per cycle -->
+        <P-RTCF-00013.4.0 Value="1" />
+        <!-- Trace information -->
+        <P-RTCF-00014.4.0 Value="0" />
+      </Function>
+    </Thread>
+  </ThreadParameter>
+</RTConfiguration>

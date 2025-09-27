@@ -1,0 +1,1 @@
+ahmi.exe -allocate -tcp localhost

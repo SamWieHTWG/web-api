@@ -1,0 +1,54 @@
+
+
+
+=====================================
+=====================================
+2025-07-14 08:45:05.607606
+=====================================
+Arguments: {'build-commands': [], 'exe-path': 'ISGKernelDemo/CncSDKDemo/bin/x86_64/', 'exe-name': 'ISGKernelDemo/CncSDKDemo/bin/x86_64/run_CncKernelDemo', 'exe-is-script': True, 'test-functions': ['testAhmiDiagDump'], 'ahmi-path': 'ISGKernelDemo/CncSDKDemo/diagnosis/ahmi/x86_64', 'args': ['-e'], 'repo-dir': '/home/isg/git/v310-main'}
+=====================================
+testStartUp - SUCCESS
+testAhmiDump - SUCCESS
+=====================================
+=====================================
+SDK Test executed successful
+=====================================
+=====================================
+
+
+=====================================
+=====================================
+2025-07-14 08:45:06.925762
+=====================================
+Arguments: {'build-commands': [], 'exe-path': 'ISGKernelDemo/CncSDKDemo/bin/x86_64/', 'exe-name': 'ISGKernelDemo/CncSDKDemo/bin/x86_64/run_CncKernelDemo', 'exe-is-script': True, 'test-functions': ['testAhmi'], 'ahmi-path': 'ISGKernelDemo/CncSDKDemo/diagnosis/ahmi/x86_64', 'args': ['-e'], 'repo-dir': '/home/isg/git/v310-main'}
+=====================================
+testStartUp - SUCCESS
+testAhmiStart - SUCCESS
+=====================================
+=====================================
+SDK Test executed successful
+=====================================
+=====================================
+
+
+=====================================
+=====================================
+2025-07-14 08:45:15.990901
+=====================================
+Arguments: {'build-commands': [], 'exe-path': 'ISGKernelDemo/CncSDKDemo/bin/x86_64/', 'exe-name': 'ISGKernelDemo/CncSDKDemo/bin/x86_64/run_CncKernelDemo', 'exe-is-script': True, 'test-functions': ['testSDKFunctionality'], 'args': ['-e'], 'repo-dir': '/home/isg/git/v310-main'}
+=====================================
+testStartUp - SUCCESS
+testReset - SUCCESS
+testReset - SUCCESS
+testResetRuntimeStatistics - SUCCESS
+testRuntimeStatistics - SUCCESS
+testRunProgram - SUCCESS
+testEnableDrive - SUCCESS
+testReset - SUCCESS
+testEnableDisbaleDrive - SUCCESS
+testRestart - SUCCESS
+=====================================
+=====================================
+SDK Test executed successful
+=====================================
+=====================================

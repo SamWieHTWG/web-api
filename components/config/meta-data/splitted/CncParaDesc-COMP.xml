@@ -1,0 +1,1922 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_0_1_MICROMETER</Id>
+    <Text Language="en">0.1µm</Text>
+    <Text Language="de">0.1µm</Text>
+    <TextASCII Language="en">0.1um</TextASCII>
+    <TextASCII Language="de">0.1um</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_0_1_MILLIDEGREE</Id>
+    <Text Language="en">0.1m°</Text>
+    <Text Language="de">0.1m°</Text>
+    <TextASCII Language="en">0.1mdeg</TextASCII>
+    <TextASCII Language="de">0.1mdeg</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_MICROMETER_PER_SECOND</Id>
+    <Text Language="en">µm/s</Text>
+    <Text Language="de">µm/s</Text>
+    <TextASCII Language="en">um/s</TextASCII>
+    <TextASCII Language="de">um/s</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_MILLIDEGREE_PER_SECOND</Id>
+    <Text Language="en">m°/s</Text>
+    <Text Language="de">m°/s</Text>
+    <TextASCII Language="en">mdeg/s</TextASCII>
+    <TextASCII Language="de">mdeg/s</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_PERMILLE</Id>
+    <Text Language="en">0.1%</Text>
+    <Text Language="de">0.1%</Text>
+    <TextASCII Language="en">0.1%</TextASCII>
+    <TextASCII Language="de">0.1%</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_TICK</Id>
+    <Text Language="en">ta</Text>
+    <Text Language="de">ta</Text>
+    <TextASCII Language="en">ta</TextASCII>
+    <TextASCII Language="de">ta</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-COMP-00001</Id>
+    <Name>kopf.achs_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number</Text>
+      <Text Language="de">Logische Achsnummer</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The logical axis number is a system-wide unique identifier for each axis. The compensation value list is assigned to the corresponding logical axis using this parameter.</Text>
+      <Text Language="de">Die logische Achsnummer ist eine systemweit eindeutige Identifikationskennung für jede Achse. Mit dem Parameter erfolgt die Zuordnung der Korrekturwertliste zur entsprechenden logischen Achse.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt; achs_nr &lt; MAX(UNS16)</Text>
+      <Text Language="de">0 &lt; achs_nr &lt; MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113373067</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113373067</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00002</Id>
+    <Name>kopf.log_achs_name</Name>
+    <ShortDescription>
+      <Text Language="en">Axis name</Text>
+      <Text Language="de">Achsname</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This axis name of the axis is used only for diagnostic purposes and has otherwise no meaning.</Text>
+      <Text Language="de">Der Achsname der Achse wird nur für Diagnosezwecke verwendet und hat ansonsten keinerlei Bedeutung.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">Maximum 16 characters (length of axis name, application-specific)</Text>
+      <Text Language="de">Maximal 16 Zeichen (Länge Achsname, applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>15</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113374603</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113374603</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00003</Id>
+    <Name>kw.crosscomp.unit</Name>
+    <ShortDescription>
+      <Text Language="en">Unit of the length entries</Text>
+      <Text Language="de">Einheit der Längenangaben</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the unit to be used for the length entries of compensation values.</Text>
+      <Text Language="de">Der Parameter bestimmt, in welcher Einheit die Längenangaben der Korrekturwerte zu verwenden sind.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0: Encoder increments&#13;
+1: Metric (in 0.1 µm)</Text>
+      <Text Language="de">0: Encoder-Inkremente&#13;
+1: Metrisch (in 0.1µm)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#828505227</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#828505227</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00004</Id>
+    <Name>kw.crosscomp.last_index</Name>
+    <ShortDescription>
+      <Text Language="en">Last index of compensation value table</Text>
+      <Text Language="de">Letzter Index der Korrekturwerttabelle</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the last valid index in the table of the master axis. The table always starts with index 0</Text>
+      <Text Language="de">Mit dem Parameter wird der letzte gültige Index in der Tabelle der Masterachse bestimmt. Die Tabelle beginnt immer mit Index 0</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ last_index &lt; P-COMP-00060</Text>
+      <Text Language="de">0 ≤ last_index &lt; P-COMP-00060</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113380747</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113380747</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00005</Id>
+    <Name>kw.crosscomp.master_ax_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the master axis</Text>
+      <Text Language="de">Logische Achsnummer der Masterachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the logical number of the master axis whose command position is used to calculate the input variable of the compensation value table of the slave axis.</Text>
+      <Text Language="de">Mit dem Parameter wird die logische Achsnummer der Masterachse bestimmt, deren Sollposition als Eingangsgrösse der Kompensationstabelle der Slaveachse dient.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ≤ master_ax_nr ≤ MAX (UNS16)</Text>
+      <Text Language="de">1 ≤ master_ax_nr ≤ MAX (UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113382283</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113382283</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00006</Id>
+    <Name>kw.crosscomp.table[].setpoint</Name>
+    <ShortDescription>
+      <Text Language="en">Interpolation point of the master axis</Text>
+      <Text Language="de">Stützpunkte der Masterachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the interpolation points of the master axis on which the slave axis has to be corrected.</Text>
+      <Text Language="de">Mit dem Parameter werden die Stützpunkte der Masterachse definiert, bei denen die Slaveachse korrigiert werden muss.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ setpoint &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ setpoint &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113388427</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113388427</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00007</Id>
+    <Name>kw.crosscomp.table[].correction</Name>
+    <ShortDescription>
+      <Text Language="en">Compensation values for the slave axis</Text>
+      <Text Language="de">Korrekturwerte für die Slaveachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the relative compensation values for the slave axis at interpolation points 'i'.</Text>
+      <Text Language="de">Mit dem Parameter werden die relativen Korrekturwerte für die Slaveachse an den Stützpunkten 'i' definiert.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ correction &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ correction &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113389963</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113389963</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00008</Id>
+    <Name>kw.crosscomp2.unit</Name>
+    <ShortDescription>
+      <Text Language="en">Unit of the length entries</Text>
+      <Text Language="de">Einheit der Längenangaben</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the unit of the length / position entries.</Text>
+      <Text Language="de">Der Parameter definiert, in welcher Einheit die Längen- /Positionsangaben zu verwenden sind.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0: Encoder increments&#13;
+1: Metric (in 0.1 µm)</Text>
+      <Text Language="de">0: Encoder-Inkremente&#13;
+1: Metrisch (in 0.1µm)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#828516491</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#828516491</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00009</Id>
+    <Name>kw.crosscomp2.interval</Name>
+    <ShortDescription>
+      <Text Language="en">Distance between interpolation points</Text>
+      <Text Language="de">Abstand zwischen den Stützpunkten</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the distance between two interpolation points if both axes use an identical grid (P-COMP-000031(grid) = QUADRATIC).</Text>
+      <Text Language="de">Mit dem Parameter wird die Schrittweite zwischen zwei Stützpunkten definiert, falls für die beiden Masterachsen die gleiche Rasterung verwendet wird (P-COMP-000031(grid) = QUADRATIC).</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt; interval &lt; MAX(UNS32)</Text>
+      <Text Language="de">0 &lt; interval &lt; MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113397643</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113397643</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00010</Id>
+    <Name>kw.crosscomp2.last_index_master1</Name>
+    <ShortDescription>
+      <Text Language="en">Last index of master axis 1</Text>
+      <Text Language="de">Letzter Index der Masterachse 1</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the last valid index in the table of master axis 1 (maximum value is 100). The table always starts with index 0.</Text>
+      <Text Language="de">Mit dem Parameter wird der letzte gültige Index in der Tabelle der ersten Masterachse (maximal 100 Werte) bestimmt. Die Tabelle beginnt immer mit Index 0.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ P-COMP-00010 &lt;= 100</Text>
+      <Text Language="de">0 ≤ P-COMP-00010 &lt;= 100</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113402251</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113402251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00011</Id>
+    <Name>kw.crosscomp2.last_index_master2</Name>
+    <ShortDescription>
+      <Text Language="en">Last index of master axis 2</Text>
+      <Text Language="de">Letzter Index der Masterachse 2</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the last valid index in the table of the two master axes (maximum 100 values). The table always starts with index 0.</Text>
+      <Text Language="de">Mit dem Parameter wird der letzte gültige Index in der Tabelle der zweiten Masterachse (maximal 100 Werte) bestimmt. Die Tabelle beginnt immer mit Index 0.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ P-COMP-00011 &lt;= 100</Text>
+      <Text Language="de">0 ≤ P-COMP-00011 &lt;= 100</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113403787</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113403787</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00012</Id>
+    <Name>kw.crosscomp2.start_position_master1</Name>
+    <ShortDescription>
+      <Text Language="en">Start position of master axis 1</Text>
+      <Text Language="de">Startposition der Masterachse 1</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the start position of master axis 1 in the compensation table.</Text>
+      <Text Language="de">Der Parameter bestimmt die Position der Masterachse 1, bei der die Korrekturtabelle beginnt.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ start_position_master1 &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ start_position_master1 &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113405323</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113405323</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00013</Id>
+    <Name>kw.crosscomp2.start_position_master2</Name>
+    <ShortDescription>
+      <Text Language="en">Start position of master axis 2</Text>
+      <Text Language="de">Startposition der Masterachse 2</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the start position of master axis 2 in the compensation table.</Text>
+      <Text Language="de">Der Parameter bestimmt die Position der Masterachse 2, bei der die Korrekturtabelle beginnt.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ start_position_master2 &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ start_position_master2 &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113406859</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113406859</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00014</Id>
+    <Name>kw.crosscomp2.master1_ax_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the master axis 1</Text>
+      <Text Language="de">Logische Achsnummer der Masterachse 1</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the logical axis number of the first master axis.</Text>
+      <Text Language="de">Mit dem Parameter wird die logische Achsnummer der ersten Masterachse bestimmt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ≤ master1_ax_nr ≤ MAX (UNS16)</Text>
+      <Text Language="de">1 ≤ master1_ax_nr ≤ MAX (UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113408395</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113408395</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00015</Id>
+    <Name>kw.crosscomp2.master2_ax_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the master axis 2</Text>
+      <Text Language="de">Logische Achsnummer der Masterachse 2</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the logical axis number of the second master axis.</Text>
+      <Text Language="de">Mit dem Parameter wird die logische Achsnummer der zweiten Masterachse bestimmt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ≤ master2_ax_nr ≤ MAX (UNS16)</Text>
+      <Text Language="de">1 ≤ master2_ax_nr ≤ MAX (UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113409931</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113409931</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00016</Id>
+    <Name>kw.crosscomp2.table[][].correction</Name>
+    <ShortDescription>
+      <Text Language="en">Compensation values for the slave axis</Text>
+      <Text Language="de">Korrekturwerte für die Slaveachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the relative compensation values of the slave axis at interpolation points [j][i]. When indexing the interpolation points in the compensation list, the first index j refers to the second master axis.</Text>
+      <Text Language="de">Mit dem Parameter werden die relativen Korrekturwerte für die Slaveachse an den Stützpunkten [j][i] definiert. Bei der Indizierung der Stützpunkte in der Korrekturwertliste bezieht sich immer der erste Index j auf die zweite Masterachse.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ correction &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ correction &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+      <ArrayIndex No="1" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113416075</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113416075</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00017</Id>
+    <Name>kw.ssfk.unit</Name>
+    <ShortDescription>
+      <Text Language="en">Unit of the length entries</Text>
+      <Text Language="de">Einheit der Längenangaben</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the unit of the length / position entries.</Text>
+      <Text Language="de">Der Parameter bestimmt, in welcher Einheit die Längen-/ Positionsangaben zu verwenden sind.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Encoder increments&#13;
+1: Metric (in 0.1 µm)</Text>
+      <Text Language="de">0: Encoder-Inkremente&#13;
+1: Metrisch (in 0.1µm)</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113420683</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113420683</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00018</Id>
+    <Name>kw.ssfk.interval</Name>
+    <ShortDescription>
+      <Text Language="en">Distance between interpolation points</Text>
+      <Text Language="de">Abstand zwischen den Stützpunkten</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the distance between interpolation points of the compensation table when equidistant interpolation points are used. If this parameter is = 0, the position of each interpolation point must be specified separately.</Text>
+      <Text Language="de">Mit dem Parameter wird der Abstand der Stützpunkte der Korrekturtabelle bei Verwendung von äquidistanten Stützpunkten definiert. Ist dieser Parameter = 0 so muss die Position jedes Stützpunktes separat angegeben werden.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ interval &lt; MAX(SGN32)</Text>
+      <Text Language="de">0 ≤ interval &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113422219</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113422219</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00019</Id>
+    <Name>kw.ssfk.kw_startpos</Name>
+    <ShortDescription>
+      <Text Language="en">Start position of compensation values</Text>
+      <Text Language="de">Startposition der Korrekturwerte</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the position of the axis at which the compensation table starts.</Text>
+      <Text Language="de">Der Parameter bestimmt die Position der Achse, bei der die Korrekturtabelle beginnt.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ kw_startpos &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ kw_startpos &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113423755</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113423755</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00020</Id>
+    <Name>kw.ssfk.kw_nr_max</Name>
+    <ShortDescription>
+      <Text Language="en">Number of compensation values</Text>
+      <Text Language="de">Anzahl der Korrekturwerte</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the number of entries in the compensation table.</Text>
+      <Text Language="de">Der Parameter definiert die Anzahl der Einträge in der Korrekturtabelle.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ kw_nr_max &lt; P-COMP-00059</Text>
+      <Text Language="de">0 ≤ kw_nr_max &lt; P-COMP-00059</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113425291</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113425291</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00021</Id>
+    <Name>kw.ssfk.bilateral</Name>
+    <ShortDescription>
+      <Text Language="en">Operation mode of compensation</Text>
+      <Text Language="de">Arbeitsweise der Kompensation</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines whether compensation is unilateral or bilateral.</Text>
+      <Text Language="de">Der Parameter definiert, ob die Kompensation einseitig oder doppelseitig wirken soll.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Unilateral compensation&#13;
+1: Bilateral compensation</Text>
+      <Text Language="de">0: Einseitige Kompensation&#13;
+1: Doppelseitige Kompensation</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113426827</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113426827</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00022</Id>
+    <Name>kw.ssfk.modulo</Name>
+    <ShortDescription>
+      <Text Language="en">Compensation of a modulo axis</Text>
+      <Text Language="de">Kompensation einer Moduloachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the compensation table for a modulo axis. A modulo transition also takes place in the compensation table on the modulo transition of the axis position.The number of compensation values must then be equal to the number of entries in the compensation value table.</Text>
+      <Text Language="de">Mit dem Parameter wird die Korrekturtabelle für eine Modulo-Achse konfiguriert. Hierbei findet beim Moduloübergang der Achsposition auch ein 'Moduloübergang' in der Korrekturtabelle statt.Dabei muss die Anzahl der Korrekturwerte gleich der Anzahl der Einträge in der Korrekturwerttabelle sein.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0: Compensation without modulo handling1: Compensation for a modulo axis</Text>
+      <Text Language="de">0: Kompensation ohne Modulobehandlung1: Kompensation für eine Moduloachse</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113428363</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113428363</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00023</Id>
+    <Name>kw.ssfk.table[].pos</Name>
+    <ShortDescription>
+      <Text Language="en">Compensation value in positive direction</Text>
+      <Text Language="de">Korrekturwert in positiver Richtung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines a compensation value in case of movement in positive direction at interpolation point 'i'.</Text>
+      <Text Language="de">Der Parameter definiert einen Korrekturwert bei Bewegung in positiver Richtung am Stützpunkt 'i'.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ pos &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ pos &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113434507</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113434507</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00024</Id>
+    <Name>kw.ssfk.table[].neg</Name>
+    <ShortDescription>
+      <Text Language="en">Compensation value in negative direction</Text>
+      <Text Language="de">Korrekturwert in negativer Richtung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines a compensation value in case of movement in negative direction at interpolation point 'i'.</Text>
+      <Text Language="de">Der Parameter definiert einen Korrekturwert bei Bewegung in negativer Richtung am Stützpunkt 'i'.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ neg &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ neg &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113436043</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113436043</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00025</Id>
+    <Name>kw.ssfk.table[].setpoint</Name>
+    <ShortDescription>
+      <Text Language="en">Interpolation points of the axis</Text>
+      <Text Language="de">Stützpunkte der Achse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the interpolation points of the axis for which the axis must be corrected.</Text>
+      <Text Language="de">Mit dem Parameter werden die Stützpunkte der Achse definiert, bei denen die Achse korrigiert werden muss.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN64) ≤ setpoint &lt; MAX(SGN64)</Text>
+      <Text Language="de">MIN(SGN64) ≤ setpoint &lt; MAX(SGN64)</Text>
+    </Range>
+    <Type>SGN64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113437579</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113437579</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00026</Id>
+    <Name>kw.crosscomp.n_cycles</Name>
+    <ShortDescription>
+      <Text Language="en">Number of cycles for ‘smooth switching’</Text>
+      <Text Language="de">Anzahl der Zyklen für 'weiches Schalten'</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the number of cycles for which cross compensation is activated/deactivated smoothly.</Text>
+      <Text Language="de">Der Parameter bestimmt die Anzahl der Zyklen, über welche die Kreuzkompensation weich ein-/ausgekoppelt wird.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ n_cycles ≤ 20 (maximum number of cycles for which cross compensation is activated/deactivated, application-specific)</Text>
+      <Text Language="de">0 ≤ n_cycles ≤ 20 (Maximale Taktzahl, über die ein-/ausgekoppelt werden soll, applikationsspezifisch)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113383819</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113383819</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00027</Id>
+    <Name>kw.crosscomp2.n_cycles</Name>
+    <ShortDescription>
+      <Text Language="en">Number of cycles for ‘smooth switching’</Text>
+      <Text Language="de">Anzahl der Zyklen für 'weiches Schalten'</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the number of cycles for which plane compensation is activated/deactivated smoothly.</Text>
+      <Text Language="de">Der Parameter bestimmt die Anzahl der Zyklen, über welche die Flächenkompensation weich ein-/ausgekoppelt wird.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ n_cycles ≤ 20 (maximum number of cycles for which cross compensation is activated/deactivated, application-specific)</Text>
+      <Text Language="de">0 ≤ n_cycles ≤ 20 (Maximale Taktzahl, über die ein-/ausgekoppelt werden soll, applikationsspezifisch)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113411467</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113411467</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00028</Id>
+    <Name>kw.ssfk.manual_activation</Name>
+    <ShortDescription>
+      <Text Language="en">Manual activation</Text>
+      <Text Language="de">Manuelles Einschalten</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Leadscrew error compensation is automatically activated by the CNC if it selected in the axis parameters (P-AXIS-00175) and the required conditions are met (e.g. axis is homed). &#13;
+If the parameter is set to value 1, leadscrew error compensation must be explicitly activated by an NC command (see [PROG//Selecting/deselecting axis compensations in the NC program]. In addition, compensation is deselected at the end of the NC program, at CNC reset and on axis release.</Text>
+      <Text Language="de">Die Spindelsteigungsfehlerkompensation wird durch die CNC automatisch eingeschaltet, falls sie in den Achsparametern angewählt ist (P-AXIS-00175) und die notwendigen Voraussetzungen (z.B. Achse ist referenziert) erfüllt sind. &#13;
+Wird der Parameter auf den Wert 1 gesetzt, muss die Spindelsteigungsfehlerkompensation explizit über einen NC-Befehl (s. [PROG//Ein-/Ausschalten von Achskompensationen im NC-Programm] eingeschaltet werden. Zusätzlich wird am Ende des NC-Programms, bei CNC-Reset und bei Abgabe der Achse die Kompensation wieder ausgeschaltet.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Automatic activation&#13;
+1: Manual activation in NC program</Text>
+      <Text Language="de">0: Automatisches Einschalten&#13;
+1: Explizites Einschalten im NC-Programm</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113429899</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113429899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00029</Id>
+    <Name>kw.crosscomp.manual_activation</Name>
+    <ShortDescription>
+      <Text Language="en">Manual activation</Text>
+      <Text Language="de">Manuelles Einschalten</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Cross compensation is automatically activated by the CNC if it selected in the axis parameters (P-AXIS-00047) and the required conditions are met (e.g. axis is homed).&#13;
+If the parameter is set to the value 1, cross compensation must be activated explicitly by an NC command (see [PROG//Selecting/deselecting axis compensations in the NC program]. In addition, compensation is deselected at the end of the NC program, at CNC reset and on axis release.</Text>
+      <Text Language="de">Die Kreuzkompensation wird durch die CNC automatisch eingeschaltet, falls sie in den Achsparametern angewählt ist (P-AXIS-00047) und die notwendigen Voraussetzungen (z.B. Achse ist referenziert) erfüllt sind.&#13;
+Wird der Parameter auf den Wert 1 gesetzt, muss die Kreuzkompensation explizit über einen NC-Befehl (s. [PROG//Ein-/Ausschalten von Achskompensationen im NC-Programm] eingeschaltet werden. Zusätzlich wird am Ende des NC-Programms, bei CNC-Reset und bei Abgabe der Achse die Kompensation wieder ausgeschaltet.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Automatic activation&#13;
+1: Manual activation in NC program</Text>
+      <Text Language="de">0: Automatisches Einschalten&#13;
+1: Explizites Einschalten im NC-Programm</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113385355</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113385355</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00030</Id>
+    <Name>kw.crosscomp2.manual_activation</Name>
+    <ShortDescription>
+      <Text Language="en">Manual activation</Text>
+      <Text Language="de">Manuelles Einschalten</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Plane compensation is automatically activated by the CNC if it selected in the axis parameters (P-AXIS-00174) and the required conditions are met (e.g. axis is homed).&#13;
+If the parameter is set to value 1, plane compensation must be activated explicitly by an NC command (see [PROG//Selecting/deselecting axis compensations in the NC program]. In addition, compensation is deselected at the end of the NC program, at CNC reset and on axis release.</Text>
+      <Text Language="de">Die Flächenkompensation wird durch die CNC automatisch eingeschaltet, falls sie in den Achsparametern angewählt ist (P-AXIS-00174) und die notwendigen Voraussetzungen (z.B. Achse ist referenziert) erfüllt sind.&#13;
+Wird der Parameter auf den Wert 1 gesetzt, muss die Flächenkompensation explizit über einen NC-Befehl (s. [PROG//Ein-/Ausschalten von Achskompensationen im NC-Programm] eingeschaltet werden. Zusätzlich wird am Ende des NC-Programms, bei CNC-Reset und bei Abgabe der Achse die Kompensation wieder ausgeschaltet.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Automatic activation&#13;
+1: Manual activation in NC program</Text>
+      <Text Language="de">0: Automatisches Einschalten&#13;
+1: Explizites Einschalten im NC-Programm</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113413003</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113413003</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00031</Id>
+    <Name>kw.crosscomp2.grid</Name>
+    <ShortDescription>
+      <Text Language="en">Type of interpolation point grid</Text>
+      <Text Language="de">Art der Stützpunkt-Rasterung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines whether the identical interpolation point distance is used for the two master axes or whether the distances for the two master axes are defined individually.</Text>
+      <Text Language="de">Mit dem Parameter wird festgelegt, ob für die beiden Masterachsen der identische Stützpunktabstand verwendet wird oder ob die Abstände für die beiden Masterachse individuell festgelegt werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>QUADRATIC</DefaultValue>
+    <Range>
+      <Text Language="en">QUADRATIC: The identical interpolation point distance interval (P-COMP-00009) is used for the two master axes.&#13;
+RECTANGULAR: Different interpolation point distances interval1 (P-COMP-00032) and interval2 (P-COMP-00033) can be set for the two master axes.</Text>
+      <Text Language="de">QUADRATIC: Für die beiden Masterachsen wird der identische Stützpunktabstand interval (P-COMP-00009) verwendet&#13;
+RECTANGULAR: Für die beiden Masterachsen können unterschiedliche Stützpunktabstände interval1 (P-COMP-00032) und interval2 (P-COMP-00033) eingestellt werden.</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>QUADRATIC</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>RECTANGULAR</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113396107</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113396107</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00032</Id>
+    <Name>kw.crosscomp2.interval1</Name>
+    <ShortDescription>
+      <Text Language="en">Distance between the interpolation points of the first master axis</Text>
+      <Text Language="de">Abstand zwischen den Stützpunkten auf der ersten Masterachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the interval between two interpolation points for the first master axis if both master axes use a different grid (P-COMP-00031(grid) = RECTANGULAR).</Text>
+      <Text Language="de">Mit dem Paramter wird die Schrittweite zwischen zwei Stützpunkten für die erste Masterachse definiert, falls für die beiden Masterachsen eine unterschiedliche Rasterung verwendet wird (P-COMP-00031(grid) = RECTANGULAR).</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt; interval1 &lt; MAX(UNS32)</Text>
+      <Text Language="de">0 &lt; interval1 &lt; MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113399179</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113399179</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00033</Id>
+    <Name>kw.crosscomp2.interval2</Name>
+    <ShortDescription>
+      <Text Language="en">Distance between the interpolation points on the second master axis</Text>
+      <Text Language="de">Abstand zwischen den Stützpunkten auf der zweiten Masterachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the interval between two interpolation points for the first master axis if both master axes use a different grid (P-COMP-00031(grid) = RECTANGULAR).</Text>
+      <Text Language="de">Mit dem Parameter wird die Schrittweite zwischen zwei Stützpunkten für die erste Masterachse definiert, falls für die beiden Masterachsen eine unterschiedliche Rasterung verwendet wird (P-COMP-00031(grid) = RECTANGULAR).</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt; interval2 &lt; MAX(UNS32)</Text>
+      <Text Language="de">0 &lt; interval2 &lt; MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113400715</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113400715</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00040</Id>
+    <Name>frict_comp.file_path</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>STRING</Type>
+    <MaxStringLength>83</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00041</Id>
+    <Name>frict_comp.mode</Name>
+    <ShortDescription>
+      <Text Language="en">Friction compensation mode</Text>
+      <Text Language="de">Modus der Reibungskompensation</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the operation mode for friction compensation.If the parameter is assigned the value 0, friction compensation is deactivated.</Text>
+      <Text Language="de">Der Parameter definiert, in welchem Modus die Reibungskompensation betrieben wird.&#13;
+Wird der Modus mit dem Wert 0 belegt, so ist die Reibungskompensation deaktiviert.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0: Deactivate friction compensation3: Compensation with additive current taking into account the commanded speed</Text>
+      <Text Language="de">0: Deaktivieren der Reibungskompensation&#13;
+3: Kompensation mit additivem Strom unter Berücksichtigung der kommandierten Geschwindigkeit</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#493246859</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#493246859</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00042</Id>
+    <Name>frict_comp.table_entries</Name>
+    <ShortDescription>
+      <Text Language="en">Number of elements in the compensation value table</Text>
+      <Text Language="de">Anzahl der Elemente in der Korrekturwerttabelle</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the number of entries in the compensation table.</Text>
+      <Text Language="de">Der Parameter definiert die Anzahl der Einträge in die Korrekturwerttabelle.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ table_entries ≤ P-COMP-00062</Text>
+      <Text Language="de">0 ≤ table_entries ≤ P-COMP-00062</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113449739</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113449739</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00043</Id>
+    <Name>frict_comp.position_delay</Name>
+    <ShortDescription>
+      <Text Language="en">Delay value for current build-up</Text>
+      <Text Language="de">Verzögerungswert für den Stromaufbau</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the delay value for current built-up at start-up. Its purpose is to prevent abrupt changes. Current build-up is linear.</Text>
+      <Text Language="de">Der Parameter definiert den Verzögerungswert für den Stromaufbau beim Anfahren. Er dient zur Vermeidung sprungförmiger Änderungen. Der Strom wird linear aufgebaut.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ position_delay ≤ 10</Text>
+      <Text Language="de">0 ≤ position_delay ≤ 10</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113451275</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113451275</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00044</Id>
+    <Name>frict_comp.reversal_lookahead</Name>
+    <ShortDescription>
+      <Text Language="en">Reversal look ahead</Text>
+      <Text Language="de">Lookahead der Umkehr</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the number of cycles over which the motor current decays before motion reversal.</Text>
+      <Text Language="de">Der Parameter definiert die Anzahl der Takte, über die vor einer Bewegungsumkehr der Motorstrom abgebaut wird.</Text>
+    </LongDescription>
+    <Quantity>TICK</Quantity>
+    <Units>
+      <Unit>UNIT_TICK</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ reversal_lookahead ≤ 4</Text>
+      <Text Language="de">0 ≤ reversal_lookahead ≤ 4</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113452811</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113452811</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00045</Id>
+    <Name>frict_comp.scaling_factor</Name>
+    <ShortDescription>
+      <Text Language="en">Scaling factor for compensation values</Text>
+      <Text Language="de">Skalierungsfaktor für die Kompensationswerte</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the scaling of all compensation values in the list.</Text>
+      <Text Language="de">Der Parameter definiert die Skalierung aller Kompensationswerte der Liste.</Text>
+    </LongDescription>
+    <Quantity>PERMILLE</Quantity>
+    <Units>
+      <Unit>UNIT_PERMILLE</Unit>
+    </Units>
+    <DefaultValue>1000</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN16) &lt; scaling_factor &lt; MAX(SGN16)</Text>
+      <Text Language="de">MIN(SGN16) &lt; scaling_factor &lt; MAX(SGN16)</Text>
+    </Range>
+    <Type>SGN16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113454347</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113454347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00046</Id>
+    <Name>frict_comp.table[].in</Name>
+    <ShortDescription>
+      <Text Language="en">Velocity input variable</Text>
+      <Text Language="de">Geschwindigkeit - Eingangsgröße</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the velocities for which the additional motor currents specified in P-COMP-00047 are to be output to the additive current interface. The values must be entered in ascending order.</Text>
+      <Text Language="de">Der Parameter definiert die Geschwindigkeiten, für die die in P-COMP-00047 vorgegebenen zusätzlichen Motorströme auf der additiven Stromschnittstelle ausgegeben werden sollen. Die Werte müssen aufsteigend eingegeben werden!</Text>
+    </LongDescription>
+    <Quantity>VELOCITY</Quantity>
+    <Units>
+      <Unit>UNIT_MICROMETER_PER_SECOND</Unit>
+      <Unit>UNIT_MILLIDEGREE_PER_SECOND</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt; table[i].in &lt; MAX(SGN32)</Text>
+      <Text Language="de">0 &lt; table[i].in &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113455883</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113455883</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00047</Id>
+    <Name>frict_comp.table[].out</Name>
+    <ShortDescription>
+      <Text Language="en">Measured friction (motor current) – output variable</Text>
+      <Text Language="de">Gemessene Reibung (Motorstrom) - Ausgabegröße</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the current which is to be additionally output at the additive current interface.</Text>
+      <Text Language="de">Der Parameter definiert den Strom, der an der additiven Stromschnittstelle zusätzlich ausgegeben werden soll.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; table[i].out &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; table[i].out &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="table">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113457419</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113457419</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00048</Id>
+    <Name>kopf.mds_ident</Name>
+    <DefaultValue>1</DefaultValue>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00049</Id>
+    <Name>zeichen[]</Name>
+    <DefaultValue/>
+    <Type>CHAR</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="zeichen">16</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00057</Id>
+    <Name>kw.ssfk.set_pos_without_comp</Name>
+    <ShortDescription>
+      <Text Language="en">Consideration of other axis compensations</Text>
+      <Text Language="de">Berücksichtigung anderer Achskompensationen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">By default, leadscrew error compensation also considers the compensation values generated from other axis compensations, e.g. cross and plane compensation. With direction-dependent spindle leadscrew error compensation (see P-COMP-00021) this may result in the undesirable occurrence of backlash under certain circumstances. &#13;
+The parameter set_pos_without_comp can disable the inclusion of other compensation values in the calculation.</Text>
+      <Text Language="de">Standardmäßig berücksichtigt die Spindelsteigungsfehlerkompensation auch die Korrekturwerte, die aus den anderen Achskompensationen wie z.B. Kreuz-, Flächenkompensation, generiert werden. Bei einer richtungsabhängigen Spindelsteigungsfehlerkompensationen (siehe P-COMP-00021) kann dies u.U. zu unerwünschtem Ausfahren der Lose kommen. &#13;
+Durch den Parameter set_pos_without_comp kann das Einrechnen der anderen Korrekturwerte abgeschaltet werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Compensation values of other compensations are considered in the leadscrew error compensation.&#13;
+1: Compensation values of other compensations are not considered.</Text>
+      <Text Language="de">0: Kompensationswerte anderer Kompensationen werden in der Spindelsteigungsfehlerkompensation berücksichtigt.&#13;
+1: Kompensationswerte anderer Kompensationen werden nicht berücksichtigt.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#113431435</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#113431435</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00058</Id>
+    <Name>frict_comp.delay_cycles</Name>
+    <ShortDescription>
+      <Text Language="en">Delay time for compensation values</Text>
+      <Text Language="de">Verzögerungszeit für die Kompensationswerte</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the delay time of all compensation values.</Text>
+      <Text Language="de">Der Parameter definiert die Verzögerungszeit aller Kompensationswerte.</Text>
+    </LongDescription>
+    <Quantity>TICK</Quantity>
+    <Units>
+      <Unit>UNIT_TICK</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ delay_cycles &lt; 249</Text>
+      <Text Language="de">0 ≤ delay_cycles &lt; 249</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#351557899</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#351557899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00059</Id>
+    <Name>kw.ssfk.max_points</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum number of table entries for leadscrew error compensation</Text>
+      <Text Language="de">Maximale Anzahl von Tabelleneinträgen für Spindelsteigungsfehlerkompensation</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This leadscrew error compensation parameter (FCT-C5) sets the memory space required for a particular number of table entries. The size of the actually used compensation table is defined by `kw_nr_max` (P-COMP-00020) and `kw_nr_max` must be smaller than `max_points`.</Text>
+      <Text Language="de">Mit diesem Parameter der Spindelsteigungsfehlerkompensation(FCT-C5) kann eingestellt werden, für wie viele Tabelleneinträge Speicher reserviert werden soll. Die Größe der tatsächlich verwendeten Kompensationstabelle wird durch `kw_nr_max` (P-COMP-00020) festgelegt und `kw_nr_max` darf nicht größer sein als `max_points`.</Text>
+    </LongDescription>
+    <DefaultValue>1500</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt;= P-COMP-00059</Text>
+      <Text Language="de">0 &lt;= P-COMP-00059</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>true</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308693899</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#654582667</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308693899</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#654582667</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00060</Id>
+    <Name>kw.crosscomp.max_points</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum number of table entries for cross compensation</Text>
+      <Text Language="de">Maximale Anzahl von Tabelleneinträgen für Kreuzkompensation</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This cross compensation parameter (FCT-C5) saves the memory space required for a particular number of table entries. The size of the actually used compensation table is defined by `last_index` (P-COMP-00004) and `last_index` must be smaller than `max_points`.</Text>
+      <Text Language="de">Mit diesem Parameter der Kreuzkompensation (FCT-C5) kann eingestellt werden, für wie viele Tabelleneinträge Speicher reserviert werden soll. Die Größe der tatsächlich verwendeten Kompensationstabelle wird durch `last_index` (P-COMP-00004) festgelegt und `last_index` muss kleiner sein als `max_points`.</Text>
+    </LongDescription>
+    <DefaultValue>1001</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt;= P-COMP-00060</Text>
+      <Text Language="de">0 &lt;= P-COMP-00060</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>true</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308710027</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#654591755</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308710027</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#654591755</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00061</Id>
+    <Name>kw.crosscomp2.max_points</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum number of table entries for plane compensation</Text>
+      <Text Language="de">Maximale Anzahl von Tabelleneinträgen für Flächenkompensation</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This plane compensation parameter (FCT-C5) saves the memory space required for a particular number of table entries. The size of the actually used compensation table is defined by `last_index:master1` (P-COMP-00010) and `last_index_master2` (P-COMP-00011)and the following must apply: (`last_index_master1` + 1) * (`last_index_master2` + 1) &lt;= `max_points` If  `max_points` is not specified (or assigned the value 0), the previous restrictionsapply to `last_index_master1` and `last_index_master2`.0 &lt;= `last_index_master1` &lt;= 1000 &lt;= `last_index_master2` &lt;= 100</Text>
+      <Text Language="de">Mit diesem Parameter der Flächenkompensation (FCT-C5) kann eingestellt werden, für wie viele Tabelleneinträge Speicher reserviert werden soll. Die Größe der tatsächlich verwendeten Kompensationstabelle wird durch `last_index_master1` (P-COMP-00010) und `last_index_master2` (P-COMP-00011) festgelegtund es muss gelten: (`last_index_master1` + 1) * (`last_index_master2` + 1) &lt;= `max_points` Falls `max_points` nicht (oder mit 0) angegeben wird, dann gelten für`last_index_master1` und `last_index_master2` die bisherigen Einschränkungen:0 &lt;= `last_index_master1` &lt;= 1000 &lt;= `last_index_master2` &lt;= 100</Text>
+    </LongDescription>
+    <DefaultValue>10201</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt;= P-COMP-00061</Text>
+      <Text Language="de">0 &lt;= P-COMP-00061</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>true</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#308723339</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#654601611</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#308723339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#654601611</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00062</Id>
+    <Name>frict_comp.max_points</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum number of table entries for friction compensation</Text>
+      <Text Language="de">Maximale Anzahl von Tabelleneinträgen für Reibungskompensation</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This friction compensation parameter (FCT-C25) saves the memory space required for a particular number of table entries. The size of the actually used compensation table is defined by `table_entries` (P-COMP-00042) and `table_entries` must be smaller than `max_points`.</Text>
+      <Text Language="de">Mit diesem Parameter der Reibungskompensation (FCT-C25) kann eingestellt werden, für wie viele Tabelleneinträge Speicher reserviert werden soll. Die Größe der tatsächlich verwendeten Kompensationstabelle wird durch`table_entries` (P-COMP-00042) festgelegt und `table_entries` muss kleiner sein als `max_points`.</Text>
+    </LongDescription>
+    <DefaultValue>20</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt;= P-COMP-00062</Text>
+      <Text Language="de">0 &lt;= P-COMP-00062</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>true</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#352414091</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#654611851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#352414091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#654611851</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00063</Id>
+    <Name>kw.crosstalk.master_dyn_ax_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the master axis</Text>
+      <Text Language="de">Logische Achsnummer der Masterachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the logical number of the master axis whose acceleration is used as the input variable of the compensation value table of the slave axis.</Text>
+      <Text Language="de">Mit diesem Parameter kann die logische Achsnummer der Masterachse bestimmt werden, deren Beschleunigung als Eingangsgröße der Kompensationstabelle für die Slaveachse dient.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ≤ P-COMP-00063 ≤ MAX (UNS16)</Text>
+      <Text Language="de">1 ≤ P-COMP-00063 ≤ MAX (UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962231435</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962241291</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962231435</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962241291</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00064</Id>
+    <Name>kw.crosstalk.n_cycles</Name>
+    <ShortDescription>
+      <Text Language="en">Number of cycles for ‘smooth switching’</Text>
+      <Text Language="de">Anzahl der Zyklen für 'weiches Schalten'</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the number of cycles for which crosstalk compensation is coupled/decoupled softly.</Text>
+      <Text Language="de">Der Parameter kann die Anzahl der Zyklen bestimmt werden, über welche die Nickkompensation weich ein- bzw.ausgekoppelt wird.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ P-COMP-00064 ≤ 20 (maximum number of cycles above which coupling or decoupling is to occur,</Text>
+      <Text Language="de">0 ≤ P-COMP-00064 ≤ 20 (Maximale Taktzahl, über die ein-/ausgekoppelt werden soll,</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962231435</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962768139</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962231435</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962768139</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00065</Id>
+    <Name>kw.crosstalk.manual_activation</Name>
+    <ShortDescription>
+      <Text Language="en">Last index of compensation value table</Text>
+      <Text Language="de">Letzter Index der Korrekturwerttabelle</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the last valid index in the table of the master axis. The table always starts with index 0</Text>
+      <Text Language="de">Mit diesem Parameter kann der letzte gültige Index in der Tabelle der Masterachse bestimmt werden. Die Tabelle beginnt immer mit Index 0</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ P-COMP-00065 &lt; 5</Text>
+      <Text Language="de">0 ≤ P-COMP-00065 &lt; 5</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962231435</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962773515</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962231435</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962773515</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00066</Id>
+    <Name>kw.crosstalk.acceleration</Name>
+    <ShortDescription>
+      <Text Language="en">Accelerations of the master axis</Text>
+      <Text Language="de">Beschleunigungen der Masterachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the accelerations of the master axis requiring a correction of the slave axis.</Text>
+      <Text Language="de">Mit diesem Parameter kann die Beschleunigungen der Masterachse definiert werden, bei denen die Slaveachse korrigiert werden muss.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ P-COMP-00066 &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ P-COMP-00066 &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962231435</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962778891</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962231435</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962778891</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00067</Id>
+    <Name>kw.crosstalk.deceleration</Name>
+    <ShortDescription>
+      <Text Language="en">Correction values for the slave axis</Text>
+      <Text Language="de">Korrekturwerte für die Slaveachse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter determines the correction values for the slave axis at accelerations 'i'.</Text>
+      <Text Language="de">Mit diesem Parameter können die Korrekturwerte für die Slaveachse an den Beschleunigungen 'i' definiert werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ P-COMP-00067 &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ P-COMP-00067 &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#962231435</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#970805643</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#962231435</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#970805643</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00068</Id>
+    <Name>frict_comp.f_i</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00069</Id>
+    <Name>frict_comp.pitch</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00070</Id>
+    <Name>frict_comp.torque_negative</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>SGN16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00071</Id>
+    <Name>frict_comp.torque_positive</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>SGN16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00072</Id>
+    <Name>frict_comp.max_t_break</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00074</Id>
+    <Name>frict_comp.weight_fact_num</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00075</Id>
+    <Name>frict_comp.weight_fact_denom</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00076</Id>
+    <Name>frict_comp.reversal_num</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>SGN16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00077</Id>
+    <Name>frict_comp.sample</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00080</Id>
+    <Name>kw.crosstalk.master_pos1_ax_nr</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00081</Id>
+    <Name>kw.crosstalk.master_pos2_ax_nr</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00082</Id>
+    <Name>kw.crosstalk.mode</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS08</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>true</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00083</Id>
+    <Name>kw.crosstalk.max_points</Name>
+    <DefaultValue>3</DefaultValue>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>true</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00084</Id>
+    <Name>kw.crosstalk.velocity_dependent</Name>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00085</Id>
+    <Name>kw.crosstalk.position[].ax_1</Name>
+    <DefaultValue/>
+    <Type>SGN64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="position">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00086</Id>
+    <Name>kw.crosstalk.position[].ax_2</Name>
+    <DefaultValue/>
+    <Type>SGN64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="position">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00087</Id>
+    <Name>kw.crosstalk.position[].correction_accelerate_dir_pos</Name>
+    <DefaultValue/>
+    <Type>SGN64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="position">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00088</Id>
+    <Name>kw.crosstalk.position[].correction_accelerate_dir_neg</Name>
+    <DefaultValue/>
+    <Type>SGN64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="position">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00089</Id>
+    <Name>kw.crosstalk.position[].correction_decelerate_dir_pos</Name>
+    <DefaultValue/>
+    <Type>SGN64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="position">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-COMP-00090</Id>
+    <Name>kw.crosstalk.position[].correction_decelerate_dir_neg</Name>
+    <DefaultValue/>
+    <Type>SGN64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="position">0</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Section>
+    <Name>
+      <Text Language="en">General parameter</Text>
+      <Text Language="de">Allgemeine Parameter</Text>
+    </Name>
+    <Parameter>P-COMP-00001</Parameter>
+    <Parameter>P-COMP-00002</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Axis error compensation</Text>
+      <Text Language="de">Achsfehlerkompensation</Text>
+    </Name>
+    <Parameter>P-COMP-00019</Parameter>
+    <Parameter>P-COMP-00020</Parameter>
+    <Parameter>P-COMP-00018</Parameter>
+    <Parameter>P-COMP-00021</Parameter>
+    <Parameter>P-COMP-00022</Parameter>
+    <Parameter>P-COMP-00017</Parameter>
+    <Parameter>P-COMP-00023</Parameter>
+    <Parameter>P-COMP-00024</Parameter>
+    <Parameter>P-COMP-00025</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Cross compensation</Text>
+      <Text Language="de">Kreuzkompensation</Text>
+    </Name>
+    <Parameter>P-COMP-00004</Parameter>
+    <Parameter>P-COMP-00003</Parameter>
+    <Parameter>P-COMP-00007</Parameter>
+    <Parameter>P-COMP-00006</Parameter>
+    <Parameter>P-COMP-00047</Parameter>
+    <Parameter>P-COMP-00046</Parameter>
+    <Parameter>P-COMP-00045</Parameter>
+    <Parameter>P-COMP-00044</Parameter>
+    <Parameter>P-COMP-00043</Parameter>
+    <Parameter>P-COMP-00042</Parameter>
+    <Parameter>P-COMP-00041</Parameter>
+    <Parameter>P-COMP-00040</Parameter>
+    <Parameter>P-COMP-00028</Parameter>
+    <Parameter>P-COMP-00030</Parameter>
+    <Parameter>P-COMP-00027</Parameter>
+    <Parameter>P-COMP-00015</Parameter>
+    <Parameter>P-COMP-00014</Parameter>
+    <Parameter>P-COMP-00013</Parameter>
+    <Parameter>P-COMP-00012</Parameter>
+    <Parameter>P-COMP-00011</Parameter>
+    <Parameter>P-COMP-00010</Parameter>
+    <Parameter>P-COMP-00033</Parameter>
+    <Parameter>P-COMP-00032</Parameter>
+    <Parameter>P-COMP-00009</Parameter>
+    <Parameter>P-COMP-00031</Parameter>
+    <Parameter>P-COMP-00047</Parameter>
+    <Parameter>P-COMP-00046</Parameter>
+    <Parameter>P-COMP-00045</Parameter>
+    <Parameter>P-COMP-00044</Parameter>
+    <Parameter>P-COMP-00043</Parameter>
+    <Parameter>P-COMP-00042</Parameter>
+    <Parameter>P-COMP-00041</Parameter>
+    <Parameter>P-COMP-00025</Parameter>
+    <Parameter>P-COMP-00024</Parameter>
+    <Parameter>P-COMP-00023</Parameter>
+    <Parameter>P-COMP-00028</Parameter>
+    <Parameter>P-COMP-00022</Parameter>
+    <Parameter>P-COMP-00021</Parameter>
+    <Parameter>P-COMP-00020</Parameter>
+    <Parameter>P-COMP-00019</Parameter>
+    <Parameter>P-COMP-00018</Parameter>
+    <Parameter>P-COMP-00017</Parameter>
+    <Parameter>P-COMP-00030</Parameter>
+    <Parameter>P-COMP-00027</Parameter>
+    <Parameter>P-COMP-00015</Parameter>
+    <Parameter>P-COMP-00014</Parameter>
+    <Parameter>P-COMP-00013</Parameter>
+    <Parameter>P-COMP-00012</Parameter>
+    <Parameter>P-COMP-00011</Parameter>
+    <Parameter>P-COMP-00010</Parameter>
+    <Parameter>P-COMP-00033</Parameter>
+    <Parameter>P-COMP-00032</Parameter>
+    <Parameter>P-COMP-00009</Parameter>
+    <Parameter>P-COMP-00031</Parameter>
+    <Parameter>P-COMP-00006</Parameter>
+    <Parameter>P-COMP-00029</Parameter>
+    <Parameter>P-COMP-00026</Parameter>
+    <Parameter>P-COMP-00005</Parameter>
+    <Parameter>P-COMP-00057</Parameter>
+    <Parameter>P-COMP-00059</Parameter>
+    <Parameter>P-COMP-00060</Parameter>
+    <Parameter>P-COMP-00061</Parameter>
+    <Parameter>P-COMP-00016</Parameter>
+    <Parameter>P-COMP-00058</Parameter>
+    <Parameter>P-COMP-00062</Parameter>
+    <Parameter>P-COMP-00063</Parameter>
+    <Parameter>P-COMP-00064</Parameter>
+    <Parameter>P-COMP-00065</Parameter>
+    <Parameter>P-COMP-00066</Parameter>
+    <Parameter>P-COMP-00067</Parameter>
+  </Section>
+</Parameters>

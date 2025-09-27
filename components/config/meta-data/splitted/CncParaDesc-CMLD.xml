@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-CMLD-00001</Id>
+    <Name>ddl[].token</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>9</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="ddl">48</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-CMLD-00002</Id>
+    <Name>ddl[].type</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="ddl">48</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-CMLD-00003</Id>
+    <Name>ddl[].index</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="ddl">48</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-CMLD-00004</Id>
+    <Name>ddl[].default</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>23</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="ddl">48</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+</Parameters>

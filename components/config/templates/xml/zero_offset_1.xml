@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- *********************** -->
+<!-- Zero offset data        -->
+<!-- *********************** -->
+<ZeroOffset>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+  <!-- Deselection of zero offsets - 'g53_verfuegbar' -->
+  <P-ZERO-00001 Value="0" />
+  <!-- Default setting of zero offsets - 'default_index' -->
+  <P-ZERO-00002 Value="0" />
+  <ZeroOffsetGroups>
+    <!-- G53: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.0.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.0.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.0.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.0.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.0.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.0.2 Value="0" />
+      </Axis>
+    </Group>
+    <!-- G54: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.1.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.1.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.1.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.1.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.1.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.1.2 Value="0" />
+      </Axis>
+    </Group>
+    <!-- G55: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.2.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.2.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.2.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.2.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.2.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.2.2 Value="0" />
+      </Axis>
+    </Group>
+    <!-- G56: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.3.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.3.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.3.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.3.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.3.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.3.2 Value="0" />
+      </Axis>
+    </Group>
+    <!-- G57: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.4.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.4.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.4.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.4.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.4.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.4.2 Value="0" />
+      </Axis>
+    </Group>
+    <!-- G58: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.5.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.5.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.5.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.5.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.5.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.5.2 Value="0" />
+      </Axis>
+    </Group>
+    <!-- G59: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.6.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.6.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.6.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.6.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.6.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.6.2 Value="0" />
+      </Axis>
+    </Group>
+    <!-- G159: -->
+    <Group>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.7.0 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.7.0 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - 'versch' -->
+        <P-ZERO-00003.7.1 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.7.1 Value="0" />
+      </Axis>
+      <Axis>
+        <!-- Zero offset - versch -->
+        <P-ZERO-00003.7.2 Value="0" />
+        <!-- Axis specific activation of a zero offset - 'inaktiv' -->
+        <P-ZERO-00004.7.2 Value="0" />
+      </Axis>
+    </Group>
+  </ZeroOffsetGroups>
+</ZeroOffset>

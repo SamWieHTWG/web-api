@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ISG Stuttgart -->
+<xs:schema xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="https://www.isg-stuttgart.de/kernel/CncParaDesc" version="1.0">
+  <xs:simpleType name="datatype" final="restriction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADDRESS"/>
+      <xs:enumeration value="BOOLEAN"/>
+      <xs:enumeration value="CHAR"/>
+      <xs:enumeration value="REAL64"/>
+      <xs:enumeration value="SGN08"/>
+      <xs:enumeration value="SGN16"/>
+      <xs:enumeration value="SGN32"/>
+      <xs:enumeration value="SGN64"/>
+      <xs:enumeration value="STRING"/>
+      <xs:enumeration value="STRUCT"/>
+      <xs:enumeration value="UNS08"/>
+      <xs:enumeration value="UNS16"/>
+      <xs:enumeration value="UNS32"/>
+      <xs:enumeration value="UNS64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="language" final="restriction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="en"/>
+      <xs:enumeration value="de"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Parameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Unit" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" minOccurs="1" maxOccurs="1" type="xs:ID"/>
+              <xs:element name="Text" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="Language" type="language"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="TextASCII" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="Language" type="language"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" minOccurs="1" maxOccurs="1" type="xs:ID"/>
+              <xs:element name="Name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+              <xs:element name="ShortDescription" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Text" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="Language" type="language"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="LongDescription" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Text" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="Language" type="language"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Quantity" minOccurs="0" maxOccurs="1" type="xs:string"/>
+              <xs:element name="Units" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Unit" minOccurs="0" maxOccurs="unbounded" type="xs:IDREF"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DefaultValue" minOccurs="1" maxOccurs="1" type="xs:string"/>
+              <xs:element name="Range" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Text" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="Language" type="language"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Type" minOccurs="1" maxOccurs="1" type="datatype"/>
+              <xs:element name="Bitfield" minOccurs="0" maxOccurs="1" type="xs:nonNegativeInteger"/>
+              <xs:element name="MaxStringLength" minOccurs="0" maxOccurs="1" type="xs:nonNegativeInteger"/>
+              <xs:element name="SymbolValues" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SymbolValue" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+                          <xs:element name="Value" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="MaxNumber" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ArrayIndex" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:nonNegativeInteger">
+                            <xs:attribute name="No" type="xs:nonNegativeInteger"/>
+                            <xs:attribute name="Name" type="xs:string"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Encrypted" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+              <xs:element name="ChangeRequiresRestart" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+              <xs:element name="Help" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Link" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="Language" type="language"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Section" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Text" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="Language" type="language"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded" type="xs:IDREF"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

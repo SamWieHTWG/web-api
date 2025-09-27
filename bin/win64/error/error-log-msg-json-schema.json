@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "ErrClass": {
+      "type": "string",
+      "enum": ["CNC_LOG_WARNING", "CNC_LOG_EXCEPTION", "CNC_LOG_ERROR"]
+    },
+    "ErrID": {
+      "type": "integer"
+    },
+    "ChanID": {
+      "type": "integer"
+    },
+    "ChanName": {
+      "type": "string"
+    },
+    "N": {
+      "type": "integer"
+    },
+    "BlockPos": {
+      "type": "integer"
+    },
+    "Prog": {
+      "type": "string"
+    },
+    "File": {
+      "type": "string"
+    },
+    "TokenPos": {
+      "type": "integer"
+    },
+    "FilePos": {
+      "type": "integer"
+    },
+    "FileLine": {
+      "type": "integer"
+    },
+    "Token": {
+      "type": "string"
+    },
+    "ErrorType": {
+      "type": "integer"
+    },
+    "Expert": {
+      "type": "object",
+      "properties": {
+        "Module": {
+          "type": "string"
+        },
+        "Line": {
+          "type": "integer"
+        },
+        "ComID": {
+          "type": "integer"
+        }
+      },
+      "required": ["Module", "Line", "ComID"]
+    },
+    "MultID": {
+      "type": "integer"
+    },
+    "Version": {
+      "type": "string"
+    },
+    "Time": {
+      "type": "integer"
+    },
+    "TimeString": {
+      "type": "string"
+    },
+    "ErrorText": {
+      "type": "string"
+    },
+    "Parameter": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Number": {
+            "type": "integer"
+          },
+          "Meaning": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "string"
+          }
+        },
+        "required": ["Number", "Meaning", "Value"]
+      }
+    },
+    "UtilityID": {
+      "type": "integer"
+    },
+    "UtilErrStr": {
+      "type": "string"
+    },
+    "UtilErrModul": {
+      "type": "string"
+    },
+    "UtilErrLine": {
+      "type": "integer"
+    }
+  },
+  "required": ["ErrClass", "ErrID", "ChanID", "Expert", "MultID", "Version", "Time", "Parameter"]
+}

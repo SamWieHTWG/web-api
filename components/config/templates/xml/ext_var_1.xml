@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- *********************** -->
+<!-- External variables      -->
+<!-- *********************** -->
+<ExtVar>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+
+  <!-- 'anzahl_belegt' -->
+  <P-EXTV-00010 Value="8" />
+  <!-- 'use_extended_string_var' -->
+  <P-EXTV-00022 Value="1" />
+  <!-- 'name_rd_global_array' -->
+  <P-EXTV-00030 Value="cnc_ve_%s_rd[%d]" />
+  <!-- 'name_wr_global_array' -->
+  <P-EXTV-00031 Value="cnc_ve_%s_wr[%d]" />
+  <!-- 'name_rd_channel_array' -->
+  <P-EXTV-00032 Value="mc_ve_%s_rd[%d]" />
+  <!-- 'name_wr_channel_array' -->
+  <P-EXTV-00033 Value="mc_ve_%s_wr[%d]" />
+  <!-- 'name_rd_global' -->
+  <P-EXTV-00034 Value="cnc_ve_%s_rd" />
+  <!-- 'name_wr_global' -->
+  <P-EXTV-00035 Value="cnc_ve_%s_wr" />
+  <!-- 'name_rd_channel' -->
+  <P-EXTV-00036 Value="mc_ve_%s_rd" />
+  <!-- 'name_wr_channel' -->
+  <P-EXTV-00037 Value="mc_ve_%s_wr" />
+
+  <Variables>
+    <Var>
+      <!-- 'name' -->
+      <P-EXTV-00001.0 Value="GLOBAL_INT" />
+      <!-- 'type' -->
+      <P-EXTV-00003.0 Value="SGN32" />
+      <!-- 'scope' -->
+      <P-EXTV-00004.0 Value="GLOBAL" />
+      <!-- 'synchronisation' -->
+      <P-EXTV-00005.0 Value="TRUE" />
+      <!-- 'access_rights' -->
+      <P-EXTV-00006.0 Value="READ_WRITE" />
+      <!-- 'array_elements' -->
+      <P-EXTV-00007.0 Value="100" />
+      <!-- 'size' -->
+      <P-EXTV-00008.0 Value="0" />
+      <!-- 'create_hmi_interface' -->
+      <P-EXTV-00009.0 Value="FALSE" />
+    </Var>
+    <Var>
+      <P-EXTV-00001.1 Value="GLOBAL_BOOL" />
+      <P-EXTV-00003.1 Value="BOOLEAN" />
+      <P-EXTV-00004.1 Value="GLOBAL" />
+      <P-EXTV-00005.1 Value="TRUE" />
+      <P-EXTV-00006.1 Value="READ_WRITE" />
+      <P-EXTV-00007.1 Value="80" />
+      <P-EXTV-00008.1 Value="0" />
+      <P-EXTV-00009.1 Value="FALSE" />
+    </Var>
+    <Var>
+      <P-EXTV-00001.2 Value="GLOBAL_REAL" />
+      <P-EXTV-00003.2 Value="REAL64" />
+      <P-EXTV-00004.2 Value="GLOBAL" />
+      <P-EXTV-00005.2 Value="TRUE" />
+      <P-EXTV-00006.2 Value="READ_WRITE" />
+      <P-EXTV-00007.2 Value="100" />
+      <P-EXTV-00008.2 Value="0" />
+      <P-EXTV-00009.2 Value="FALSE" />
+    </Var>
+    <Var>
+      <P-EXTV-00001.3 Value="GLOBAL_STRING" />
+      <P-EXTV-00003.3 Value="STRING" />
+      <P-EXTV-00004.3 Value="GLOBAL" />
+      <P-EXTV-00005.3 Value="TRUE" />
+      <P-EXTV-00006.3 Value="READ_WRITE" />
+      <P-EXTV-00007.3 Value="10" />
+      <P-EXTV-00008.3 Value="0" />
+      <P-EXTV-00009.3 Value="FALSE" />
+    </Var>
+    <Var>
+      <P-EXTV-00001.4 Value="CHANNEL_INT" />
+      <P-EXTV-00003.4 Value="SGN32" />
+      <P-EXTV-00004.4 Value="CHANNEL" />
+      <P-EXTV-00005.4 Value="TRUE" />
+      <P-EXTV-00006.4 Value="READ_WRITE" />
+      <P-EXTV-00007.4 Value="100" />
+      <P-EXTV-00008.4 Value="0" />
+      <P-EXTV-00009.4 Value="FALSE" />
+    </Var>
+    <Var>
+      <P-EXTV-00001.5 Value="CHANNEL_BOOL" />
+      <P-EXTV-00003.5 Value="BOOLEAN" />
+      <P-EXTV-00004.5 Value="CHANNEL" />
+      <P-EXTV-00005.5 Value="TRUE" />
+      <P-EXTV-00006.5 Value="READ_WRITE" />
+      <P-EXTV-00007.5 Value="80" />
+      <P-EXTV-00008.5 Value="0" />
+      <P-EXTV-00009.5 Value="FALSE" />
+    </Var>
+    <Var>
+      <P-EXTV-00001.6 Value="CHANNEL_REAL" />
+      <P-EXTV-00003.6 Value="REAL64" />
+      <P-EXTV-00004.6 Value="CHANNEL" />
+      <P-EXTV-00005.6 Value="TRUE" />
+      <P-EXTV-00006.6 Value="READ_WRITE" />
+      <P-EXTV-00007.6 Value="100" />
+      <P-EXTV-00008.6 Value="0" />
+      <P-EXTV-00009.6 Value="FALSE" />
+    </Var>
+    <Var>
+      <P-EXTV-00001.7 Value="CHANNEL_STRING" />
+      <P-EXTV-00003.7 Value="STRING" />
+      <P-EXTV-00004.7 Value="CHANNEL" />
+      <P-EXTV-00005.7 Value="TRUE" />
+      <P-EXTV-00006.7 Value="READ_WRITE" />
+      <P-EXTV-00007.7 Value="10" />
+      <P-EXTV-00008.7 Value="0" />
+      <P-EXTV-00009.7 Value="FALSE" />
+    </Var>
+  </Variables>
+</ExtVar>

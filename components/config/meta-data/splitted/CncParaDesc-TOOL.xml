@@ -1,0 +1,1776 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_0_1_MICROMETER</Id>
+    <Text Language="en">0.1µm</Text>
+    <Text Language="de">0.1µm</Text>
+    <TextASCII Language="en">0.1um</TextASCII>
+    <TextASCII Language="de">0.1um</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_0_1_MICROMETER_PER_METER</Id>
+    <Text Language="en">0.1µm/m</Text>
+    <Text Language="de">0.1µm/m</Text>
+    <TextASCII Language="en">0.1um/m</TextASCII>
+    <TextASCII Language="de">0.1um/m</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_0_1_MILLIDEGREE</Id>
+    <Text Language="en">0.1m°</Text>
+    <Text Language="de">0.1m°</Text>
+    <TextASCII Language="en">0.1mdeg</TextASCII>
+    <TextASCII Language="de">0.1mdeg</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_DEGREE_PER_SECOND_SQUARED</Id>
+    <Text Language="en">°/s²</Text>
+    <Text Language="de">°/s²</Text>
+    <TextASCII Language="en">deg/s^2</TextASCII>
+    <TextASCII Language="de">deg/s^2</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_MICROMETER_PER_SECOND</Id>
+    <Text Language="en">µm/s</Text>
+    <Text Language="de">µm/s</Text>
+    <TextASCII Language="en">um/s</TextASCII>
+    <TextASCII Language="de">um/s</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_MILLIDEGREE_PER_SECOND</Id>
+    <Text Language="en">m°/s</Text>
+    <Text Language="de">m°/s</Text>
+    <TextASCII Language="en">mdeg/s</TextASCII>
+    <TextASCII Language="de">mdeg/s</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_MILLIMETER_PER_SECOND_SQUARED</Id>
+    <Text Language="en">mm/s²</Text>
+    <Text Language="de">mm/s²</Text>
+    <TextASCII Language="en">mm/s^2</TextASCII>
+    <TextASCII Language="de">mm/s^2</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-TOOL-00001</Id>
+    <Name>wz[].typ</Name>
+    <ShortDescription>
+      <Text Language="en">Differentiation between tool types</Text>
+      <Text Language="de">Unterscheidung Werkzeugtypen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter is assigned to distinguish between tool types.</Text>
+      <Text Language="de">Zur Unterscheidung der Werkzeugtypen wird dieser Parameter belegt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0: Milling tool1: Turning tool2: Grinding tool3: Wire (erosion)</Text>
+      <Text Language="de">0: Fräswerkzeug1: Drehwerkzeug2: Schleifwerkzeug3: Draht (Erodieren)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104771851</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#213774347</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#400216715</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104771851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#213774347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#400216715</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00002</Id>
+    <Name>wz[].srk_lage</Name>
+    <ShortDescription>
+      <Text Language="en">Cutter edge position</Text>
+      <Text Language="de">Schneidenlage</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">With rotary tools (P-TOOL-00001 = 1), this parameter specifies the orientation of the cutter relative to the machining plane. Ident. codes 1 to 9 for orientation of the turning tool tip in the machining plane.</Text>
+      <Text Language="de">Bei Drehwerkzeugen (P-TOOL-00001 = 1) ist die Lage der Werkzeugschneide bezüglich der Bearbeitungsebene über diesen Parameter anzugeben. Kennung 1..9 für die Lage der Drehwerkzeugschneide in der Bearbeitungsebene.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt; srk_lage ≤ 9</Text>
+      <Text Language="de">0 &lt; srk_lage ≤ 9</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104773387</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#400216715</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104773387</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#400216715</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00003</Id>
+    <Name>wz[].laenge</Name>
+    <ShortDescription>
+      <Text Language="en">Tool length</Text>
+      <Text Language="de">Werkzeuglänge</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the tool length.</Text>
+      <Text Language="de">In diesem Parameter wird die Werkzeuglänge eingetragen.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; length &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; laenge &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104776587</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104776587</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00004</Id>
+    <Name>wz[].radius</Name>
+    <ShortDescription>
+      <Text Language="en">Tool radius</Text>
+      <Text Language="de">Werkzeugradius</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the tool radius.</Text>
+      <Text Language="de">In diesem Parameter wird der Werkzeugradius eingetragen.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ radius &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ radius &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104778123</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104778123</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00005</Id>
+    <Name>wz[].gueltig</Name>
+    <ShortDescription>
+      <Text Language="en">Validity flag</Text>
+      <Text Language="de">Gültigkennung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the data of a tool is allowed to be used, the validity flag must be set to TRUE.</Text>
+      <Text Language="de">Wenn die Daten eines Werkzeugs verwendet werden dürfen, muss die Gültigkennung auf TRUE gesetzt werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104779659</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104779659</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00006</Id>
+    <Name>wz[].ax_versatz[]</Name>
+    <ShortDescription>
+      <Text Language="en">Axis offsets</Text>
+      <Text Language="de">Achsversatzmaße</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">An offset parameter is defined for every tool and for every axis.</Text>
+      <Text Language="de">Pro Werkzeug kann für jede Achse ein Versatzparameter definiert werden.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; ax_versatz[j] &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; ax_versatz[j] &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="ax_versatz">32</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104781195</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104781195</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00007</Id>
+    <Name>wz[].param[]</Name>
+    <ShortDescription>
+      <Text Language="en">Additional tool parameters</Text>
+      <Text Language="de">Zusätzliche Werkzeugparameter</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The user can use this parameter to freely define additional parameters for each tool.</Text>
+      <Text Language="de">Über diesen Parameter können zusätzliche Parameter pro Werkzeug vom Anwender frei definiert werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(REAL64) ≤ param[j] ≤ MAX(REAL64)</Text>
+      <Text Language="de">MIN(REAL64) ≤ param[j] ≤ MAX(REAL64)</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="param">60</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104782731</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104782731</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00008</Id>
+    <Name>wz[].mass_einheit</Name>
+    <ShortDescription>
+      <Text Language="en">Unit of length, radius and axis offsets</Text>
+      <Text Language="de">Maßeinheit von Länge, Radius und Achsversätzen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the unit of length, radius and axis offsets of the tool.</Text>
+      <Text Language="de">Dieser Parameter definiert, in welcher Maßeinheit Länge, Radius und Achsversätze des Werkzeuges angegeben sind.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0: Dimensional unit of length, radius and axis offsets is millimetres (10-4 mm)&#13;
+1: Dimensional unit of length, radius and axis offsets is inch (10-4 inch)</Text>
+      <Text Language="de">0: Maßeinheit von Länge, Radius und Achsversätzen ist Millimeter (10-4 mm)&#13;
+1: Maßeinheit von Länge, Radius und Achsversätzen ist Inch (10-4 Inch)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104784267</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104784267</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00009</Id>
+    <Name>wz[].kinematic.param[]</Name>
+    <ShortDescription>
+      <Text Language="en">Kinematic parameters</Text>
+      <Text Language="de">Kinematikparameter</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">These parameters are used for tool-dependent parameterisation of kinematic transformation (RTCP / TLC / TOOL ORI CS  [PROG]). Assignment is defined application-specific.</Text>
+      <Text Language="de">Diese Parameter dienen zur werkzeugabhängigen Parametrierung der kinematischen Transformation (RTCP / TLC / TOOL ORI CS [PROG]). Die Belegung wird applikationsspezifisch festgelegt.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; param[j] &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; param[j] &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="param">70</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104785803</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104785803</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00010</Id>
+    <Name>wz[].tool_fixed</Name>
+    <ShortDescription>
+      <Text Language="en">Tool fixed / alignable</Text>
+      <Text Language="de">Werkzeug feststehend / ausrichtbar</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter is assigned the value TRUE if the tool orientation relative to the machine axis coordinate system and in combination with the 'Machining Coordinate System' [PROG] functionality cannot and should not be changed (e.g. because of non existent rotary axes). In this case, tool axis offsets (P-TOOL-00006) as components of the tool offset vector always relate to the machine axes.</Text>
+      <Text Language="de">Dieser Parameter wird mit TRUE belegt, wenn in Verbindung mit der Funktionalität 'Bearbeitungskoordinatensystem' [PROG] das Werkzeug in seiner Orientierung bzgl. des Maschinenkoordinatensystems nicht verändert werden kann (z.B. aufgrund fehlender rotatorischer Achsen) oder soll. Die Werkzeugachsversätze (P-TOOL-00006) als Komponenten des Werkzeugversatzvektors beziehen sich in diesem Fall immer auf die Maschinenachsen.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104787339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104787339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00011</Id>
+    <Name>wz[].kin_id</Name>
+    <ShortDescription>
+      <Text Language="en">Kinematic ID</Text>
+      <Text Language="de">Kinematik-ID</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The purpose of kinematic ID is to identify the machine or tool head specific kinematic types implemented in the controller.&#13;
+This parameter defines the kinematic transformation to be used for the tool. When it is assigned the value 0, the kinematic ID results from the default setting as described in P-CHAN-00032 or from the programming in the NC program (#KIN ID [...] or #TRAFO [...]).&#13;
+The kinematic ID always refers to a transformation which must be defined in the channel parameters in a data record of the first kinematic step (kin_step[0].trafo[*].id or trafo[*].id).</Text>
+      <Text Language="de">Die Kinematik-ID dient zur Identifizierung der in der Steuerung implementierten, maschinen- bzw. werkzeugkopfspezifischen Kinematiktypen.&#13;
+Über diesen Parameter wird die für das Werkzeug zu verwendende Kinematik-Transformation festgelegt. Bei Belegung mit dem Wert 0 ergibt sich die Kinematik-ID aus der Standardeinstellung gemäß P-CHAN-00032 bzw. aus der Programmierung im NC-Programm (#KIN ID [...] oder #TRAFO [...]).&#13;
+Die Kinematik-ID bezieht sich also immer auf eine Transformation, die in den Kanalparametern in einem Datensatz der ersten Kinematikstufe (kin_step[0].trafo[*].id bzw. trafo[*].id) definiert sein muss!</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ kin_id ≤ MAX(UNS16)</Text>
+      <Text Language="de">0 ≤ kin_id ≤ MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104788875</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104788875</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00012</Id>
+    <Name>wz[].log_ax_nr_spdl</Name>
+    <ShortDescription>
+      <Text Language="en">Logical spindle axis number</Text>
+      <Text Language="de">Logische Spindelachsnummer</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The dynamic data of the tool is assigned by the logical axis number of the spindle which will carry the tool after it is changed. If the logical axis number is assigned the value 0, no dynamic data is transferred to the spindle when the tool is changed.Dynamic data is modal in the spindle. It can either be overwrittenby the dynamic data of a new tool orbe reset by S[DEFAUL_DYNAMIK_DATA] to the default values configured.</Text>
+      <Text Language="de">Die Dynamikdaten des Werkzeuges werden über die logische Achsnummer von der Spindel übernommen, die das Werkzeug nach dem Einwechseln tragen soll. Wird die logische Achsnummer mit Null belegt, so werden beim Werkzeugwechsel keine Dynamikdaten an die Spindel weitergeleitet.Die Dynamikdaten sind in der Spindel haltend wirksam. Sie können entwederdurch Dynamikdaten eines neuen Werkzeuges überschrieben oderdurch S[DEFAUL_DYNAMIK_DATA] auf die konfigurierten Standardwerte zurückgestellt werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ log_ax_nr_spdl ≤ MAX(UNS16)</Text>
+      <Text Language="de">0 ≤ log_ax_nr_spdl ≤ MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104791947</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#287679371</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104791947</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#287679371</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00013</Id>
+    <Name>wz[].vb_min</Name>
+    <ShortDescription>
+      <Text Language="en">Minimum rotation speed</Text>
+      <Text Language="de">Minimale Drehgeschwindigkeit</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Minimum tool rotation speed.</Text>
+      <Text Language="de">Minimale Drehgeschwindigkeit des Werkzeuges.</Text>
+    </LongDescription>
+    <Quantity>VELOCITY</Quantity>
+    <Units>
+      <Unit>UNIT_MICROMETER_PER_SECOND</Unit>
+      <Unit>UNIT_MILLIDEGREE_PER_SECOND</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ vb_min ≤ P-TOOL-00014</Text>
+      <Text Language="de">0 ≤ vb_min ≤ P-TOOL-00014</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104793483</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#287679371</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104793483</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#287679371</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00014</Id>
+    <Name>wz[].vb_max</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum rotation speed</Text>
+      <Text Language="de">Maximale Drehgeschwindigkeit</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Maximum tool rotation speed.</Text>
+      <Text Language="de">Maximale Drehgeschwindigkeit des Werkzeuges.</Text>
+    </LongDescription>
+    <Quantity>VELOCITY</Quantity>
+    <Units>
+      <Unit>UNIT_MICROMETER_PER_SECOND</Unit>
+      <Unit>UNIT_MILLIDEGREE_PER_SECOND</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ≤ vb_max ≤ 2000000000</Text>
+      <Text Language="de">1 ≤ vb_max ≤ 2000000000</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#125214603</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#287679371</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#125214603</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#287679371</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00015</Id>
+    <Name>wz[].a_max</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum acceleration</Text>
+      <Text Language="de">Maximale Beschleunigung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Maximum tool acceleration.</Text>
+      <Text Language="de">Maximale Beschleunigung des Werkzeuges.</Text>
+    </LongDescription>
+    <Quantity>ACCELERATION</Quantity>
+    <Units>
+      <Unit>UNIT_MILLIMETER_PER_SECOND_SQUARED</Unit>
+      <Unit>UNIT_DEGREE_PER_SECOND_SQUARED</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ≤ a_max ≤ 100000000</Text>
+      <Text Language="de">1 ≤ a_max ≤ 100000000</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104795019</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#287679371</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104795019</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#287679371</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00016</Id>
+    <Name>wz[].gear_ratio_num</Name>
+    <ShortDescription>
+      <Text Language="en">Gear ratio of a tool (numerator)</Text>
+      <Text Language="de">Getriebeübersetzung des Werkzeugs (Zähler)</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the tool has a gear, this parameter specifies the gear ratio. A gear change occurs in the position controller after the tool is changed. The gear ratio need not then be considered when programming the tool rotary speed.</Text>
+      <Text Language="de">Falls das Werkzeug ein Getriebe besitzt, kann in diesen Parametern die Getriebeübersetzung angegeben werden. Sobald das Werkzeug ein- bzw. ausgewechselt wird, findet dann im Lageregler ein Getriebeschalten statt. Dadurch muss die Getriebeübersetzung bei der Programmierung der Werkzeugdrehzahl nicht berücksichtigt werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ gear_ratio_num ≤ MAX(SGN32)</Text>
+      <Text Language="de">0 ≤ gear_ratio_num ≤ MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104796555</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104796555</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00017</Id>
+    <Name>wz[].gear_ratio_denom</Name>
+    <ShortDescription>
+      <Text Language="en">Gear ratio of a tool (denominator)</Text>
+      <Text Language="de">Getriebeübersetzung des Werkzeugs (Nenner)</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the tool has a gear, this parameter specifies the gear ratio. A gear change occurs in the position controller after the tool is changed. The gear ratio need not then be considered when programming the tool rotary speed.</Text>
+      <Text Language="de">Falls das Werkzeug ein Getriebe besitzt, kann in diesen Parametern die Getriebeübersetzung angegeben werden. Sobald das Werkzeug ein- bzw. ausgewechselt wird, findet dann im Lageregler ein Getriebeschalten statt. Dadurch muss die Getriebeübersetzung bei der Programmierung der Werkzeugdrehzahl nicht berücksichtigt werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ gear_ratio_denom ≤ MAX(SGN32)</Text>
+      <Text Language="de">0 ≤ gear_ratio_denom ≤ MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#125245067</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#125245067</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00018</Id>
+    <Name>wz[].gear_inv_direction</Name>
+    <ShortDescription>
+      <Text Language="en">Reversal of rotation direction by gear</Text>
+      <Text Language="de">Drehrichtungsumkehr durch Getriebe</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the direction of rotation is reversed by the tool gear, a change in the rotation direction can be defined in the position controller by setting this parameter to the value TRUE. This is executed as soon as a tool change is carried out.</Text>
+      <Text Language="de">Falls sich die Bewegungsrichtung durch das Werkzeuggetriebe umkehrt, kann durch Setzen dieses Parameters auf TRUE eine Änderung der Bewegungsrichtung im Lageregler veranlasst werden, sobald das entsprechende Werkzeug ein- bzw. ausgewechselt wird.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104798091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104798091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00019</Id>
+    <Name>wz[].gear_inv_direction_no_stop</Name>
+    <ShortDescription>
+      <Text Language="en">Reversal of rotation direction without spindle standstill</Text>
+      <Text Language="de">Drehrichtungsumkehr ohne Spindelstillstand</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">When changing a tool with a tool gear which changes the direction of rotation (see P-TOOL-00018), the spindle must be at standstill, otherwise the CNC generates the error message P-ERR-60290.&#13;
+If this parameter is assigned the value TRUE, a change in tool rotation direction is only evaluated when a programmed change in spindle direction takes place (M03/M04 or M04/M03). In this case, the spindle does not stop. Example: This is practical for a machine with several tools rotating at the same time.</Text>
+      <Text Language="de">Beim Einwechseln eines Werkzeugs mit Werkzeuggetriebe, bei dem sich die Drehrichtung ändert (siehe P-TOOL-00018) muss die Spindel stehen, ansonsten erzeugt die CNC die Fehlermeldung P-ERR-60290.&#13;
+Falls der Parameter auf TRUE gesetzt ist, wird die Drehrichtungsänderung des Werkzeugs erst bei einem programmierten Wechsel der Spindeldrehrichtung (M03/M04 bzw. M04/M03) ausgewertet. Die Spindel hält dabei nicht an! Dies ist z.B. bei einem Aggregat mit mehreren, gleichzeitig rotierenden Werkzeugen sinnvoll.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104799627</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104799627</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00020</Id>
+    <Name>wz[].path[].radius</Name>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="path">2</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00030</Id>
+    <Name>wz[].grinding_wear_const</Name>
+    <ShortDescription>
+      <Text Language="en">Wear constant</Text>
+      <Text Language="de">Verschleißkonstante</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The wear constant is used to calculate continuous tool wear. Alternatively, it can also be defined in the NC program (#OTC […].</Text>
+      <Text Language="de">Die Verschleißkonstante wird zur kontinuierlichen Ermittlung des Werkzeugverschleißes verwendet. Sie kann alternativ auch im NC-Programm definiert werden (#OTC […]).</Text>
+    </LongDescription>
+    <Quantity>RESOLUTION</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER_PER_METER</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ grinding_wear_const</Text>
+      <Text Language="de">0 ≤ grinding_wear_const</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104802699</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#213774347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104802699</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#213774347</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00031</Id>
+    <Name>wz[].grinding_max_infeed</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum discrete infeed</Text>
+      <Text Language="de">Maximale diskrete Zustellung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The maximum discrete infeed defines the greatest relative change which is assignable by the PLC.</Text>
+      <Text Language="de">Die maximale diskrete Zustellung legt die maximale relative Änderung fest, die über die PLC beauftragt werden kann.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ grinding_max_infeed ≤ MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ grinding_max_infeed ≤ MAX(SGN32)</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104804235</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#213774347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104804235</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#213774347</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00033</Id>
+    <Name>wz[].grinding_disc_min_radius</Name>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00034</Id>
+    <Name>wz[].grinding_disc_min_width</Name>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00100</Id>
+    <Name>wz[].linkpoint.name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of linkpoint</Text>
+      <Text Language="de">Name Knotenpunkt</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Name of the new linkpoint of the kinematic chain.</Text>
+      <Text Language="de">Name des neuen Knotenpunkts der kinematischen Kette.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104815115</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104815115</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00101</Id>
+    <Name>wz[].linkpoint.mountpoint</Name>
+    <ShortDescription>
+      <Text Language="en">Mountpoint</Text>
+      <Text Language="de">Mountpoint</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Name of the existing node of the kinematic chain to which the new node is attached.</Text>
+      <Text Language="de">Name des existierenden Knotens der kinematischen Kette, an welchen der neue Knoten gehängt wird.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104816651</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104816651</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00102</Id>
+    <Name>wz[].linkpoint.translation[]</Name>
+    <ShortDescription>
+      <Text Language="en">Translation of main axes</Text>
+      <Text Language="de">Translation der Hauptachsen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Shift of the link point in the main axes relative to the mountpoint.</Text>
+      <Text Language="de">Verschiebung des Linkpoints in den Hauptachsen bzgl. des Mountpoints.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; translation[k] &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; translation[k] &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="translation">3</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104818187</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104818187</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00103</Id>
+    <Name>wz[].linkpoint.rotation[]</Name>
+    <ShortDescription>
+      <Text Language="en">Rotation of main axes</Text>
+      <Text Language="de">Rotation der Hauptachsen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Eulerian angle by means of which current rotation of the link point is specified with respect to the mountpoint.</Text>
+      <Text Language="de">Eulerwinkel, über welche die aktuelle Drehung des Linkpoints bezüglich des Mountpoints angegeben wird.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">-360° &lt; rotation[k] &lt; 360°</Text>
+      <Text Language="de">-360° &lt; rotation[k] &lt; 360°</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="rotation">3</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104819723</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104819723</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00104</Id>
+    <Name>wz[].linkpoint.ax_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Axis number</Text>
+      <Text Language="de">Achsnummer</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Logical axis number that leads to movement of the new linkpoint.</Text>
+      <Text Language="de">Logische Achsnummer der Achse, welche zu einer Bewegung des neuen Linkpoints führt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 &lt; ax_nr ≤ MAX(UNS16)</Text>
+      <Text Language="de">0 &lt; ax_nr ≤ MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104821259</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104821259</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00105</Id>
+    <Name>wz[].linkpoint.trans_rot</Name>
+    <ShortDescription>
+      <Text Language="en">Translation/rotation of linkpoint</Text>
+      <Text Language="de">Translation/Rotation des Knotenpunktes</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Definition whether a movement of the axis leads to a translation in X / Y / Z or a rotation about X / Y / Z: 1-TRANS_X, 2-TRANS_Y, ..., 6-ROT_Z.</Text>
+      <Text Language="de">Angabe, ob die Bewegung der Achse zu einer Translation in X / Y / Z oder zu einer Rotation um X / Y / Z: 1-TRANS_X, 2-TRANS_Y, ..., 6-ROT_Z führt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; trans_rot &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; trans_rot &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104822795</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104822795</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00106</Id>
+    <Name>wz[].linkpoint.inverse</Name>
+    <ShortDescription>
+      <Text Language="en">Effect of the movement on the linkpoint</Text>
+      <Text Language="de">Wirkung der Bewegung auf den Knotenpunkt</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines whether the programmed axis movements are to exert an inverting effect on the translation or rotation of the linkpoint.</Text>
+      <Text Language="de">Parameter gibt an, ob die programmierten Achsbewegungen invers auf die Translation bzw. Rotation des Linkpoints wirken sollen.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Axis movement has no inverting effect on the linkpoint&#13;
+1: Axis movement has an inverting effect on the linkpoint</Text>
+      <Text Language="de">0: Achsbewegung wirkt nicht invertiert auf den Linkpoint&#13;
+1: Achsbewegung wirkt invertiert auf den Linkpoint</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104824331</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104824331</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00107</Id>
+    <Name>wz[].linkpoint.visible</Name>
+    <ShortDescription>
+      <Text Language="en">Use of the linkpoint</Text>
+      <Text Language="de">Verwendung des Knotenpunktes</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the method for handling the linkpoint during visualisation.</Text>
+      <Text Language="de">Parameter gibt an, wie der Linkpoint bei der Visualisierung zu behandeln ist.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Linkpoints are only for internal calculation of the chain. This means that the linkpoint is transferred once when added but it is not cyclically displayed.&#13;
+1: Movements of the linkpoint are cyclically displayed when logged (e.g. via Data Factory).</Text>
+      <Text Language="de">0: Linkpoints dienen nur zur internen Berechnung der Kette. Das heißt, bei Hinzufügen wird der Linkpoint einmal übertragen, aber nicht zyklisch angezeigt.&#13;
+1: Bewegungen des Linkpoints werden bei Protokollierung (z.B. über Data Factory) zyklisch angezeigt.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104825867</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104825867</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00108</Id>
+    <Name>wz[].linkpoint.fixed</Name>
+    <ShortDescription>
+      <Text Language="en">Position of linkpoint after axis exchange</Text>
+      <Text Language="de">Position des Knotenpunktes nach Achstausch</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the method for handling a linkpoint attached to an axis during collision consideration if this axis is no longer available in the NC channel due to axis exchange.</Text>
+      <Text Language="de">Parameter gibt an, wie der mit einer Achse verbundene Linkpoint bei einer Kollisionsbetrachtung zu behandeln ist, wenn diese Achse durch Achstausch nicht mehr im NC-Kanal vorhanden ist.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Collision monitoring for this linkpoint can no longer be reliably executed.&#13;
+1: Linkpoint position remains constant after axis exchange. Collision monitoring can be executed.</Text>
+      <Text Language="de">0: Kollisionsbetrachtung für diesen Linkpoint kann nicht mehr sicher durchgeführt werden.&#13;
+1: Linkpoint-Position bleibt nach Achstausch konstant. Die Kollisionsbetrachtung kann durchgeführt werden.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104827403</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104827403</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00109</Id>
+    <Name>wz[].linkpoint.arm_len</Name>
+    <ShortDescription>
+      <Text Language="en">Maximum lever arm length</Text>
+      <Text Language="de">Maximale Hebelarmlänge</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Maximum lever arm length of the graphical objects attached to the (rotary) linkpoint. This is a segmentation aid for rotary axes.</Text>
+      <Text Language="de">Maximale Hebelarmlänge der am (rotatorischen) Linkpoint angebrachten grafischen Objekte. Diese dient zur Segmentierung bei rotatorischen Achsen.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; arm_len &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; arm_len &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104828939</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104828939</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00120</Id>
+    <Name>wz[].gobject[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of graphical object</Text>
+      <Text Language="de">Name graph. Objekt</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Name of the graphical object.</Text>
+      <Text Language="de">Name des grafischen Objekts.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104832011</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104832011</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00121</Id>
+    <Name>wz[].gobject[].linkpoint</Name>
+    <ShortDescription>
+      <Text Language="en">Linkpoint name</Text>
+      <Text Language="de">Knotenpunktname</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Name of the node (LINKPOINT) in the kinematics chain to which the graphical object is appended.</Text>
+      <Text Language="de">Name des Knotens (LINKPOINT) der kinematischen Kette, an welchen das grafische Objekt gehängt wird.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104833547</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104833547</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00122</Id>
+    <Name>wz[].gobject[].group[]</Name>
+    <ShortDescription>
+      <Text Language="en">Group name</Text>
+      <Text Language="de">Gruppenname</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Name of the group (summarised graphical objects) which is additionally attached to the new graphical object.</Text>
+      <Text Language="de">Name der Gruppe (zusammengefasste grafische Objekte), die zusätzlich an das neue grafische Objekt gehängt wird.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+      <ArrayIndex No="2" Name="group">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104835083</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104835083</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00123</Id>
+    <Name>wz[].gobject[].translation[]</Name>
+    <ShortDescription>
+      <Text Language="en">Translation of object</Text>
+      <Text Language="de">Translation des Objektes</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Shift of the graphical object or of the group with respect to the linkpoint (LINKPOINT) if specified absolutely or with respect to the previous coordinates if specified as relative (P-TOOL-00125).</Text>
+      <Text Language="de">Verschiebung des grafischen Objekts bzw. der Gruppe bezüglich des Knotenpunkts (LINKPOINT) bei absoluter Angabe bzw. bezüglich der vorherigen Koordinaten bei relativer Angabe (P-TOOL-00125).</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; translation[k] &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; translation[k] &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+      <ArrayIndex No="2" Name="translation">3</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104836619</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104836619</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00124</Id>
+    <Name>wz[].gobject[].rotation[]</Name>
+    <ShortDescription>
+      <Text Language="en">Rotation of object</Text>
+      <Text Language="de">Rotation des Objektes</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Eulerian angle by which the static rotation of the graphical object is specified relative to the node point (LINKPOINT).</Text>
+      <Text Language="de">Eulerwinkel, über welche die statische Drehung des grafischen Objekts bezüglich des Knotenpunkts (LINKPOINT) angegeben wird.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">-360° &lt; rotation[k] &lt; 360°</Text>
+      <Text Language="de">-360° &lt; rotation[k] &lt; 360°</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+      <ArrayIndex No="2" Name="rotation">3</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104838155</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104838155</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00125</Id>
+    <Name>wz[].gobject[].relative</Name>
+    <ShortDescription>
+      <Text Language="en">Effect of shift and rotation</Text>
+      <Text Language="de">Wirkung von Verschiebung und Rotation</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines how the programmed shifts and rotations are to affect the current shifts and rotations.</Text>
+      <Text Language="de">Dieser Parameter gibt an, wie die programmierten Verschiebungen und Rotationen zu den aktuellen Verschiebungen und Rotationen wirken sollen.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: The specified shift/rotation replaces all previously activated shifts/rotations.&#13;
+1: Shift and rotation have an accumulative effect on the current shift or rotation.</Text>
+      <Text Language="de">0: Angegebene Verschiebung / Drehung ersetzt alle vorher aktivierten Verschiebungen / Drehungen.&#13;
+1: Verschiebung und Rotation wirken additiv zur aktuellen Verschiebung bzw. Rotation.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104839691</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104839691</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00126</Id>
+    <Name>wz[].gobject[].file</Name>
+    <ShortDescription>
+      <Text Language="en">File containing description of object data</Text>
+      <Text Language="de">Datei mit Beschreibung der Objektdaten</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Name of the file which additionally describes the graphical object (e.g. VRML file).</Text>
+      <Text Language="de">Name der Datei, über welche das grafische Objekt zusätzlich beschrieben wird (z.B. VRML-Datei).</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>135</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104841227</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104841227</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00127</Id>
+    <Name>wz[].gobject[].key[]</Name>
+    <ShortDescription>
+      <Text Language="en">Key name</Text>
+      <Text Language="de">Schlüsselname</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Key name of a key/value pair (value name: P-TOOL-00128) which additionally describes the graphical object.</Text>
+      <Text Language="de">Schlüsselname eines Schlüssel-/ Wertepaares (Wertname: P-TOOL-00128), über welches das grafische Objekt zusätzlich beschrieben wird.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+      <ArrayIndex No="2" Name="key">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104842763</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104842763</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00128</Id>
+    <Name>wz[].gobject[].value[]</Name>
+    <ShortDescription>
+      <Text Language="en">Value name</Text>
+      <Text Language="de">Wertname</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Value name of a key/value pair (key name: P-TOOL-00127) which additionally describes the graphical object.</Text>
+      <Text Language="de">Wertname eines Schlüssel-/ Wertepaares (Schlüsselname: P-TOOL-00127), über welches das grafische Objekt zusätzlich beschrieben wird.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 40 characters (application-specific)</Text>
+      <Text Language="de">Maximal 40 Zeichen (applikationsspezifisch)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>39</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+      <ArrayIndex No="2" Name="value">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#125430283</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#125430283</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00129</Id>
+    <Name>wz[].gobject[].changed</Name>
+    <ShortDescription>
+      <Text Language="en">Information about a change</Text>
+      <Text Language="de">Angabe einer Änderung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter informs about a data change by the external tool management system. The user decides whether to evaluate this information or not.</Text>
+      <Text Language="de">Dieser Parameter zeigt die Angabe einer Änderung durch die Werkzeugverwaltung an. Die Auswertung dieser Information bleibt hierbei dem Anwender überlassen.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: No change of data&#13;
+1: Data change by the external tool management system.</Text>
+      <Text Language="de">0: Keine Änderung von Daten.&#13;
+1: Änderung von Daten durch Werkzeugverwaltung.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+      <ArrayIndex No="1" Name="gobject">5</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104844299</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104844299</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00132</Id>
+    <Name>wz[].add_info</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00138</Id>
+    <Name>wz[].grinding_disc_tilt_angle</Name>
+    <ShortDescription>
+      <Text Language="en">Grinding disc tilt angle</Text>
+      <Text Language="de">Neigungswinkel der Schleifscheibe</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the angle between the centre line of the grinding disc and the 3rd main axis for tilted grinding discs.</Text>
+      <Text Language="de">Der Parameter bestimmt bei geneigten Schleifscheiben den Winkel zwischen der Mittelachse der Schleifscheibe und der 3.Hauptachse.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">-45°≤ grinding_tilt_angle ≤ 45°</Text>
+      <Text Language="de">-45°≤ grinding_tilt_angle ≤ 45°</Text>
+    </Range>
+    <Type>REAL64</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#104805771</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#213774347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#104805771</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#213774347</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00140</Id>
+    <Name>tool_data_with_id</Name>
+    <ShortDescription>
+      <Text Language="en">Enabling tool number assignment</Text>
+      <Text Language="de">Freischaltung der Werkzeugnummernvergabe</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The basic setting defines the tool number &lt;i&gt; by the index of the tool structure wz[&lt;i&gt;]. As a result, the structure size determines the maximum possible number of tools and their numbers. For example, if the structure wz[&lt;i&gt;] has 200 places, the tool number range is from 0 to 199.If P-TOOL-00140 is set to 1, any number can be entered in the structure wz[i].tool_id.* independent of the index numbering for each tool.</Text>
+      <Text Language="de">In der Grundeinstellung wird über den Index der Werkzeugstruktur wz[&lt;i&gt;] die Nummer des Werkzeuges &lt;i&gt; festgelegt. Damit bestimmt die Größe der Struktur die maximal mögliche Anzahl der Werkzeuge und deren Nummern. Hat die Struktur wz[&lt;i&gt;] zum Beispiel 200 Plätze, so können Werkzeugnummern von 0 – 199 vergeben werden.Wird P-TOOL-00140 auf 1 gesetzt, so können unabhängig von der Indexnummerierung für jedes Werkzeug beliebige Nummern in der Struktur wz[i].tool_id.* angelegt werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Determine the tool number by the index number1: Any definition of the tool number from the tool ID</Text>
+      <Text Language="de">0: Bestimmung der Werkzeugnummer durch Indexnummer1: Beliebige Definition der Werkzeugnummer über Werkzeug-ID.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1012125579</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1012125579</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00141</Id>
+    <Name>wz[].tool_id.basic</Name>
+    <ShortDescription>
+      <Text Language="en">Basic tool number</Text>
+      <Text Language="de">Nummer des Grundwerkzeugs</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Enter the basic tool number in this parameter.</Text>
+      <Text Language="de">In diesem Parameter wird die Nummer des Grundwerkzeugs eingetragen.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; P-TOOL-00141&lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; P-TOOL-00141&lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1012151563</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1012151563</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00142</Id>
+    <Name>wz[].tool_id.sister</Name>
+    <ShortDescription>
+      <Text Language="en">Sister tool number</Text>
+      <Text Language="de">Nummer des Schwesternwerkzeugs</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Enter the sister tool number in this parameter.</Text>
+      <Text Language="de">In diesem Parameter wird die Nummer des Schwesternwerkzeugs eingetragen.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; P-TOOL-00142 &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; P-TOOL-00142 &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1012154123</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1012154123</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00143</Id>
+    <Name>wz[].tool_id.variant</Name>
+    <ShortDescription>
+      <Text Language="en">Variant tool number</Text>
+      <Text Language="de">Werkzeugnummer alternatives Werkzeug</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Enter the variant tool number in this parameter.</Text>
+      <Text Language="de">In diesem Parameter wird die Nummer des alternativen Werkzeugs eingetragen.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) &lt; P-TOOL-00143 &lt; MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) &lt; P-TOOL-00143 &lt; MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1012156683</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1012156683</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00144</Id>
+    <Name>wz[].tool_id.sister_valid</Name>
+    <ShortDescription>
+      <Text Language="en">Validity flag of the sister tool</Text>
+      <Text Language="de">Gültigkennung Schwesternwerkzeug</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter indicates whether the sister tool P-TOOL-00142 is valid.</Text>
+      <Text Language="de">Mit diesem Parameter wird signalisiert, ob das Schwesternwerkzeug P-TOOL-00142 gültig ist.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0 / 1</Text>
+      <Text Language="de">0 / 1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1012159243</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1012159243</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00145</Id>
+    <Name>wz[].tool_id.variant_valid</Name>
+    <ShortDescription>
+      <Text Language="en">Validity flag of the variant tool</Text>
+      <Text Language="de">Gültigkennung alternatives Werkzeug</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter indicates whether the variant tool is valid. It is specified by P-TOOL-00143</Text>
+      <Text Language="de">Mit diesem Parameter wird signalisiert, ob das angegebene alternative Werkzeug gültig ist. Dieses wird über P-TOOL-00143 angegeben.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0 / 1</Text>
+      <Text Language="de">0 / 1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#1012163339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#1012163339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-TOOL-00147</Id>
+    <Name>wz[].additional_settings</Name>
+    <ShortDescription>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter enables additional modes for the tool.&#13;
+The following modes are currently available:&#13;
+NONE: no additional modes (default)GEAR_CHANGE_NO_STOP: All the functions of the parameter P-TOOL-00019 can be used when this mode is set. It permits a change in the rotation direction of M3/M4 or M4/M3 when this mode is set. In addition to P-TOOL-00019 this mode can also differentiate between the gear ratios of the two tools. An “internal” gear change then takes place without the spindle stopping. However, the mode must be set for all the tools participating in the change.&#13;
+&#13;
+Note: Only use this parameter if no physical tool change is linked to the D/T word (e.g. several drills/milling cutters on one machine).</Text>
+      <Text Language="de">Mit diesem Parameter lassen sich weitere Modi für das Werkzeug freischalten.&#13;
+Derzeit sind folgende Modi verfügbar:&#13;
+NONE: keine weiteren Modi (Standard)GEAR_CHANGE_NO_STOP: Alle Funktionen von Parameter P-TOOL-00019 können verwendet werden, wenn dieser Modus gesetzt ist. Somit ist eine Drehrichtungsumkehr von M3/M4 bzw. M4/M3 bei gesetztem Modus möglich. Zusätzlich zu P-TOOL-00019 können sich in diesem Modus auch die Getriebefaktoren der beiden Werkzeuge unterscheiden. Somit findet ein „interner“ Getriebewechsel statt ohne dass die Spindel stehen bleibt. Dafür muss der Modus jedoch für alle am Wechsel beteiligten Werkzeuge gesetzt sein.&#13;
+&#13;
+Hinweis: Dieser Parameter darf nur verwendet werden, wenn mit dem D/T-Wort kein physikalischer Werkzeugwechsel verbunden ist (z.B. mehrere Bohrer/Fräser an einem Aggregat)!</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>NONE</DefaultValue>
+    <Range>
+      <Text Language="en">NONE, GEAR_CHANGE_NO_STOP</Text>
+      <Text Language="de">NONE, GEAR_CHANGE_NO_STOP</Text>
+    </Range>
+    <Type>STRING</Type>
+    <Bitfield>8</Bitfield>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>NONE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>GEAR_CHANGE_NO_STOP</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="wz">1</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#493065867</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#493065867</Link>
+    </Help>
+  </Parameter>
+  <Section>
+    <Name>
+      <Text Language="en">General tool parameter</Text>
+      <Text Language="de">Allgemeine Werkzeugparameter</Text>
+    </Name>
+    <Parameter>P-TOOL-00001</Parameter>
+    <Parameter>P-TOOL-00003</Parameter>
+    <Parameter>P-TOOL-00004</Parameter>
+    <Parameter>P-TOOL-00006</Parameter>
+    <Parameter>P-TOOL-00008</Parameter>
+    <Parameter>P-TOOL-00005</Parameter>
+    <Parameter>P-TOOL-00010</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Free usable parameters</Text>
+      <Text Language="de">Frei verwendbare Parameter</Text>
+    </Name>
+    <Parameter>P-TOOL-00007</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Tool tip radius compensation</Text>
+      <Text Language="de">Schneidenradiuskompensation</Text>
+    </Name>
+    <Parameter>P-TOOL-00002</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Transformation specific tool parameters</Text>
+      <Text Language="de">Transformationsspezifische Werkzeugparameter</Text>
+    </Name>
+    <Parameter>P-TOOL-00011</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Dynamic limits of tool</Text>
+      <Text Language="de">Dynamikgrenzen des Werkzeugs</Text>
+    </Name>
+    <Parameter>P-TOOL-00012</Parameter>
+    <Parameter>P-TOOL-00013</Parameter>
+    <Parameter>P-TOOL-00014</Parameter>
+    <Parameter>P-TOOL-00015</Parameter>
+    <Parameter>P-TOOL-00009</Parameter>
+    <Parameter>P-TOOL-00020</Parameter>
+    <Parameter>P-TOOL-00034</Parameter>
+    <Parameter>P-TOOL-00033</Parameter>
+    <Parameter>P-TOOL-00031</Parameter>
+    <Parameter>P-TOOL-00030</Parameter>
+    <Parameter>P-TOOL-00019</Parameter>
+    <Parameter>P-TOOL-00018</Parameter>
+    <Parameter>P-TOOL-00017</Parameter>
+    <Parameter>P-TOOL-00016</Parameter>
+    <Parameter>P-TOOL-00009</Parameter>
+  </Section>
+</Parameters>

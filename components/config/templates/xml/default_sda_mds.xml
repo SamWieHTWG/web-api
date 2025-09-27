@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- **************************************** -->
+<!-- Channel data, default settings           -->
+<!-- **************************************** -->
+<Default_SDA_MDS>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+
+  <GeneralParameter>
+    <!-- Definition of M functions and synchronization types (default NO_SYNCH  0x0) -->
+    <!-- =========================================================================== -->
+    <MFkt>
+      <!-- Programmed stop -->
+      <P-CHAN-00041.0 Value="MOS" />
+      <P-CHAN-00041.1 Value="MOS" />
+
+      <!-- Program end -->
+      <P-CHAN-00041.2 Value="MOS" />
+      <P-CHAN-00041.17 Value="MOS" />
+      <P-CHAN-00041.29 Value="MOS" />
+      <P-CHAN-00041.30 Value="MOS" />
+    </MFkt>
+
+    <!-- Definition of units and resolutions of axes -->
+    <!-- =========================================== -->
+    <!-- Dimensional unit for translatory axes - 'mass_einh' -->
+    <P-CHAN-00054 Value="0" />
+    <!-- Dimensional unit for rotatory axes - 'rund_mass_einh' -->
+    <P-CHAN-00079 Value="0" />
+    <!-- Resolution of linear axes - 'lin_aufloes' -->
+    <P-CHAN-00034 Value="10000" />
+    <!-- Resolution of rotary axes - 'rund_aufloes' -->
+    <P-CHAN-00078 Value="10000" />
+    <!-- Resolution of spindles - 'spind_aufloes' -->
+    <P-CHAN-00083 Value="10000" />
+    <!-- Ident. code for external tool management - 'ext_wzv_vorhanden' -->
+    <P-CHAN-00016 Value="1" />
+    <!-- Flag to inform about tool change - 't_info_to_wzv' -->
+    <P-CHAN-00087 Value="1" />
+    <!-- Send tool life quantities of a tool to the tool management - 'tool_life_to_wzv' -->
+    <P-CHAN-00076 Value="1" />
+    <!-- Do not send tool life data zero - 'tool_life_to_wzv_suppress_zero' -->
+	<P-CHAN-00243 Value="1" />
+    <!-- Setting the functionality "t-together with-d" - 'einrechnen_mit_t' -->
+    <P-CHAN-00014 Value="1" />
+    <!-- residual path after arrival of the measurement signal - 'kasto_residual_path' -->
+    <P-CHAN-00030 Value="100" />
+    <!-- Effect of zero point offsets in diameter for plane axis (turning) - 'versch_im_durchm' -->
+    <P-CHAN-00091 Value="0" />
+    <!-- Permissible relative centre point offset - 'mittelpkt_faktor' -->
+    <P-CHAN-00060 Value="50" />
+    <!-- Permissible absolute centre point offset - 'mittelpkt_diff' -->
+    <P-CHAN-00059 Value="20000" />
+    <!-- Main program modal validity of P-parameters - 'p_param_haltend' -->
+    <P-CHAN-00067 Value="0" />
+    <!-- Single step operating mode - 'einzelschrittmodus' -->
+    <P-CHAN-00015 Value="0" />
+    <!-- Configuration with tool radius compensation - 'wrk_im_kanal_vorhanden' -->
+    <P-CHAN-00092 Value="1" />
+    <!-- Switching the default feed axis - 'feed_to_weakest_axis' -->
+    <P-CHAN-00096 Value="0" />
+    <!-- Valid deceleration at FEEDHOLD - 'use_drive_curr_limit' -->
+    <P-CHAN-00097 Value="1" />
+    <!-- Override at manual mode - 'override_v_handwheel' -->
+    <P-CHAN-00186 Value="1" />
+    <!-- Behaviour in case of an axis error - 'independent_axis_error_stop' -->
+    <P-CHAN-00218 Value="1" />
+    <!-- Permitted trafo deviation limit - 'permitted_trafo_deviation_limit' -->
+    <P-CHAN-00228 Value="10000000" />
+    <!-- Number of spindle - 'spdl_anzahl' -->
+    <P-CHAN-00082 Value="0" />
+    <!-- Axes release after Reset - 'reset_no_axis_to_axv' -->
+    <P-CHAN-00075 Value="1" />
+    <!-- Number of axis groups - 'grp_anzahl' -->
+    <P-CHAN-00023 Value="1" />
+    <!-- Enable programming of axis motion with A1=, A2=, ... - 'use_alias_name_in_ax_list' -->
+    <P-CHAN-00253 Value="1" />
+    <!-- 'enable_mod_axis_always_shortest_way' -->
+    <P-CHAN-00346 Value="1" />
+  </GeneralParameter>
+
+  <!-- HSC default settings -->
+  <!-- ==================== -->
+  <HSC>
+    <!-- HSC general initialization -->
+    <!-- ========================== -->
+    <General>
+      <!-- Segmentation of linear blocks - default value: 1 - 'linear_segmentation'-->
+      <P-CHAN-00132 Value="1" />
+      <!-- Block selection in the case of linear segmentation - default value: 0 - 'linear_center_point'-->
+      <P-CHAN-00133 Value="0" />
+      <!-- Segmentation specification - default value: 0 - 'linear_continuous_split'-->
+      <P-CHAN-00134 Value="1" />
+      <!-- Segment length in the case of linear blocks - default value: 1000 [0.1um] - 'linear_split_length'-->
+      <P-CHAN-00135 Value="100000" />
+      <!-- Basis of segmentation of circular blocks - default value: 0 - 'circular_secant_error'-->
+      <P-CHAN-00136 Value="1" />
+      <!-- Segmentation of circular blocks - default value: 0 - 'circular_segmentation' -->
+      <P-CHAN-00137 Value="1" />
+      <!-- Contour error in the case of segmentation of circular blocks - default value: 50 [0.1um] - 'circular_param' -->
+      <P-CHAN-00138 Value="100000" />
+      <!-- Handling short blocks - default value: 20 [0.1um] - 'filter_deviation'-->
+      <P-CHAN-00139 Value="0" />
+      <!-- Delayed HSC selection (BSPLINE) - 'on_delay_output_one_block'-->
+      <P-CHAN-00217 Value="1" />
+      <!-- Automatic insertion of polynomial contouring after internal B-spline deselection - default value: 0 - 'auto_contour_mode' -->
+      <P-CHAN-00239 Value="0" />
+      <!-- Definition of feed axes group for B-spline - default value: 0 - 'fgroup' -->
+      <P-CHAN-00240 Value="1" />
+    </General>
+  </HSC>
+
+  <!-- Definition of axes group -->
+  <!-- ======================== -->
+  <AxesGroups>
+    <AxesGroup>
+      <!-- Group data - number of axes - 'achs_anzahl' -->
+      <P-CHAN-00003.0 Value="0" />
+    </AxesGroup>
+  </AxesGroups>
+
+  <!-- Parametrization of syntax check -->
+  <!-- =============================== -->
+  <SyntaxCheck>
+    <!-- Number of errors in a NC-block                                                 -->
+    <!-- Number of errors, which causes a jump to the next NC line - 'fehler_pro_zeile' -->
+    <P-CHAN-00020 Value="2" />
+    <!-- Number of errors in a NC-program                                             -->
+    <!-- Number of errors, which causes an abortion of syntax check - 'fehler_gesamt' -->
+    <P-CHAN-00019 Value="20" />
+    <!-- Declaration of the operation mode                           -->
+    <!-- Automatic continue (0) or wait for signal(1) - 'interaktiv' -->
+    <P-CHAN-00028 Value="0" />
+  </SyntaxCheck>
+
+  <!-- Parametrization of change protocolling -->
+  <!-- ====================================== -->
+  <ChangeProtocol>
+    <!-- Protocolling of P-parameter - 'p_parameter' -->
+    <P-CHAN-00068 Value="1" />
+    <!-- Protocolling of self defined variables - 'v_eigendef' -->
+    <P-CHAN-00088 Value="1" />
+    <!-- Protocolling of tool data - 'wz_daten'-->
+    <P-CHAN-00093 Value="1" />
+    <GFunctions>
+      <!-- Protocolling of G-functions - 'g_gruppe'-->
+      <!-- WEG_BED  : G00,G01,G02,G03,G04,G33,G63,
+                      G74,G98,G99,G301,G302,G160   -->
+      <P-CHAN-00022.0 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- VB_VORSCH: G08,G193 -->
+      <P-CHAN-00022.1 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- GESCHW   : G09 -->
+      <P-CHAN-00022.2 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- WRK_VB   : G10,G11 -->
+      <P-CHAN-00022.3 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- EBENE    : G17,G18,G19,G20 -->
+      <P-CHAN-00022.4 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- SPIEGEL  : G21,G22,G23,G24 -->
+      <P-CHAN-00022.5 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- WRK_UEBER: G25,G26 -->
+      <P-CHAN-00022.6 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe'-->
+      <!-- WZ_KORR  : G40,G41,G42 -->
+      <P-CHAN-00022.7 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- DURCHM   : G51,G52 -->
+      <P-CHAN-00022.8 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- NULLP    : G53,...,G59,G159 -->
+      <P-CHAN-00022.9 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- GENAUHALT: G60,G61 -->
+      <P-CHAN-00022.10 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- OVERRIDE : G166 -->
+      <P-CHAN-00022.11 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- MASSEINH : G70,G71 -->
+      <P-CHAN-00022.12 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- ARB_ZYK  : G80,...,G89 -->
+      <P-CHAN-00022.13 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- MASSANG  : G90,G91 -->
+      <P-CHAN-00022.14 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- BZP      : G92 -->
+      <P-CHAN-00022.15 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- F_VRG    : G93,G94,G95 -->
+      <P-CHAN-00022.16 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- S_VRG    : G96,G97,G196 -->
+      <P-CHAN-00022.17 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- GETRIEBE : G112 -->
+      <P-CHAN-00022.18 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe'-->
+      <!-- BAVO     : G115,G116,G117 -->
+      <P-CHAN-00022.19 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- BESCHL   : G130,G131 -->
+      <P-CHAN-00022.20 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- VORST    : G135,G136,G137 -->
+      <P-CHAN-00022.21 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- WRK_E_A  : G05,G138,G139 -->
+      <P-CHAN-00022.22 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- MPKT_A_R : G161,G162 -->
+      <P-CHAN-00022.23 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- RADIUS   : G163 -->
+      <P-CHAN-00022.24 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- MPKT_KORR: G164,G165 -->
+      <P-CHAN-00022.25 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- HAND     : G200,G201,G202 -->
+      <P-CHAN-00022.26 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- KONTUR   : G301,G302 -->
+      <P-CHAN-00022.27 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- RAMPE_ZT : G132,G133 -->
+      <P-CHAN-00022.28 Value="0" />
+      <!-- Protocolling of G-functions  - 'g_gruppe' -->
+      <!-- ASPLINE  : G150,G151 -->
+      <P-CHAN-00022.29 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- MESSEN   : G100,G101,G102,G106,G108 -->
+      <P-CHAN-00022.30 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- CORNER   : G12,G13 -->
+      <P-CHAN-00022.31 Value="1" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- CONT_MASK:   G140,G141 -->
+      <P-CHAN-00022.32 Value="0" />
+      <!-- Protocolling of G-functions - 'g_gruppe' -->
+      <!-- PATH_SMOOTH: G152,G153 -->
+      <P-CHAN-00022.33 Value="0" />
+    </GFunctions>
+  </ChangeProtocol>
+
+  <!-- Definition of strings -->
+  <!-- ===================== -->
+  <MacroDef>
+    <Macro>
+      <!-- Specification of the text to be replaced - 'nc_code' -->
+      <P-CHAN-00062.0 Value="CODE_0" />
+      <!-- Specification of symbol strings - 'symbol' -->
+      <P-CHAN-00085.0 Value="SYMBOL_0" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.1 Value="CODE_1" />
+      <P-CHAN-00085.1 Value="SYMBOL_1" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.2 Value="CODE_2" />
+      <P-CHAN-00085.2 Value="SYMBOL_2" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.3 Value="CODE_3" />
+      <P-CHAN-00085.3 Value="SYMBOL_3" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.4 Value="CODE_4" />
+      <P-CHAN-00085.4 Value="SYMBOL_4" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.5 Value="CODE_5" />
+      <P-CHAN-00085.5 Value="SYMBOL_5" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.6 Value="CODE_6" />
+      <P-CHAN-00085.6 Value="SYMBOL_6" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.7 Value="CODE_7" />
+      <P-CHAN-00085.7 Value="SYMBOL_7" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.8 Value="CODE_8" />
+      <P-CHAN-00085.8 Value="SYMBOL_8" />
+    </Macro>
+    <Macro>
+      <P-CHAN-00062.9 Value="CODE_9" />
+      <P-CHAN-00085.9 Value="SYMBOL_9" />
+    </Macro>
+  </MacroDef>
+
+  <!-- Tool parameters -->
+  <!-- =============== -->
+  <Tool>
+    <!-- Processing time calculation - 'prozess_zeit' -->
+    <P-CHAN-00072 Value="0" />
+    <!-- Techno data - 'synch' -->
+    <P-CHAN-00086 Value="MOS" />
+  </Tool>
+
+  <!-- Program start parameters -->
+  <!-- ======================== -->
+  <ProgramStart>
+    <Slope>
+      <!-- Effect of the acceleration weighting - 'acceleration' -->
+      <P-CHAN-00001 Value="0" />
+      <!-- Acceleration profile - 'profile' -->
+      <P-CHAN-00071 Value="3" />
+      <!-- Effect of the ramp time weighting - 'ramp_time' -->
+      <P-CHAN-00073 Value="0" />
+    </Slope>
+  </ProgramStart>
+
+</Default_SDA_MDS>

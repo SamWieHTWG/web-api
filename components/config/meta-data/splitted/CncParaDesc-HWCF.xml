@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-HWCF-00001</Id>
+    <Name>device[].type</Name>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>HW_DEVICE_NONE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_8ACHS_V2_ISG</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SERCOS_IPK</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SERCOS_AUT_PCI</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SERCOS_IAM</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SERCOS_ACD_PCI</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SERCOS_BECK_PCI_1CH</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SERCOS_BECK_PCI_2CH</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_STEP_MOTOR_RUW</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_PK40_CIM</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_8ACHS_V3_ISG_PCI</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_RUW_MCU_3T_PCI</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_KUKA_DSE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_CANOPEN</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SIMULATION</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_SERCOS_HIL_PCI_CIF50SCEB</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>HW_DEVICE_ACD_MFC01</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="device">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-HWCF-00002</Id>
+    <Name>device[].name</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>127</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="device">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-HWCF-00003</Id>
+    <Name>device[].address</Name>
+    <DefaultValue/>
+    <Type>ADDRESS</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="device">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-HWCF-00004</Id>
+    <Name>device[].length</Name>
+    <DefaultValue/>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="device">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-HWCF-00005</Id>
+    <Name>device[].irq</Name>
+    <DefaultValue/>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="device">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-HWCF-00006</Id>
+    <Name>device[].baudrate</Name>
+    <DefaultValue/>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="device">4</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-HWCF-00007</Id>
+    <Name>device[].prog_param[]</Name>
+    <DefaultValue/>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="device">4</ArrayIndex>
+      <ArrayIndex No="1" Name="prog_param">9</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+</Parameters>

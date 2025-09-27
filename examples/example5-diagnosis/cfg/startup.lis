@@ -1,0 +1,41 @@
+# ------------------
+# General parameters
+# ------------------
+
+kanal_anzahl                                          1
+ext_var_max                                           1000
+error_message_texts                                   ./error/err_text_version_eng.txt
+listen                                                ASCII
+
+# --------------------
+# Diagnosis management
+# --------------------
+#
+# NONE, FILTER_OFF, VERBOSE, PRINT, LOG, REPORT, PRINT_NO_WARNINGS, LOG_NO_WARNINGS, REPORT_NO_WARNINGS, PRINT_EXTENDED, LOG_EXTENDED, REPORT_EXTENDED
+#
+error_protocol_mode                       REPORT | REPORT_EXTENDED |PRINT | PRINT_EXTENDED | LOG | LOG_EXTENDED
+error_log_file_name                                                                  ./diagnose/CncErrorMsg.log
+error_log_file_max_size                                                                                  100000
+
+configuration.diagnosis_upload.path                  ./diagnose/
+configuration.diagnosis_upload.mode                  STANDARD | PROTOCOL_INFO
+
+# ----------------------------------------
+# further configuration
+# ----------------------------------------
+
+sda_mds[0]                                            ./listen/sda_mds1-template.lis
+nullp_data[0]                                         ./listen/nullp_d1-template.lis
+pzv_data[0]                                           ./listen/pzv_d1-template.lis
+ve_var[0]                                             ./listen/ext_var1-template.lis
+werkz_data[0]                                         ./listen/werkz_d1-template.lis
+
+zahl_mds                                              4
+default_achs_mds                                      ./listen/achsmds-default.lis
+achs_mds[0]                                           ./listen/achsmds1-template.lis
+achs_mds[1]                                           ./listen/achsmds2-template.lis
+achs_mds[2]                                           ./listen/achsmds3-template.lis
+achs_mds[3]                                           ./listen/achsmds4-template.lis
+
+Ende
+

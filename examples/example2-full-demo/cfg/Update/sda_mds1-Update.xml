@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ******************************* -->
+<!-- Channel parameter               -->
+<!-- ******************************* -->
+<SDA_MDS>
+    <!-- Data to be changed. -->
+    <P-CHAN-00053 Value="S-Changed" />
+</SDA_MDS>

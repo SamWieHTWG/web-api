@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- ************************************************************* -->
+<!-- Configuration list for KEB CNC V1.0                           -->
+<!-- 5 CNC axis + 1 spindle axis               Date: July 25, 2019 -->
+<!-- ************************************************************* -->
+<StartUp>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+
+  <!-- General parameter -->
+  <!-- ================= -->
+  <GeneralParameter>
+    <!-- Number of configured channels - 'kanal_anzahl' -->
+    <P-STUP-00001 Value="1" />
+    <!-- Selected topology - 'konfiguration' -->
+    <P-STUP-00007 Value="EIN_KANAL_KONFIGURIERUNG" />
+    <!-- 'ext_var_max' -->
+    <P-STUP-00037 Value="1000" />
+    <!-- Path to error message files - 'error_message_texts' -->
+    <P-STUP-00158 Value="CncKernelRootDir/error/err_text.txt" />
+    <Channel>
+      <!-- Memory size for reversing - 'fb_storage_size' -->
+      <P-STUP-00033.0 Value="0x200000" />
+    </Channel>
+    <CamTableParameter>
+      <!-- Name of parameter file containing cam table files - 'cam_table_loader' -->
+      <P-STUP-00130 Value="CncKernelRootDir/listen/tab_ldr.lis" />
+      <!-- Maximum memory size for cam tables in bytes - 'cam_table_storage' -->
+      <P-STUP-00131 Value="500000" />
+    </CamTableParameter>
+  </GeneralParameter>
+
+  <!-- Configuration files -->
+  <!-- =================== -->
+  <ConfigurationFiles>
+    <GeneralParameter>
+      <!-- List type - 'listen' -->
+      <P-STUP-00008 Value="ASCII" />
+      <!-- Path of configuration files - 'konf_path' -->
+      <P-STUP-00023 Value="CncKernelRootDir/config" />
+      <!-- Name of the parameter file for real time settings - 'rtconf_lis' -->
+      <P-STUP-00135 Value="CncKernelRootDir/config/rt_conf.xml" />
+    </GeneralParameter>
+    <ChannelParameter>
+      <!-- Name of the parameter file for the default channel parameters - 'default_sda_mds' -->
+      <P-STUP-00034 Value="CncKernelRootDir/config/default_sda_mds.xml" />
+      <!-- Name of the parameter file for the manual operation parameters - 'hand_mds' -->
+      <P-STUP-00013 Value="CncKernelRootDir/config/manual_mode.xml" />
+      <Channel>
+        <!-- Name of the parameter file for the channel parameters - 'sda_mds' -->
+        <P-STUP-00009.0 Value="CncKernelRootDir/config/sda_mds_1.xml" />
+        <!-- Name of the parameter file for the tool data  - 'werkz_data' -->
+        <P-STUP-00010.0 Value="CncKernelRootDir/config/tool_data_1.xml" />
+        <!-- Name of the parameter file for the zero point data - 'nullp_data' -->
+        <P-STUP-00011.0 Value="CncKernelRootDir/config/zero_offset_1.xml" />
+        <!-- Name of the parameter file for the clamp position offset data - 'pzv_data' -->
+        <P-STUP-00012.0 Value="CncKernelRootDir/config/clamp_pos_offset_1.xml" />
+        <!-- Name of the parameter file for the external variables - 've_var', 'ext_var' -->
+        <P-STUP-00146.0 Value="CncKernelRootDir/config/ext_var_1.xml" />
+        <!-- HMI objects -->
+        <P-STUP-00024.0 Value="default" />
+        <!-- Parameters for the BF channel  -->
+        <P-STUP-00026.0 Value="default" />
+      </Channel>
+    </ChannelParameter>
+
+    <AxisParameter>
+      <!-- Name of the parameter file for the default axis parameters - 'default_achs_mds' -->
+      <P-STUP-00035 Value="CncKernelRootDir/config/default_ax_mds.xml" />
+      <!-- Number of axis machine data records - 'zahl_mds' -->
+      <P-STUP-00014 Value="6" />
+      <!-- Name of the parameter file for the axis parameters - 'achs_mds' -->
+      <P-STUP-00015.0 Value="CncKernelRootDir/config/ax_mds_1.xml" />
+      <P-STUP-00015.1 Value="CncKernelRootDir/config/ax_mds_2.xml" />
+      <P-STUP-00015.2 Value="CncKernelRootDir/config/ax_mds_3.xml" />
+      <P-STUP-00015.3 Value="CncKernelRootDir/config/ax_mds_4.xml" />
+      <P-STUP-00015.4 Value="CncKernelRootDir/config/ax_mds_5.xml" />
+      <P-STUP-00015.5 Value="CncKernelRootDir/config/ax_mds_6_spdl.xml" />
+    </AxisParameter>
+
+    <AxisCompensation>
+      <!-- Number of axis compensation data records - 'zahl_kw' -->
+      <P-STUP-00016 Value="1" />
+      <!-- Name of the parameter file for axis compensations - 'achs_kw' -->
+      <P-STUP-00017.0 Value="CncKernelRootDir/config/ax_comp_1.xml" />
+      <!-- Axis allocation of the axis compensation list - 'achs_kw_log_ax_nr' -->
+      <P-STUP-00036.0 Value="1" />
+    </AxisCompensation>
+
+    <VolumetricCompensation>
+      <!-- Number of records to read - 'max_records' -->
+      <P-STUP-00100.0 Value="2000" />
+      <!-- Configuration file for volumetric compensation - 'file_name' -->
+      <P-STUP-00101.0 Value="CncKernelRootDir/config/volcomp_0.xml" />
+    </VolumetricCompensation>
+
+  </ConfigurationFiles>
+
+  <ErrorManagement>
+    <!-- Table with error message text - 'error_text_of_id' -->
+    <P-STUP-00168 Value="CncKernelRootDir/error/err_text.txt" />
+    <!-- Protcol mode - 'error_protocol_mode' -->
+    <P-STUP-00167 Value="PRINT | LOG | REPORT | LOG_EXTENDED | PRINT_EXTENDED" />
+    <!-- Log file name - 'error_log_file_name' -->
+    <P-STUP-00170 Value="CncKernelRootDir/diagnose/CNCErrorMsg.log" />
+    <!-- Max. size of log file - 'error_log_file_max_size' -->
+    <P-STUP-00171 Value="100000" />
+    <!-- Wait cycles of PLC - 'error_plc_wait_cycles' -->
+    <P-STUP-00172 Value="5" />
+  </ErrorManagement>
+
+  <Configuration>
+    <Channel>
+      <Decoder>
+        <!-- Decoder - 'function' -->
+        <P-STUP-00050.0 Value="FCT_USE_CACHED_FILES" />
+        <!-- Max number of cache file - 'max_cache_number' -->
+        <P-STUP-00051.0 Value="4" />
+        <!-- Max cache size - 'max_cache_size' -->
+        <P-STUP-00052.0 Value="4096" />
+        <!-- Max number of local sub routines - 'max_local_subroutine_definitions' -->
+        <P-STUP-00053.0 Value="70" />
+      </Decoder>
+      <PathPreparation>
+        <!-- Path type - 'function' -->
+        <P-STUP-00060.0 Value="FCT_DEFAULT | FCT_M_PRE_OUTPUT | FCT_SURFACE" />
+      </PathPreparation>
+      <Interpolator>
+        <!-- Interpolator - 'function' -->
+        <P-STUP-00070.0 Value="FCT_LOOK_AHEAD_CUSTOM | FCT_NO_LAH_DIAG" />
+        <!-- Look ahead buffer in blocks - 'parameter' -->
+        <P-STUP-00071.0 Value="200" />
+      </Interpolator>
+    </Channel>
+  </Configuration>
+
+  <!-- Compatibility mode to keep 32 bit CNC objects - 'ads_32_bit_comp_mode' -->
+  <P-STUP-00175 Value="0" />
+
+</StartUp>

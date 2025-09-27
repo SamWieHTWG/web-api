@@ -1,0 +1,653 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-VOLC-00001</Id>
+    <Name>x</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the participating X axis</Text>
+      <Text Language="de">Logische Achsnummer der beteiligten X-Achse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the X axis participating in this Volumetric Compensation. The axis is identified by its logical axis number.</Text>
+      <Text Language="de">Dieser Parameter definiert die an der Volumetrischen Kompensation beteiligte X-Achse. Die Achse wird dabei über ihre logische Achsnummer identifiziert.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 … MAX(UNS16)</Text>
+      <Text Language="de">0 … MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106003851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106003851</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00002</Id>
+    <Name>y</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the participating Y axis</Text>
+      <Text Language="de">Logische Achsnummer der beteiligten Y-Achse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the Y axis participating in this Volumetric Compensation. The axis is identified by its logical axis number.</Text>
+      <Text Language="de">Dieser Parameter definiert die an der Volumetrischen Kompensation beteiligte Y-Achse. Die Achse wird dabei über ihre logische Achsnummer identifiziert.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 … MAX(UNS16)</Text>
+      <Text Language="de">0 … MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106003851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106003851</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00003</Id>
+    <Name>z</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the participating Z axis</Text>
+      <Text Language="de">Logische Achsnummer der beteiligten Z-Achse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the Z axis participating in this Volumetric Compensation. The axis is identified by its logical axis number.</Text>
+      <Text Language="de">Dieser Parameter definiert die an der Volumetrischen Kompensation beteiligte Z-Achse. Die Achse wird dabei über ihre logische Achsnummer identifiziert.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 … MAX(UNS16)</Text>
+      <Text Language="de">0 … MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106003851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106003851</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00004</Id>
+    <Name>a</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the participating A axis</Text>
+      <Text Language="de">Logische Achsnummer der beteiligten A-Achse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the A axis participating in this Volumetric Compensation. The axis is identified by its logical axis number.</Text>
+      <Text Language="de">Dieser Parameter definiert die an der Volumetrischen Kompensation beteiligte A-Achse. Die Achse wird dabei über ihre logische Achsnummer identifiziert.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 … MAX(UNS16)</Text>
+      <Text Language="de">0 … MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106003851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106003851</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00005</Id>
+    <Name>b</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the participating B axis</Text>
+      <Text Language="de">Logische Achsnummer der beteiligten B-Achse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the B axis participating in this Volumetric Compensation. The axis is identified by its logical axis number.</Text>
+      <Text Language="de">Dieser Parameter definiert die an der Volumetrischen Kompensation beteiligte B-Achse. Die Achse wird dabei über ihre logische Achsnummer identifiziert.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 … MAX(UNS16)</Text>
+      <Text Language="de">0 … MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106003851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106003851</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00006</Id>
+    <Name>c</Name>
+    <ShortDescription>
+      <Text Language="en">Logical axis number of the participating C axis</Text>
+      <Text Language="de">Logische Achsnummer der beteiligten C-Achse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the C axis participating in this Volumetric Compensation. The axis is identified by its logical axis number.</Text>
+      <Text Language="de">Dieser Parameter definiert die an der Volumetrischen Kompensation beteiligte C-Achse. Die Achse wird dabei über ihre logische Achsnummer identifiziert.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 … MAX(UNS16)</Text>
+      <Text Language="de">0 … MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106003851</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106003851</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00007</Id>
+    <Name>chain</Name>
+    <ShortDescription>
+      <Text Language="en">Type of kinematic chain</Text>
+      <Text Language="de">Art der kinematischen Kette</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies the kinematic chain to be used. For details of how to define the kinematic chain, see [FCT-C26]. The 6 axes available X, Y, Z, A, B and C can be used in any order.</Text>
+      <Text Language="de">Dieser Parameter gibt die zu verwendende kinematische Kette an. Für die Bestimmung der kinematischen Kette siehe [FCT-C26]. Die 6 verfügbaren Achsen X,Y,Z,A,B,C können dabei in beliebiger Reihenfolge angeordnet werden.</Text>
+    </LongDescription>
+    <DefaultValue>XYZ</DefaultValue>
+    <Range>
+      <Text Language="en">&lt;Order of axis names in the chain&gt;</Text>
+      <Text Language="de">&lt;Reihenfolge der Achsnamen der Kette&gt;</Text>
+    </Range>
+    <Type>STRING</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106009099</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106009099</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00008</Id>
+    <Name>workpiece_axes</Name>
+    <ShortDescription>
+      <Text Language="en">Number of workpiece axes</Text>
+      <Text Language="de">Anzahl der Werkstückachsen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies how many axes in the kinematic chain lie on the workpiece side. Use of this parameter depends on the measurement strategy. See [FCT-C26].</Text>
+      <Text Language="de">Dieser Parameter gibt an, wieviele Achsen der kinematischen Kette auf Werkstückseite liegen. Die Verwendung dieses Parameters hängt von der eingesetzten Messstrategie ab, siehe [FCT-C26].</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ≤ workpiece_axes &lt; 6*</Text>
+      <Text Language="de">0 ≤ workpiece_axes &lt; 6*</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106014347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106014347</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00009</Id>
+    <Name>negate</Name>
+    <ShortDescription>
+      <Text Language="en">Negate compensation values</Text>
+      <Text Language="de">Kompensationswerte negieren</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies the Cartesian axes for which the compensation value is to be negated. See [FCT-C26]. A notation based on sets is used. For example, the value "XY" means that the compensation values for X and Y are to be negated, but not for Z.</Text>
+      <Text Language="de">Dieser Parameter gibt an, für welche kartesischen Achsen der Kompensationswert negiert werden soll, siehe [FCT-C26]. Dabei wird eine Mengenschreibweise verwendet. Z.B. bedeutet der Wert 'XY', dass die Kompensationswerte für X und Y negiert werden sollen, für Z jedoch nicht.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">&lt;Name of the axes to be negated&gt;</Text>
+      <Text Language="de">&lt;Namen der zu negierenden Achsen&gt;</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>6</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106019595</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106019595</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00010</Id>
+    <Name>set_to_zero</Name>
+    <ShortDescription>
+      <Text Language="en">Setting the compensation values to zero</Text>
+      <Text Language="de">Kompensationswerte zu Null setzen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies the Cartesian axes in which the compensation value is to be zeroed. See [FCT-C26]. A notation based on sets is used.</Text>
+      <Text Language="de">Dieser Parameter gibt an, für welche kartesischen Achsen der Kompensationswert zu Null gesetzt werden soll, siehe [FCT-C26]. Dabei wird eine Mengenschreibweise verwendet.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">&lt;Names of the axes to be zeroed&gt;</Text>
+      <Text Language="de">&lt;Namen der zu nullenden Achsen&gt;</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>6</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106024843</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106024843</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00011</Id>
+    <Name>alternative_model</Name>
+    <ShortDescription>
+      <Text Language="en">Alternative calculation rule</Text>
+      <Text Language="de">Alternative Rechenvorschrift</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter enables use of an alternative calculation rule for the ISO 230 error model. Use of this parameter depends on the interpretation of the measurement strategy which is possibly used. See [FCT-C26].</Text>
+      <Text Language="de">Dieser Parameter ermöglicht die Verwendung einer alternativen Rechenvorschrift für das ISO 230-Fehlermodell. Die Verwendung dieses Parameters hängt von der Interpretation der u.U. eingesetzten Messstrategie ab, siehe [FCT-C26].</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106030091</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106030091</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00012</Id>
+    <Name>file[]</Name>
+    <ShortDescription>
+      <Text Language="en">Paths and names of parameter files</Text>
+      <Text Language="de">Pfade und Namen von Parameterdateien</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter contains the paths and names of the error parameter files which are read in for the Volumetric Compensation The corresponding parameter P-VOLC-00013 (file_format[j]) should be configured for every entry in file[j].</Text>
+      <Text Language="de">Dieser Parameter enthält die Pfade und Namen der Fehlerparameterdateien, die für die Volumetrische Kompensation eingelesen werden. Für jeden Eintrag in file[j] sollte auch der entsprechende Parameter P-VOLC-00013 (file_format[j]) konfiguriert werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">&lt;Paths and names of parameter files&gt;</Text>
+      <Text Language="de">&lt;Pfade und Namen der Parameterdateien&gt;</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>126</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="file">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106035339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106035339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00013</Id>
+    <Name>file_format[]</Name>
+    <ShortDescription>
+      <Text Language="en">Parameter file formats</Text>
+      <Text Language="de">Formate der Parameterdateien</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the formats of the error parameter files P-VOLC-00012 (file[j]). An incorrect file format setting results in a syntax error when the file is read in.</Text>
+      <Text Language="de">Dieser Parameter definiert die Formate der Fehlerparameterdateien P-VOLC-00012 (file[j]) Ein falsch eingestelltes Dateiformat führt beim Einlesen der Datei zu einem Syntaxfehler.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>ISG_CSV</DefaultValue>
+    <Range>
+      <Text Language="en">{ISG_CSV, ETALON_EXCHANGE}</Text>
+      <Text Language="de">ISG_CSV / ETALON_EXCHANGE</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>ISG_CSV</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>ETALON_EXCHANGE</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="file_format">10</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106040587</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106040587</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00014</Id>
+    <Name>interpolation</Name>
+    <ShortDescription>
+      <Text Language="en">Interpolation method for error parameters</Text>
+      <Text Language="de">Interpolationsmethode für Fehlerparameter</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies the interpolation method to be used for the error parameters. See [FCT-C26].</Text>
+      <Text Language="de">Dieser Parameter gibt die zu verwendende Interpolationsmethode für die Fehlerparameter an, siehe [FCT-C26].</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>GRID</DefaultValue>
+    <Range>
+      <Text Language="en">GRID: The data is given on a grid, linear interpolation. An error is issued if the GRID mode is configured, but the data in the parameter files is not given on a grid.&#13;
+SCATTER: The data is specified irregularly by means of Shepard interpolation.&#13;
+AUTO: If the data is specified on a grid, linear interpolation is used. If not, Shepard interpolation is applied.&#13;
+PATH: Error parameters are specified at the corner points of a polygon. Interpolation takes place in linear sections along the polygon.&#13;
+PATH_XY: Error parameters are specified at the corner points of a polygon in the XY plane.</Text>
+      <Text Language="de">GRID: Die Daten sind auf einem Gitter gegeben, Linearinterpolation. Falls der Modus GRID konfiguriert ist, aber die Daten in den Parameterdateien nicht auf einem Gitter gegeben sind, wird ein Fehler ausgegeben.&#13;
+SCATTER: Die Daten sind unregelmäßig gegeben, Shepardinterpolation.&#13;
+AUTO: Falls die Daten auf einem Gitter gegeben sind, dann Linearinterpolation, sonst Shepardinterpolation.&#13;
+PATH: Die Fehlerparameter sind auf den Eckpunkten eines Polygonzuges gegeben. Interpoliert wird stückweise linear entlang des Polygonzuges.&#13;
+PATH_XY: Die Fehlerparameter sind auf den Eckpunkten eines Polygonzuges in der XY-Ebene gegeben.</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>GRID</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>SCATTER</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>AUTO</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>PATH</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>PATH_XY</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106045835</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106045835</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00015</Id>
+    <Name>enable_splicing</Name>
+    <ShortDescription>
+      <Text Language="en">Adaptation of error parameters</Text>
+      <Text Language="de">Anpassung von Fehlerparametern</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies whether error parameters are to be adjusted for rotary axes to avoid jumps in the compensation values in the event of modulo passages (e.g. 360°). See [FCT-C26].</Text>
+      <Text Language="de">Dieser Parameter gibt an, ob Fehlerparameter für rotatorische Achsen angepasst werden sollen, um Sprünge in den Kompensationswerten bei Modulo-Durchgängen (z.B. 360°) zu vermeiden, siehe [FCT-C26].</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106051083</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106051083</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00016</Id>
+    <Name>diagnosis_file</Name>
+    <ShortDescription>
+      <Text Language="en">Path to the diagnosis file</Text>
+      <Text Language="de">Pfad zur Diagnosedatei</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies the path of a diagnosis file. During start-up and after a parameter update, an XML file is read into this path that lists all Volumetric Compensation parameter sets. This XML file can be opened in any XML editor. Due to the structure, we recommend a spreadsheet program.This function is not available under TwinCAT.</Text>
+      <Text Language="de">Dieser Parameter gibt den Pfad für eine Diagnosedatei an. Während des Hochlaufs und nach einer Parameteraktualisierung wird in diesen Pfad eine XML-Datei geschrieben, die alle Parametersätze der Volumetrischen Kompensation auflistet. Diese XML-Datei kann mit jedem XML Editor geöffnet werden, empfohlen wird aufgrund der Struktur ein Tabellenkalkulationsprogramm.Diese Funktion ist unter TwinCAT nicht verfügbar.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">&lt;Path to the diagnosis file&gt;</Text>
+      <Text Language="de">&lt;Pfad zur Diagnosedatei&gt;</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>255</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106056331</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106056331</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00017</Id>
+    <Name>manual_activation</Name>
+    <ShortDescription>
+      <Text Language="en">Manual activation</Text>
+      <Text Language="de">Manuelle Aktivierung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">By default, Volumetric Compensation is automatically enabled on start-up or reset as soon as the participating axes meet all the necessary conditions. See [FCT-C26]. This parameter can prevent this automated feature. In this case, Volumetric Compensation can only be enabled by the NC command #VOLCOMP ON / OFF.</Text>
+      <Text Language="de">Standardmäßig wird eine Volumetrische Kompensation automatisch nach Hochlauf bzw. Reset eingeschaltet, sobald die beteiligten Achsen alle notwendingen Bedingungen erfüllen, siehe [FCT-C26]. Mit diesem Parameter kann man diesen Automatismus verhindern und die Volumetrische Kompensation kann dann nur über den NC-Befehl #VOLCOMP ON / OFF geschaltet werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Volumetric Compensation is enabled either automatically on start-up or reset or manually, i.e. with #VOLCOMP ON/OFF.&#13;
+1: Volumetric Compensation can be enabled only manually, i.e. with #VOLCOMP ON/OFF.</Text>
+      <Text Language="de">0: Die Volumetrische Kompensation kann sowohl automatisch nach Hochlauf, bzw. Reset, als auch manuell, d.h mit #VOLCOMP ON/OFF geschaltet werden&#13;
+1: Die Volumetrische Kompensation kann ausschliesslich manuell, d.h mit #VOLCOMP ON/OFF geschaltet werden</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106061579</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106061579</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00018</Id>
+    <Name>filter_steps</Name>
+    <ShortDescription>
+      <Text Language="en">Number of steps in the compensation value list.</Text>
+      <Text Language="de">Anzahl der Schritte des Korrekturwertfilters</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If compensation with axis motion is enabled or disabled (NOT via position controller setpoint correction), the correction value is built up and reduced by a filer to move the axis with jerk limiting. This parameter defines the number of steps/cycles.</Text>
+      <Text Language="de">Wenn die Kompensation mit Achsbewegung (NICHT über Lageregler-Sollwert-Korrektur) ein- oder ausgeschaltet wird, dann wird der Korrekturwert über einen Filter auf- bzw. abgebaut, um die Achse ruckbegrenzt zu bewegen. Mit diesem Parameter kann man die Anzahl der Schritte/Zyklen des Filters festlegen.</Text>
+    </LongDescription>
+    <DefaultValue>20</DefaultValue>
+    <Range>
+      <Text Language="en">0 … MAX(UNS32)</Text>
+      <Text Language="de">0 … MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106066827</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106066827</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00019</Id>
+    <Name>associate_to_channel</Name>
+    <ShortDescription>
+      <Text Language="en">Associate compensation to channel</Text>
+      <Text Language="de">Kompensation an Kanal knüpfen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies whether compensation is to be linked to the channel in which it was enabled. This flag impacts on the behaviour of the compensation at the end of the program, among other things. See [FCT-C26].</Text>
+      <Text Language="de">Dieser Parameter gibt an, ob die Kompensation an den Kanal geknüpft werden soll, in dem sie eingeschaltet wurde. Dieses Flag hat u.a. Auswirkungen auf das Verhalten der Kompensation am Programmende, siehe [FCT-C26].</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106072075</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106072075</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00020</Id>
+    <Name>use_axis_offsets</Name>
+    <ShortDescription>
+      <Text Language="en">Consider axis offsets</Text>
+      <Text Language="de">Achsversätze berücksichtigen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter specifies whether compensation should consider axis offsets when the correction values are defined.</Text>
+      <Text Language="de">Dieser Parameter gibt an, ob die Kompensation beim Bestimmen der Korrekturwerte Achsversätze berücksichtigen soll.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#106077323</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#106077323</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00021</Id>
+    <Name>trace_file</Name>
+    <DefaultValue/>
+    <Type>STRING</Type>
+    <MaxStringLength>255</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00022</Id>
+    <Name>max_iterations</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>SGN32</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-VOLC-00023</Id>
+    <Name>tolerance</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>REAL64</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Section>
+    <Name>
+      <Text Language="en">General Volcomp parameter</Text>
+      <Text Language="de">Allgemeine Volcomp-Parameter</Text>
+    </Name>
+    <Parameter>P-VOLC-00001</Parameter>
+    <Parameter>P-VOLC-00002</Parameter>
+    <Parameter>P-VOLC-00003</Parameter>
+    <Parameter>P-VOLC-00004</Parameter>
+    <Parameter>P-VOLC-00005</Parameter>
+    <Parameter>P-VOLC-00006</Parameter>
+    <Parameter>P-VOLC-00007</Parameter>
+    <Parameter>P-VOLC-00012</Parameter>
+    <Parameter>P-VOLC-00013</Parameter>
+    <Parameter>P-VOLC-00014</Parameter>
+    <Parameter>P-VOLC-00021</Parameter>
+    <Parameter>P-VOLC-00016</Parameter>
+    <Parameter>P-VOLC-00008</Parameter>
+    <Parameter>P-VOLC-00009</Parameter>
+    <Parameter>P-VOLC-00010</Parameter>
+    <Parameter>P-VOLC-00011</Parameter>
+    <Parameter>P-VOLC-00015</Parameter>
+    <Parameter>P-VOLC-00022</Parameter>
+    <Parameter>P-VOLC-00023</Parameter>
+    <Parameter>P-VOLC-00019</Parameter>
+    <Parameter>P-VOLC-00020</Parameter>
+    <Parameter>P-VOLC-00017</Parameter>
+    <Parameter>P-VOLC-00018</Parameter>
+  </Section>
+</Parameters>

@@ -1,0 +1,3 @@
+C:/Users/Samuel/Desktop/CncSDKDemo/examples/example1-hello-cnc/CMakeFiles/CncSdkExample.dir
+C:/Users/Samuel/Desktop/CncSDKDemo/examples/example1-hello-cnc/CMakeFiles/ALL_BUILD.dir
+C:/Users/Samuel/Desktop/CncSDKDemo/examples/example1-hello-cnc/CMakeFiles/ZERO_CHECK.dir

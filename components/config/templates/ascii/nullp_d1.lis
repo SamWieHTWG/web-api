@@ -1,0 +1,83 @@
+# *******************************************
+#
+# Zero position offsets of a channel
+#
+# *******************************************
+#                                                            
+g53_verfuegbar                                        0                  ( P-ZERO-00001 : Use G53 with offset not equal to ZERO
+default_index                                         0                  ( P-ZERO-00002 : Default group index after reset
+#
+# G53 :
+#
+np_grp[0].achse[0].versch                             0                  ( P-ZERO-00003 : [0.1um] Offset of first channel axis
+np_grp[0].achse[0].inaktiv                            0                  ( P-ZERO-00004 : Active state of offset (0: active, 1: not active)
+np_grp[0].achse[1].versch                             0                  ( P-ZERO-00003 : [0.1um] Offset of second channel axis
+np_grp[0].achse[1].inaktiv                            0                  ( P-ZERO-00004 : Active state of offset (0: active, 1: not active)
+np_grp[0].achse[2].versch                             0                  ( P-ZERO-00003 : [0.1um] Offset of third channel axis
+np_grp[0].achse[2].inaktiv                            0                  ( P-ZERO-00004 : Active state of offset (0: active, 1: not active)
+#                                                            
+# G54 :                                                      
+#                                                            
+np_grp[1].achse[0].versch                             0                              
+np_grp[1].achse[0].inaktiv                            0                              
+np_grp[1].achse[1].versch                             0                              
+np_grp[1].achse[1].inaktiv                            0                              
+np_grp[1].achse[2].versch                             0                              
+np_grp[1].achse[2].inaktiv                            0                              
+#                                                            
+# G55 :                                                      
+#                                                            
+np_grp[2].achse[0].versch                             0                              
+np_grp[2].achse[0].inaktiv                            0                              
+np_grp[2].achse[1].versch                             0                              
+np_grp[2].achse[1].inaktiv                            0                              
+np_grp[2].achse[2].versch                             0                              
+np_grp[2].achse[2].inaktiv                            0                              
+#                                                            
+# G56 :                                                      
+#                                                            
+np_grp[3].achse[0].versch                             0                              
+np_grp[3].achse[0].inaktiv                            0                              
+np_grp[3].achse[1].versch                             0                              
+np_grp[3].achse[1].inaktiv                            0                              
+np_grp[3].achse[2].versch                             0                              
+np_grp[3].achse[2].inaktiv                            0                              
+#                                                            
+# G57 :                                                      
+#                                                            
+np_grp[4].achse[0].versch                             0                              
+np_grp[4].achse[0].inaktiv                            0                              
+np_grp[4].achse[1].versch                             0                              
+np_grp[4].achse[1].inaktiv                            0                              
+np_grp[4].achse[2].versch                             0                              
+np_grp[4].achse[2].inaktiv                            0                              
+#                                                            
+# G58 :                                                      
+#                                                            
+np_grp[5].achse[0].versch                             0                              
+np_grp[5].achse[0].inaktiv                            0                              
+np_grp[5].achse[1].versch                             0                              
+np_grp[5].achse[1].inaktiv                            0                              
+np_grp[5].achse[2].versch                             0                              
+np_grp[5].achse[2].inaktiv                            0                              
+#                                                            
+# G59 :                                                      
+#                                                            
+np_grp[6].achse[0].versch                             0                              
+np_grp[6].achse[0].inaktiv                            0                              
+np_grp[6].achse[1].versch                             0                              
+np_grp[6].achse[1].inaktiv                            0                              
+np_grp[6].achse[2].versch                             0                              
+np_grp[6].achse[2].inaktiv                            0                              
+#                                                            
+# G159 = 7:                                                      
+#                                                            
+np_grp[7].achse[0].versch                             0                              
+np_grp[7].achse[0].inaktiv                            0                              
+np_grp[7].achse[1].versch                             0                              
+np_grp[7].achse[1].inaktiv                            0                              
+np_grp[7].achse[2].versch                             0                              
+np_grp[7].achse[2].inaktiv                            0                              
+#                                                            
+Ende                                                         
+

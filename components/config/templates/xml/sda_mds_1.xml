@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- **************************************** -->
+<!-- Channel data                             -->
+<!-- **************************************** -->
+<SDA_MDS>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+
+  <GeneralParameter>
+    <!-- ========================================================== -->
+    <!-- Sub program call at program start - 'start_init_prog_file' -->
+    <P-CHAN-00119 Value="sub_ch1_prog_start.nc" />
+    <!-- Sub program call with M30 - 'final_prog_file' -->
+    <P-CHAN-00252 Value="sub_ch1_prog_end.nc" />
+    <!-- Sub program call with M6 - 'm6_prog_file' -->
+    <P-CHAN-00118 Value="sub_ch1_tool_change.nc" />
+
+    <!-- ================================== -->
+    <!-- Number of spindles - 'spdl_anzahl' -->
+    <P-CHAN-00082 Value="1" />
+    <!-- Main spindle axis number - 'main_spindle_ax_nr'-->
+    <P-CHAN-00051 Value="6" />
+    <!-- Designation of Main Spindle - 'main_spindle_name'-->
+    <P-CHAN-00053 Value="S" />
+    
+    <!-- =========================================================================== -->
+    <!-- Definition of M functions and synchronization types (default NO_SYNCH  0x0) -->
+    <MFkt>   
+      <!-- Tool change -->
+      <P-CHAN-00041.6 Value="MOS" />
+      <P-CHAN-00041.7 Value="MOS" />
+
+      <!-- Program end -->
+      <P-CHAN-00041.2 Value="MOS" />
+      <P-CHAN-00041.17 Value="MOS" />
+      <P-CHAN-00041.29 Value="MOS" />
+      <P-CHAN-00041.30 Value="MOS" />
+
+      <!-- User specific M functions -->
+      <P-CHAN-00041.100 Value="MOS" />
+      <P-CHAN-00041.101 Value="MOS" />
+      <P-CHAN-00041.102 Value="MOS" />
+      <P-CHAN-00041.103 Value="MOS" />
+      <P-CHAN-00041.104 Value="MOS" />
+      <P-CHAN-00041.105 Value="MOS" />
+      <P-CHAN-00041.106 Value="MOS" />
+      <P-CHAN-00041.107 Value="MOS" />
+      <P-CHAN-00041.108 Value="MOS" />
+      <P-CHAN-00041.109 Value="MOS" />
+    </MFkt>
+
+    <!-- ============================================================ -->
+    <!-- Check of jerk on polynomial path - 'check_jerk_on_poly_path' -->
+    <P-CHAN-00110 Value="1" />
+    <!-- Additional consideration of curvature at block transition between linear blocks - 'trans_limit_with_curvature' -->
+    <P-CHAN-00245 Value="1" />
+
+    <!-- ================================================ -->
+    <!-- Mode of orientation angle - 'ori_rotation_angle' -->
+    <P-CHAN-00112 Value="2" />
+    <!-- Optimised polynomial smoothing for transitions in circular blocks - 'opt_contour_mode' -->
+    <P-CHAN-00259 Value="0" />
+    <!-- Positioning of modulo axes on shortest path - 'enable_mod_axis_always_shortest_way' -->
+    <P-CHAN-00346 Value="1" />
+    <!-- Exclusivity of measuring system programming - 'multi_dimension_in_block' -->
+    <P-CHAN-00116 Value="0" />
+
+    <!-- ===================================================== -->
+    <!-- Limiting maximum channel override - 'max_vb_override' -->
+    <P-CHAN-00056 Value="1000" />
+    <!-- Define and activate rapid traverse override mode - 'g00_override_mode' -->
+    <P-CHAN-00181 Value="NOT_USED" />
+    <!-- Influence of override on acceleration - 'override_weight_acc' -->
+    <P-CHAN-00170 Value="0" />
+
+    <!-- ====================================================== -->
+    <!-- Minimum path length for lift movements 'lift_min_dist' -->
+    <P-CHAN-00244 Value="0" />
+    <!-- Switch-over to time-based calculation when an axis is lifted 'enable_time_based_lift' -->
+    <P-CHAN-00345 Value="0" />
+
+    <!-- ========================================== -->
+    <!-- Selection of kinematic type 'kinematik_id' -->
+    <P-CHAN-00032 Value="9" />
+    <!-- Measurement type - 'messtyp' -->
+    <P-CHAN-00057 Value="1" />
+
+    <!-- ====================== -->
+    <!-- Format of display data -->
+    <DisplayData>
+      <!-- Activation of TCP display data - 'kin_trafo_display' -->
+      <P-CHAN-00145 Value="1" />
+      <!-- Switch over TCP display data between commanded and actual positions - 'kin_trafo_display_curr_pos' -->
+      <P-CHAN-00184 Value="0" />
+      <!-- Select the coordinate system for display of axis positions (IPO/PCS) - 'display_top_coord_sys' -->
+      <P-CHAN-00330 Value="PCS" />
+      <!-- Display of axis command values and target points in Cartesian coordinate systems - 'kin_trafo_enable_cs_coord_display' -->
+      <P-CHAN-00331 Value="1" />
+      <!-- Suppressed output of actual positions transformed kinematically and/or in the Cartesian system - 'suppress_trafo_curr_pos' -->
+      <P-CHAN-00344 Value="1" />
+      <!-- Display of active path feed - 'mode_feed_display' -->
+      <P-CHAN-00328 Value="0" />
+    </DisplayData>
+  </GeneralParameter>
+
+  <!-- Kinematic settings -->
+  <Kinematics>
+    <!-- Transformations -->
+    <Trafo>
+      <!-- Kinematic ID  -->
+      <P-CHAN-00262.0 Value="9" />
+      <!-- Tool offsets 'wz_kopf_versatz' -->
+      <P-CHAN-00263.0.0 Value="1000000" />
+      <P-CHAN-00263.0.1 Value="-1000000" />
+      <P-CHAN-00263.0.2 Value="0" />
+      <P-CHAN-00263.0.3 Value="0" />
+      <P-CHAN-00263.0.4 Value="0" />
+      <P-CHAN-00263.0.5 Value="0" />
+      <P-CHAN-00263.0.6 Value="0" />
+      <P-CHAN-00263.0.7 Value="0" />
+      <P-CHAN-00263.0.8 Value="0" />
+    </Trafo>
+  </Kinematics>
+
+  <!-- ==================== -->
+  <!-- HSC default settings -->
+  <HSC>
+    <!-- HSC general initialization -->
+    <General>
+      <!-- Segmentation of linear blocks (hsc.gen.linear_segmentation) - default value: 1 - 'linear_segmentation' -->
+      <P-CHAN-00132 Value="1" />
+      <!-- Segmentation specification (linear_continuous_split) - default value: 0 - 'linear_continuous_split'  -->
+      <P-CHAN-00134 Value="1" />
+      <!-- Segment length in the case of linear blocks (linear_split_length) - default value: 1000 [0.1um] - 'linear_split_length'  -->
+      <P-CHAN-00135 Value="100000" />
+      <!-- Basis of segmentation of circular blocks (circular_secant_error) - default value: 0 - 'circular_secant_error'  -->
+      <P-CHAN-00136 Value="1" />
+      <!-- Segmentation of circular blocks (circular_segmentation) - default value: 0 - 'circular_segmentation' -->
+      <P-CHAN-00137 Value="1" />
+      <!-- Contour error in the case of segmentation of circular blocks (circular_param) - default value: 50 [0.1um] - 'circular_param' -->
+      <P-CHAN-00138 Value="5000" />
+      <!-- 'auto_contour_mode' -->
+      <P-CHAN-00239 Value="0" />
+    </General>   
+  </HSC>
+
+  <!-- =================================================================== -->
+  <!-- Dynamic settings of manual operation in cartesian coordinate system -->
+  <ManMode>
+    <VectorLimit>
+      <!-- Limit value for maximum velocity position - EN775: <250mm/s in T1 mode -->
+      <P-CHAN-00195 Value="250000" />
+      <!-- Limit value for maximum acceleration position - > man_mode.vector_limit.a_max_ori -->
+      <P-CHAN-00196 Value="1000" />
+      <!-- Limit value for ramp time position - see default_achs_mds.xml -> handbetrieb.hb.tr -->
+      <P-CHAN-00197 Value="100000" />
+      <!-- Limit value for maximum velocity orientation - see isg_manual.nc -> V.L.V_TIP_CART_DEG -->
+      <P-CHAN-00198 Value="6000" />
+      <!-- Limit value for maximum acceleration orientation - see default_achs_mds.xml -> handbetrieb.hb.a_max -->
+      <P-CHAN-00199 Value="3333" />
+      <!-- Limit value for ramp time orientation - see default_achs_mds.lis -> handbetrieb.hb.tr -->
+      <P-CHAN-00200 Value="100000" />
+    </VectorLimit>
+  </ManMode>
+
+  <!-- ===================== -->
+  <!-- Spindle configuration -->
+  <Spindles>
+    <Spindle>
+      <!-- Spindle name - 'bezeichnung' -->
+      <P-CHAN-00007.0 Value="S1" />
+      <!-- Logical axis number for spindle - 'log_achs_nr'-->
+      <P-CHAN-00036.0 Value="6" />
+      <!-- Channel specific PLC-spindle - #0: off, #1: on - 'plc_control' -->
+      <P-CHAN-00069.0 Value="0" />
+      <!-- Techno data for S function - s_synch - 's_synch' -->
+      <P-CHAN-00081.0 Value="MOS" />
+      <!-- Techno data for M3 - 'm3_synch' -->
+      <P-CHAN-00045.0 Value="MOS" />
+      <!-- Techno data for M4 - 'm4_synch' -->
+      <P-CHAN-00047.0 Value="MOS" />
+      <!-- Techno data for M5 - 'm5_synch' -->
+      <P-CHAN-00049.0 Value="MOS" />
+      <!-- Techno data for M19 - 'm19_synch' -->
+      <P-CHAN-00043.0 Value="MOS" />
+      <!-- Processing time calculation for S function - 's_prozess_zeit' -->
+      <P-CHAN-00080.0 Value="0" />
+      <!-- Processing time calculation for M3 - 'm3_prozess_zeit' -->
+      <P-CHAN-00044.0 Value="0" />
+      <!-- Processing time calculation for M4 - 'm4_prozess_zeit' -->
+      <P-CHAN-00046.0 Value="0" />
+      <!-- Processing time calculation for M5 - 'm5_prozess_zeit' -->
+      <P-CHAN-00048.0 Value="0" />
+      <!-- Processing time calculation for M19 - 'm19_prozess_zeit' -->
+      <P-CHAN-00042.0 Value="0" />
+    </Spindle>
+  </Spindles>
+
+  <!-- ==================================== -->
+  <!-- Configuration of axes in the channel -->
+  <AxesGroups>
+    <AxesGroup>
+      <!-- Group data - group name - 'bezeichnung' -->
+      <P-CHAN-00005.0 Value="IPO_1" />
+      <!-- Group data - number of axes - 'achs_anzahl' -->
+      <P-CHAN-00003.0 Value="5" />
+      <Axis>
+        <!-- Logical axis number - 'log_achs_nr' -->
+        <P-CHAN-00035.0.0 Value="1" />
+        <!-- Name of axis - 'bezeichnung' -->
+        <P-CHAN-00006.0.0 Value="X" />
+      </Axis>
+      <Axis>
+        <!-- Logical axis number - 'log_achs_nr' -->
+        <P-CHAN-00035.0.1 Value="2" />
+        <!-- Name of axis - 'bezeichnung' -->
+        <P-CHAN-00006.0.1 Value="Y" />
+      </Axis>
+      <Axis>
+        <!-- Logical axis number - 'log_achs_nr' -->
+        <P-CHAN-00035.0.2 Value="3" />
+        <!-- Name of axis - 'bezeichnung' -->
+        <P-CHAN-00006.0.2 Value="Z" />
+      </Axis>
+      <Axis>
+        <!-- Logical axis number - 'log_achs_nr' -->
+        <P-CHAN-00035.0.3 Value="4" />
+        <!-- Name of axis - 'bezeichnung' -->
+        <P-CHAN-00006.0.3 Value="C" />
+      </Axis>
+      <Axis>
+        <!-- Logical axis number - 'log_achs_nr' -->
+        <P-CHAN-00035.0.4 Value="5" />
+        <!-- Name of axis - 'bezeichnung' -->
+        <P-CHAN-00006.0.4 Value="A" />
+      </Axis>
+    </AxesGroup>
+  </AxesGroups>
+
+  <!-- NC program settings -->
+  <!-- =================== -->
+  <NCSettings>
+    <!-- NC program paths -->
+    <!-- ================ -->
+    <NCProgramPaths>
+      <Path>
+        <!-- Path specification - 'dir' -->
+        <P-CHAN-00401.0 Value="CncKernelRootDir/prg" />
+        <!-- Logic path number - 'id' -->
+        <P-CHAN-00402.0 Value="1" />
+        <!-- Path type - 'type' -->
+        <P-CHAN-00403.0 Value="0x03" />
+        <!-- Priority of program path - 'priority' -->
+        <P-CHAN-00404.0 Value="1" />
+      </Path>
+      <Path>
+        <!-- Path specification - 'dir' -->
+        <P-CHAN-00401.1 Value="CncKernelRootDir/prg_sub" />
+        <!-- Logic path number - 'id' -->
+        <P-CHAN-00402.1 Value="2" />
+        <!-- Path type - 'type' -->
+        <P-CHAN-00403.1 Value="0x02" />
+        <!-- Priority of program path - 'priority' -->
+        <P-CHAN-00404.1 Value="2" />
+      </Path>
+      <Path>
+        <!-- Path specification - 'dir' -->
+        <P-CHAN-00401.2 Value="CncKernelRootDir/prg_cycles" />
+        <!-- Logic path number - 'id' -->
+        <P-CHAN-00402.2 Value="3" />
+        <!-- Path type - 'type' -->
+        <P-CHAN-00403.2 Value="0x02" />
+        <!-- Priority of program path - 'priority' -->
+        <P-CHAN-00404.2 Value="3" />
+      </Path>
+      <Path>
+        <!-- Path specification - 'dir' -->
+        <P-CHAN-00401.3 Value="CncKernelRootDir/DataBase" />
+        <!-- Logic path number - 'id' -->
+        <P-CHAN-00402.3 Value="4" />
+        <!-- Path type - 'type' -->
+        <P-CHAN-00403.3 Value="0x0F" />
+        <!-- Priority of program path - 'priority' -->
+        <P-CHAN-00404.3 Value="4" />
+      </Path>
+    </NCProgramPaths>
+  </NCSettings>
+
+  <!-- Parametrization of change protocolling -->
+  <!-- ====================================== -->
+  <ChangeProtocol>
+    <!-- Enable change logging - 'output_mode' -->
+    <P-CHAN-00024 Value="0" />
+  </ChangeProtocol>
+
+  <!-- ================================================= -->
+  <!-- Configuration of the filter for the error manager -->
+  <ErrorManagement>
+    <ErrorFilters>
+      <Filter>
+        <!-- Error number - 'reason' -->
+        <P-CHAN-00378.0 Value="20804,20805,21209,21524,21527" />
+        <!-- Action - 'action' -->
+        <P-CHAN-00379.0 Value="NONE" />
+        <!-- Conditional activation - 'conditional_activation' -->
+        <P-CHAN-00380.0 Value="0x1" />
+        <!-- Conditional action - 'conditional_action' -->
+        <P-CHAN-00381.0 Value="HIDE_LOG" />
+        <!-- Conditional parameter - 'conditional_param' -->
+        <P-CHAN-00382.0 Value="123" />
+        <!-- Conditional output - 'conditional_output' -->
+        <P-CHAN-00383.0 Value="filtered" />
+      </Filter>
+    </ErrorFilters>
+  </ErrorManagement>
+
+  <!-- Program start parameters -->
+  <!-- ======================== -->
+  <ProgramStart>
+    <Slope>
+      <!-- Acceleration profile - 'profile' -->
+      <P-CHAN-00071 Value="3" />
+    </Slope>
+  </ProgramStart>
+
+</SDA_MDS>

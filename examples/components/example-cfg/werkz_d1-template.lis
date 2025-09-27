@@ -1,0 +1,14 @@
+# ********************************
+# 
+#TC_CHANNEL_DESC_3:  Werkzeugdaten 
+# 
+#     Einheit:   0.1 Mikrometer
+# 
+# ********************************
+
+wz[1].gueltig                                         1              ( P-TOOL-00005 : Validity flag of tool data
+wz[1].typ                                             0              ( P-TOOL-00001 : Tool type (0: Milling, 1: Turning, 2: Grinding)
+wz[1].laenge                                          100            ( P-TOOL-00003 : [0.1um or 0.0001 inch] Tool length
+wz[1].radius                                          0              ( P-TOOL-00004 : [0.1um or 0.0001 inch] Tool radius
+
+Ende

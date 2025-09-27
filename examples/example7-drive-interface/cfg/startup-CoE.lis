@@ -1,0 +1,27 @@
+# ------------------
+# General parameters
+# ------------------
+
+kanal_anzahl                                          1
+ext_var_max                                           1000
+error_message_texts                                   ./error/err_text_version_eng.txt
+listen                                                ASCII
+
+# ----------------------------------------
+# further configuration
+# ----------------------------------------
+
+sda_mds[0]                                            ./listen/sda_mds1-template.lis
+nullp_data[0]                                         ./listen/nullp_d1-template.lis
+pzv_data[0]                                           ./listen/pzv_d1-template.lis
+ve_var[0]                                             ./listen/ext_var1-template.lis
+werkz_data[0]                                         ./listen/werkz_d1-template.lis
+
+zahl_mds                                              4
+achs_mds[0]                                           ./listen/achsmds1-CoE.lis
+achs_mds[1]                                           ./listen/achsmds2-CoE.lis
+achs_mds[2]                                           ./listen/achsmds3-CoE.lis
+achs_mds[3]                                           ./listen/achsmds4-CoE.lis
+
+Ende
+

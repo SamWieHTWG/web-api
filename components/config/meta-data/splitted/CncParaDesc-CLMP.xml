@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_0_1_MICROMETER</Id>
+    <Text Language="en">0.1µm</Text>
+    <Text Language="de">0.1µm</Text>
+    <TextASCII Language="en">0.1um</TextASCII>
+    <TextASCII Language="de">0.1um</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_0_1_MILLIDEGREE</Id>
+    <Text Language="en">0.1m°</Text>
+    <Text Language="de">0.1m°</Text>
+    <TextASCII Language="en">0.1mdeg</TextASCII>
+    <TextASCII Language="de">0.1mdeg</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-CLMP-00001</Id>
+    <Name>pzv_grp[].achse[].versatz</Name>
+    <ShortDescription>
+      <Text Language="en">Axis-specific clamp position offset</Text>
+      <Text Language="de">Achsspezifischer Platzversatz</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">An offset parameter is reserved for each axis in each clamp position offset group.</Text>
+      <Text Language="de">Pro Platzversatzgruppe ist für jede Achse ein Versatzparameter reserviert.</Text>
+    </LongDescription>
+    <Quantity>LENGTH</Quantity>
+    <Units>
+      <Unit>UNIT_0_1_MICROMETER</Unit>
+      <Unit>UNIT_0_1_MILLIDEGREE</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">MIN(SGN32) ≤ versatz ≤ MAX(SGN32)</Text>
+      <Text Language="de">MIN(SGN32) ≤ versatz ≤ MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="pzv_grp">150</ArrayIndex>
+      <ArrayIndex No="1" Name="achse">32</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#109093643</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#109093643</Link>
+    </Help>
+  </Parameter>
+  <Section>
+    <Name>
+      <Text Language="en">Clamp position offset groups</Text>
+      <Text Language="de">Platzversatz Gruppen</Text>
+    </Name>
+    <Parameter>P-CLMP-00001</Parameter>
+  </Section>
+</Parameters>

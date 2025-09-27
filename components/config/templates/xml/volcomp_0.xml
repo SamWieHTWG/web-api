@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ************************************************************* -->
+<!-- Configuration file for volumetric compensation                -->
+<!-- Date: October 01, 2019                                        -->
+<!-- ************************************************************* -->
+<VolComp>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+
+  <Parameter>
+    <!-- Type of kinematic chain - chain -->
+    <P-VOLC-00007 Value="YXZ" />
+    <!-- Logical axis number of the participating X axis - x -->
+    <P-VOLC-00001 Value="1" />
+    <!-- Logical axis number of the participating Y axis - y -->
+    <P-VOLC-00002 Value="2" />
+    <!-- Logical axis number of the participating Z axis - z -->
+    <P-VOLC-00003 Value="3" />
+    <!-- Logical axis number of the participating A axis - a -->
+    <P-VOLC-00004 Value="4" />
+    <!-- Logical axis number of the participating B axis - b -->
+    <P-VOLC-00005 Value="5" />
+    <!-- Logical axis number of the participating C axis - c -->
+    <P-VOLC-00006 Value="6" />
+    <!-- Number of workpiece axes - workpiece_axes -->
+    <P-VOLC-00008 Value="0" />
+    <!-- Negating compensation values - negate -->
+    <P-VOLC-00009 Value="" />
+    <!-- Setting compensation values to zero - set_to_zero -->
+    <P-VOLC-00010 Value="" />
+    <!-- Alternative calculation rule - alternative_model -->
+    <P-VOLC-00011 Value="0" />
+    <!-- Paths and names of the parameter files - file[0] -->
+    <P-VOLC-00012.0 Value="CncKernelRootDir/listen/volcomp_0.csv" />
+    <!-- Formats of the parameter files - file_format[0] -->
+    <P-VOLC-00013.0 Value="ISG_CSV" />
+    <!-- Interpolation method for error parameters - interpolation -->
+    <P-VOLC-00014 Value="GRID" />
+    <!-- Adjustment of error parameters - enable_splicing -->
+    <P-VOLC-00015 Value="0" />
+    <!-- Path to the diagnosis file - diagnosis_file -->
+    <P-VOLC-00016 Value="" />
+    <!-- Manual activation - manual_activation -->
+    <P-VOLC-00017 Value="0" />
+    <!-- Size of the correction value filter - filter_steps -->
+    <P-VOLC-00018 Value="20" />
+    <!-- Associate Volumetric Compensation to channel - associate_to_channel -->
+    <P-VOLC-00019 Value="0" />
+    <!-- Use axis offsets - use_axis_offsets -->
+    <P-VOLC-00020 Value="0" />
+  </Parameter>
+</VolComp>

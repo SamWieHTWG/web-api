@@ -1,0 +1,18 @@
+# ****************************************
+#
+# Axis Parameter
+#
+# ****************************************
+#
+kopf.achs_nr                                          3              ( P-AXIS-00016 : logical axis number 
+kopf.mds_ident                                        1              ( P-AXIS-00110 : Identification of axis data 
+kopf.log_achs_name                                    Z_Achse        ( P-AXIS-00297 : Default name of an axis 
+
+
+kenngr.achs_mode                               0x400001              ( P-AXIS-00015 : Operating mode of an axis ;  mode 1=linear , mode 4=modulo
+kenngr.achs_typ                                       1              ( P-AXIS-00018 : Axis type 1=linear axis, 2=rotatary axis, 4=spindle/single axis
+
+kenngr.antr_typ                                       4              ( P-AXIS-00020 : Drive type 1=KONV, 2=SERCOS, 3=Profidrive, 4=SIMU, 7=Ethernet, 17=DSE
+
+
+Ende

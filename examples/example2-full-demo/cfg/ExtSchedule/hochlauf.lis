@@ -1,0 +1,109 @@
+#
+# General parameters
+# ------------------
+#
+single_protocol_fifo                                                                                          1
+konfiguration                                                                          EIN_KANAL_KONFIGURIERUNG
+#
+#
+kanal_anzahl                                                                                                  1
+plc_mode                                                                                                      0              # Betriebsart des HLI:  0 = PLC_TEST_MODE,   1 = PLC_RUN_MODE
+ext_var_max                                                                                                1000
+error_message_texts                                                            ./error/err_text_version_eng.txt
+
+#
+# Error management
+# ----------------
+#
+# NONE, FILTER_OFF, VERBOSE, PRINT, LOG, REPORT, PRINT_NO_WARNINGS, LOG_NO_WARNINGS, REPORT_NO_WARNINGS, PRINT_EXTENDED, LOG_EXTENDED, REPORT_EXTENDED
+#
+error_protocol_mode         REPORT | REPORT_EXTENDED |PRINT | PRINT_EXTENDED | LOG | LOG_EXTENDED
+error_text_of_id                                                               ./error/err_text_version_eng.txt
+error_log_file_name                                                                  ./diagnose/CncErrorMsg.log
+error_log_file_max_size                                                                                  100000
+
+#
+# Configuration
+# -------------
+#
+configuration.channel[0].decoder.function                                                  FCT_USE_CACHED_FILES
+configuration.channel[0].decoder.max_cache_number                                                             4
+configuration.channel[0].decoder.max_cache_size                                                            4096
+configuration.channel[0].decoder.max_local_subroutine_definitions                                            70
+#
+configuration.channel[0].path_preparation.function                 FCT_DEFAULT | FCT_M_PRE_OUTPUT | FCT_SURFACE
+#
+# look ahead blocks [35;120] : low = 35, standard = 70, high = 120
+# FCT_LOOK_AHEAD_LOW, FCT_LOOK_AHEAD_STANDARD, FCT_LOOK_AHEAD_HIGH, FCT_LOOK_AHEAD_CUSTOM
+#
+configuration.channel[0].interpolator.function                                            FCT_LOOK_AHEAD_CUSTOM
+configuration.channel[0].interpolator.parameter                                                             200
+
+#
+# ----------------------------------------
+#
+# Konfigurierungsdaten SERCOS
+#
+# ----------------------------------------
+#
+sercos_ring_anzahl                                    1
+sercos_lwl_baudrate[0]                                2MBAUD
+mds_time_slots                                        0 # 0=Verwende int. Makro 1=Verwende MDS Daten 
+at_tslot_type                                         STANDARD
+# at_tslot_type                                       OPTION1    
+sercos_hochlauf                                       2 # 1=mit SERCOS 2=ohne SERCOS
+#
+#
+# relation beetween hardware-ID and (AO-)name, see NC command #SIGNAL[... HW<ID>]
+#
+local_hardware.id                                     1
+local_hardware.name                                   NC85_COM_M1_S1
+remote_hardware[0].id                                 1
+remote_hardware[0].name                               CNC_M258
+remote_hardware[1].id                                 2
+remote_hardware[1].name                               CNC_P35
+remote_hardware[2].id                                 333
+remote_hardware[2].name                               CNC_NOT_IN_NAMING_SERVICE
+
+# ----------------------------------------
+#
+# Konfigurierungsdaten Listen
+#
+# ----------------------------------------
+#
+listen                                                ASCII
+#
+default_sda_mds                                       ./listen/default_sda.lis
+#
+sda_mds[0]                                            ./listen/sda_mds1.lis
+werkz_data[0]                                         ./listen/werkz_d1.lis
+nullp_data[0]                                         ./listen/nullp_d1.lis
+pzv_data[0]                                           ./listen/pzv_d1.lis
+ve_var[0]                                             ./listen/ext_var1.lis
+fb_storage_size[0]                                    0x200000
+#
+hand_mds                                              ./listen/hand_mds.lis
+# rtconf_lis                                            ./listen/ExtSchedule/rtconf.lis
+#
+hmi[0].objects                                        default
+channel[0].objects                                    default
+konf_path                                             ./listen
+#
+
+#
+#
+# -------------------------------------------------------
+#
+zahl_mds                                              4
+default_achs_mds                                      ./listen/default_mds.lis
+achs_mds[0]                                           ./listen/achsmds1.lis
+achs_mds[1]                                           ./listen/achsmds2.lis
+achs_mds[2]                                           ./listen/achsmds3.lis
+achs_mds[3]                                           ./listen/achsmds4.lis
+#
+zahl_kw                                               1
+achs_kw[0]                                            ./listen/achskw1.lis
+achs_kw_log_ax_nr[0]                                  1
+#
+Ende
+

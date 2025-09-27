@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- *********************** -->
+<!-- Manual mode             -->
+<!-- *********************** -->
+<ManualMode>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+
+  <!-- Number of the physical hand wheels - 'hr_anzahl' -->
+  <P-MANU-00001 Value="6"/>
+  <!-- Count of inching key pairs - 'tasten_anzahl' -->
+  <P-MANU-00008 Value="12"/>
+  <!-- Messages on motion limits - 'move_limit_warning' -->
+  <P-MANU-00014 Value="0"/>
+  
+  <Feedhold>
+    <!-- Operating mode hand wheel - discarding of handwheel increments during feedhold - 'hr_inkr_verwerfen' -->
+    <P-MANU-00010 Value="1" />
+    <!-- Operating mode jogging mode - discarding of jog mode traverse increments during feedhold - 'jog_inkr_verwerfen' -->
+    <P-MANU-00011 Value="1" />
+  </Feedhold>
+
+  <HandWheels>
+    <HandWheel>
+      <!-- Logic hand wheel number - 'log_hr_nr' -->
+      <P-MANU-00002.0 Value="1"/>      
+      <!-- Access to hand wheel counter address - 'hr_zaehler_direct_access' -->
+      <P-MANU-00003.0 Value="0"/>
+      <!-- Address of hand wheel counter - 'adr_hr_zaehler' -->
+      <P-MANU-00004.0 Value="0x0000"/>
+      <!-- Numerator of hand wheel resolution - 'hr_aufl_z' -->
+      <P-MANU-00005.0 Value="1"/>
+      <!-- Denominator of hand wheel resolution - 'hr_aufl_n' -->
+      <P-MANU-00006.0 Value="1000"/>
+      <!-- Upper limit for hand wheel increments - maximum number of increments/cycle - 'max_inkr_pro_takt' -->
+      <P-MANU-00007.0 Value="100000"/>
+      <!-- Offset at activation - 'hr_abs_pos_init' -->
+      <P-MANU-00012.0 Value="0"/>
+      <!-- Processing of hand wheel increments - 'mode' -->
+      <P-MANU-00013.0 Value="0" />
+    </HandWheel>
+    <HandWheel>
+      <!-- Logic hand wheel number - 'log_hr_nr' -->
+      <P-MANU-00002.1 Value="2"/>      
+      <!-- Access to hand wheel counter address - 'hr_zaehler_direct_access' -->
+      <P-MANU-00003.1 Value="0"/>
+      <!-- Address of hand wheel counter - 'adr_hr_zaehler' -->
+      <P-MANU-00004.1 Value="0x0000"/>
+      <!-- Numerator of hand wheel resolution - 'hr_aufl_z' -->
+      <P-MANU-00005.1 Value="1"/>
+      <!-- Denominator of hand wheel resolution - 'hr_aufl_n' -->
+      <P-MANU-00006.1 Value="1000"/>
+      <!-- Upper limit for hand wheel increments - maximum number of increments/cycle - 'max_inkr_pro_takt' -->
+      <P-MANU-00007.1 Value="100000"/>
+      <!-- Offset at activation - 'hr_abs_pos_init' -->
+      <P-MANU-00012.1 Value="0"/>
+      <!-- Processing of hand wheel increments - 'mode' -->
+      <P-MANU-00013.1 Value="0" />
+    </HandWheel>
+    <HandWheel>
+      <!-- Logic hand wheel number - 'log_hr_nr' -->
+      <P-MANU-00002.2 Value="3"/>      
+      <!-- Access to hand wheel counter address - 'hr_zaehler_direct_access' -->
+      <P-MANU-00003.2 Value="0"/>
+      <!-- Address of hand wheel counter - 'adr_hr_zaehler' -->
+      <P-MANU-00004.2 Value="0x0000"/>
+      <!-- Numerator of hand wheel resolution - 'hr_aufl_z' -->
+      <P-MANU-00005.2 Value="1"/>
+      <!-- Denominator of hand wheel resolution - 'hr_aufl_n' -->
+      <P-MANU-00006.2 Value="1000"/>
+      <!-- Upper limit for hand wheel increments - maximum number of increments/cycle - 'max_inkr_pro_takt' -->
+      <P-MANU-00007.2 Value="100000"/>
+      <!-- Offset at activation - 'hr_abs_pos_init' -->
+      <P-MANU-00012.2 Value="0"/>
+      <!-- Processing of hand wheel increments - 'mode' -->
+      <P-MANU-00013.2 Value="0" />
+    </HandWheel>
+    <HandWheel>
+      <!-- Logic hand wheel number - 'log_hr_nr' -->
+      <P-MANU-00002.3 Value="4"/>      
+      <!-- Access to hand wheel counter address - 'hr_zaehler_direct_access' -->
+      <P-MANU-00003.3 Value="0"/>
+      <!-- Address of hand wheel counter - 'adr_hr_zaehler' -->
+      <P-MANU-00004.3 Value="0x0000"/>
+      <!-- Numerator of hand wheel resolution - 'hr_aufl_z' -->
+      <P-MANU-00005.3 Value="1"/>
+      <!-- Denominator of hand wheel resolution - 'hr_aufl_n' -->
+      <P-MANU-00006.3 Value="1000"/>
+      <!-- Upper limit for hand wheel increments - maximum number of increments/cycle - 'max_inkr_pro_takt' -->
+      <P-MANU-00007.3 Value="100000"/>
+      <!-- Offset at activation - 'hr_abs_pos_init' -->
+      <P-MANU-00012.3 Value="0"/>
+      <!-- Processing of hand wheel increments - 'mode' -->
+      <P-MANU-00013.3 Value="0" />
+    </HandWheel>
+    <HandWheel>
+      <!-- Logic hand wheel number - 'log_hr_nr' -->
+      <P-MANU-00002.4 Value="5"/>      
+      <!-- Access to hand wheel counter address - 'hr_zaehler_direct_access' -->
+      <P-MANU-00003.4 Value="0"/>
+      <!-- Address of hand wheel counter - 'adr_hr_zaehler' -->
+      <P-MANU-00004.4 Value="0x0000"/>
+      <!-- Numerator of hand wheel resolution - 'hr_aufl_z' -->
+      <P-MANU-00005.4 Value="1"/>
+      <!-- Denominator of hand wheel resolution - 'hr_aufl_n' -->
+      <P-MANU-00006.4 Value="1000"/>
+      <!-- Upper limit for hand wheel increments - maximum number of increments/cycle - 'max_inkr_pro_takt' -->
+      <P-MANU-00007.4 Value="100000"/>
+      <!-- Offset at activation - 'hr_abs_pos_init' -->
+      <P-MANU-00012.4 Value="0"/>
+      <!-- Processing of hand wheel increments - 'mode' -->
+      <P-MANU-00013.4 Value="0" />
+    </HandWheel>
+    <HandWheel>
+      <!-- Logic hand wheel number - 'log_hr_nr' -->
+      <P-MANU-00002.5 Value="6"/>      
+      <!-- Access to hand wheel counter address - 'hr_zaehler_direct_access' -->
+      <P-MANU-00003.5 Value="0"/>
+      <!-- Address of hand wheel counter - 'adr_hr_zaehler' -->
+      <P-MANU-00004.5 Value="0x0000"/>
+      <!-- Numerator of hand wheel resolution - 'hr_aufl_z' -->
+      <P-MANU-00005.5 Value="1"/>
+      <!-- Denominator of hand wheel resolution - 'hr_aufl_n' -->
+      <P-MANU-00006.5 Value="1000"/>
+      <!-- Upper limit for hand wheel increments - maximum number of increments/cycle - 'max_inkr_pro_takt' -->
+      <P-MANU-00007.5 Value="100000"/>
+      <!-- Offset at activation - 'hr_abs_pos_init' -->
+      <P-MANU-00012.5 Value="0"/>
+      <!-- Processing of hand wheel increments - 'mode' -->
+      <P-MANU-00013.5 Value="0" />
+    </HandWheel>
+  </HandWheels>
+
+  <Keys>
+    <!-- Logic number of inching key pair - 'log_tasten_nr' -->
+    <P-MANU-00009.0 Value="1"/>
+    <P-MANU-00009.1 Value="2"/>
+    <P-MANU-00009.2 Value="3"/>
+    <P-MANU-00009.3 Value="4"/>
+    <P-MANU-00009.4 Value="5"/>
+    <P-MANU-00009.5 Value="6"/>
+    <P-MANU-00009.6 Value="7"/>
+    <P-MANU-00009.7 Value="8"/>
+    <P-MANU-00009.8 Value="9"/>
+    <P-MANU-00009.9 Value="10"/>
+    <P-MANU-00009.10 Value="11"/>
+    <P-MANU-00009.11 Value="12"/>
+  </Keys>
+</ManualMode>

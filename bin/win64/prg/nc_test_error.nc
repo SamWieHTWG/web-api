@@ -1,0 +1,12 @@
+%TestProgram
+N10 G01 G90 X0 Y0 Z0 F200
+
+N20 $WHILE 1
+
+N25 HierStehtIrgendwasKomisches
+N30 X100 Y150 Z200 F1000
+N40 X0   Y0   Z0   F100
+
+N50 $ENDWHILE
+
+N60 M30

@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_INCREMENT</Id>
+    <Text Language="en">increments</Text>
+    <Text Language="de">Inkremente</Text>
+    <TextASCII Language="en">increments</TextASCII>
+    <TextASCII Language="de">Inkremente</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_REVOLUTION</Id>
+    <Text Language="en">rev</Text>
+    <Text Language="de">U</Text>
+    <TextASCII Language="en">rev</TextASCII>
+    <TextASCII Language="de">U</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-MANU-00001</Id>
+    <Name>hr_anzahl</Name>
+    <ShortDescription>
+      <Text Language="en">Number of physical handwheels</Text>
+      <Text Language="de">Anzahl der physikalischen Handräder</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the handwheel number.</Text>
+      <Text Language="de">Mit diesem Parameter wird die Anzahl der Handräder festgelegt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ... 6 (maximum number of handwheels, application-specific)</Text>
+      <Text Language="de">0 ... 6 (Maximale Anzahl der Handräder, applikationsspezifisch)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108583307</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108583307</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00002</Id>
+    <Name>hr_data[].log_hr_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Logical handwheel number</Text>
+      <Text Language="de">Logische Handradnummer</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the logical handwheel number of a handwheel. The logical handwheel number is unique throughout the entire system. The logical handwheel number is used to assign activation and deactivation jobs by software to a physical handwheel. The logical handwheel number is also used to assign a physical handwheel to a logical axis.</Text>
+      <Text Language="de">Der Parameter definiert die logische Handradnummer eines Handrades. Die logische Handradnummer ist im gesamten System eindeutig. Über die logische Handradnummer erfolgt die softwaretechnische Zuordnung des Aktivierungs- und Deaktivierungsauftrags zu einem physikalischen Handrad. Über die logische Handradnummer erfolgt auch die Zuordnung eines physikalischen Handrades zu einer logischen Achse.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ... MAX(UNS16)</Text>
+      <Text Language="de">1 ... MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108586379</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108586379</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00003</Id>
+    <Name>hr_data[].hr_zaehler_direct_access</Name>
+    <ShortDescription>
+      <Text Language="en">Access to handwheel counter address</Text>
+      <Text Language="de">Zugriff auf Handradzähleradresse</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines whether the handwheel increments are read in from a counter module or via the High Level Interface (HLI).</Text>
+      <Text Language="de">Dieser Parameter definiert, ob die Handradinkremente direkt von einem Zählerbaustein oder über das High Level Interface (HLI) eingelesen werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Handwheel counter address is located on High Level Interface (HLI). Always with operating systems with virtual address space (e.g. RTWin, NT).&#13;
+1: Handwheel counter address is located on the hardware (HW). At present, only implemented for operating systems with absolute address space (e.g. VxWorks, OS9).</Text>
+      <Text Language="de">0: Handradzähleradresse liegt auf High Level Interface (HLI). Immer bei Betriebssystemen mit virtuellem Adressraum (z.B. RTWin, NT).&#13;
+1: Handradzähleradresse liegt auf Hardware (HW). Z.Zt. nur für Betriebssysteme mit absolutem Adressraum (z.B. VxWorks, OS9) realisiert.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108587915</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108587915</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00004</Id>
+    <Name>hr_data[].adr_hr_zaehler</Name>
+    <ShortDescription>
+      <Text Language="en">Handwheel counter address</Text>
+      <Text Language="de">Adresse des Handradzählers</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Depending on the element P-MANU-00003 the parameter here defines either the index in the HLI array to read in the increments or the physical handwheel counter address.</Text>
+      <Text Language="de">Abhängig vom Element P-MANU-00003 wird hier entweder der Index im HLI-Array zum Einlesen der Inkremente oder die physikalische Handradzaehleradresse festgelegt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ... 5: Array index in the High Level Interface (HLI) where P-MANU-00003 = 0&gt;0: Physical address of a counter module where P-MANU-00003 = 1</Text>
+      <Text Language="de">0 ... 5: Arrayindex im High Level Interface (HLI) bei P-MANU-00003 = 0&gt;0: Physikalische Adresse eines Zählerbausteines bei P-MANU-00003 = 1</Text>
+    </Range>
+    <Type>ADDRESS</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108589451</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108589451</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00005</Id>
+    <Name>hr_data[].hr_aufl_z</Name>
+    <ShortDescription>
+      <Text Language="en">Handwheel resolution numerator</Text>
+      <Text Language="de">Zähler der Handradauflösung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the handwheel resolution numerator.</Text>
+      <Text Language="de">Der Parameter definiert den Zähler der Handradauflösung.</Text>
+    </LongDescription>
+    <Quantity>INCREMENT</Quantity>
+    <Units>
+      <Unit>UNIT_INCREMENT</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ... MAX(UNS32)</Text>
+      <Text Language="de">1 ... MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108592523</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108592523</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00006</Id>
+    <Name>hr_data[].hr_aufl_n</Name>
+    <ShortDescription>
+      <Text Language="en">Handwheel resolution denominator</Text>
+      <Text Language="de">Nenner der Handradauflösung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter defines the handwheel resolution denominator.</Text>
+      <Text Language="de">Der Parameter definiert den Nenner der Handradauflösung.</Text>
+    </LongDescription>
+    <Quantity>REVOLUTION</Quantity>
+    <Units>
+      <Unit>UNIT_REVOLUTION</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ... MAX(UNS32)</Text>
+      <Text Language="de">1 ... MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108594059</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108594059</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00007</Id>
+    <Name>hr_data[].max_inkr_pro_takt</Name>
+    <ShortDescription>
+      <Text Language="en">Upper limit for handwheel increments</Text>
+      <Text Language="de">Obergrenze für Handradinkremente</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the upper limit for the number of handwheel increments read in per cycle. It is a plausibility limit for the handwheel hardware.</Text>
+      <Text Language="de">Der Parameter definiert die Obergrenze für die Anzahl der eingelesenen Handradinkremente pro Zyklus. Er ist eine Plausibilitätsgrenze für die Handrad-Hardware.</Text>
+    </LongDescription>
+    <Quantity>INCREMENT</Quantity>
+    <Units>
+      <Unit>UNIT_INCREMENT</Unit>
+    </Units>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">&lt; MAX(UNS32)</Text>
+      <Text Language="de">&lt; MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108595595</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108595595</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00008</Id>
+    <Name>tasten_anzahl</Name>
+    <ShortDescription>
+      <Text Language="en">Number of inching key pairs</Text>
+      <Text Language="de">Anzahl der Tipptastenpaare</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the number of inching key pairs.</Text>
+      <Text Language="de">Mit diesem Parameter wird die Anzahl der Tipptastenpaare festgelegt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ... 9 (maximum number of inching key pairs, application-specific)</Text>
+      <Text Language="de">0 ... 9 (Maximale Anzahl der Tipptastenpaare, applikationsspezifisch)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108601739</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108601739</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00009</Id>
+    <Name>tasten_data[].log_tasten_nr</Name>
+    <ShortDescription>
+      <Text Language="en">Logical key number</Text>
+      <Text Language="de">Logische Tastennummer</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines the logical key number of an inching key pair. The logical key number is unique throughout the entire system. The logical key number is used to assign an activation or deactivation job to the physical inching key pair. The logical key number is also used to assign a physical key pair to a logical axis.</Text>
+      <Text Language="de">Mit dem Parameter wird die logische Tastennummer eines Tipptastenpaares definiert. Die logische Tastennummer ist im gesamten System eindeutig. Über die logische Tastennummer erfolgt die Zuordnung eines Aktivierungs- oder Deaktivierungsauftrags zum physikalischen Tipptastenpaar. Über die logische Tastennummer erfolgt auch die Zuordnung eines physikalischen Tastenpaares zu einer logischen Achse.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ... MAX(UNS16)</Text>
+      <Text Language="de">1 ... MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="tasten_data">12</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108604811</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108604811</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00010</Id>
+    <Name>feedhold.hr_inkr_verwerfen</Name>
+    <ShortDescription>
+      <Text Language="en">Handwheel mode</Text>
+      <Text Language="de">Betriebsart Handrad</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the parameter is set to TRUE, the handwheel increments read in during a feedhold are skipped. Otherwise, these handwheel increments are output after feedhold is removed.</Text>
+      <Text Language="de">Wird der Parameter auf TRUE gesetzt, dann werden die während eines Feedholds eingelesenen Handradinkremente verworfen. Andernfalls werden diese Handradinkremente nach Wegnahme des Feedholds ausgegeben.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108607883</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108607883</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00011</Id>
+    <Name>feedhold.jog_inkr_verwerfen</Name>
+    <ShortDescription>
+      <Text Language="en">Jogging mode</Text>
+      <Text Language="de">Betriebsart Jogbetrieb</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the parameter is set to TRUE, jogging mode motion paths generated during feedhold are skipped. Otherwise, these motion paths are output after feedhold is removed.</Text>
+      <Text Language="de">Wird der Parameter auf TRUE gesetzt, dann werden die während eines Feedholds generierten Jogbetriebsverfahrwege verworfen. Andernfalls werden diese Verfahrwege nach Wegnahme des Feedholds ausgegeben.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108609419</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108609419</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00012</Id>
+    <Name>hr_data[].hr_abs_pos_init</Name>
+    <ShortDescription>
+      <Text Language="en">Offset on activation</Text>
+      <Text Language="de">Offset beim Aktivieren</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter defines whether adoption on the handwheel counter status is absolute or relative when handwheel mode is activated.</Text>
+      <Text Language="de">Über den Parameter wird festgelegt, ob bei Aktivierung des Handradbetriebs auf den Handradzählerstand absolut oder relativ aufgesetzt wird.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0: Relative adoption of handwheel counter status when handwheel mode is activated.&#13;
+1: Absolute adoption of handwheel counter status when handwheel mode is activated.</Text>
+      <Text Language="de">0: Relatives Aufsetzen auf Handradzählerstand beim Aktivieren des Handradbetriebs.&#13;
+1: Absolute Übernahme des Handradzählerstandes beim Aktivieren des Handradbetriebs.</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108597131</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108597131</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00013</Id>
+    <Name>hr_data[].mode</Name>
+    <ShortDescription>
+      <Text Language="en">Processing handwheel increments</Text>
+      <Text Language="de">Behandlung der Handradinkremente</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter influences the behaviour of handwheel mode when increments (path) are processed.</Text>
+      <Text Language="de">Über den Parameter kann das Verhalten des Handradbetriebes bzgl. der Verarbeitung von Inkrementen (Weg) beeinflusst werden.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0: True-path handwheel; all increments generated are carried out. Axis motion may run on depending on the dynamic setting1: Non true-path handwheel; all generated handwheel increments are cancelled after the handwheel rotation stops (see inching key mode). Axis motion also stops immediately.2: Conditional true-path handwheel, generated handwheel increments are cancelled if the command velocity of the handwheel was reached before handwheel rotation stops. Note: The maximum velocity of the handwheel (P-AXIS-00213) is weighted with feed override depending on P-CHAN-00186 .(Mode available as of V3.1.3074)</Text>
+      <Text Language="de">0: Wegtreues Handrad, alle erzeugten Inkremente werden ausgefahren. Abhängig von der eingestellten Dynamik ist ein Nachlaufen der Achsbewegung möglich.1: Nicht wegtreues Handrad, verwerfen aller erzeugten Handradinkremente nach stoppen der Handraddrehung (vgl. Tipptastenbetrieb). Achsbewegung stoppt ebenfalls sofort.2: Bedingt wegtreues Handrad, verwerfen der erzeugten Handradinkremente wenn vor dem Stoppen der Handraddrehung die Handradsollgeschwindigkeit erreicht wurde. Zu beachten: Die Maximalgeschwindigkeit des Handrads (P-AXIS-00213) wird abhängig von P-CHAN-00186 mit Vorschuboverride gewichtet.(Modus verfügbar ab V3.1.3074)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="hr_data">6</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108598667</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108598667</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00014</Id>
+    <Name>move_limit_warning</Name>
+    <ShortDescription>
+      <Text Language="en">Output a message at offset limit</Text>
+      <Text Language="de">Ausgabe einer Meldung an Offsetgrenze</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If this parameter is set to TRUE, the CNC generates a warning if a manual movement stops at a relative offset limit (P-AXIS-00137, P-AXIS-00138) or at an absolute offset limit (P-AXIS-00492, P-AXIS-00493).</Text>
+      <Text Language="de">Ist der Parameter mit TRUE belegt, so generiert die CNC eine Warnung, falls die Handbetriebsbewegung an einer relativen Offsetgrenze (P-AXIS-00137, P-AXIS-00138) oder einer absoluten Offsetgrenze (P-AXIS-00492, P-AXIS-00493) stoppt.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">0/1</Text>
+      <Text Language="de">0/1</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#108610955</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#77662859</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#882590347</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#91649675</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#108610955</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#77662859</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#882590347</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#91649675</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-MANU-00015</Id>
+    <Name>tasten_data[].adr_tasten_zaehler</Name>
+    <DefaultValue>0x0000000000000000</DefaultValue>
+    <Type>ADDRESS</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="tasten_data">12</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Section>
+    <Name>
+      <Text Language="en">Hand wheel parameter</Text>
+      <Text Language="de">Handrad Parameter</Text>
+    </Name>
+    <Parameter>P-MANU-00001</Parameter>
+    <Parameter>P-MANU-00002</Parameter>
+    <Parameter>P-MANU-00005</Parameter>
+    <Parameter>P-MANU-00006</Parameter>
+    <Parameter>P-MANU-00004</Parameter>
+    <Parameter>P-MANU-00007</Parameter>
+    <Parameter>P-MANU-00012</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Key parameter</Text>
+      <Text Language="de">Tasten Parameter</Text>
+    </Name>
+    <Parameter>P-MANU-00008</Parameter>
+    <Parameter>P-MANU-00009</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Feedhold parameter</Text>
+      <Text Language="de">Feedhold Parameter</Text>
+    </Name>
+    <Parameter>P-MANU-00010</Parameter>
+    <Parameter>P-MANU-00011</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Handwheel</Text>
+      <Text Language="de">Handrad</Text>
+    </Name>
+    <Parameter>P-MANU-00001</Parameter>
+    <Parameter>P-MANU-00002</Parameter>
+    <Parameter>P-MANU-00005</Parameter>
+    <Parameter>P-MANU-00006</Parameter>
+    <Parameter>P-MANU-00010</Parameter>
+    <Parameter>P-MANU-00009</Parameter>
+    <Parameter>P-MANU-00008</Parameter>
+    <Parameter>P-MANU-00007</Parameter>
+    <Parameter>P-MANU-00004</Parameter>
+    <Parameter>P-MANU-00014</Parameter>
+    <Parameter>P-MANU-00013</Parameter>
+    <Parameter>P-MANU-00012</Parameter>
+    <Parameter>P-MANU-00011</Parameter>
+    <Parameter>P-MANU-00003</Parameter>
+  </Section>
+</Parameters>

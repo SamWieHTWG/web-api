@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ******************************* -->
+<!-- Axis compensation               -->
+<!-- ******************************* -->
+<AX_COMP>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+
+  <Head>
+    <!-- 'achs_nr' -->
+    <P-COMP-00001 Value="1" />
+    <!-- 'log_achs_name' -->
+    <P-COMP-00002 Value="A1" />
+  </Head>
+
+  <CrossCompensation>
+    <!-- 'unit' - 0:Increments 1:Metric -->
+    <P-COMP-00003 Value="1" />
+    <!-- 'last_index' -->
+    <P-COMP-00004 Value="5" />
+    <!-- 'master_ax_nr' -->
+    <P-COMP-00005 Value="1" />
+    <!-- 'n_cycles' -->
+    <P-COMP-00026 Value="10" />
+    <!-- 'manual_activation' -->
+    <P-COMP-00029 Value="0" />
+    <Table>
+      <!-- 'setpoint' -->
+      <P-COMP-00006.0 Value="0" />
+      <!-- 'correction' -->
+      <P-COMP-00007.0 Value="0" />
+
+      <P-COMP-00006.1 Value="10000" />
+      <P-COMP-00007.1 Value="0" />
+
+      <P-COMP-00006.2 Value="20000" />
+      <P-COMP-00007.2 Value="0" />
+
+      <P-COMP-00006.3 Value="30000" />
+      <P-COMP-00007.3 Value="0" />
+
+      <P-COMP-00006.4 Value="40000" />
+      <P-COMP-00007.4 Value="0" />
+
+      <P-COMP-00006.5 Value="50000" />
+      <P-COMP-00007.5 Value="0" />
+    </Table>
+  </CrossCompensation>
+
+  <PlaneCompensation>
+    <!-- 'unit' - 0:Increments 1:Metric -->
+    <P-COMP-00008 Value="1" />
+    <!-- 'interval' -->
+    <P-COMP-00009 Value="100000" />
+    <!-- 'last_index_master1' -->
+    <P-COMP-00010 Value="2" />
+    <!-- 'last_index_master2' -->
+    <P-COMP-00011 Value="2" />
+    <!-- 'start_position_master1' -->
+    <P-COMP-00012 Value="100000" />
+    <!-- 'start_position_master2' -->
+    <P-COMP-00013 Value="-500000" />
+    <!-- 'master1_ax_nr' -->
+    <P-COMP-00014 Value="1" />
+    <!-- 'master2_ax_nr' -->
+    <P-COMP-00015 Value="2" />
+    <!-- 'n_cycles' -->
+    <P-COMP-00027 Value="10" />
+    <!-- 'manual_activation' -->
+    <P-COMP-00030 Value="0" />
+    <!-- 'grid' -->
+    <P-COMP-00031 Value="QUADRATIC" />
+    <!-- 'interval1' -->
+    <P-COMP-00032 Value="0" />
+    <!-- 'interval2' -->
+    <P-COMP-00033 Value="0" />
+    <Table>
+      <!-- 'correction' -->
+      <P-COMP-00016.0.0 Value="0" />
+      <P-COMP-00016.0.1 Value="0" />
+      <P-COMP-00016.0.2 Value="0" />
+      <P-COMP-00016.1.0 Value="0" />
+      <P-COMP-00016.1.1 Value="0" />
+      <P-COMP-00016.1.2 Value="0" />
+      <P-COMP-00016.2.0 Value="0" />
+      <P-COMP-00016.2.1 Value="0" />
+      <P-COMP-00016.2.2 Value="0" />
+    </Table>
+  </PlaneCompensation>
+
+  <LeadscrewErrorCompensation>
+    <!-- 'unit' - 0:Increments 1:Metric -->
+    <P-COMP-00017 Value="1" />
+    <!-- 'interval' -->
+    <P-COMP-00018 Value="200000" />
+    <!-- 'kw_startpos' -->
+    <P-COMP-00019 Value="0" />
+    <!-- 'kw_nr_max' -->
+    <P-COMP-00020 Value="5" />
+    <!-- 'bilateral' -->
+    <P-COMP-00021 Value="1" />
+    <!-- 'modulo' -->
+    <P-COMP-00022 Value="0" />
+    <!-- 'manual_activation' -->
+    <P-COMP-00028 Value="0" />
+    <!-- 'set_pos_without_comp' -->
+    <P-COMP-00057 Value="0" />
+    <Table>
+      <CompPositiveDirection>
+        <P-COMP-00023.0 Value="0" />
+        <P-COMP-00023.1 Value="0" />
+        <P-COMP-00023.2 Value="0" />
+        <P-COMP-00023.3 Value="0" />
+        <P-COMP-00023.4 Value="0" />
+      </CompPositiveDirection>
+      <CompNegativeDirection>
+        <P-COMP-00024.0 Value="0" />
+        <P-COMP-00024.1 Value="0" />
+        <P-COMP-00024.2 Value="0" />
+        <P-COMP-00024.3 Value="0" />
+        <P-COMP-00024.4 Value="0" />
+      </CompNegativeDirection>
+      <InterpolationPoint>
+        <P-COMP-00025.0 Value="0" />
+        <P-COMP-00025.1 Value="0" />
+        <P-COMP-00025.2 Value="0" />
+        <P-COMP-00025.3 Value="0" />
+        <P-COMP-00025.4 Value="0" />
+      </InterpolationPoint>
+    </Table>
+  </LeadscrewErrorCompensation>
+
+  <FrictionCompensation>
+    <!-- 'file_path' -->
+    <P-COMP-00040 Value="CncKernelRootDir/listen/FrictCompMeasValues_1.lis" />
+    <!-- 'mode' -->
+    <P-COMP-00041 Value="0" />
+    <!-- 'table_entries' -->
+    <P-COMP-00042 Value="0" />
+    <!-- 'position_delay' -->
+    <P-COMP-00043 Value="0" />
+    <!-- 'reversal_lookahead' -->
+    <P-COMP-00044 Value="0" />
+    <!-- 'scaling_factor' -->
+    <P-COMP-00045 Value="0" />
+    <Table>
+      <Input>
+        <P-COMP-00046.0 Value="0" />
+        <P-COMP-00046.1 Value="0" />
+        <P-COMP-00046.2 Value="0" />
+        <P-COMP-00046.3 Value="0" />
+        <P-COMP-00046.4 Value="0" />
+      </Input>
+      <Output>
+        <P-COMP-00047.0 Value="0" />
+        <P-COMP-00047.1 Value="0" />
+        <P-COMP-00047.2 Value="0" />
+        <P-COMP-00047.3 Value="0" />
+        <P-COMP-00047.4 Value="0" />
+      </Output>
+    </Table>
+  </FrictionCompensation>
+</AX_COMP>

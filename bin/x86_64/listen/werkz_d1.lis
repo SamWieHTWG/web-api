@@ -1,0 +1,51 @@
+# ********************************
+# 
+# Werkzeugdaten 
+# 
+#     Einheit:   0.1 Mikrometer
+# 
+# ********************************
+# 
+wz[1].gueltig                                         1              ( P-TOOL-00005 : Validity flag of tool data
+wz[1].typ                                             0              ( P-TOOL-00001 : Tool type (0: Milling, 1: Turning, 2: Grinding)
+wz[1].srk_lage                                        0              ( P-TOOL-00002 : Cutter orientation ID, required only for turning tool
+wz[1].mass_einheit                                    0              ( P-TOOL-00008 : Unit of tool data (0: mm, 1: inch)
+wz[1].laenge                                          0              ( P-TOOL-00003 : [0.1um or 0.0001 inch] Tool length
+wz[1].radius                                          0              ( P-TOOL-00004 : [0.1um or 0.0001 inch] Tool radius
+wz[1].ax_versatz[0]                                   0              ( P-TOOL-00006 : [0.1um or 0.0001 inch] Tool axis offset of first channel axis        
+wz[1].ax_versatz[1]                                   0              ( P-TOOL-00006 : [0.1um or 0.0001 inch] Tool axis offset of second channel axis 
+wz[1].ax_versatz[2]                                   0              ( P-TOOL-00006 : [0.1um or 0.0001 inch] Tool axis offset of third channel axis 
+wz[1].kinematic.param[0]                              0              ( P-TOOL-00009 : [0.1um or 0.0001 inch] Tool specific kinematic parameter (tool head offsets)
+wz[1].kinematic.param[1]                              0              ( P-TOOL-00009 : [0.1um or 0.0001 inch] Tool specific kinematic parameter (tool head offsets)
+wz[1].kinematic.param[2]                              0              ( P-TOOL-00009 : [0.1um or 0.0001 inch] Tool specific kinematic parameter (tool head offsets)
+wz[1].kin_id                                          0              ( P-TOOL-00011 : Kinematics transformation to be required for the tool 
+wz[1].tool_fixed                                      0              ( P-TOOL-00010 : Tool orientation relative to the machine-axes coordinate system
+wz[1].param[0]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[1]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[2]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[3]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[4]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[5]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[6]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[7]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[8]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[9]                                        0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[10]                                       0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[11]                                       0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[12]                                       0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[13]                                       0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[14]                                       0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[15]                                       0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].param[16]                                       0              ( P-TOOL-00007 : Additional tool parameter - example
+wz[1].log_ax_nr_spdl                                  0              ( P-TOOL-00012 : Logical axis number of the spindle (required for tool dynamic data, 0: not assigned)
+wz[1].vb_min                                          0              ( P-TOOL-00013 : Tool dynamic data, minimum spindle speed
+wz[1].vb_max                                          0              ( P-TOOL-00014 : Tool dynamic data, maximum spindle speed
+wz[1].a_max                                           0              ( P-TOOL-00015 : Tool dynamic data, maximum spindle acceleration
+#wz[1].grinding_disc_type                             0              ( Use in preparation : Type of grinding disc
+wz[1].grinding_wear_const                             0              ( P-TOOL-00030 : [0.1um/m] Wear constant, Example 100: 10um/m wear
+wz[1].grinding_max_infeed                             0              ( P-TOOL-00031 : [0.1um] Maximum infeed commanded via PLC
+wz[1].grinding_disc_tilt_angle                        0              ( P-TOOL-00138 : [0.0001 degree] Tilt angle of grinding disc
+#wz[1].grinding_disc_min_radius                       0              ( Use in preparation : [0.1um] Minimum grinding disc radius
+#wz[1].grinding_disc_min_width                        0              ( Use in preparation : [0.1um] Minimum grinding disc width
+#
+Ende

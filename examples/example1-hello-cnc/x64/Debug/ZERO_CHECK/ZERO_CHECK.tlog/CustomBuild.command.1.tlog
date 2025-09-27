@@ -1,0 +1,10 @@
+^C:\USERS\SAMUEL\DESKTOP\CNCSDKDEMO\EXAMPLES\EXAMPLE1-HELLO-CNC\CMAKEFILES\F341E9EDA56F6B28F8E6689A30E6F01F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Samuel/Desktop/CncSDKDemo/examples/example1-hello-cnc -BC:/Users/Samuel/Desktop/CncSDKDemo/examples/example1-hello-cnc --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Samuel/Desktop/CncSDKDemo/examples/example1-hello-cnc/CncSdkExample.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

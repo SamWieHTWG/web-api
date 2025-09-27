@@ -1,0 +1,14 @@
+{
+  "cmake.debugConfig": {
+    "console": "integratedTerminal"
+  },
+  "files.associations": {
+    "tpl.plugins": "json",
+    "stdlib.h": "c",
+    "cnc_demo.h": "c",
+    "cnc_os_ifc.h": "c",
+    "stdio.h": "c",
+    "cnc_demo_samples.h": "c",
+    "string.h": "c"
+  },
+}

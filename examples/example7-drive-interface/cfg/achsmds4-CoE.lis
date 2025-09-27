@@ -1,0 +1,43 @@
+# ****************************************
+#
+# Axis Parameter
+#
+# ****************************************
+#
+kopf.achs_nr                                          4              ( P-AXIS-00016 : logical axis number
+kopf.mds_ident                                        1              ( P-AXIS-00110 : Identification of axis data
+kopf.log_achs_name                              B_Achse              ( P-AXIS-00297 : Default name of an axis
+
+kenngr.achs_mode                               0x400001              ( P-AXIS-00015 : Operating mode of an axis ;  mode 1=linear , mode 4=modulo
+kenngr.achs_typ                                       1              ( P-AXIS-00018 : Axis type 1=linear axis, 2=rotatary axis, 4=spindle/single axis
+
+kenngr.antr_typ                                       8              ( P-AXIS-00020 : Drive type 1=KONV, 2=SERCOS, 3=Profidrive, 4=SIMU, 7=Ethernet, 8=CANopen, 17=DSE
+kenngr.device_id                                      8              ( P-AXIS-00536 : Device-specific procedures for drive controllers
+
+kenngr.homing_without_zero_pulse                      1              ( P-AXIS-00084 : Homing only with cam (without zero pulse)
+# ---------------------------------------------------                Drive bus system
+antr.addroffs.input                                   3              ( P-AXIS-00707 : Input Address offset for digital drive types
+antr.addroffs.output                                  3              ( P-AXIS-00580 : Output Address offset for digital drive types
+
+antr.canopen.in[0].signal_len                         2              ( P-AXIS-00646 : Signal length
+antr.canopen.in[0].nc_ref                  DRIVE_STATUS              ( P-AXIS-00475 : Assign the input process data item to CNC-internal nomenclature
+antr.canopen.in[1].signal_len                         4              ( P-AXIS-00646 : Signal length
+antr.canopen.in[1].nc_ref                       POS_ACT              ( P-AXIS-00475 : Assign the input process data item to CNC-internal nomenclature
+antr.canopen.in[2].signal_len                         4              ( P-AXIS-00646 : Signal length
+antr.canopen.in[2].nc_ref                       VEL_ACT              ( P-AXIS-00475 : Assign the input process data item to CNC-internal nomenclature
+antr.canopen.in[3].signal_len                         1              ( P-AXIS-00646 : Signal length
+antr.canopen.in[3].nc_ref                   OP_MODE_ACT              ( P-AXIS-00475 : Assign the input process data item to CNC-internal nomenclature
+antr.canopen.in[4].signal_nr                          0              ( P-AXIS-00645 : Signal number
+antr.canopen.in[4].signal_len                         2              ( P-AXIS-00646 : Signal length
+antr.canopen.in[4].nc_ref                       WCSTATE              ( P-AXIS-00475 : Assign the input process data item to CNC-internal nomenclature
+
+antr.canopen.out[0].signal_len                        2              ( P-AXIS-00649 : Signal length
+antr.canopen.out[0].nc_ref                   DRIVE_CTRL              ( P-AXIS-00478 : Assign the input process data item to CNC-internal nomenclature
+antr.canopen.out[1].signal_len                        4              ( P-AXIS-00649 : Signal length
+antr.canopen.out[1].nc_ref                      POS_NOM              ( P-AXIS-00478 : Assign the input process data item to CNC-internal nomenclature
+antr.canopen.out[2].signal_len                        4              ( P-AXIS-00649 : Signal length
+antr.canopen.out[2].nc_ref                     VELO_NOM              ( P-AXIS-00478 : Assign the input process data item to CNC-internal nomenclature
+antr.canopen.out[3].signal_len                        1              ( P-AXIS-00649 : Signal length
+antr.canopen.out[3].nc_ref                      OP_MODE              ( P-AXIS-00478 : Assign the input process data item to CNC-internal nomenclature
+
+Ende

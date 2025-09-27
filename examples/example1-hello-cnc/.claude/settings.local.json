@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Samuel/Desktop/CncSDKDemo/include/**)",
+      "Read(//c/Users/Samuel/Desktop/CncSDKDemo/examples/include/**)",
+      "Read(//c/Users/Samuel/Desktop/CncSDKDemo/**)",
+      "Bash(make:*)",
+      "Bash(cmake:*)",
+      "Bash(./CncSdkExample.exe)",
+      "Bash(curl -X POST http://localhost:8080/read -H \"Content-Type: application/json\" -d \"{\"\"thread\"\":1,\"\"group\"\":131840,\"\"offset\"\":7}\")",
+      "Bash(powershell:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

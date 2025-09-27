@@ -1,0 +1,33 @@
+# ****************************************
+#
+#TC_CHANNEL_DESC_1: Channel parameter
+#
+# ****************************************
+
+#
+# Definition of default axes group
+# ==================================
+grp_anzahl                                            1             ( P-CHAN-00023 : Number of axes groups (always 1)
+#
+gruppe[0].bezeichnung                                 IPO_1         ( P-CHAN-00005 : Name of the axes group
+gruppe[0].achs_anzahl                                 3             ( P-CHAN-00003 : Number of axes in axes group
+#
+gruppe[0].achse[0].log_achs_nr                        1             ( P-CHAN-00035 : Logical axis number of the first (main) axis
+gruppe[0].achse[0].bezeichnung                        X             ( P-CHAN-00006 : Name of the first (main) axis
+#
+gruppe[0].achse[1].log_achs_nr                        2             ( P-CHAN-00035 : Logical axis number of the second (main) axis
+gruppe[0].achse[1].bezeichnung                        Y             ( P-CHAN-00006 : Name of the second (main) axis
+#
+gruppe[0].achse[2].log_achs_nr                        3             ( P-CHAN-00035 : Logical axis number of the third (main) axis
+gruppe[0].achse[2].bezeichnung                        Z             ( P-CHAN-00006 : Name of the third (main) axis
+
+# NC program paths
+# ================
+path[0].dir                           ./prg         ( P-CHAN-00401 : Path specification to NC programs
+path[0].id                                                 1         ( P-CHAN-00402 : Logical path number for a program path
+path[0].type                                            0x03         ( P-CHAN-00403 : Type of path of a program path 
+path[0].priority                                           1         ( P-CHAN-00404 : Priority of a program path
+
+
+
+Ende

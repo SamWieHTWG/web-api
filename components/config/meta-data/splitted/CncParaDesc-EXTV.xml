@@ -1,0 +1,1104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Parameters xmlns="https://www.isg-stuttgart.de/kernel/CncParaDesc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CncParaDesc.xsd">
+  <Unit>
+    <Id>UNIT_NONE</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Unit>
+    <Id>UNIT_SYMBOL</Id>
+    <Text Language="en">-</Text>
+    <Text Language="de">-</Text>
+    <TextASCII Language="en">-</TextASCII>
+    <TextASCII Language="de">-</TextASCII>
+  </Unit>
+  <Parameter>
+    <Id>P-EXTV-00001</Id>
+    <Name>var[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of external variable</Text>
+      <Text Language="de">Name der externen Variable</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The variable is identified by its name. The name is used with the prefix "V.E." to create a complete name for the NC channel and the GUI (e.g. V.E.&lt;name&gt;). This complete name is then used to program variables in the NC program. Uppercase and lowercase letters are distinguished.</Text>
+      <Text Language="de">Über den Namen wird die Variable identifiziert. Aus diesem wird mit dem Präfix „V.E.“ ein Gesamtname für den NC-Kanal und die Oberfläche zusammengesetzt (z.B. V.E.&lt;name&gt;). Dieser Gesamtname wird dann im NC-Programm bei der Variablenprogrammierung verwendet. Groß- und Kleinbuchstaben werden unterschieden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 26 characters (length of variable name as of CNC Build 2.10.1504 and higher *)</Text>
+      <Text Language="de">Maximal 26 Zeichen (Länge Variablenname ab CNC-Version 2.10.1504 *)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112455051</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112455051</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00002</Id>
+    <Name>var[].byte_offset</Name>
+    <ShortDescription>
+      <Text Language="en">Position of external variable in the memory</Text>
+      <Text Language="de">Position der externen Variable im Speicher</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Deviating from the data size implicitly defined by "type” (P-EXTV-00003 ) or the defined data size of a structure, (see Data sets for definition of the elements of a variable type (struct[i].element[j].*)), the position  of a variable can be defined in the memory.The indication of this parameter is optional. All variables with byte_offset = –1 are concatenated without gaps (starting with offset 0) in the V.E.memory.</Text>
+      <Text Language="de">Abweichend von dem implizit durch „type“ (P-EXTV-00003) bzw. der Größe einer Struktur festgelegten Datengröße (siehe Datensätze zur Definition der Elemente eines Variablentyps (struct[i].element[j].*)) kann die Position einer Variablen im Speicher festgelegt werden.Die Angabe dieses Parameters ist optional. Alle Variablen mit byte_offset = -1 werden im V.E.-Speicher lückenlos hintereinander (beginnend mit Offset 0) angereiht.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ... MAX(SGN32)</Text>
+      <Text Language="de">0 ... MAX(SGN32)</Text>
+    </Range>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112456587</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112456587</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00003</Id>
+    <Name>var[].type</Name>
+    <ShortDescription>
+      <Text Language="en">Type of external variable</Text>
+      <Text Language="de">Typ der externen Variable</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The identifier indicates the data type of the variable. Besides elementary data types (SGN08, ..., REAL64) and the STRING data type, a user-defined variable type can also be defined here (P-EXTV-00015).</Text>
+      <Text Language="de">Die Kennung gibt den Datentyp der Variable an. Neben elementaren Datentypen (SGN08, …, REAL64) und dem Datentyp STRING kann hier auch ein benutzerdefinierter Variablentyp angegeben werden (P-EXTV-00015).</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">BOOLEAN, SGN08, UNS08, SGN16, UNS16, SGN32; UNS32, REAL64, STRING, VSTRING or user-defined</Text>
+      <Text Language="de">BOOLEAN, SGN08, UNS08, SGN16, UNS16, SGN32; UNS32, REAL64, STRING, VSTRING oder benutzerdefiniert</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112458123</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112458123</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00004</Id>
+    <Name>var[].scope</Name>
+    <ShortDescription>
+      <Text Language="en">Scope of validity of external variable</Text>
+      <Text Language="de">Gültigkeitsbereich der externen Variable</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">In the case of the scope of validity, a distinction is made between a channel-specific and a cross-channel  global scope.</Text>
+      <Text Language="de">Beim Gültigkeitsbereich wird zwischen einem kanalspezifischen und einem kanalübergreifenden, globalen unterschieden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>0x0</DefaultValue>
+    <Range>
+      <Text Language="en">GLOBAL, CHANNEL</Text>
+      <Text Language="de">GLOBAL, CHANNEL</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>GLOBAL</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>CHANNEL</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112459659</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112459659</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00005</Id>
+    <Name>var[].synchronisation</Name>
+    <ShortDescription>
+      <Text Language="en">Synchronisation type of external variable</Text>
+      <Text Language="de">Synchronisationsart der externen Variable</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Write/read access is normally performed synchronously with processing. In individual cases, this implicit synchronisation can be suppressed (see Access synchronisation by NC channel). If the variable is a variable structure, all subordinated structure elements inherit the synchronisation type. In addition, the synchronisation type can be individually defined for each structure element in the type definition (P-EXTV-00018).</Text>
+      <Text Language="de">Der Schreib-/Lesezugriff erfolgt normalerweise synchron zur Bearbeitung. In Einzelfällen kann diese implizite Synchronisierung unterdrückt werden (siehe Synchronisation des Zugriffs durch NC-Kanal). Falls es sich bei der Variable um eine Variablenstruktur handelt, wird die Synchronisationsart an alle untergeordneten Strukturelemente vererbt. Zusätzlich kann bei der Typdefinition die Synchronisationsart für jedes Strukturelement individuell festgelegt werden (P-EXTV-00018).</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>VE_INHERIT_SYNCH</DefaultValue>
+    <Range>
+      <Text Language="en">TRUE, FALSE</Text>
+      <Text Language="de">TRUE, FALSE</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>SYN</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>ASYN</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>FALSE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>VE_INHERIT_SYNCH</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112461195</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#783705739</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112461195</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#783705739</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00006</Id>
+    <Name>var[].access_rights</Name>
+    <ShortDescription>
+      <Text Language="en">Access right of external variable</Text>
+      <Text Language="de">Zugriffsrecht der externen Variable</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Write/read access to variables is possible in the basic setting and can be restricted by access protection. If the variable is a variable structure, the access right is inherited to all subordinated structure elements. In addition, for type definition, the access right can be set individually for each structure element (P-EXTV-00019).</Text>
+      <Text Language="de">In der Grundeinstellung ist ein Schreib-/Lesezugriff auf die Variablen möglich, welcher über den Zugriffsschutz eingeschränkt werden kann. Falls es sich bei der Variable um eine Variablenstruktur handelt, wird das Zugriffsrecht an alle untergeordneten Strukturelemente vererbt. Zusätzlich kann bei der Typdefinition das Zugriffsrecht für jedes Strukturelement individuell festgelegt werden (P-EXTV-00019).</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>0x0</DefaultValue>
+    <Range>
+      <Text Language="en">READ_WRITE, READ_ONLY, WRITE_ONLY</Text>
+      <Text Language="de">READ_WRITE, READ_ONLY, WRITE_ONLY</Text>
+    </Range>
+    <Type>STRING</Type>
+    <Bitfield>8</Bitfield>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>READ_WRITE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>READ_ONLY</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>WRITE_ONLY</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>INHERIT_ACCESS</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112462731</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112462731</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00007</Id>
+    <Name>var[].array_elements</Name>
+    <ShortDescription>
+      <Text Language="en">Number of elements in an array of structure elements</Text>
+      <Text Language="de">Anzahl der Elemente in einem Array der Variablen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If an external variable is required not only once but as an array of this variable, the number of array elements must be defined. If the variable is not an array, then specify 0.</Text>
+      <Text Language="de">Wird eine externe Variable nicht nur einmal sondern als Array dieser Variable benötigt, so ist die Anzahl der Feldelemente festzulegen. Ist die Variable kein Array, dann ist 0 anzugeben.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ... MAX(UNS16)</Text>
+      <Text Language="de">1 ... MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112464267</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112464267</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00008</Id>
+    <Name>var[].size</Name>
+    <ShortDescription>
+      <Text Language="en">Size of the external variable</Text>
+      <Text Language="de">Größe der externen Variable</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Deviating from the data size implicitly defined by "type” (P-EXTV-00003 ) or the defined data size of a structure, see Data sets for definition of the elements of a variable type (struct[i].element[j].*)),  the offset and therefore the start position of the next global variable in the memory can be “moved”.Specifying the variable size in only necessary if additional alignment bytes must be considered. With arrays the parameter indicates the size of a single element.This parameter defines the size of string variables (including zero termination byte) of the VSTRING variable type. The size can be different for each variable. The default size of the variable is 128 bytes.</Text>
+      <Text Language="de">Abweichend von dem implizit durch „type“ (P-EXTV-00003 ) bzw. der Größe einer Struktur festgelegten Datengröße siehe Datensätze zur Definition der Elemente eines Variablentyps (struct[i].element[j].*)) kann der Offset und damit die Anfangsposition der im Speicher nachfolgenden globalen Variablen „verschoben“ werden.Die Angabe der Variablengröße ist nur notwendig, falls zusätzliche Alignmentbytes berücksichtigt werden müssen. Bei Arrays gibt der Parameter die Größe eines Einzelelements an.Bei Variablen vom Typ VSTRING wird in diesem Parameter die Größe der Stringvariable (inklusive Nullterminierung) festgelegt. Die Größe kann für jede Variable unterschiedlich gewählt werden. Standardmäßig wird die Variable mit einer Größe von 128 Byte angelegt.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ... MAX(UNS32)</Text>
+      <Text Language="de">0 ... MAX(UNS32)</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112465803</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112465803</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00009</Id>
+    <Name>var[].create_hmi_interface</Name>
+    <ShortDescription>
+      <Text Language="en">Enabling the access by HMI</Text>
+      <Text Language="de">Freigabe für Zugriff durch HMI</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the flag is set to TRUE, access is also permitted over the user interface to each variable by a corresponding communication object.</Text>
+      <Text Language="de">Für jede Variable kann zusätzlich der Zugriff über die Oberfläche durch ein entsprechendes Kommunikationsobjekt ermöglicht werden, falls das Flag gesetzt ist.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">TRUE, FALSE</Text>
+      <Text Language="de">TRUE, FALSE</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112467339</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112467339</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00010</Id>
+    <Name>anzahl_belegt</Name>
+    <ShortDescription>
+      <Text Language="en">Number of configured external variables</Text>
+      <Text Language="de">Anzahl konfigurierter externer Variablen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If var[i].* is assigned without gaps, enter the index of the variable last defined +1 here (ilast+1).&#13;
+If var[i].* is assigned with gaps, enter the highest index of the defined variable + 1 here (imax+1).&#13;
+If the value is smaller that the number of variables actually configured, only the variables up to this value are available after controller start-up.</Text>
+      <Text Language="de">Bei lückenloser Belegung von var[i].* wird hier der Index der zuletzt definierten Variable +1 eingetragen (ilast+1).&#13;
+Bei Belegung mit Lücken von var[i].* wird hier der höchste Index der definierten Variablen +1 eingetragen (imax+1).&#13;
+Ist der Wert kleiner als die tatsächlich konfigurierte Variablenanzahl, so sind nach Hochlauf der Steuerung auch nur die Variablen bis zu diesem Wert verfügbar.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">0 ... MAX(UNS16)</Text>
+      <Text Language="de">0 ... MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112471947</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112471947</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00011</Id>
+    <Name>check_overlapping_variables</Name>
+    <ShortDescription>
+      <Text Language="en">Plausibility check of the memory layout</Text>
+      <Text Language="de">Plausibilitätsprüfung des Speicherlayouts</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The parameter var[i].byte_offset P-EXTV-00002 can set external variables to any, possibly incorrect, memory address. This parameter can activate a plausibility check of the memory layout for external variables. If variables overlap in the memory, the CNC outputs the error message P-ERR-21848 at controller start-up and the overlapping variable is deleted.</Text>
+      <Text Language="de">Mit Hilfe des Parameters var[i].byte_offset P-EXTV-00002 können externe Variablen an eine beliebige, evtl. falsche, Speicheradresse gelegt werden. Mit diesem Parameter kann eine Plausibilitätsprüfung des Speicherlayouts der externen Variablen aktiviert werden. Falls Variablen sich im Speicher überlappen, gibt die CNC im Steuerungshochlauf die Fehlermeldung P-ERR-21848 aus und die überlappende Variable wird gelöscht.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">TRUE, FALSE</Text>
+      <Text Language="de">TRUE, FALSE</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112473483</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112473483</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00012</Id>
+    <Name>auto_memory_mode</Name>
+    <ShortDescription>
+      <Text Language="en">Method for automatic memory layout</Text>
+      <Text Language="de">Methode für automatisches Speicherlayout</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">As of CNC Build V2.10.1025.00 and higher, the CNC can automatically create the external variables in the memory without gaps. External variables can also be assigned to any memory address by using the parameter var[i].byte_offset P-EXTV-00002 or by selecting a 24-byte are via var[i].index P-EXTV-00038.&#13;
+If the automatic and manual address selection is combined, this parameters defines how the CNC generates the automatic addresses for the variables.</Text>
+      <Text Language="de">Ab CNC-Version V2.10.1025.00 werden die externen Variablen von der CNC automatisch hintereinander im Speicher ohne Lücken angelegt. Mit Hilfe des Parameters var[i].byte_offset P-EXTV-00002 bzw. durch Angabe eines 24-Byte Bereichs var[i].index P-EXTV-00038 können externe Variablen auch an eine beliebige Speicheradresse gelegt werden.&#13;
+Falls die automatische und die manuelle Adressvergabe kombiniert werden, kann in diesem Parameter festgelegt werden, wie die CNC die automatischen Adressen der Variablen vergibt.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>START_VE_MEMORY</DefaultValue>
+    <Range>
+      <Text Language="en">START_VE_MEMORY: All variables with automatic determined addresses are set to the start of the external memory area without gaps.&#13;
+LAST_USED_ADDRESS: The external variable with automatic address assignment is always created after the last memory area is occupied by the preceding variables.</Text>
+      <Text Language="de">START_VE_MEMORY: Alle Variablen mit automatisch vergebener Adresse werden lückenlos an den Anfangsbereich des externen Variablenspeichers angelegt.&#13;
+LAST_USED_ADDRESS: Die Variable mit automatisch vergebener Adresse wird immer nach dem letzten, durch die vorangegangenen Variablen belegten Speicherbereich angelegt.</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>START_VE_MEMORY</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>LAST_USED_ADDRESS</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112475019</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112475019</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00015</Id>
+    <Name>struct[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the variable type</Text>
+      <Text Language="de">Name des Variablentyps</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The variable type is identified by the name. Upper case letters and lower case letters are differentiated.</Text>
+      <Text Language="de">Über den Namen wird der Variablentyp identifiziert. Gross- und Kleinbuchstaben werden unterschieden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum 26 characters (length of variable name as of CNC Build 2.10.1504 and higher *)</Text>
+      <Text Language="de">Maximal 26 Zeichen (Länge Variablenname ab CNC-Version 2.10.1504 *)</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="struct">50</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112439691</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112439691</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00016</Id>
+    <Name>struct[].element[].name</Name>
+    <ShortDescription>
+      <Text Language="en">Name of the structure element</Text>
+      <Text Language="de">Name des Strukturelements</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The structure element is identified by the name. Upper case and lower case letters are recognised.</Text>
+      <Text Language="de">Über den Name wird das Strukturelement identifiziert. Groß- und Kleinbuchstaben werden unterschieden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">Maximum of 20 characters</Text>
+      <Text Language="de">Maximal 20 Zeichen</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="struct">50</ArrayIndex>
+      <ArrayIndex No="1" Name="element">70</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112442763</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112442763</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00017</Id>
+    <Name>struct[].element[].type</Name>
+    <ShortDescription>
+      <Text Language="en">Type of the structure element</Text>
+      <Text Language="de">Typ des Strukturelements</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The type indicates the data type of the structure element. Besides elementary data types (SGN08, ..., REAL64), the data type STRING or a user-defined data type can also be defined here.</Text>
+      <Text Language="de">Die Kennung gibt den Datentyp des Strukturelements an. Neben elementaren Datentypen (SGN08, …,REAL64) kann hier auch der Datentyp STRING oder ein benutzerdefinierter Datentyp angegeben werden.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en">BOOLEAN, SGN08, UNS08, SGN16, UNS16, SGN32; UNS32, REAL64, STRING, VSTRING or user-defined</Text>
+      <Text Language="de">BOOLEAN, SGN08, UNS08, SGN16, UNS16, SGN32; UNS32, REAL64, STRING, VSTRING oder benutzerdefiniert</Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="struct">50</ArrayIndex>
+      <ArrayIndex No="1" Name="element">70</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112444299</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112444299</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00018</Id>
+    <Name>struct[].element[].synchronisation</Name>
+    <ShortDescription>
+      <Text Language="en">Synchronisation type of the structure element</Text>
+      <Text Language="de">Synchronisationsart des Strukturelements</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">By default, all structure elements inherit the synchronisation type for write/read access (see Access synchronisation by NC channel) from variable instantiation. This parameter defines the synchronisation type for each structure element.</Text>
+      <Text Language="de">Standardmäßig erben alle Strukturelemente die Synchronisationsart für den Schreib-/Lesezugriff (siehe Synchronisation des Zugriffs durch NC-Kanal) von der Variableninstanzierung. Mit diesem Parameter kann die Synchronisationsart für das Strukturelement individuell festgelegt werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>VE_INHERIT_SYNCH</DefaultValue>
+    <Range>
+      <Text Language="en">TRUE, FALSE</Text>
+      <Text Language="de">TRUE, FALSE</Text>
+    </Range>
+    <Type>STRING</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>SYN</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>ASYN</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>FALSE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>VE_INHERIT_SYNCH</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="struct">50</ArrayIndex>
+      <ArrayIndex No="1" Name="element">70</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112445835</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112445835</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00019</Id>
+    <Name>struct[].element[].access_rights</Name>
+    <ShortDescription>
+      <Text Language="en">Access right of the structure element</Text>
+      <Text Language="de">Zugriffsrecht des Strukturelements</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">By default, all structure elements inherit the access rights from variable instantiation. This parameter specifies the individual definition of the access right for the structure element.</Text>
+      <Text Language="de">Standardmäßig erben alle Strukturelemente die Zugriffsrechte von der Variableninstanziierung. Mit diesem Parameter kann das Zugriffsrecht für das Strukturelement individuell festgelegt werden.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>0x0</DefaultValue>
+    <Range>
+      <Text Language="en">READ_WRITE, READ_ONLY, WRITE_ONLY, INHERIT_ACCESS</Text>
+      <Text Language="de">READ_WRITE, READ_ONLY, WRITE_ONLY, INHERIT_ACCESS</Text>
+    </Range>
+    <Type>STRING</Type>
+    <Bitfield>8</Bitfield>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>READ_WRITE</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>READ_ONLY</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>WRITE_ONLY</Name>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>INHERIT_ACCESS</Name>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="struct">50</ArrayIndex>
+      <ArrayIndex No="1" Name="element">70</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112447371</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112447371</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00020</Id>
+    <Name>struct[].element[].array_elements</Name>
+    <ShortDescription>
+      <Text Language="en">Number of elements in an array of structure elements</Text>
+      <Text Language="de">Anzahl der Elemente in einem Array aus Strukturelementen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">If the structure element is an array composed of structure elements, the number of elements must be specified. If the size is 0, the structure element is a single variable and not an array.</Text>
+      <Text Language="de">Ist das Strukturelement ein Array aus Strukturelementen, so muss die Anzahl der Elemente angegeben werden. Ist die Größe 0, so ist das Strukturelement eine einzelne Variable und kein Array.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ... MAX(UNS16)</Text>
+      <Text Language="de">1 ... MAX(UNS16)</Text>
+    </Range>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="struct">50</ArrayIndex>
+      <ArrayIndex No="1" Name="element">70</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112448907</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112448907</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00021</Id>
+    <Name>struct[].element[].size</Name>
+    <ShortDescription>
+      <Text Language="en">Size of a structure element of type VSTRING (Data type with variable string length)</Text>
+      <Text Language="de">Größe eines Strukturelements vom Typ VSTRING (Datentyp mit variabler Stringlänge)</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">As of CNC Build V3.1.3039.00 and higher, a new data type VSTRING can be used to define external variables. The size of a string element can be defined separately for this data type. The desired size is specified in this parameter inclusive Null-termination byte meaning a value of size = 128 leads to a string element with 127 usable characters.</Text>
+      <Text Language="de">Ab CNC-Version V3.1.3039.00 kann für die Definition der externen Variablen ein neuer Datentyp VSTRING verwendet werden. Für diesen Datentyp kann die Größe des String-Elements individuell festgelegt werden kann. Die gewünschte Größe wird in diesem Parameter inklusive Nullterminierung angegeben, d.h. bei einem Wert size = 128 stehen 127 Nutzzeichen in dem Element zur Verfügung.</Text>
+    </LongDescription>
+    <DefaultValue>0</DefaultValue>
+    <Range>
+      <Text Language="en">1 ... 800 bytes</Text>
+      <Text Language="de">1 ... 800 Byte</Text>
+    </Range>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="struct">50</ArrayIndex>
+      <ArrayIndex No="1" Name="element">70</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112450443</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112450443</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00022</Id>
+    <Name>use_extended_string_var</Name>
+    <ShortDescription>
+      <Text Language="en">Number of characters of a string variable</Text>
+      <Text Language="de">Zeichenanzahl von Stringvariablen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">This parameter can increase the permissible number of characters of string variables from 21 to 128 characters (each including the termination mark).&#13;
+If the addresses of the V.E. variable is specified in 24-byte blocks (see Memory layout), make sure that 128-byte variables of the STRING type are assigned several 24-byte blocks in the memory layout and that the index is incremented accordingly (cf. variable arrays).</Text>
+      <Text Language="de">Mit dem Parameter kann die zulässige Zeichenanzahl von Stringvariablen von 21 auf 128 Zeichen (jeweils inklusive Endmarke) erhöht werden.&#13;
+Falls die Adressen der V.E. Variablen in 24-Byte Blöcken (siehe Speicherlayout) vorgegeben sind, ist bei den 128 Byte großen Variablen vom Typ STRING zu beachten, dass sie im Speicherlayout mehrere 24-Byte Blöcke belegen und der Index entsprechend hochgezählt (vergl. Variablenarrays) werden muss.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">TRUE, FALSE</Text>
+      <Text Language="de">TRUE, FALSE</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112451979</Link>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#295209739</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112451979</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#295209739</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00030</Id>
+    <Name>name_rd_global_array</Name>
+    <ShortDescription>
+      <Text Language="en">HMI read access with global array</Text>
+      <Text Language="de">HMI-Lesezugriff bei globalem Array</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00031</Id>
+    <Name>name_wr_global_array</Name>
+    <ShortDescription>
+      <Text Language="en">HMI write access with global array</Text>
+      <Text Language="de">HMI-Schreibzugriff bei globalem Aray</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00032</Id>
+    <Name>name_rd_channel_array</Name>
+    <ShortDescription>
+      <Text Language="en">HMI read access with channel-specific array</Text>
+      <Text Language="de">HMI-Lesezugriff bei kanalspezifischem Array</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00033</Id>
+    <Name>name_wr_channel_array</Name>
+    <ShortDescription>
+      <Text Language="en">HMI read access with channel-specific array</Text>
+      <Text Language="de">HMI-Schreibzugriff bei kanalspezifischem Array</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00034</Id>
+    <Name>name_rd_global</Name>
+    <ShortDescription>
+      <Text Language="en">HMI read access with global variables</Text>
+      <Text Language="de">HMI-Lesezugriff bei globalen Variablen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00035</Id>
+    <Name>name_wr_global</Name>
+    <ShortDescription>
+      <Text Language="en">HMI write access with global variables</Text>
+      <Text Language="de">HMI-Schreibzugriff bei globalen Variablen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00036</Id>
+    <Name>name_rd_channel</Name>
+    <ShortDescription>
+      <Text Language="en">HMI read access with channel-specific variables</Text>
+      <Text Language="de">HMI-Lesezugriff bei kanalspezifischen Variablen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00037</Id>
+    <Name>name_wr_channel</Name>
+    <ShortDescription>
+      <Text Language="en">HMI write access with channel-specific variables</Text>
+      <Text Language="de">HMI-Schreibzugriff bei kanalspezifischen Variablen</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">Format of the HMI object name by specifying a corresponding template.</Text>
+      <Text Language="de">Format des Namens des HMI-Objektes durch Angabe einer entsprechenden Schablone.</Text>
+    </LongDescription>
+    <DefaultValue/>
+    <Range>
+      <Text Language="en"></Text>
+      <Text Language="de"></Text>
+    </Range>
+    <Type>STRING</Type>
+    <MaxStringLength>27</MaxStringLength>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112490251</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112490251</Link>
+    </Help>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00038</Id>
+    <Name>var[].index</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>SGN32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00039</Id>
+    <Name>var[].var_typ</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00040</Id>
+    <Name>var[].mode</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00041</Id>
+    <Name>var[].access</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00042</Id>
+    <Name>var[].attribut</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00043</Id>
+    <Name>var[].max_element</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00044</Id>
+    <Name>var[].offset</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS32</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00045</Id>
+    <Name>var[].kennung</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>SGN16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00046</Id>
+    <Name>var[].array_size</Name>
+    <DefaultValue>0</DefaultValue>
+    <Type>UNS16</Type>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+  </Parameter>
+  <Parameter>
+    <Id>P-EXTV-00047</Id>
+    <Name>var[].suppress_export</Name>
+    <ShortDescription>
+      <Text Language="en">Support variable export to PLC description</Text>
+      <Text Language="de">Unterdrücken des Variablenexports in die PLC-Beschreibung</Text>
+    </ShortDescription>
+    <LongDescription>
+      <Text Language="en">The NC command #EXPORT VE (see [FCT-C22]) can be used to export the CNC description of the external variables to an equivalent PLC description. If this parameter is set to TRUE, the export of the variable is suppressed. Alignment bytes are then added to the PLC description.</Text>
+      <Text Language="de">Mit Hilfe des NC-Befehls #EXPORT VE (s. [FCT-C22]) kann die CNC-Beschreibung der externen Variablen in eine äquivalente PLC-Beschreibung exportiert werden. Durch Setzen dieses Parameters auf den Wert TRUE kann der Export für diese Variable unterdrückt werden. In der PLC-Beschreibung werden dann entsprechende Alignment-Bytes vorgesehen.</Text>
+    </LongDescription>
+    <Quantity>SYMBOL</Quantity>
+    <DefaultValue>FALSE</DefaultValue>
+    <Range>
+      <Text Language="en">TRUE, FALSE</Text>
+      <Text Language="de">TRUE, FALSE</Text>
+    </Range>
+    <Type>BOOLEAN</Type>
+    <SymbolValues>
+      <SymbolValue>
+        <Name>FALSE</Name>
+        <Value>0</Value>
+      </SymbolValue>
+      <SymbolValue>
+        <Name>TRUE</Name>
+        <Value>1</Value>
+      </SymbolValue>
+    </SymbolValues>
+    <MaxNumber>
+      <ArrayIndex No="0" Name="var">225</ArrayIndex>
+    </MaxNumber>
+    <Encrypted>false</Encrypted>
+    <ChangeRequiresRestart>false</ChangeRequiresRestart>
+    <Help>
+      <Link Language="en">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/en-GB/index.html#112468875</Link>
+      <Link Language="de">https://www.isg-stuttgart.de/fileadmin/kernel/kernel-html/de-DE/index.html#112468875</Link>
+    </Help>
+  </Parameter>
+  <Section>
+    <Name>
+      <Text Language="en">General parameter</Text>
+      <Text Language="de">Allgemeine Parameter</Text>
+    </Name>
+    <Parameter>P-EXTV-00010</Parameter>
+    <Parameter>P-EXTV-00011</Parameter>
+    <Parameter>P-EXTV-00012</Parameter>
+    <Parameter>P-EXTV-00022</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Variable</Text>
+      <Text Language="de">Variable</Text>
+    </Name>
+    <Parameter>P-EXTV-00001</Parameter>
+    <Parameter>P-EXTV-00002</Parameter>
+    <Parameter>P-EXTV-00003</Parameter>
+    <Parameter>P-EXTV-00004</Parameter>
+    <Parameter>P-EXTV-00005</Parameter>
+    <Parameter>P-EXTV-00006</Parameter>
+    <Parameter>P-EXTV-00007</Parameter>
+    <Parameter>P-EXTV-00008</Parameter>
+    <Parameter>P-EXTV-00009</Parameter>
+    <Parameter>P-EXTV-00047</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Type of variable</Text>
+      <Text Language="de">Datentyp der Variable</Text>
+    </Name>
+    <Parameter>P-EXTV-00015</Parameter>
+    <Parameter>P-EXTV-00016</Parameter>
+    <Parameter>P-EXTV-00017</Parameter>
+    <Parameter>P-EXTV-00018</Parameter>
+    <Parameter>P-EXTV-00019</Parameter>
+    <Parameter>P-EXTV-00020</Parameter>
+    <Parameter>P-EXTV-00021</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">General parameter</Text>
+      <Text Language="de">Allgemeine Parameter</Text>
+    </Name>
+    <Parameter>P-EXTV-00010</Parameter>
+    <Parameter>P-EXTV-00011</Parameter>
+    <Parameter>P-EXTV-00012</Parameter>
+    <Parameter>P-EXTV-00022</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Variable</Text>
+      <Text Language="de">Variable</Text>
+    </Name>
+    <Parameter>P-EXTV-00001</Parameter>
+    <Parameter>P-EXTV-00002</Parameter>
+    <Parameter>P-EXTV-00003</Parameter>
+    <Parameter>P-EXTV-00004</Parameter>
+    <Parameter>P-EXTV-00005</Parameter>
+    <Parameter>P-EXTV-00006</Parameter>
+    <Parameter>P-EXTV-00007</Parameter>
+    <Parameter>P-EXTV-00008</Parameter>
+    <Parameter>P-EXTV-00009</Parameter>
+    <Parameter>P-EXTV-00047</Parameter>
+  </Section>
+  <Section>
+    <Name>
+      <Text Language="en">Type of variable</Text>
+      <Text Language="de">Datentyp der Variable</Text>
+    </Name>
+    <Parameter>P-EXTV-00015</Parameter>
+    <Parameter>P-EXTV-00016</Parameter>
+    <Parameter>P-EXTV-00017</Parameter>
+    <Parameter>P-EXTV-00018</Parameter>
+    <Parameter>P-EXTV-00019</Parameter>
+    <Parameter>P-EXTV-00020</Parameter>
+    <Parameter>P-EXTV-00021</Parameter>
+  </Section>
+</Parameters>

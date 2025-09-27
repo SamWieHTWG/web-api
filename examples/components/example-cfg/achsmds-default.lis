@@ -1,0 +1,17 @@
+# ****************************************
+#
+# Axis Default Parameter
+#
+# ****************************************
+#
+antr.simu.zeitkonstante_z                             1              ( P-AXIS-00239 : Sample time constant for axis simulation (nominator)
+antr.simu.zeitkonstante_n                             100            ( P-AXIS-00238 : Sample time constant for axis simulation (denominator)
+antr.simu.daempfung_z                                 6              ( P-AXIS-00051 : Damping of axis simulation (nominator)
+antr.simu.daempfung_n                                 10             ( P-AXIS-00050 : Damping of axis simulation (denominator)
+antr.simu.eigenfrequenz_z                             100            ( P-AXIS-00062 : Natural frequency of axis simulation (nominator)
+antr.simu.eigenfrequenz_n                             1              ( P-AXIS-00061 : Natural frequency of axis simulation (denominator)
+antr.simu.totzeit                                     0              ( P-AXIS-00194 : [cycles] Dead time of control path
+antr.simu.rpf_weg_bis_nip                             100000         ( P-AXIS-00161 : [0.1um] or [10-4degree] Toolpath up to zero pulse during homing simulation
+antr.simu.ist_gleich_soll                             1              ( P-AXIS-00096 : Set actual position equal to command position (deactivation of the pt2 element of the position lag calculation 0=no, 1=yes)
+
+Ende

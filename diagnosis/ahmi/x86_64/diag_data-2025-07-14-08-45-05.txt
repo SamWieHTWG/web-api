@@ -1,0 +1,2870 @@
+FORMAT = [##DiagData#V#1#2#E]
+
+
+Start of protocol: diag_data-2025-07-14-08-45-05.txt 
+14.07.2025 08:45:05:305
+cycle counter: 72041
+TOPICS (0xffffffff) = MIN+AX_DRVR+IPO+IPO_BLCK+LOG+AX_MGR+DEC+PPREP+HLI+MAN+SIG+COM+VARS+SAI+SAI_BLCK+TRC+ERR+GCM
+MODE (0x0) = 
+
+Date: 14.07.2025 08:45:05:320
+Actual CNC time: 0/1131 
+CNC cycle time : 1000 us
+
+Version CNC    : V3.01.0201.6401
+Version HLI    : V310.HLI.20.06
+Version AHMI   : V3.01.0201.6401
+
+CONFIGURATION DATA OF EIN_KANAL_KONFIGURIERUNG                                                                                  [##Configuration#B###]
+=======================================================================
+
+EIN_KANAL_KONFIGURIERUNG
+
+Listen-FORMAT: ASCII
+Channels:      1
+Axes lists:    4
+Spindle:       0
+C: 0, A: 0, S: 0, T: 0, Tl: 0, D: 0, G: 0, DLL: 0, VOL: 0, HSC: 0, CUT: 0, CCALI: 0, CCALC: 0, CLIN: 0, CMAC: 0, CMEAS: 0, CWB: 0, CCM: 0, CKIN: 0, RTC: 0, DLM: 0, EDM: 0, AM: 0, OADA: 0, EXTI: 0
+
+Task GEO interrupt statistics:                                                                                                    [##InterruptGeo#B#1##]
+===============================================
+    Actual:       10766 [0.1us]
+    Average:      11224 [0.1us]
+    Std. Dev.:        0 [0.1us]
+    Minimal:       8190 [0.1us] (cycle tick: 1053)
+    Maximal:      16464 [0.1us] (cycle tick: 868)
+
+Task GEO runtime statistics:                                                                                                      [##TaskGeo#B#1##]
+===============================================
+    Actual:         363 [0.1us]
+    Average:        414 [0.1us]
+    Std. Dev.:      275 [0.1us]
+    Minimal:        289 [0.1us] (cycle tick: 969)
+    Maximal:       4014 [0.1us] (cycle tick: 835)
+
+Task SDA runtime statistics:                                                                                                      [##TaskSDA#B#1##]
+===============================================
+    Actual:          16 [0.1us]
+    Average:         55 [0.1us]
+    Std. Dev.:       92 [0.1us]
+    Minimal:         16 [0.1us] (cycle tick: 905)
+    Maximal:       1541 [0.1us] (cycle tick: 835)
+
+Task COM runtime statistics:                                                                                                      [##TaskCOM#B#1##]
+===============================================
+    Actual:          39 [0.1us]
+    Average:         48 [0.1us]
+    Std. Dev.:       60 [0.1us]
+    Minimal:         26 [0.1us] (cycle tick: 923)
+    Maximal:        521 [0.1us] (cycle tick: 847)
+
+STATUS OF ALL BFs  CHANNEL-NO.: 1                                                                                                 [##BFStatus#B#1##]
+=======================================================================
+ BF_CHANNEL:    0x01000101    STANDBY/INIT_BY_MDI_FINISHED/Program finished
+
+   PLCopen P4:    GrpStandby
+   MCM-mode:      STANDBY
+   MCM-state:     SELECTED
+ BF_DEC:        0x01000008    Wait for job/Program finished
+ BF_DEC_ADD_1:  0x00000000    
+ BF_WRK:        0x00000009    WRK active/Contour masking idle mode
+ BF_BAVO:       0x01000001    BF started/Program finished
+ BF_BAHN:       0x0100000d    BF started/Macro-FIFO empty/Axisgroup in pos./Program finished
+ BF_BAHN_ADD_1: 0x00000000    
+ BF_BAHN_ADD_2: 0x00000000    
+ BF_BAHN_ADD_3: 0000000000    
+
+
+ BF_LR:         0x00000000
+ BF_AXV:        0x00000000
+ BF_KOMMU:      0x00000000    
+ BF_ANTR_VW:    0x00000000
+
+                                                                                                                                 [##BFStatus#E#1##]
+
+
+LR : DISPLAY-DATA                                                                                                                 [##PosCtrlDisplay#B###]
+=======================================================================
+
+Axis index command pos.  current pos. pos.lag    channel  link to logical axis
+-----------------------------------------------------------------------
+   0        0.0000       0.0000       0.0000      1        1
+   1        0.0000       0.0000       0.0000      1        2
+   2        0.0000       0.0000       0.0000      1        3
+   3        0.0000       0.0000       0.0000      0        4
+
+                                                                                                                                 [##PosCtrlDisplay#E###]
+
+
+LR : AXIS SPEC. INTERFACE                                                                                                         [##PosCtrlAxisInterface#B###]
+=======================================================================
+
+   axis-index       status           control
+-----------------------------------------------------------------------
+       0            0x00020100       0x00000000
+       1            0x00020100       0x00000000
+       2            0x00020100       0x00000000
+       3            0x00020100       0x00000000
+
+                                                                                                                                 [##PosCtrlAxisInterface#E#1##]
+
+LR : CONFIGURATION                                                                                                               [##LrConfiguration#B#0##]
+=======================================================================
+
+ configuration.position_controller.bf_function         0x0000000000000000       # P-STUP-00041
+ configuration.position_controller.log_entry_number                    20       # P-STUP-00042
+ configuration.position_controller.log_level                            4       # P-STUP-00043
+ configuration.position_controller.fct_enable[0]             0x0000000000000000       # P-STUP-00044.0
+ configuration.position_controller.fct_condition[0]          ISG_STANDARD       # P-STUP-00045.0
+ configuration.position_controller.fct_enable[1]             0x0000000000000000       # P-STUP-00044.1
+ configuration.position_controller.fct_condition[1]          ISG_STANDARD       # P-STUP-00045.1
+
+
+
+LR : GENERAL DIAGNOSIS DATA                                                                                                       [##PosCtrlCommonData#B###]
+=======================================================================
+
+ axes_number:         4  
+ bew_beeinfl:          0x20000000
+                     LR_CYCLIC_CALL
+ bf_status:            0x0
+ retain_data_loaded:   0
+ axis_moved:           0
+ retain_data_valid:    0
+ messf_erfolgt:        0x00000000
+ axes_check_max_wait_ticks               0
+ axes_check_wait_ticks_till_ready        0
+ axes_check_start_time_in_ticks          0
+ scheduling_ipo_lr_delay_cycles: 1
+ open jobs in drive job manager          0
+ latest used invoke id in drv job man    0
+ vol_comp[0].state           0
+ vol_comp[0].n               0
+ vol_comp[0].enabled         0
+ vol_comp[0].in_filter       0
+ vol_comp[0].faulty          0
+ vol_comp[0].tool length     0.000000
+ vol_comp[0].tool effect     0
+ vol_comp[0].channel         0
+ vol_comp[0].correction_um[0]   0.000000
+ vol_comp[0].correction_um[1]   0.000000
+ vol_comp[0].correction_um[2]   0.000000
+ vol_comp[0].correction_um[3]   0.000000
+ vol_comp[0].correction_um[4]   0.000000
+ vol_comp[0].correction_um[5]   0.000000
+ vol_comp[0].solver.state    0
+ vol_comp[0].solver.iter     0
+ vol_comp[0].solver.initial  0.000000
+ vol_comp[0].solver.final    0.000000
+ vol_comp[1].state           0
+ vol_comp[1].n               0
+ vol_comp[1].enabled         0
+ vol_comp[1].in_filter       0
+ vol_comp[1].faulty          0
+ vol_comp[1].tool length     0.000000
+ vol_comp[1].tool effect     0
+ vol_comp[1].channel         0
+ vol_comp[1].correction_um[0]   0.000000
+ vol_comp[1].correction_um[1]   0.000000
+ vol_comp[1].correction_um[2]   0.000000
+ vol_comp[1].correction_um[3]   0.000000
+ vol_comp[1].correction_um[4]   0.000000
+ vol_comp[1].correction_um[5]   0.000000
+ vol_comp[1].solver.state    0
+ vol_comp[1].solver.iter     0
+ vol_comp[1].solver.initial  0.000000
+ vol_comp[1].solver.final    0.000000
+ vol_comp[2].state           0
+ vol_comp[2].n               0
+ vol_comp[2].enabled         0
+ vol_comp[2].in_filter       0
+ vol_comp[2].faulty          0
+ vol_comp[2].tool length     0.000000
+ vol_comp[2].tool effect     0
+ vol_comp[2].channel         0
+ vol_comp[2].correction_um[0]   0.000000
+ vol_comp[2].correction_um[1]   0.000000
+ vol_comp[2].correction_um[2]   0.000000
+ vol_comp[2].correction_um[3]   0.000000
+ vol_comp[2].correction_um[4]   0.000000
+ vol_comp[2].correction_um[5]   0.000000
+ vol_comp[2].solver.state    0
+ vol_comp[2].solver.iter     0
+ vol_comp[2].solver.initial  0.000000
+ vol_comp[2].solver.final    0.000000
+ vol_comp[3].state           0
+ vol_comp[3].n               0
+ vol_comp[3].enabled         0
+ vol_comp[3].in_filter       0
+ vol_comp[3].faulty          0
+ vol_comp[3].tool length     0.000000
+ vol_comp[3].tool effect     0
+ vol_comp[3].channel         0
+ vol_comp[3].correction_um[0]   0.000000
+ vol_comp[3].correction_um[1]   0.000000
+ vol_comp[3].correction_um[2]   0.000000
+ vol_comp[3].correction_um[3]   0.000000
+ vol_comp[3].correction_um[4]   0.000000
+ vol_comp[3].correction_um[5]   0.000000
+ vol_comp[3].solver.state    0
+ vol_comp[3].solver.iter     0
+ vol_comp[3].solver.initial  0.000000
+ vol_comp[3].solver.final    0.000000
+ vol_comp[4].state           0
+ vol_comp[4].n               0
+ vol_comp[4].enabled         0
+ vol_comp[4].in_filter       0
+ vol_comp[4].faulty          0
+ vol_comp[4].tool length     0.000000
+ vol_comp[4].tool effect     0
+ vol_comp[4].channel         0
+ vol_comp[4].correction_um[0]   0.000000
+ vol_comp[4].correction_um[1]   0.000000
+ vol_comp[4].correction_um[2]   0.000000
+ vol_comp[4].correction_um[3]   0.000000
+ vol_comp[4].correction_um[4]   0.000000
+ vol_comp[4].correction_um[5]   0.000000
+ vol_comp[4].solver.state    0
+ vol_comp[4].solver.iter     0
+ vol_comp[4].solver.initial  0.000000
+ vol_comp[4].solver.final    0.000000
+ in_position_ignored_movement[0]         0x0
+
+LR : AXIS SPEC. DIAGNOSES DATA                                                                                                    [##PosCtrlAxisData#B#1##]
+=======================================================================
+
+ axis index:                             0                     
+ log. axis nr:                           1                     
+ act gear nr:                            1                     
+                                                                                                                                 [#F#JogOfPath#B#1#2#]
+
+ link_to configured:                     0                     
+ link_to actual:                         1                     
+                                                                                                                                 [#F#JogOfPath#E###]
+
+ axis mode:                              0x400001
+                                         ACHSMODE_LINEAR
+                                         ALLOW_RESOLUTION_CHANGE
+ axis type:                              1                     
+                                         ACHSTYP_TRANSLATOR
+ drive type:                             8                     
+                                          ANTR_TYP_CANOPEN
+ channel_id:                             1                     
+ channel_idx:                            0                     
+ axis_ctrl:                              0x800
+                                         ACHSE_LR_OVERRIDE_VALID
+ axis_state:                             0x20100
+                                         WAIT_ACHS_REGLERFR
+                                         SPEED_MON_DISABLED
+ trafo_info:                             0                     
+ drive_status_direct:                    0x40
+ rpf_erfolgt:                            1                   
+ int_tracking:                           0                   
+ sollw_absolut:                          0
+ istw_absolut:                           0
+ rel_sollw:                              0
+ rel_sollw_w_comp:                       0
+ verfahrrichtung:                        1                     
+ dig_drv.cmd_pos:                        0                     
+ dig_drv.act_pos:                        0                     
+ dig_drv.act_pos_unshifted:              0                     
+ slep_min:                               15000
+ slep_max:                               100000
+ slep_dyn:                               1000                  
+ slep_ueberw_typ:                        2                   
+ max_control_value:                      2147483647
+ ssfk: kw:                               0                     
+ ssfk: kwnr:                             0                     
+ ssfk: kwnr_lower_limit:                 0                     
+ ssfk: kwnr_upper_limit:                 0                     
+ ssfk: eps_uebertrag:                    0                     
+ ssfk: eps_lose:                         0                     
+ ssfk: epsilon:                          0                     
+ ssfk: eps_pos:                          0                     
+ ssfk: eps_neg:                          0                     
+ ssfk: modulo_sollw                      0
+ ssfk: rast_ssfk                         0
+ ssfk: summ_epsilon:                     0                     
+ ssfk: ssfk_init:                        0                     
+ ssfk: ssfk active :                     0                     
+ ssfk: f_set_pos_without_comp:           0                     
+ ssfk: table_check_pending:              0         
+ ssfk: table_check_pending_ack:          0         
+ ssfk: kw_table_valid:                   0                     
+ ssfk: f_is_turned_off:                  0                     
+ cross: interval_nr:                     0         
+ cross: actual_offset:                   0         
+ cross: delta_offset:                    0         
+ cross: filter_total_offset:             0         
+ cross: filter_cycles:                   0         
+ cross: comp. initialized:               0         
+ cross: comp. active:                    0         
+ cross: activate filter:                 0         
+ cross: table_check_pending              0         
+ cross: table_check_pending_ack          0         
+ cross: f_is_turned_off:                 0         
+ tc_filter_cycles:                       0         
+ crosstalk: interval_nr:                 0         
+ crosstalk: actual_offset:               0         
+ crosstalk: delta_offset:                0         
+ crosstalk: filter_total_offset:         0         
+ crosstalk: filter_cycles:               0         
+ crosstalk: comp. initialized:           0         
+ crosstalk: comp. active:                0         
+ crosstalk: activate filter:             0         
+ crosstalk: table_check_pending          0         
+ crosstalk: f_is_turned_off:             0         
+ plane: correction:                      0         
+ plane: epsilon:                         0         
+ plane: filter_total_offset:             0         
+ plane: filter_cycles:                   0         
+ plane: comp. initialized:               0         
+ plane: comp. active:                    0         
+ plane: comp. activate filter:           0         
+ plane: table_check_pending:             0         
+ plane: table_check_pending_ack:         0         
+ plane: f_is_turned_off:                 0         
+ temp: f_is_active:                      0         
+ temp: f_is_turned_off:                  0         
+ temp: actual_offset:                    0         
+ temp: tc_delta_offset:                  0         
+ temp: tc_filter_total_offset:           0         
+ temp: tc_coefficient:                   0.000000  
+ temp: tc_position_0:                    0         
+ temp: tc_offset_0:                      0         
+ drive_ready_to_move:                    0                     
+ f_order_active:                         0                     
+ warmstart_aktiv:                        0                     
+ prog_movement_requires_compensations:   0x0
+ ext. cmd: rel_zus_stellgr_incr:         0
+ ext. cmd: sp_zus_stellgr:               0
+ ext. cmd: sp_zus_stellgr_sollw_anf:     0
+ drive_out_axis_diff:                    0                     
+ drive_out_axis_diff_delayed:            0             
+ axis_diff_driven_out                    1                     
+ lr_fehler:                              0x0
+ fehler_spez:                            0x0
+ fehler_spez2:                           0x0
+ fehler_spez3:                           0x0
+ fehler_spez4:                           0x0
+ system_error_id:                        0                     
+ drv_pos_bus_ok:                         0                     
+ nfb_corr_path:                          0
+ nfb_position_saved:                     0
+ mess_zstd:                              0                     
+                                         LR_MESS_INIT
+ int_measure_state:                      1                     
+ latch_state:                            1                     
+ cyc_meas_state:                         1                     
+ messf_aktiv:                            0                     
+ messf_erfolgt:                          0                     
+ meas_abort:                             0                     
+ meas_start_drive:                       0                     
+ meas_start_plc:                         0                     
+ achse_bewegt:                           0                     
+ achse_faehrt:                           0                     
+ achse_faehrt_vw:                        0                     
+ swe_behaviour:                          0                    
+ pos_swe_error_occured:                  0                    
+ neg_swe_error_occured:                  0                    
+ swe_pos:                                15000100
+ swe_neg:                                -10000100
+ istw_simulieren:                        1                     
+ lr_to_ino:                              0x2810083
+                                         ACHSE_IN_POSITION
+                                         RPF_ERFOLGTE
+                                         GETRIEBE_GESCHALTET
+                                         CONF_ACT_POSITION
+                                         DRIVE_POSITION_VALID
+                                         DRIVE_POWER_OFF
+ lr_to_ino_2:                            0x0
+ modulo_fehler:                          0                     
+ modulo_eps:                             0                     
+ alt_modulo_eps:                         0                     
+ modulo_zaehler:                         0                     
+ modulo_komp:                            0                     
+ coll_check_acitve:                      0                     
+ coll_check_ax_nr:                       0                     
+ coll_check_offset:                      0
+ restored_ref_pos_offset:                0
+ achs_zstd:                              0                     
+ ref_zstd:                               0                     
+ coll_check_dec.:                        2000.0                
+ dyn_coll_mon_acitve:                    0                     
+ dyn_coll_mon_check_ax_nr:               0                     
+ dyn_coll_mon_check_offset:              0
+ dyn_coll_mon_check_deceleration:        1750.0                
+ dyn_coll_mon_check_is_partnern:         0                     
+ dyn_coll_mon_check_move_inv:            0                     
+ dyn_coll_mon_check_zero_offset:         0
+ dyn_coll_mon_event[0]:   time:          0           
+ dyn_coll_mon_event[1]:   time:          0           
+ dyn_coll_mon_event[2]:   time:          0           
+ dyn_coll_mon_event[3]:   time:          0           
+ dyn_coll_mon_event[4]:   time:          0           
+ gantry_error_sup.:                      0                     
+ act_gantry_diff.:                       0                     
+ dist_to_ref_pos:                        0
+ gantry_pos_offset:                      0
+ pos_refpkt:                             0
+ zero_pulse_value :                      0                     
+ zero_pulse_offset:                      0                     
+ m_messwert:                             0
+ probing_value_from_plc:                 0                     
+ encoder coarsening factor:              0                     
+ cmd. position incr. moduloo:            2147483648
+ cmd. position incr. modulou:            -2147483648
+ cmd. position incr. modudiff:           4294967296
+ conf_cmd_values_telegram:               0x207
+                                         CONTROL WORD
+                                         CMD POSITION
+                                         CMD VELOCITY
+                                         CMD OPERATION MODE
+ conf_act_values_telegram:               0x120007
+                                         STATUS WORD
+                                         ACT POSITION
+                                         ACT VELOCITY
+                                         BUS STATE
+                                         ACT_OPERATION_MODE
+ main_encoder:                           51                    
+ secondary_encoder:                      0                     
+ operation_mode:                         2                     
+ achs_satz_satztyp:                      10                    
+ abs_pos_offset:                         0
+ ext_latch_value:                        0                     
+ ext_latch_offset:                       0                     
+ zero latch ctrl:                        2                     
+ f_use_enc_overflow_eval_mask:           1                     
+ encoder_modulo_range:                   0                     
+ encocder_overflow_eval_mask:            0x0
+ linked_gantry_slave_axis_nbr:           0                     
+ latch_status_word:                      0x0
+ latch_control_word:                     0x0
+ latch control mask:                     0x0
+ latch status mask:                      0x0
+ latch_data.signal:                      Default signal
+ latch_data.probing_channel:             0         
+ latch_data.probe_neg_edge:              0         
+ meas_param.f_channel_param:             0                     
+ meas_param.signal:                      Default signal        
+ meas_param.channel:                     0                     
+ meas_param.active_edge:                 Default edge          
+ pos_lag_mon_disabled:                   0                    
+ fixed_stop_cycles_counter:              0               
+ drv_instr_cmd:                          0         
+ drv_instr_param_nr:                     0         
+ drv_instr_motor_nr:                     0         
+ drv_instr_invoke_id:                    0         
+ drv_instr_sender_id:                    0         
+ drv_instr_exec_state:                   0         
+ drv_instr_elem_value:                   0.000000  
+ drv_instr_s_element:                    ""
+ drv_instr_output_value:                 0
+ drv_instr_exec_ret:                     0         
+ drv_instr_scaling_fact:                 0.000000  
+ istw_rel:                               0
+ gantry_slave_linked_to_axis_nbr:        0                     
+ abs_pos:                                0
+ m_sollw_absolut:                        0
+ f_refpos_offset_set:                    0                     
+ lr_msollwert_abs_pos:                   0
+ lr_steuer:                              0x0
+ lr_info:                                0x5000
+                                         PROG_END_ACTIVE
+                                         ACHSE_SOLLW_0
+ rpn_stellung:                           0                   
+ rpn_stellung_alt:                       0                   
+ rpn_zuletzt_gelesen:                    0                   
+ set_refpos_time:                        0                   
+ set_refpos_cmd_old:                     0
+ set_refpos_cmd_new:                     0
+ set_refpos_drive_abs_pos:               0                   
+ aufloesung:                             0.000100
+ solldrehzahl:                           0
+ dz_istw:                                0
+ reset_zstd:                             0                   
+ reset_fertig:                           0                   
+ achs_set_def_zstd:                      0                   
+ lr_reset_state:                         0                   
+ rpf_abbrechen:                          0                   
+ antrieb_reset:                          0                   
+ rpf_durchfuehren:                       0                   
+ order_zstd:                             0x0
+                                         LR_AXIS_ORDER_INIT
+ state_link_to:                          0                   
+ meas_command_remain_active:             0     
+ wz_gear_ratio:                          1.000000              
+ wz_gear_inv_direction:                  0                   
+ trafo_in[0]:                            0                   
+ trafo_in[1]:                            0                   
+ trafo_in[2]:                            0                   
+ trafo_out:                              0                   
+ act_pos_trafo_active:                   0                   
+ act_pos_trafo_id:                       0                   
+ act_pos_trafo_in:                       0
+ act_pos_trafo_out:                      0
+ proc_out_write_time:                    0                   
+ mod_counter_abs:                        0                   
+ achsdata->pos:                          0
+ pos_ctrl_state       :                  0                   
+ ax_coupling_homing_req:                 0                   
+ encoder[0].drive_act_pos:               0
+ encoder[0].actual_abs_position:         0
+ encoder[0].resolution:                  1.0000000000          Incr / 0.1 um
+ encoder[1].drive_act_pos:               0
+ encoder[1].actual_abs_position:         0
+ encoder[1].resolution:                  1.0000000000          Incr / 0.1 um
+ op_mode_output:                         2                   
+ op_mode_feedback:                       1                   
+ latch_channel:                          0                   
+ latch_neg_edge:                         0                   
+ meas_param_mode:                        0                   
+ axis_check_ready_time:                  0                   
+ act_gear_nr:                            1   
+ mds_update_time:                        0                   
+ int_tracking_cause:                     0x0
+ ref_check.active:                       0                   
+ ref_check.input:                        0                   
+ cmd_pos_request_pending:                0                   
+ async_para_read_time_stamp:             861                 
+ incr_in_position_window:                100
+ reset_end_time:                         0                   
+ curr_pos_to_ipo:                        0                   
+
+
+ touch_probing_mode:                     1                     
+ f_ax_coupling_active:                   0                     
+ axis_coupling_activation:               0         
+ axis_coupling_initiator:                0         
+ coupling[0].mode:                       0                     
+ coupling[0].src_ax_nr:                  0                    
+ coupling[0].fract_num:                  0                     
+ coupling[0].fract_denom:                0                     
+ coupling[0].sum_scaled_out_ax:          0
+ coupling[1].mode:                       0                     
+ coupling[1].src_ax_nr:                  0                    
+ coupling[1].fract_num:                  0                     
+ coupling[1].fract_denom:                0                     
+ coupling[1].sum_scaled_out_ax:          0
+ coupling[2].mode:                       0                     
+ coupling[2].src_ax_nr:                  0                    
+ coupling[2].fract_num:                  0                     
+ coupling[2].fract_denom:                0                     
+ coupling[2].sum_scaled_out_ax:          0
+ coupling[3].mode:                       0                     
+ coupling[3].src_ax_nr:                  0                    
+ coupling[3].fract_num:                  0                     
+ coupling[3].fract_denom:                0                     
+ coupling[3].sum_scaled_out_ax:          0
+ cmd_pos_req[0].channel:                 1                     
+ cmd_pos_req[0].link_to:                 1                     
+ cmd_pos_req[0].time:                    853                   
+ cmd_pos_req[0].request_time:            853                   
+ cmd_pos_req[0].lr_sollwert:             0                     
+ cmd_pos_req[1].channel:                 0                     
+ cmd_pos_req[1].link_to:                 0                     
+ cmd_pos_req[1].time:                    0                     
+ cmd_pos_req[1].request_time:            0                     
+ cmd_pos_req[1].lr_sollwert:             0                     
+ cmd_pos_req[2].channel:                 0                     
+ cmd_pos_req[2].link_to:                 0                     
+ cmd_pos_req[2].time:                    0                     
+ cmd_pos_req[2].request_time:            0                     
+ cmd_pos_req[2].lr_sollwert:             0                     
+ cmd_pos_req[3].channel:                 0                     
+ cmd_pos_req[3].link_to:                 0                     
+ cmd_pos_req[3].time:                    0                     
+ cmd_pos_req[3].request_time:            0                     
+ cmd_pos_req[3].lr_sollwert:             0                     
+ cmd_pos_req[4].channel:                 0                     
+ cmd_pos_req[4].link_to:                 0                     
+ cmd_pos_req[4].time:                    0                     
+ cmd_pos_req[4].request_time:            0                     
+ cmd_pos_req[4].lr_sollwert:             0                     
+ ax_pos_invalid[0].time:                 0                     
+ ax_pos_invalid[0].reason:               0x0
+ ax_pos_invalid[1].time:                 0                     
+ ax_pos_invalid[1].reason:               0x0
+ ax_pos_invalid[2].time:                 0                     
+ ax_pos_invalid[2].reason:               0x0
+ ax_pos_invalid[3].time:                 0                     
+ ax_pos_invalid[3].reason:               0x0
+ ax_pos_invalid[4].time:                 0                     
+ ax_pos_invalid[4].reason:               0x0
+ suspend_axis_data[0].channel:           0                     
+ suspend_axis_data[0].link_to:           0                     
+ suspend_axis_data[0].time:              0                     
+ suspend_axis_data[0].abs_pos_offset:    0                     
+ suspend_axis_data[0].m_sollw_absolut:   0                     
+ suspend_axis_data[0].lr_fehler:         0                     
+ suspend_axis_data[1].channel:           0                     
+ suspend_axis_data[1].link_to:           0                     
+ suspend_axis_data[1].time:              0                     
+ suspend_axis_data[1].abs_pos_offset:    0                     
+ suspend_axis_data[1].m_sollw_absolut:   0                     
+ suspend_axis_data[1].lr_fehler:         0                     
+ suspend_axis_data[2].channel:           0                     
+ suspend_axis_data[2].link_to:           0                     
+ suspend_axis_data[2].time:              0                     
+ suspend_axis_data[2].abs_pos_offset:    0                     
+ suspend_axis_data[2].m_sollw_absolut:   0                     
+ suspend_axis_data[2].lr_fehler:         0                     
+ suspend_axis_data[3].channel:           0                     
+ suspend_axis_data[3].link_to:           0                     
+ suspend_axis_data[3].time:              0                     
+ suspend_axis_data[3].abs_pos_offset:    0                     
+ suspend_axis_data[3].m_sollw_absolut:   0                     
+ suspend_axis_data[3].lr_fehler:         0                     
+ suspend_axis_data[4].channel:           0                     
+ suspend_axis_data[4].link_to:           0                     
+ suspend_axis_data[4].time:              0                     
+ suspend_axis_data[4].abs_pos_offset:    0                     
+ suspend_axis_data[4].m_sollw_absolut:   0                     
+ suspend_axis_data[4].lr_fehler:         0                     
+ suspend_axis_data[5].channel:           0                     
+ suspend_axis_data[5].link_to:           0                     
+ suspend_axis_data[5].time:              0                     
+ suspend_axis_data[5].abs_pos_offset:    0                     
+ suspend_axis_data[5].m_sollw_absolut:   0                     
+ suspend_axis_data[5].lr_fehler:         0                     
+ suspend_axis_data[6].channel:           0                     
+ suspend_axis_data[6].link_to:           0                     
+ suspend_axis_data[6].time:              0                     
+ suspend_axis_data[6].abs_pos_offset:    0                     
+ suspend_axis_data[6].m_sollw_absolut:   0                     
+ suspend_axis_data[6].lr_fehler:         0                     
+ suspend_axis_data[7].channel:           0                     
+ suspend_axis_data[7].link_to:           0                     
+ suspend_axis_data[7].time:              0                     
+ suspend_axis_data[7].abs_pos_offset:    0                     
+ suspend_axis_data[7].m_sollw_absolut:   0                     
+ suspend_axis_data[7].lr_fehler:         0                     
+ profidrive_abs_pos:                     0                     
+ profidrive_calc_abs_pos:                0
+ profidrive_abs_pos_read_time:           0                     
+ profidrive_abs_pos_first_read_time:     0                     
+ profidrive_abs_pos_first_reuqest_time:  0                     
+ profidrive_abs_pos_first_request:       0                     
+ profidrive_dig_drv_act_pos_first_req:   0                     
+ profidrive feinaufloesung:              0                     
+ profidrive pos_req_timout:              0                     
+ profidrive timeout_time:                0                     
+ profidrive internal state:              0                     
+ profidrive drive modulo range x_ist_2:  0
+ profidrive_read_abs_pos_diag_err:       0                     
+ delay_tracking:                         0                     
+ abs_pos_in_initialized:                 1                     
+ ino_to_lr:                              0                     
+ error_reaction_active:                  0                     
+ tast_nip_offset:                        0                     
+ shift_offset_zero_pulse_activation:     0
+ drive_deactivated:                      0                     
+ kw_update_time:                         0                     
+ temp_comp_param_update_time:            0                     
+ nfb_start_time:                         0                     
+ nfb_end_time:                           836                   
+ nfb_active_cause:                       INTERNAL(1)
+ pos_corr_active:                        0                     
+ pos_corr_s_rest:                        0.000000              
+ ssfk: table_overflow_counter:           0                     
+ steuer_ext:                             0x0
+ touch_probing_mode:                     1         
+ object_rw_state:                        0         
+ messf_abbrechen:                        0                     
+ meas_abort_ok:                          0                     
+ meas_finished:                          0                     
+ meas_value_latched:                     0                     
+ meas_read_val:                          0                     
+ vz_stellgr:                             0                     
+ vz_istw:                                0                     
+ mode_cmd_pos:                           2                     
+ mode_act_pos:                           2                     
+ ipo_lr_delay_cycles:                    5                     
+ gear_change_time:                       775                   
+ unhome_time:                            0                     
+ disable_drive_on_position_lag_err:      0                     
+ error_reaction_class:                   1                     
+ glob_bus_error_counter:                 0                     
+ disable_drive_on_bus_error:             0                     
+
+
+ axis index:                             0                     
+ log. axis nr:                           1                     
+ homing_diag_start_timestamp             0                     
+ homing_diag_m_sollw_abs_old             0
+ homing_diag_m_sollw_abs_old_wo_comp     0
+ homing_diag_m_sollw_abs_new             0
+ homing_diag_istw_absolut_old            0
+ homing_diag_istw_absolut_new            0
+ homing_diag_pos_refpkt                  0
+ homing_diag_zero_pulse_offset           0
+ homing_diag_istw_rel                    0
+ homing_diag_rel_sollw                   0
+ homing_diag_diff_act_position           0
+ homing_diag_dig_drv_act_pos             0                     
+ homing_diag_timestamp                   0                     
+ vol_comp.initialized:                   1                     
+ vol_comp.limit_exceeded:                0                     
+ vol_comp[0].active:                     0                     
+ vol_comp[0].cartesian:                  1                     
+ vol_comp[0].last_offset:                0
+ vol_comp[0].actual_offset:              0
+ vol_comp[0].next_offset:                0
+ vol_comp[0].offset_delta:               0
+ vol_comp[1].active:                     0                     
+ vol_comp[1].cartesian:                  1                     
+ vol_comp[1].last_offset:                0
+ vol_comp[1].actual_offset:              0
+ vol_comp[1].next_offset:                0
+ vol_comp[1].offset_delta:               0
+ vol_comp[2].active:                     0                     
+ vol_comp[2].cartesian:                  1                     
+ vol_comp[2].last_offset:                0
+ vol_comp[2].actual_offset:              0
+ vol_comp[2].next_offset:                0
+ vol_comp[2].offset_delta:               0
+ vol_comp[3].active:                     0                     
+ vol_comp[3].cartesian:                  1                     
+ vol_comp[3].last_offset:                0
+ vol_comp[3].actual_offset:              0
+ vol_comp[3].next_offset:                0
+ vol_comp[3].offset_delta:               0
+ vol_comp[4].active:                     0                     
+ vol_comp[4].cartesian:                  1                     
+ vol_comp[4].last_offset:                0
+ vol_comp[4].actual_offset:              0
+ vol_comp[4].next_offset:                0
+ vol_comp[4].offset_delta:               0
+ vol_comp.offset_sum_mm:                 0                     
+ SSFK Events:
+
+
+ log. axis nr:                           1                     
+ last_logged_data[1198].position:   0                     
+ last_logged_data[1198].state:      0x40
+ last_logged_data[1198].set_val:    0                     
+ last_logged_data[1198].ctrl:       0x0
+ last_logged_data[1197].position:   0                     
+ last_logged_data[1197].state:      0x40
+ last_logged_data[1197].set_val:    0                     
+ last_logged_data[1197].ctrl:       0x0
+ last_logged_data[1196].position:   0                     
+ last_logged_data[1196].state:      0x40
+ last_logged_data[1196].set_val:    0                     
+ last_logged_data[1196].ctrl:       0x0
+ last_logged_data[1195].position:   0                     
+ last_logged_data[1195].state:      0x40
+ last_logged_data[1195].set_val:    0                     
+ last_logged_data[1195].ctrl:       0x0
+ last_logged_data[1194].position:   0                     
+ last_logged_data[1194].state:      0x40
+ last_logged_data[1194].set_val:    0                     
+ last_logged_data[1194].ctrl:       0x0
+ keep_drive_cyclic_log_over_reset:       0                     
+
+ Drive control word: (mask = 0x019f)
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+
+ Drive status word: (mask = 0x307f)
+   status[835] = 0x0040
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+
+ cam_diag_log:number entries:            0         
+
+ meas_type:                              0
+ fs_active:                              0                     
+ fs_detected:                            0                     
+ fs_state:                               0                     
+ fs_initialized:                         1                     
+ fs_aborted:                             0                     
+ fs_position:                            0                     
+ fs_ident_act_value[0]:                  0.000000              
+ fs_ident_act_value[1]:                  0.000000              
+ fs_ident_act_value[2]:                  0.000000              
+ fs_ident_act_value[3]:                  0.000000              
+ gantry_on_mode[        775].new:        0                     
+ gantry_on_mode[        775].old:        0                     
+ gantry_on_mode[          0].new:        0                     
+ gantry_on_mode[          0].old:        0                     
+ gantry_ctrl[0].f_is_gantry_master       0                     
+ gantry_ctrl[0].f_is_gantry_slave        0                     
+ gantry_ctrl[0].channel_id               0                     
+ gantry_ctrl[0].release_channel_id       0                     
+ gantry_ctrl[0].cmd                      0                     
+ sollw_absolut_alt                       0
+ axis_coupling_offset:                   0
+ meas_fixed_stop_delta_position          0                     
+ meas_fixed_stop_delta_position_window   0                     
+ meas_fixed_stop_pos_lag_limit           0                     
+ meas_fixed_stop_detect_axis             0                     
+ write_refpos_state                      0                     
+ write_refpos_up_to_date                 0                     
+ write_refpos_drive_refpos               0                     
+ write_refpos_start_timestamp            0                     
+ write_refpos_end_timestamp              0                     
+ restore_axis_position                   0                     
+ dig_act_pos_max[          0]            0            
+ dig_act_pos_min[          0]            0            
+ max_delta_act_pos[        0]            0            
+ m_solw_abs_alt[        0]               0            
+ m_solw_abs_new[        0]               0            
+ solw_absolut[          0]               0            
+ bus_data_event[0]:   time:              836          rising edge          Actual position: 0
+ bus_data_event[1]:   time:              0           
+ bus_data_event[2]:   time:              0           
+ bus_data_event[3]:   time:              0           
+ bus_data_event[4]:   time:              0           
+ measure_done_cycle_ctr                  0
+ restore_position_istw_rel:               0
+ restore_position_act_pos:                0
+ restore_position_dig_act_pos:           0                     
+ restore_position_delta_act_pos_on_off:  0                     
+ restore_position_time:                  0                     
+ homing_done in retain data was false:   -1                    
+ restore_pos_data_read_time:             0                     
+ restore_pos_data_read_drv_act_pos_64:   0                     
+ restore_pos_data_read_istw_abs:         0                     
+ restore_pos_data_read_valid:            0                     
+ restore_pos_data_write_time:            0                     
+ restore_pos_data_write_drv_act_pos_64:  0                     
+ restore_pos_data_write_istw_abs:        0                     
+ restore_pos_data_write_restore_data:    0                     
+ run_down: activation_cycle              0                     
+ run_down: drive_ctrl_at_activation      0                     
+ run_down: state                         0                     
+ run_down: suppress_drive_enable_errors  0                     
+ modulo_swe_error state:                 0                     
+ lr_unhome_cause:                        NONE(0)
+ lr_unhome_time:                         0                     
+ f_unhome_bus_error:                     0                     
+ axis_coupling_acc               4294967295
+ axis_coupling_slope_active      0         
+ axis_coupling_mode                      E_GEAR_LINK_MODE_NOT_PROG
+ torq_homing_detect_torque_limit         0         
+ torq_homing_detect_velocity_limit       1000      
+ torq_homing_detect_pos_lag_limit        0                     
+ torq_homing LR_STATE:                   1                     
+
+LR : AXIS SPEC. DIAGNOSES DATA                                                                                                    [##PosCtrlAxisData#B#2##]
+=======================================================================
+
+ axis index:                             1                     
+ log. axis nr:                           2                     
+ act gear nr:                            1                     
+                                                                                                                                 [#F#JogOfPath#B#2#2#]
+
+ link_to configured:                     0                     
+ link_to actual:                         2                     
+                                                                                                                                 [#F#JogOfPath#E###]
+
+ axis mode:                              0x400001
+                                         ACHSMODE_LINEAR
+                                         ALLOW_RESOLUTION_CHANGE
+ axis type:                              1                     
+                                         ACHSTYP_TRANSLATOR
+ drive type:                             8                     
+                                          ANTR_TYP_CANOPEN
+ channel_id:                             1                     
+ channel_idx:                            0                     
+ axis_ctrl:                              0x800
+                                         ACHSE_LR_OVERRIDE_VALID
+ axis_state:                             0x20100
+                                         WAIT_ACHS_REGLERFR
+                                         SPEED_MON_DISABLED
+ trafo_info:                             0                     
+ drive_status_direct:                    0x40
+ rpf_erfolgt:                            1                   
+ int_tracking:                           0                   
+ sollw_absolut:                          0
+ istw_absolut:                           0
+ rel_sollw:                              0
+ rel_sollw_w_comp:                       0
+ verfahrrichtung:                        1                     
+ dig_drv.cmd_pos:                        0                     
+ dig_drv.act_pos:                        0                     
+ dig_drv.act_pos_unshifted:              0                     
+ slep_min:                               15000
+ slep_max:                               100000
+ slep_dyn:                               1000                  
+ slep_ueberw_typ:                        2                   
+ max_control_value:                      2147483647
+ ssfk: kw:                               0                     
+ ssfk: kwnr:                             0                     
+ ssfk: kwnr_lower_limit:                 0                     
+ ssfk: kwnr_upper_limit:                 0                     
+ ssfk: eps_uebertrag:                    0                     
+ ssfk: eps_lose:                         0                     
+ ssfk: epsilon:                          0                     
+ ssfk: eps_pos:                          0                     
+ ssfk: eps_neg:                          0                     
+ ssfk: modulo_sollw                      0
+ ssfk: rast_ssfk                         0
+ ssfk: summ_epsilon:                     0                     
+ ssfk: ssfk_init:                        0                     
+ ssfk: ssfk active :                     0                     
+ ssfk: f_set_pos_without_comp:           0                     
+ ssfk: table_check_pending:              0         
+ ssfk: table_check_pending_ack:          0         
+ ssfk: kw_table_valid:                   0                     
+ ssfk: f_is_turned_off:                  0                     
+ cross: interval_nr:                     0         
+ cross: actual_offset:                   0         
+ cross: delta_offset:                    0         
+ cross: filter_total_offset:             0         
+ cross: filter_cycles:                   0         
+ cross: comp. initialized:               0         
+ cross: comp. active:                    0         
+ cross: activate filter:                 0         
+ cross: table_check_pending              0         
+ cross: table_check_pending_ack          0         
+ cross: f_is_turned_off:                 0         
+ tc_filter_cycles:                       0         
+ crosstalk: interval_nr:                 0         
+ crosstalk: actual_offset:               0         
+ crosstalk: delta_offset:                0         
+ crosstalk: filter_total_offset:         0         
+ crosstalk: filter_cycles:               0         
+ crosstalk: comp. initialized:           0         
+ crosstalk: comp. active:                0         
+ crosstalk: activate filter:             0         
+ crosstalk: table_check_pending          0         
+ crosstalk: f_is_turned_off:             0         
+ plane: correction:                      0         
+ plane: epsilon:                         0         
+ plane: filter_total_offset:             0         
+ plane: filter_cycles:                   0         
+ plane: comp. initialized:               0         
+ plane: comp. active:                    0         
+ plane: comp. activate filter:           0         
+ plane: table_check_pending:             0         
+ plane: table_check_pending_ack:         0         
+ plane: f_is_turned_off:                 0         
+ temp: f_is_active:                      0         
+ temp: f_is_turned_off:                  0         
+ temp: actual_offset:                    0         
+ temp: tc_delta_offset:                  0         
+ temp: tc_filter_total_offset:           0         
+ temp: tc_coefficient:                   0.000000  
+ temp: tc_position_0:                    0         
+ temp: tc_offset_0:                      0         
+ drive_ready_to_move:                    0                     
+ f_order_active:                         0                     
+ warmstart_aktiv:                        0                     
+ prog_movement_requires_compensations:   0x0
+ ext. cmd: rel_zus_stellgr_incr:         0
+ ext. cmd: sp_zus_stellgr:               0
+ ext. cmd: sp_zus_stellgr_sollw_anf:     0
+ drive_out_axis_diff:                    0                     
+ drive_out_axis_diff_delayed:            0             
+ axis_diff_driven_out                    1                     
+ lr_fehler:                              0x0
+ fehler_spez:                            0x0
+ fehler_spez2:                           0x0
+ fehler_spez3:                           0x0
+ fehler_spez4:                           0x0
+ system_error_id:                        0                     
+ drv_pos_bus_ok:                         0                     
+ nfb_corr_path:                          0
+ nfb_position_saved:                     0
+ mess_zstd:                              0                     
+                                         LR_MESS_INIT
+ int_measure_state:                      1                     
+ latch_state:                            1                     
+ cyc_meas_state:                         1                     
+ messf_aktiv:                            0                     
+ messf_erfolgt:                          0                     
+ meas_abort:                             0                     
+ meas_start_drive:                       0                     
+ meas_start_plc:                         0                     
+ achse_bewegt:                           0                     
+ achse_faehrt:                           0                     
+ achse_faehrt_vw:                        0                     
+ swe_behaviour:                          0                    
+ pos_swe_error_occured:                  0                    
+ neg_swe_error_occured:                  0                    
+ swe_pos:                                15000100
+ swe_neg:                                -10000100
+ istw_simulieren:                        1                     
+ lr_to_ino:                              0x2810083
+                                         ACHSE_IN_POSITION
+                                         RPF_ERFOLGTE
+                                         GETRIEBE_GESCHALTET
+                                         CONF_ACT_POSITION
+                                         DRIVE_POSITION_VALID
+                                         DRIVE_POWER_OFF
+ lr_to_ino_2:                            0x0
+ modulo_fehler:                          0                     
+ modulo_eps:                             0                     
+ alt_modulo_eps:                         0                     
+ modulo_zaehler:                         0                     
+ modulo_komp:                            0                     
+ coll_check_acitve:                      0                     
+ coll_check_ax_nr:                       0                     
+ coll_check_offset:                      0
+ restored_ref_pos_offset:                0
+ achs_zstd:                              0                     
+ ref_zstd:                               0                     
+ coll_check_dec.:                        2000.0                
+ dyn_coll_mon_acitve:                    0                     
+ dyn_coll_mon_check_ax_nr:               0                     
+ dyn_coll_mon_check_offset:              0
+ dyn_coll_mon_check_deceleration:        1750.0                
+ dyn_coll_mon_check_is_partnern:         0                     
+ dyn_coll_mon_check_move_inv:            0                     
+ dyn_coll_mon_check_zero_offset:         0
+ dyn_coll_mon_event[0]:   time:          0           
+ dyn_coll_mon_event[1]:   time:          0           
+ dyn_coll_mon_event[2]:   time:          0           
+ dyn_coll_mon_event[3]:   time:          0           
+ dyn_coll_mon_event[4]:   time:          0           
+ gantry_error_sup.:                      0                     
+ act_gantry_diff.:                       0                     
+ dist_to_ref_pos:                        0
+ gantry_pos_offset:                      0
+ pos_refpkt:                             0
+ zero_pulse_value :                      0                     
+ zero_pulse_offset:                      0                     
+ m_messwert:                             0
+ probing_value_from_plc:                 0                     
+ encoder coarsening factor:              0                     
+ cmd. position incr. moduloo:            2147483648
+ cmd. position incr. modulou:            -2147483648
+ cmd. position incr. modudiff:           4294967296
+ conf_cmd_values_telegram:               0x207
+                                         CONTROL WORD
+                                         CMD POSITION
+                                         CMD VELOCITY
+                                         CMD OPERATION MODE
+ conf_act_values_telegram:               0x120007
+                                         STATUS WORD
+                                         ACT POSITION
+                                         ACT VELOCITY
+                                         BUS STATE
+                                         ACT_OPERATION_MODE
+ main_encoder:                           51                    
+ secondary_encoder:                      0                     
+ operation_mode:                         2                     
+ achs_satz_satztyp:                      10                    
+ abs_pos_offset:                         0
+ ext_latch_value:                        0                     
+ ext_latch_offset:                       0                     
+ zero latch ctrl:                        2                     
+ f_use_enc_overflow_eval_mask:           1                     
+ encoder_modulo_range:                   0                     
+ encocder_overflow_eval_mask:            0x0
+ linked_gantry_slave_axis_nbr:           0                     
+ latch_status_word:                      0x0
+ latch_control_word:                     0x0
+ latch control mask:                     0x0
+ latch status mask:                      0x0
+ latch_data.signal:                      Default signal
+ latch_data.probing_channel:             0         
+ latch_data.probe_neg_edge:              0         
+ meas_param.f_channel_param:             0                     
+ meas_param.signal:                      Default signal        
+ meas_param.channel:                     0                     
+ meas_param.active_edge:                 Default edge          
+ pos_lag_mon_disabled:                   0                    
+ fixed_stop_cycles_counter:              0               
+ drv_instr_cmd:                          0         
+ drv_instr_param_nr:                     0         
+ drv_instr_motor_nr:                     0         
+ drv_instr_invoke_id:                    0         
+ drv_instr_sender_id:                    0         
+ drv_instr_exec_state:                   0         
+ drv_instr_elem_value:                   0.000000  
+ drv_instr_s_element:                    ""
+ drv_instr_output_value:                 0
+ drv_instr_exec_ret:                     0         
+ drv_instr_scaling_fact:                 0.000000  
+ istw_rel:                               0
+ gantry_slave_linked_to_axis_nbr:        0                     
+ abs_pos:                                0
+ m_sollw_absolut:                        0
+ f_refpos_offset_set:                    0                     
+ lr_msollwert_abs_pos:                   0
+ lr_steuer:                              0x0
+ lr_info:                                0x5000
+                                         PROG_END_ACTIVE
+                                         ACHSE_SOLLW_0
+ rpn_stellung:                           0                   
+ rpn_stellung_alt:                       0                   
+ rpn_zuletzt_gelesen:                    0                   
+ set_refpos_time:                        0                   
+ set_refpos_cmd_old:                     0
+ set_refpos_cmd_new:                     0
+ set_refpos_drive_abs_pos:               0                   
+ aufloesung:                             0.000100
+ solldrehzahl:                           0
+ dz_istw:                                0
+ reset_zstd:                             0                   
+ reset_fertig:                           0                   
+ achs_set_def_zstd:                      0                   
+ lr_reset_state:                         0                   
+ rpf_abbrechen:                          0                   
+ antrieb_reset:                          0                   
+ rpf_durchfuehren:                       0                   
+ order_zstd:                             0x0
+                                         LR_AXIS_ORDER_INIT
+ state_link_to:                          0                   
+ meas_command_remain_active:             0     
+ wz_gear_ratio:                          1.000000              
+ wz_gear_inv_direction:                  0                   
+ trafo_in[0]:                            0                   
+ trafo_in[1]:                            0                   
+ trafo_in[2]:                            0                   
+ trafo_out:                              0                   
+ act_pos_trafo_active:                   0                   
+ act_pos_trafo_id:                       0                   
+ act_pos_trafo_in:                       0
+ act_pos_trafo_out:                      0
+ proc_out_write_time:                    0                   
+ mod_counter_abs:                        0                   
+ achsdata->pos:                          0
+ pos_ctrl_state       :                  0                   
+ ax_coupling_homing_req:                 0                   
+ encoder[0].drive_act_pos:               0
+ encoder[0].actual_abs_position:         0
+ encoder[0].resolution:                  1.0000000000          Incr / 0.1 um
+ encoder[1].drive_act_pos:               0
+ encoder[1].actual_abs_position:         0
+ encoder[1].resolution:                  1.0000000000          Incr / 0.1 um
+ op_mode_output:                         2                   
+ op_mode_feedback:                       1                   
+ latch_channel:                          0                   
+ latch_neg_edge:                         0                   
+ meas_param_mode:                        0                   
+ axis_check_ready_time:                  0                   
+ act_gear_nr:                            1   
+ mds_update_time:                        0                   
+ int_tracking_cause:                     0x0
+ ref_check.active:                       0                   
+ ref_check.input:                        0                   
+ cmd_pos_request_pending:                0                   
+ async_para_read_time_stamp:             861                 
+ incr_in_position_window:                100
+ reset_end_time:                         0                   
+ curr_pos_to_ipo:                        0                   
+
+
+ touch_probing_mode:                     1                     
+ f_ax_coupling_active:                   0                     
+ axis_coupling_activation:               0         
+ axis_coupling_initiator:                0         
+ coupling[0].mode:                       0                     
+ coupling[0].src_ax_nr:                  0                    
+ coupling[0].fract_num:                  0                     
+ coupling[0].fract_denom:                0                     
+ coupling[0].sum_scaled_out_ax:          0
+ coupling[1].mode:                       0                     
+ coupling[1].src_ax_nr:                  0                    
+ coupling[1].fract_num:                  0                     
+ coupling[1].fract_denom:                0                     
+ coupling[1].sum_scaled_out_ax:          0
+ coupling[2].mode:                       0                     
+ coupling[2].src_ax_nr:                  0                    
+ coupling[2].fract_num:                  0                     
+ coupling[2].fract_denom:                0                     
+ coupling[2].sum_scaled_out_ax:          0
+ coupling[3].mode:                       0                     
+ coupling[3].src_ax_nr:                  0                    
+ coupling[3].fract_num:                  0                     
+ coupling[3].fract_denom:                0                     
+ coupling[3].sum_scaled_out_ax:          0
+ cmd_pos_req[0].channel:                 1                     
+ cmd_pos_req[0].link_to:                 2                     
+ cmd_pos_req[0].time:                    853                   
+ cmd_pos_req[0].request_time:            853                   
+ cmd_pos_req[0].lr_sollwert:             0                     
+ cmd_pos_req[1].channel:                 0                     
+ cmd_pos_req[1].link_to:                 0                     
+ cmd_pos_req[1].time:                    0                     
+ cmd_pos_req[1].request_time:            0                     
+ cmd_pos_req[1].lr_sollwert:             0                     
+ cmd_pos_req[2].channel:                 0                     
+ cmd_pos_req[2].link_to:                 0                     
+ cmd_pos_req[2].time:                    0                     
+ cmd_pos_req[2].request_time:            0                     
+ cmd_pos_req[2].lr_sollwert:             0                     
+ cmd_pos_req[3].channel:                 0                     
+ cmd_pos_req[3].link_to:                 0                     
+ cmd_pos_req[3].time:                    0                     
+ cmd_pos_req[3].request_time:            0                     
+ cmd_pos_req[3].lr_sollwert:             0                     
+ cmd_pos_req[4].channel:                 0                     
+ cmd_pos_req[4].link_to:                 0                     
+ cmd_pos_req[4].time:                    0                     
+ cmd_pos_req[4].request_time:            0                     
+ cmd_pos_req[4].lr_sollwert:             0                     
+ ax_pos_invalid[0].time:                 0                     
+ ax_pos_invalid[0].reason:               0x0
+ ax_pos_invalid[1].time:                 0                     
+ ax_pos_invalid[1].reason:               0x0
+ ax_pos_invalid[2].time:                 0                     
+ ax_pos_invalid[2].reason:               0x0
+ ax_pos_invalid[3].time:                 0                     
+ ax_pos_invalid[3].reason:               0x0
+ ax_pos_invalid[4].time:                 0                     
+ ax_pos_invalid[4].reason:               0x0
+ suspend_axis_data[0].channel:           0                     
+ suspend_axis_data[0].link_to:           0                     
+ suspend_axis_data[0].time:              0                     
+ suspend_axis_data[0].abs_pos_offset:    0                     
+ suspend_axis_data[0].m_sollw_absolut:   0                     
+ suspend_axis_data[0].lr_fehler:         0                     
+ suspend_axis_data[1].channel:           0                     
+ suspend_axis_data[1].link_to:           0                     
+ suspend_axis_data[1].time:              0                     
+ suspend_axis_data[1].abs_pos_offset:    0                     
+ suspend_axis_data[1].m_sollw_absolut:   0                     
+ suspend_axis_data[1].lr_fehler:         0                     
+ suspend_axis_data[2].channel:           0                     
+ suspend_axis_data[2].link_to:           0                     
+ suspend_axis_data[2].time:              0                     
+ suspend_axis_data[2].abs_pos_offset:    0                     
+ suspend_axis_data[2].m_sollw_absolut:   0                     
+ suspend_axis_data[2].lr_fehler:         0                     
+ suspend_axis_data[3].channel:           0                     
+ suspend_axis_data[3].link_to:           0                     
+ suspend_axis_data[3].time:              0                     
+ suspend_axis_data[3].abs_pos_offset:    0                     
+ suspend_axis_data[3].m_sollw_absolut:   0                     
+ suspend_axis_data[3].lr_fehler:         0                     
+ suspend_axis_data[4].channel:           0                     
+ suspend_axis_data[4].link_to:           0                     
+ suspend_axis_data[4].time:              0                     
+ suspend_axis_data[4].abs_pos_offset:    0                     
+ suspend_axis_data[4].m_sollw_absolut:   0                     
+ suspend_axis_data[4].lr_fehler:         0                     
+ suspend_axis_data[5].channel:           0                     
+ suspend_axis_data[5].link_to:           0                     
+ suspend_axis_data[5].time:              0                     
+ suspend_axis_data[5].abs_pos_offset:    0                     
+ suspend_axis_data[5].m_sollw_absolut:   0                     
+ suspend_axis_data[5].lr_fehler:         0                     
+ suspend_axis_data[6].channel:           0                     
+ suspend_axis_data[6].link_to:           0                     
+ suspend_axis_data[6].time:              0                     
+ suspend_axis_data[6].abs_pos_offset:    0                     
+ suspend_axis_data[6].m_sollw_absolut:   0                     
+ suspend_axis_data[6].lr_fehler:         0                     
+ suspend_axis_data[7].channel:           0                     
+ suspend_axis_data[7].link_to:           0                     
+ suspend_axis_data[7].time:              0                     
+ suspend_axis_data[7].abs_pos_offset:    0                     
+ suspend_axis_data[7].m_sollw_absolut:   0                     
+ suspend_axis_data[7].lr_fehler:         0                     
+ profidrive_abs_pos:                     0                     
+ profidrive_calc_abs_pos:                0
+ profidrive_abs_pos_read_time:           0                     
+ profidrive_abs_pos_first_read_time:     0                     
+ profidrive_abs_pos_first_reuqest_time:  0                     
+ profidrive_abs_pos_first_request:       0                     
+ profidrive_dig_drv_act_pos_first_req:   0                     
+ profidrive feinaufloesung:              0                     
+ profidrive pos_req_timout:              0                     
+ profidrive timeout_time:                0                     
+ profidrive internal state:              0                     
+ profidrive drive modulo range x_ist_2:  0
+ profidrive_read_abs_pos_diag_err:       0                     
+ delay_tracking:                         0                     
+ abs_pos_in_initialized:                 1                     
+ ino_to_lr:                              0                     
+ error_reaction_active:                  0                     
+ tast_nip_offset:                        0                     
+ shift_offset_zero_pulse_activation:     0
+ drive_deactivated:                      0                     
+ kw_update_time:                         0                     
+ temp_comp_param_update_time:            0                     
+ nfb_start_time:                         0                     
+ nfb_end_time:                           836                   
+ nfb_active_cause:                       INTERNAL(1)
+ pos_corr_active:                        0                     
+ pos_corr_s_rest:                        0.000000              
+ ssfk: table_overflow_counter:           0                     
+ steuer_ext:                             0x0
+ touch_probing_mode:                     1         
+ object_rw_state:                        0         
+ messf_abbrechen:                        0                     
+ meas_abort_ok:                          0                     
+ meas_finished:                          0                     
+ meas_value_latched:                     0                     
+ meas_read_val:                          0                     
+ vz_stellgr:                             0                     
+ vz_istw:                                0                     
+ mode_cmd_pos:                           2                     
+ mode_act_pos:                           2                     
+ ipo_lr_delay_cycles:                    5                     
+ gear_change_time:                       776                   
+ unhome_time:                            0                     
+ disable_drive_on_position_lag_err:      0                     
+ error_reaction_class:                   1                     
+ glob_bus_error_counter:                 0                     
+ disable_drive_on_bus_error:             0                     
+
+
+ axis index:                             1                     
+ log. axis nr:                           2                     
+ homing_diag_start_timestamp             0                     
+ homing_diag_m_sollw_abs_old             0
+ homing_diag_m_sollw_abs_old_wo_comp     0
+ homing_diag_m_sollw_abs_new             0
+ homing_diag_istw_absolut_old            0
+ homing_diag_istw_absolut_new            0
+ homing_diag_pos_refpkt                  0
+ homing_diag_zero_pulse_offset           0
+ homing_diag_istw_rel                    0
+ homing_diag_rel_sollw                   0
+ homing_diag_diff_act_position           0
+ homing_diag_dig_drv_act_pos             0                     
+ homing_diag_timestamp                   0                     
+ vol_comp.initialized:                   1                     
+ vol_comp.limit_exceeded:                0                     
+ vol_comp[0].active:                     0                     
+ vol_comp[0].cartesian:                  1                     
+ vol_comp[0].last_offset:                0
+ vol_comp[0].actual_offset:              0
+ vol_comp[0].next_offset:                0
+ vol_comp[0].offset_delta:               0
+ vol_comp[1].active:                     0                     
+ vol_comp[1].cartesian:                  1                     
+ vol_comp[1].last_offset:                0
+ vol_comp[1].actual_offset:              0
+ vol_comp[1].next_offset:                0
+ vol_comp[1].offset_delta:               0
+ vol_comp[2].active:                     0                     
+ vol_comp[2].cartesian:                  1                     
+ vol_comp[2].last_offset:                0
+ vol_comp[2].actual_offset:              0
+ vol_comp[2].next_offset:                0
+ vol_comp[2].offset_delta:               0
+ vol_comp[3].active:                     0                     
+ vol_comp[3].cartesian:                  1                     
+ vol_comp[3].last_offset:                0
+ vol_comp[3].actual_offset:              0
+ vol_comp[3].next_offset:                0
+ vol_comp[3].offset_delta:               0
+ vol_comp[4].active:                     0                     
+ vol_comp[4].cartesian:                  1                     
+ vol_comp[4].last_offset:                0
+ vol_comp[4].actual_offset:              0
+ vol_comp[4].next_offset:                0
+ vol_comp[4].offset_delta:               0
+ vol_comp.offset_sum_mm:                 0                     
+ SSFK Events:
+
+
+ log. axis nr:                           2                     
+ last_logged_data[1201].position:   0                     
+ last_logged_data[1201].state:      0x40
+ last_logged_data[1201].set_val:    0                     
+ last_logged_data[1201].ctrl:       0x0
+ last_logged_data[1200].position:   0                     
+ last_logged_data[1200].state:      0x40
+ last_logged_data[1200].set_val:    0                     
+ last_logged_data[1200].ctrl:       0x0
+ last_logged_data[1199].position:   0                     
+ last_logged_data[1199].state:      0x40
+ last_logged_data[1199].set_val:    0                     
+ last_logged_data[1199].ctrl:       0x0
+ last_logged_data[1198].position:   0                     
+ last_logged_data[1198].state:      0x40
+ last_logged_data[1198].set_val:    0                     
+ last_logged_data[1198].ctrl:       0x0
+ last_logged_data[1197].position:   0                     
+ last_logged_data[1197].state:      0x40
+ last_logged_data[1197].set_val:    0                     
+ last_logged_data[1197].ctrl:       0x0
+ keep_drive_cyclic_log_over_reset:       0                     
+
+ Drive control word: (mask = 0x019f)
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+
+ Drive status word: (mask = 0x307f)
+   status[835] = 0x0040
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+
+ cam_diag_log:number entries:            0         
+
+ meas_type:                              0
+ fs_active:                              0                     
+ fs_detected:                            0                     
+ fs_state:                               0                     
+ fs_initialized:                         1                     
+ fs_aborted:                             0                     
+ fs_position:                            0                     
+ fs_ident_act_value[0]:                  0.000000              
+ fs_ident_act_value[1]:                  0.000000              
+ fs_ident_act_value[2]:                  0.000000              
+ fs_ident_act_value[3]:                  0.000000              
+ gantry_on_mode[        776].new:        0                     
+ gantry_on_mode[        776].old:        0                     
+ gantry_on_mode[          0].new:        0                     
+ gantry_on_mode[          0].old:        0                     
+ gantry_ctrl[0].f_is_gantry_master       0                     
+ gantry_ctrl[0].f_is_gantry_slave        0                     
+ gantry_ctrl[0].channel_id               0                     
+ gantry_ctrl[0].release_channel_id       0                     
+ gantry_ctrl[0].cmd                      0                     
+ sollw_absolut_alt                       0
+ axis_coupling_offset:                   0
+ meas_fixed_stop_delta_position          0                     
+ meas_fixed_stop_delta_position_window   0                     
+ meas_fixed_stop_pos_lag_limit           0                     
+ meas_fixed_stop_detect_axis             0                     
+ write_refpos_state                      0                     
+ write_refpos_up_to_date                 0                     
+ write_refpos_drive_refpos               0                     
+ write_refpos_start_timestamp            0                     
+ write_refpos_end_timestamp              0                     
+ restore_axis_position                   0                     
+ dig_act_pos_max[          0]            0            
+ dig_act_pos_min[          0]            0            
+ max_delta_act_pos[        0]            0            
+ m_solw_abs_alt[        0]               0            
+ m_solw_abs_new[        0]               0            
+ solw_absolut[          0]               0            
+ bus_data_event[0]:   time:              836          rising edge          Actual position: 0
+ bus_data_event[1]:   time:              0           
+ bus_data_event[2]:   time:              0           
+ bus_data_event[3]:   time:              0           
+ bus_data_event[4]:   time:              0           
+ measure_done_cycle_ctr                  0
+ restore_position_istw_rel:               0
+ restore_position_act_pos:                0
+ restore_position_dig_act_pos:           0                     
+ restore_position_delta_act_pos_on_off:  0                     
+ restore_position_time:                  0                     
+ homing_done in retain data was false:   -1                    
+ restore_pos_data_read_time:             0                     
+ restore_pos_data_read_drv_act_pos_64:   0                     
+ restore_pos_data_read_istw_abs:         0                     
+ restore_pos_data_read_valid:            0                     
+ restore_pos_data_write_time:            0                     
+ restore_pos_data_write_drv_act_pos_64:  0                     
+ restore_pos_data_write_istw_abs:        0                     
+ restore_pos_data_write_restore_data:    0                     
+ run_down: activation_cycle              0                     
+ run_down: drive_ctrl_at_activation      0                     
+ run_down: state                         0                     
+ run_down: suppress_drive_enable_errors  0                     
+ modulo_swe_error state:                 0                     
+ lr_unhome_cause:                        NONE(0)
+ lr_unhome_time:                         0                     
+ f_unhome_bus_error:                     0                     
+ axis_coupling_acc               4294967295
+ axis_coupling_slope_active      0         
+ axis_coupling_mode                      E_GEAR_LINK_MODE_NOT_PROG
+ torq_homing_detect_torque_limit         0         
+ torq_homing_detect_velocity_limit       1000      
+ torq_homing_detect_pos_lag_limit        0                     
+ torq_homing LR_STATE:                   1                     
+
+LR : AXIS SPEC. DIAGNOSES DATA                                                                                                    [##PosCtrlAxisData#B#3##]
+=======================================================================
+
+ axis index:                             2                     
+ log. axis nr:                           3                     
+ act gear nr:                            1                     
+                                                                                                                                 [#F#JogOfPath#B#3#2#]
+
+ link_to configured:                     0                     
+ link_to actual:                         3                     
+                                                                                                                                 [#F#JogOfPath#E###]
+
+ axis mode:                              0x400001
+                                         ACHSMODE_LINEAR
+                                         ALLOW_RESOLUTION_CHANGE
+ axis type:                              1                     
+                                         ACHSTYP_TRANSLATOR
+ drive type:                             8                     
+                                          ANTR_TYP_CANOPEN
+ channel_id:                             1                     
+ channel_idx:                            0                     
+ axis_ctrl:                              0x800
+                                         ACHSE_LR_OVERRIDE_VALID
+ axis_state:                             0x20100
+                                         WAIT_ACHS_REGLERFR
+                                         SPEED_MON_DISABLED
+ trafo_info:                             0                     
+ drive_status_direct:                    0x40
+ rpf_erfolgt:                            1                   
+ int_tracking:                           0                   
+ sollw_absolut:                          0
+ istw_absolut:                           0
+ rel_sollw:                              0
+ rel_sollw_w_comp:                       0
+ verfahrrichtung:                        1                     
+ dig_drv.cmd_pos:                        0                     
+ dig_drv.act_pos:                        0                     
+ dig_drv.act_pos_unshifted:              0                     
+ slep_min:                               15000
+ slep_max:                               100000
+ slep_dyn:                               1000                  
+ slep_ueberw_typ:                        2                   
+ max_control_value:                      2147483647
+ ssfk: kw:                               0                     
+ ssfk: kwnr:                             0                     
+ ssfk: kwnr_lower_limit:                 0                     
+ ssfk: kwnr_upper_limit:                 0                     
+ ssfk: eps_uebertrag:                    0                     
+ ssfk: eps_lose:                         0                     
+ ssfk: epsilon:                          0                     
+ ssfk: eps_pos:                          0                     
+ ssfk: eps_neg:                          0                     
+ ssfk: modulo_sollw                      0
+ ssfk: rast_ssfk                         0
+ ssfk: summ_epsilon:                     0                     
+ ssfk: ssfk_init:                        0                     
+ ssfk: ssfk active :                     0                     
+ ssfk: f_set_pos_without_comp:           0                     
+ ssfk: table_check_pending:              0         
+ ssfk: table_check_pending_ack:          0         
+ ssfk: kw_table_valid:                   0                     
+ ssfk: f_is_turned_off:                  0                     
+ cross: interval_nr:                     0         
+ cross: actual_offset:                   0         
+ cross: delta_offset:                    0         
+ cross: filter_total_offset:             0         
+ cross: filter_cycles:                   0         
+ cross: comp. initialized:               0         
+ cross: comp. active:                    0         
+ cross: activate filter:                 0         
+ cross: table_check_pending              0         
+ cross: table_check_pending_ack          0         
+ cross: f_is_turned_off:                 0         
+ tc_filter_cycles:                       0         
+ crosstalk: interval_nr:                 0         
+ crosstalk: actual_offset:               0         
+ crosstalk: delta_offset:                0         
+ crosstalk: filter_total_offset:         0         
+ crosstalk: filter_cycles:               0         
+ crosstalk: comp. initialized:           0         
+ crosstalk: comp. active:                0         
+ crosstalk: activate filter:             0         
+ crosstalk: table_check_pending          0         
+ crosstalk: f_is_turned_off:             0         
+ plane: correction:                      0         
+ plane: epsilon:                         0         
+ plane: filter_total_offset:             0         
+ plane: filter_cycles:                   0         
+ plane: comp. initialized:               0         
+ plane: comp. active:                    0         
+ plane: comp. activate filter:           0         
+ plane: table_check_pending:             0         
+ plane: table_check_pending_ack:         0         
+ plane: f_is_turned_off:                 0         
+ temp: f_is_active:                      0         
+ temp: f_is_turned_off:                  0         
+ temp: actual_offset:                    0         
+ temp: tc_delta_offset:                  0         
+ temp: tc_filter_total_offset:           0         
+ temp: tc_coefficient:                   0.000000  
+ temp: tc_position_0:                    0         
+ temp: tc_offset_0:                      0         
+ drive_ready_to_move:                    0                     
+ f_order_active:                         0                     
+ warmstart_aktiv:                        0                     
+ prog_movement_requires_compensations:   0x0
+ ext. cmd: rel_zus_stellgr_incr:         0
+ ext. cmd: sp_zus_stellgr:               0
+ ext. cmd: sp_zus_stellgr_sollw_anf:     0
+ drive_out_axis_diff:                    0                     
+ drive_out_axis_diff_delayed:            0             
+ axis_diff_driven_out                    1                     
+ lr_fehler:                              0x0
+ fehler_spez:                            0x0
+ fehler_spez2:                           0x0
+ fehler_spez3:                           0x0
+ fehler_spez4:                           0x0
+ system_error_id:                        0                     
+ drv_pos_bus_ok:                         0                     
+ nfb_corr_path:                          0
+ nfb_position_saved:                     0
+ mess_zstd:                              0                     
+                                         LR_MESS_INIT
+ int_measure_state:                      1                     
+ latch_state:                            1                     
+ cyc_meas_state:                         1                     
+ messf_aktiv:                            0                     
+ messf_erfolgt:                          0                     
+ meas_abort:                             0                     
+ meas_start_drive:                       0                     
+ meas_start_plc:                         0                     
+ achse_bewegt:                           0                     
+ achse_faehrt:                           0                     
+ achse_faehrt_vw:                        0                     
+ swe_behaviour:                          0                    
+ pos_swe_error_occured:                  0                    
+ neg_swe_error_occured:                  0                    
+ swe_pos:                                15000100
+ swe_neg:                                -10000100
+ istw_simulieren:                        1                     
+ lr_to_ino:                              0x2810083
+                                         ACHSE_IN_POSITION
+                                         RPF_ERFOLGTE
+                                         GETRIEBE_GESCHALTET
+                                         CONF_ACT_POSITION
+                                         DRIVE_POSITION_VALID
+                                         DRIVE_POWER_OFF
+ lr_to_ino_2:                            0x0
+ modulo_fehler:                          0                     
+ modulo_eps:                             0                     
+ alt_modulo_eps:                         0                     
+ modulo_zaehler:                         0                     
+ modulo_komp:                            0                     
+ coll_check_acitve:                      0                     
+ coll_check_ax_nr:                       0                     
+ coll_check_offset:                      0
+ restored_ref_pos_offset:                0
+ achs_zstd:                              0                     
+ ref_zstd:                               0                     
+ coll_check_dec.:                        2000.0                
+ dyn_coll_mon_acitve:                    0                     
+ dyn_coll_mon_check_ax_nr:               0                     
+ dyn_coll_mon_check_offset:              0
+ dyn_coll_mon_check_deceleration:        1750.0                
+ dyn_coll_mon_check_is_partnern:         0                     
+ dyn_coll_mon_check_move_inv:            0                     
+ dyn_coll_mon_check_zero_offset:         0
+ dyn_coll_mon_event[0]:   time:          0           
+ dyn_coll_mon_event[1]:   time:          0           
+ dyn_coll_mon_event[2]:   time:          0           
+ dyn_coll_mon_event[3]:   time:          0           
+ dyn_coll_mon_event[4]:   time:          0           
+ gantry_error_sup.:                      0                     
+ act_gantry_diff.:                       0                     
+ dist_to_ref_pos:                        0
+ gantry_pos_offset:                      0
+ pos_refpkt:                             0
+ zero_pulse_value :                      0                     
+ zero_pulse_offset:                      0                     
+ m_messwert:                             0
+ probing_value_from_plc:                 0                     
+ encoder coarsening factor:              0                     
+ cmd. position incr. moduloo:            2147483648
+ cmd. position incr. modulou:            -2147483648
+ cmd. position incr. modudiff:           4294967296
+ conf_cmd_values_telegram:               0x207
+                                         CONTROL WORD
+                                         CMD POSITION
+                                         CMD VELOCITY
+                                         CMD OPERATION MODE
+ conf_act_values_telegram:               0x120007
+                                         STATUS WORD
+                                         ACT POSITION
+                                         ACT VELOCITY
+                                         BUS STATE
+                                         ACT_OPERATION_MODE
+ main_encoder:                           51                    
+ secondary_encoder:                      0                     
+ operation_mode:                         2                     
+ achs_satz_satztyp:                      10                    
+ abs_pos_offset:                         0
+ ext_latch_value:                        0                     
+ ext_latch_offset:                       0                     
+ zero latch ctrl:                        2                     
+ f_use_enc_overflow_eval_mask:           1                     
+ encoder_modulo_range:                   0                     
+ encocder_overflow_eval_mask:            0x0
+ linked_gantry_slave_axis_nbr:           0                     
+ latch_status_word:                      0x0
+ latch_control_word:                     0x0
+ latch control mask:                     0x0
+ latch status mask:                      0x0
+ latch_data.signal:                      Default signal
+ latch_data.probing_channel:             0         
+ latch_data.probe_neg_edge:              0         
+ meas_param.f_channel_param:             0                     
+ meas_param.signal:                      Default signal        
+ meas_param.channel:                     0                     
+ meas_param.active_edge:                 Default edge          
+ pos_lag_mon_disabled:                   0                    
+ fixed_stop_cycles_counter:              0               
+ drv_instr_cmd:                          0         
+ drv_instr_param_nr:                     0         
+ drv_instr_motor_nr:                     0         
+ drv_instr_invoke_id:                    0         
+ drv_instr_sender_id:                    0         
+ drv_instr_exec_state:                   0         
+ drv_instr_elem_value:                   0.000000  
+ drv_instr_s_element:                    ""
+ drv_instr_output_value:                 0
+ drv_instr_exec_ret:                     0         
+ drv_instr_scaling_fact:                 0.000000  
+ istw_rel:                               0
+ gantry_slave_linked_to_axis_nbr:        0                     
+ abs_pos:                                0
+ m_sollw_absolut:                        0
+ f_refpos_offset_set:                    0                     
+ lr_msollwert_abs_pos:                   0
+ lr_steuer:                              0x0
+ lr_info:                                0x5000
+                                         PROG_END_ACTIVE
+                                         ACHSE_SOLLW_0
+ rpn_stellung:                           0                   
+ rpn_stellung_alt:                       0                   
+ rpn_zuletzt_gelesen:                    0                   
+ set_refpos_time:                        0                   
+ set_refpos_cmd_old:                     0
+ set_refpos_cmd_new:                     0
+ set_refpos_drive_abs_pos:               0                   
+ aufloesung:                             0.000100
+ solldrehzahl:                           0
+ dz_istw:                                0
+ reset_zstd:                             0                   
+ reset_fertig:                           0                   
+ achs_set_def_zstd:                      0                   
+ lr_reset_state:                         0                   
+ rpf_abbrechen:                          0                   
+ antrieb_reset:                          0                   
+ rpf_durchfuehren:                       0                   
+ order_zstd:                             0x0
+                                         LR_AXIS_ORDER_INIT
+ state_link_to:                          0                   
+ meas_command_remain_active:             0     
+ wz_gear_ratio:                          1.000000              
+ wz_gear_inv_direction:                  0                   
+ trafo_in[0]:                            0                   
+ trafo_in[1]:                            0                   
+ trafo_in[2]:                            0                   
+ trafo_out:                              0                   
+ act_pos_trafo_active:                   0                   
+ act_pos_trafo_id:                       0                   
+ act_pos_trafo_in:                       0
+ act_pos_trafo_out:                      0
+ proc_out_write_time:                    0                   
+ mod_counter_abs:                        0                   
+ achsdata->pos:                          0
+ pos_ctrl_state       :                  0                   
+ ax_coupling_homing_req:                 0                   
+ encoder[0].drive_act_pos:               0
+ encoder[0].actual_abs_position:         0
+ encoder[0].resolution:                  1.0000000000          Incr / 0.1 um
+ encoder[1].drive_act_pos:               0
+ encoder[1].actual_abs_position:         0
+ encoder[1].resolution:                  1.0000000000          Incr / 0.1 um
+ op_mode_output:                         2                   
+ op_mode_feedback:                       1                   
+ latch_channel:                          0                   
+ latch_neg_edge:                         0                   
+ meas_param_mode:                        0                   
+ axis_check_ready_time:                  0                   
+ act_gear_nr:                            1   
+ mds_update_time:                        0                   
+ int_tracking_cause:                     0x0
+ ref_check.active:                       0                   
+ ref_check.input:                        0                   
+ cmd_pos_request_pending:                0                   
+ async_para_read_time_stamp:             861                 
+ incr_in_position_window:                100
+ reset_end_time:                         0                   
+ curr_pos_to_ipo:                        0                   
+
+
+ touch_probing_mode:                     1                     
+ f_ax_coupling_active:                   0                     
+ axis_coupling_activation:               0         
+ axis_coupling_initiator:                0         
+ coupling[0].mode:                       0                     
+ coupling[0].src_ax_nr:                  0                    
+ coupling[0].fract_num:                  0                     
+ coupling[0].fract_denom:                0                     
+ coupling[0].sum_scaled_out_ax:          0
+ coupling[1].mode:                       0                     
+ coupling[1].src_ax_nr:                  0                    
+ coupling[1].fract_num:                  0                     
+ coupling[1].fract_denom:                0                     
+ coupling[1].sum_scaled_out_ax:          0
+ coupling[2].mode:                       0                     
+ coupling[2].src_ax_nr:                  0                    
+ coupling[2].fract_num:                  0                     
+ coupling[2].fract_denom:                0                     
+ coupling[2].sum_scaled_out_ax:          0
+ coupling[3].mode:                       0                     
+ coupling[3].src_ax_nr:                  0                    
+ coupling[3].fract_num:                  0                     
+ coupling[3].fract_denom:                0                     
+ coupling[3].sum_scaled_out_ax:          0
+ cmd_pos_req[0].channel:                 1                     
+ cmd_pos_req[0].link_to:                 3                     
+ cmd_pos_req[0].time:                    853                   
+ cmd_pos_req[0].request_time:            853                   
+ cmd_pos_req[0].lr_sollwert:             0                     
+ cmd_pos_req[1].channel:                 0                     
+ cmd_pos_req[1].link_to:                 0                     
+ cmd_pos_req[1].time:                    0                     
+ cmd_pos_req[1].request_time:            0                     
+ cmd_pos_req[1].lr_sollwert:             0                     
+ cmd_pos_req[2].channel:                 0                     
+ cmd_pos_req[2].link_to:                 0                     
+ cmd_pos_req[2].time:                    0                     
+ cmd_pos_req[2].request_time:            0                     
+ cmd_pos_req[2].lr_sollwert:             0                     
+ cmd_pos_req[3].channel:                 0                     
+ cmd_pos_req[3].link_to:                 0                     
+ cmd_pos_req[3].time:                    0                     
+ cmd_pos_req[3].request_time:            0                     
+ cmd_pos_req[3].lr_sollwert:             0                     
+ cmd_pos_req[4].channel:                 0                     
+ cmd_pos_req[4].link_to:                 0                     
+ cmd_pos_req[4].time:                    0                     
+ cmd_pos_req[4].request_time:            0                     
+ cmd_pos_req[4].lr_sollwert:             0                     
+ ax_pos_invalid[0].time:                 0                     
+ ax_pos_invalid[0].reason:               0x0
+ ax_pos_invalid[1].time:                 0                     
+ ax_pos_invalid[1].reason:               0x0
+ ax_pos_invalid[2].time:                 0                     
+ ax_pos_invalid[2].reason:               0x0
+ ax_pos_invalid[3].time:                 0                     
+ ax_pos_invalid[3].reason:               0x0
+ ax_pos_invalid[4].time:                 0                     
+ ax_pos_invalid[4].reason:               0x0
+ suspend_axis_data[0].channel:           0                     
+ suspend_axis_data[0].link_to:           0                     
+ suspend_axis_data[0].time:              0                     
+ suspend_axis_data[0].abs_pos_offset:    0                     
+ suspend_axis_data[0].m_sollw_absolut:   0                     
+ suspend_axis_data[0].lr_fehler:         0                     
+ suspend_axis_data[1].channel:           0                     
+ suspend_axis_data[1].link_to:           0                     
+ suspend_axis_data[1].time:              0                     
+ suspend_axis_data[1].abs_pos_offset:    0                     
+ suspend_axis_data[1].m_sollw_absolut:   0                     
+ suspend_axis_data[1].lr_fehler:         0                     
+ suspend_axis_data[2].channel:           0                     
+ suspend_axis_data[2].link_to:           0                     
+ suspend_axis_data[2].time:              0                     
+ suspend_axis_data[2].abs_pos_offset:    0                     
+ suspend_axis_data[2].m_sollw_absolut:   0                     
+ suspend_axis_data[2].lr_fehler:         0                     
+ suspend_axis_data[3].channel:           0                     
+ suspend_axis_data[3].link_to:           0                     
+ suspend_axis_data[3].time:              0                     
+ suspend_axis_data[3].abs_pos_offset:    0                     
+ suspend_axis_data[3].m_sollw_absolut:   0                     
+ suspend_axis_data[3].lr_fehler:         0                     
+ suspend_axis_data[4].channel:           0                     
+ suspend_axis_data[4].link_to:           0                     
+ suspend_axis_data[4].time:              0                     
+ suspend_axis_data[4].abs_pos_offset:    0                     
+ suspend_axis_data[4].m_sollw_absolut:   0                     
+ suspend_axis_data[4].lr_fehler:         0                     
+ suspend_axis_data[5].channel:           0                     
+ suspend_axis_data[5].link_to:           0                     
+ suspend_axis_data[5].time:              0                     
+ suspend_axis_data[5].abs_pos_offset:    0                     
+ suspend_axis_data[5].m_sollw_absolut:   0                     
+ suspend_axis_data[5].lr_fehler:         0                     
+ suspend_axis_data[6].channel:           0                     
+ suspend_axis_data[6].link_to:           0                     
+ suspend_axis_data[6].time:              0                     
+ suspend_axis_data[6].abs_pos_offset:    0                     
+ suspend_axis_data[6].m_sollw_absolut:   0                     
+ suspend_axis_data[6].lr_fehler:         0                     
+ suspend_axis_data[7].channel:           0                     
+ suspend_axis_data[7].link_to:           0                     
+ suspend_axis_data[7].time:              0                     
+ suspend_axis_data[7].abs_pos_offset:    0                     
+ suspend_axis_data[7].m_sollw_absolut:   0                     
+ suspend_axis_data[7].lr_fehler:         0                     
+ profidrive_abs_pos:                     0                     
+ profidrive_calc_abs_pos:                0
+ profidrive_abs_pos_read_time:           0                     
+ profidrive_abs_pos_first_read_time:     0                     
+ profidrive_abs_pos_first_reuqest_time:  0                     
+ profidrive_abs_pos_first_request:       0                     
+ profidrive_dig_drv_act_pos_first_req:   0                     
+ profidrive feinaufloesung:              0                     
+ profidrive pos_req_timout:              0                     
+ profidrive timeout_time:                0                     
+ profidrive internal state:              0                     
+ profidrive drive modulo range x_ist_2:  0
+ profidrive_read_abs_pos_diag_err:       0                     
+ delay_tracking:                         0                     
+ abs_pos_in_initialized:                 1                     
+ ino_to_lr:                              0                     
+ error_reaction_active:                  0                     
+ tast_nip_offset:                        0                     
+ shift_offset_zero_pulse_activation:     0
+ drive_deactivated:                      0                     
+ kw_update_time:                         0                     
+ temp_comp_param_update_time:            0                     
+ nfb_start_time:                         0                     
+ nfb_end_time:                           836                   
+ nfb_active_cause:                       INTERNAL(1)
+ pos_corr_active:                        0                     
+ pos_corr_s_rest:                        0.000000              
+ ssfk: table_overflow_counter:           0                     
+ steuer_ext:                             0x0
+ touch_probing_mode:                     1         
+ object_rw_state:                        0         
+ messf_abbrechen:                        0                     
+ meas_abort_ok:                          0                     
+ meas_finished:                          0                     
+ meas_value_latched:                     0                     
+ meas_read_val:                          0                     
+ vz_stellgr:                             0                     
+ vz_istw:                                0                     
+ mode_cmd_pos:                           2                     
+ mode_act_pos:                           2                     
+ ipo_lr_delay_cycles:                    5                     
+ gear_change_time:                       777                   
+ unhome_time:                            0                     
+ disable_drive_on_position_lag_err:      0                     
+ error_reaction_class:                   1                     
+ glob_bus_error_counter:                 0                     
+ disable_drive_on_bus_error:             0                     
+
+
+ axis index:                             2                     
+ log. axis nr:                           3                     
+ homing_diag_start_timestamp             0                     
+ homing_diag_m_sollw_abs_old             0
+ homing_diag_m_sollw_abs_old_wo_comp     0
+ homing_diag_m_sollw_abs_new             0
+ homing_diag_istw_absolut_old            0
+ homing_diag_istw_absolut_new            0
+ homing_diag_pos_refpkt                  0
+ homing_diag_zero_pulse_offset           0
+ homing_diag_istw_rel                    0
+ homing_diag_rel_sollw                   0
+ homing_diag_diff_act_position           0
+ homing_diag_dig_drv_act_pos             0                     
+ homing_diag_timestamp                   0                     
+ vol_comp.initialized:                   1                     
+ vol_comp.limit_exceeded:                0                     
+ vol_comp[0].active:                     0                     
+ vol_comp[0].cartesian:                  1                     
+ vol_comp[0].last_offset:                0
+ vol_comp[0].actual_offset:              0
+ vol_comp[0].next_offset:                0
+ vol_comp[0].offset_delta:               0
+ vol_comp[1].active:                     0                     
+ vol_comp[1].cartesian:                  1                     
+ vol_comp[1].last_offset:                0
+ vol_comp[1].actual_offset:              0
+ vol_comp[1].next_offset:                0
+ vol_comp[1].offset_delta:               0
+ vol_comp[2].active:                     0                     
+ vol_comp[2].cartesian:                  1                     
+ vol_comp[2].last_offset:                0
+ vol_comp[2].actual_offset:              0
+ vol_comp[2].next_offset:                0
+ vol_comp[2].offset_delta:               0
+ vol_comp[3].active:                     0                     
+ vol_comp[3].cartesian:                  1                     
+ vol_comp[3].last_offset:                0
+ vol_comp[3].actual_offset:              0
+ vol_comp[3].next_offset:                0
+ vol_comp[3].offset_delta:               0
+ vol_comp[4].active:                     0                     
+ vol_comp[4].cartesian:                  1                     
+ vol_comp[4].last_offset:                0
+ vol_comp[4].actual_offset:              0
+ vol_comp[4].next_offset:                0
+ vol_comp[4].offset_delta:               0
+ vol_comp.offset_sum_mm:                 0                     
+ SSFK Events:
+
+
+ log. axis nr:                           3                     
+ last_logged_data[1204].position:   0                     
+ last_logged_data[1204].state:      0x40
+ last_logged_data[1204].set_val:    0                     
+ last_logged_data[1204].ctrl:       0x0
+ last_logged_data[1203].position:   0                     
+ last_logged_data[1203].state:      0x40
+ last_logged_data[1203].set_val:    0                     
+ last_logged_data[1203].ctrl:       0x0
+ last_logged_data[1202].position:   0                     
+ last_logged_data[1202].state:      0x40
+ last_logged_data[1202].set_val:    0                     
+ last_logged_data[1202].ctrl:       0x0
+ last_logged_data[1201].position:   0                     
+ last_logged_data[1201].state:      0x40
+ last_logged_data[1201].set_val:    0                     
+ last_logged_data[1201].ctrl:       0x0
+ last_logged_data[1200].position:   0                     
+ last_logged_data[1200].state:      0x40
+ last_logged_data[1200].set_val:    0                     
+ last_logged_data[1200].ctrl:       0x0
+ keep_drive_cyclic_log_over_reset:       0                     
+
+ Drive control word: (mask = 0x019f)
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+
+ Drive status word: (mask = 0x307f)
+   status[835] = 0x0040
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+
+ cam_diag_log:number entries:            0         
+
+ meas_type:                              0
+ fs_active:                              0                     
+ fs_detected:                            0                     
+ fs_state:                               0                     
+ fs_initialized:                         1                     
+ fs_aborted:                             0                     
+ fs_position:                            0                     
+ fs_ident_act_value[0]:                  0.000000              
+ fs_ident_act_value[1]:                  0.000000              
+ fs_ident_act_value[2]:                  0.000000              
+ fs_ident_act_value[3]:                  0.000000              
+ gantry_on_mode[        777].new:        0                     
+ gantry_on_mode[        777].old:        0                     
+ gantry_on_mode[          0].new:        0                     
+ gantry_on_mode[          0].old:        0                     
+ gantry_ctrl[0].f_is_gantry_master       0                     
+ gantry_ctrl[0].f_is_gantry_slave        0                     
+ gantry_ctrl[0].channel_id               0                     
+ gantry_ctrl[0].release_channel_id       0                     
+ gantry_ctrl[0].cmd                      0                     
+ sollw_absolut_alt                       0
+ axis_coupling_offset:                   0
+ meas_fixed_stop_delta_position          0                     
+ meas_fixed_stop_delta_position_window   0                     
+ meas_fixed_stop_pos_lag_limit           0                     
+ meas_fixed_stop_detect_axis             0                     
+ write_refpos_state                      0                     
+ write_refpos_up_to_date                 0                     
+ write_refpos_drive_refpos               0                     
+ write_refpos_start_timestamp            0                     
+ write_refpos_end_timestamp              0                     
+ restore_axis_position                   0                     
+ dig_act_pos_max[          0]            0            
+ dig_act_pos_min[          0]            0            
+ max_delta_act_pos[        0]            0            
+ m_solw_abs_alt[        0]               0            
+ m_solw_abs_new[        0]               0            
+ solw_absolut[          0]               0            
+ bus_data_event[0]:   time:              836          rising edge          Actual position: 0
+ bus_data_event[1]:   time:              0           
+ bus_data_event[2]:   time:              0           
+ bus_data_event[3]:   time:              0           
+ bus_data_event[4]:   time:              0           
+ measure_done_cycle_ctr                  0
+ restore_position_istw_rel:               0
+ restore_position_act_pos:                0
+ restore_position_dig_act_pos:           0                     
+ restore_position_delta_act_pos_on_off:  0                     
+ restore_position_time:                  0                     
+ homing_done in retain data was false:   -1                    
+ restore_pos_data_read_time:             0                     
+ restore_pos_data_read_drv_act_pos_64:   0                     
+ restore_pos_data_read_istw_abs:         0                     
+ restore_pos_data_read_valid:            0                     
+ restore_pos_data_write_time:            0                     
+ restore_pos_data_write_drv_act_pos_64:  0                     
+ restore_pos_data_write_istw_abs:        0                     
+ restore_pos_data_write_restore_data:    0                     
+ run_down: activation_cycle              0                     
+ run_down: drive_ctrl_at_activation      0                     
+ run_down: state                         0                     
+ run_down: suppress_drive_enable_errors  0                     
+ modulo_swe_error state:                 0                     
+ lr_unhome_cause:                        NONE(0)
+ lr_unhome_time:                         0                     
+ f_unhome_bus_error:                     0                     
+ axis_coupling_acc               4294967295
+ axis_coupling_slope_active      0         
+ axis_coupling_mode                      E_GEAR_LINK_MODE_NOT_PROG
+ torq_homing_detect_torque_limit         0         
+ torq_homing_detect_velocity_limit       1000      
+ torq_homing_detect_pos_lag_limit        0                     
+ torq_homing LR_STATE:                   1                     
+
+LR : AXIS SPEC. DIAGNOSES DATA                                                                                                    [##PosCtrlAxisData#B#4##]
+=======================================================================
+
+ axis index:                             3                     
+ log. axis nr:                           4                     
+ act gear nr:                            1                     
+                                                                                                                                 [#F#JogOfPath#B#4#2#]
+
+ link_to configured:                     0                     
+ link_to actual:                         4                     
+                                                                                                                                 [#F#JogOfPath#E###]
+
+ axis mode:                              0x400001
+                                         ACHSMODE_LINEAR
+                                         ALLOW_RESOLUTION_CHANGE
+ axis type:                              1                     
+                                         ACHSTYP_TRANSLATOR
+ drive type:                             8                     
+                                          ANTR_TYP_CANOPEN
+ channel_id:                             0                     
+ channel_idx:                            0                     
+ axis_ctrl:                              0x800
+                                         ACHSE_LR_OVERRIDE_VALID
+ axis_state:                             0x20100
+                                         WAIT_ACHS_REGLERFR
+                                         SPEED_MON_DISABLED
+ trafo_info:                             0                     
+ drive_status_direct:                    0x40
+ rpf_erfolgt:                            1                   
+ int_tracking:                           0                   
+ sollw_absolut:                          0
+ istw_absolut:                           0
+ rel_sollw:                              0
+ rel_sollw_w_comp:                       0
+ verfahrrichtung:                        1                     
+ dig_drv.cmd_pos:                        0                     
+ dig_drv.act_pos:                        0                     
+ dig_drv.act_pos_unshifted:              0                     
+ slep_min:                               15000
+ slep_max:                               100000
+ slep_dyn:                               1000                  
+ slep_ueberw_typ:                        2                   
+ max_control_value:                      2147483647
+ ssfk: kw:                               0                     
+ ssfk: kwnr:                             0                     
+ ssfk: kwnr_lower_limit:                 0                     
+ ssfk: kwnr_upper_limit:                 0                     
+ ssfk: eps_uebertrag:                    0                     
+ ssfk: eps_lose:                         0                     
+ ssfk: epsilon:                          0                     
+ ssfk: eps_pos:                          0                     
+ ssfk: eps_neg:                          0                     
+ ssfk: modulo_sollw                      0
+ ssfk: rast_ssfk                         0
+ ssfk: summ_epsilon:                     0                     
+ ssfk: ssfk_init:                        0                     
+ ssfk: ssfk active :                     0                     
+ ssfk: f_set_pos_without_comp:           0                     
+ ssfk: table_check_pending:              0         
+ ssfk: table_check_pending_ack:          0         
+ ssfk: kw_table_valid:                   0                     
+ ssfk: f_is_turned_off:                  0                     
+ cross: interval_nr:                     0         
+ cross: actual_offset:                   0         
+ cross: delta_offset:                    0         
+ cross: filter_total_offset:             0         
+ cross: filter_cycles:                   0         
+ cross: comp. initialized:               0         
+ cross: comp. active:                    0         
+ cross: activate filter:                 0         
+ cross: table_check_pending              0         
+ cross: table_check_pending_ack          0         
+ cross: f_is_turned_off:                 0         
+ tc_filter_cycles:                       0         
+ crosstalk: interval_nr:                 0         
+ crosstalk: actual_offset:               0         
+ crosstalk: delta_offset:                0         
+ crosstalk: filter_total_offset:         0         
+ crosstalk: filter_cycles:               0         
+ crosstalk: comp. initialized:           0         
+ crosstalk: comp. active:                0         
+ crosstalk: activate filter:             0         
+ crosstalk: table_check_pending          0         
+ crosstalk: f_is_turned_off:             0         
+ plane: correction:                      0         
+ plane: epsilon:                         0         
+ plane: filter_total_offset:             0         
+ plane: filter_cycles:                   0         
+ plane: comp. initialized:               0         
+ plane: comp. active:                    0         
+ plane: comp. activate filter:           0         
+ plane: table_check_pending:             0         
+ plane: table_check_pending_ack:         0         
+ plane: f_is_turned_off:                 0         
+ temp: f_is_active:                      0         
+ temp: f_is_turned_off:                  0         
+ temp: actual_offset:                    0         
+ temp: tc_delta_offset:                  0         
+ temp: tc_filter_total_offset:           0         
+ temp: tc_coefficient:                   0.000000  
+ temp: tc_position_0:                    0         
+ temp: tc_offset_0:                      0         
+ drive_ready_to_move:                    0                     
+ f_order_active:                         0                     
+ warmstart_aktiv:                        0                     
+ prog_movement_requires_compensations:   0x0
+ ext. cmd: rel_zus_stellgr_incr:         0
+ ext. cmd: sp_zus_stellgr:               0
+ ext. cmd: sp_zus_stellgr_sollw_anf:     0
+ drive_out_axis_diff:                    0                     
+ drive_out_axis_diff_delayed:            0             
+ axis_diff_driven_out                    1                     
+ lr_fehler:                              0x0
+ fehler_spez:                            0x0
+ fehler_spez2:                           0x0
+ fehler_spez3:                           0x0
+ fehler_spez4:                           0x0
+ system_error_id:                        0                     
+ drv_pos_bus_ok:                         0                     
+ nfb_corr_path:                          0
+ nfb_position_saved:                     0
+ mess_zstd:                              0                     
+                                         LR_MESS_INIT
+ int_measure_state:                      1                     
+ latch_state:                            1                     
+ cyc_meas_state:                         1                     
+ messf_aktiv:                            0                     
+ messf_erfolgt:                          0                     
+ meas_abort:                             0                     
+ meas_start_drive:                       0                     
+ meas_start_plc:                         0                     
+ achse_bewegt:                           0                     
+ achse_faehrt:                           0                     
+ achse_faehrt_vw:                        0                     
+ swe_behaviour:                          0                    
+ pos_swe_error_occured:                  0                    
+ neg_swe_error_occured:                  0                    
+ swe_pos:                                15000100
+ swe_neg:                                -10000100
+ istw_simulieren:                        1                     
+ lr_to_ino:                              0x2810083
+                                         ACHSE_IN_POSITION
+                                         RPF_ERFOLGTE
+                                         GETRIEBE_GESCHALTET
+                                         CONF_ACT_POSITION
+                                         DRIVE_POSITION_VALID
+                                         DRIVE_POWER_OFF
+ lr_to_ino_2:                            0x0
+ modulo_fehler:                          0                     
+ modulo_eps:                             0                     
+ alt_modulo_eps:                         0                     
+ modulo_zaehler:                         0                     
+ modulo_komp:                            0                     
+ coll_check_acitve:                      0                     
+ coll_check_ax_nr:                       0                     
+ coll_check_offset:                      0
+ restored_ref_pos_offset:                0
+ achs_zstd:                              0                     
+ ref_zstd:                               0                     
+ coll_check_dec.:                        2000.0                
+ dyn_coll_mon_acitve:                    0                     
+ dyn_coll_mon_check_ax_nr:               0                     
+ dyn_coll_mon_check_offset:              0
+ dyn_coll_mon_check_deceleration:        1750.0                
+ dyn_coll_mon_check_is_partnern:         0                     
+ dyn_coll_mon_check_move_inv:            0                     
+ dyn_coll_mon_check_zero_offset:         0
+ dyn_coll_mon_event[0]:   time:          0           
+ dyn_coll_mon_event[1]:   time:          0           
+ dyn_coll_mon_event[2]:   time:          0           
+ dyn_coll_mon_event[3]:   time:          0           
+ dyn_coll_mon_event[4]:   time:          0           
+ gantry_error_sup.:                      0                     
+ act_gantry_diff.:                       0                     
+ dist_to_ref_pos:                        0
+ gantry_pos_offset:                      0
+ pos_refpkt:                             0
+ zero_pulse_value :                      0                     
+ zero_pulse_offset:                      0                     
+ m_messwert:                             0
+ probing_value_from_plc:                 0                     
+ encoder coarsening factor:              0                     
+ cmd. position incr. moduloo:            2147483648
+ cmd. position incr. modulou:            -2147483648
+ cmd. position incr. modudiff:           4294967296
+ conf_cmd_values_telegram:               0x207
+                                         CONTROL WORD
+                                         CMD POSITION
+                                         CMD VELOCITY
+                                         CMD OPERATION MODE
+ conf_act_values_telegram:               0x120007
+                                         STATUS WORD
+                                         ACT POSITION
+                                         ACT VELOCITY
+                                         BUS STATE
+                                         ACT_OPERATION_MODE
+ main_encoder:                           51                    
+ secondary_encoder:                      0                     
+ operation_mode:                         2                     
+ achs_satz_satztyp:                      0                     
+ abs_pos_offset:                         0
+ ext_latch_value:                        0                     
+ ext_latch_offset:                       0                     
+ zero latch ctrl:                        2                     
+ f_use_enc_overflow_eval_mask:           1                     
+ encoder_modulo_range:                   0                     
+ encocder_overflow_eval_mask:            0x0
+ linked_gantry_slave_axis_nbr:           0                     
+ latch_status_word:                      0x0
+ latch_control_word:                     0x0
+ latch control mask:                     0x0
+ latch status mask:                      0x0
+ latch_data.signal:                      Default signal
+ latch_data.probing_channel:             0         
+ latch_data.probe_neg_edge:              0         
+ meas_param.f_channel_param:             0                     
+ meas_param.signal:                      Default signal        
+ meas_param.channel:                     0                     
+ meas_param.active_edge:                 Default edge          
+ pos_lag_mon_disabled:                   0                    
+ fixed_stop_cycles_counter:              0               
+ drv_instr_cmd:                          0         
+ drv_instr_param_nr:                     0         
+ drv_instr_motor_nr:                     0         
+ drv_instr_invoke_id:                    0         
+ drv_instr_sender_id:                    0         
+ drv_instr_exec_state:                   0         
+ drv_instr_elem_value:                   0.000000  
+ drv_instr_s_element:                    ""
+ drv_instr_output_value:                 0
+ drv_instr_exec_ret:                     0         
+ drv_instr_scaling_fact:                 0.000000  
+ istw_rel:                               0
+ gantry_slave_linked_to_axis_nbr:        0                     
+ abs_pos:                                0
+ m_sollw_absolut:                        0
+ f_refpos_offset_set:                    0                     
+ lr_msollwert_abs_pos:                   0
+ lr_steuer:                              0x0
+ lr_info:                                0x0
+ rpn_stellung:                           0                   
+ rpn_stellung_alt:                       0                   
+ rpn_zuletzt_gelesen:                    0                   
+ set_refpos_time:                        0                   
+ set_refpos_cmd_old:                     0
+ set_refpos_cmd_new:                     0
+ set_refpos_drive_abs_pos:               0                   
+ aufloesung:                             0.000100
+ solldrehzahl:                           0
+ dz_istw:                                0
+ reset_zstd:                             0                   
+ reset_fertig:                           0                   
+ achs_set_def_zstd:                      0                   
+ lr_reset_state:                         0                   
+ rpf_abbrechen:                          0                   
+ antrieb_reset:                          0                   
+ rpf_durchfuehren:                       0                   
+ order_zstd:                             0x0
+                                         LR_AXIS_ORDER_INIT
+ state_link_to:                          0                   
+ meas_command_remain_active:             0     
+ wz_gear_ratio:                          1.000000              
+ wz_gear_inv_direction:                  0                   
+ trafo_in[0]:                            0                   
+ trafo_in[1]:                            0                   
+ trafo_in[2]:                            0                   
+ trafo_out:                              0                   
+ act_pos_trafo_active:                   0                   
+ act_pos_trafo_id:                       0                   
+ act_pos_trafo_in:                       0
+ act_pos_trafo_out:                      0
+ proc_out_write_time:                    0                   
+ mod_counter_abs:                        0                   
+ achsdata->pos:                          0
+ pos_ctrl_state       :                  0                   
+ ax_coupling_homing_req:                 0                   
+ encoder[0].drive_act_pos:               0
+ encoder[0].actual_abs_position:         0
+ encoder[0].resolution:                  1.0000000000          Incr / 0.1 um
+ encoder[1].drive_act_pos:               0
+ encoder[1].actual_abs_position:         0
+ encoder[1].resolution:                  1.0000000000          Incr / 0.1 um
+ op_mode_output:                         2                   
+ op_mode_feedback:                       1                   
+ latch_channel:                          0                   
+ latch_neg_edge:                         0                   
+ meas_param_mode:                        0                   
+ axis_check_ready_time:                  0                   
+ act_gear_nr:                            1   
+ mds_update_time:                        0                   
+ int_tracking_cause:                     0x0
+ ref_check.active:                       0                   
+ ref_check.input:                        0                   
+ cmd_pos_request_pending:                0                   
+ async_para_read_time_stamp:             0                   
+ incr_in_position_window:                100
+ reset_end_time:                         0                   
+ curr_pos_to_ipo:                        0                   
+
+
+ touch_probing_mode:                     1                     
+ f_ax_coupling_active:                   0                     
+ axis_coupling_activation:               0         
+ axis_coupling_initiator:                0         
+ coupling[0].mode:                       0                     
+ coupling[0].src_ax_nr:                  0                    
+ coupling[0].fract_num:                  0                     
+ coupling[0].fract_denom:                0                     
+ coupling[0].sum_scaled_out_ax:          0
+ coupling[1].mode:                       0                     
+ coupling[1].src_ax_nr:                  0                    
+ coupling[1].fract_num:                  0                     
+ coupling[1].fract_denom:                0                     
+ coupling[1].sum_scaled_out_ax:          0
+ coupling[2].mode:                       0                     
+ coupling[2].src_ax_nr:                  0                    
+ coupling[2].fract_num:                  0                     
+ coupling[2].fract_denom:                0                     
+ coupling[2].sum_scaled_out_ax:          0
+ coupling[3].mode:                       0                     
+ coupling[3].src_ax_nr:                  0                    
+ coupling[3].fract_num:                  0                     
+ coupling[3].fract_denom:                0                     
+ coupling[3].sum_scaled_out_ax:          0
+ cmd_pos_req[0].channel:                 0                     
+ cmd_pos_req[0].link_to:                 0                     
+ cmd_pos_req[0].time:                    0                     
+ cmd_pos_req[0].request_time:            0                     
+ cmd_pos_req[0].lr_sollwert:             0                     
+ cmd_pos_req[1].channel:                 0                     
+ cmd_pos_req[1].link_to:                 0                     
+ cmd_pos_req[1].time:                    0                     
+ cmd_pos_req[1].request_time:            0                     
+ cmd_pos_req[1].lr_sollwert:             0                     
+ cmd_pos_req[2].channel:                 0                     
+ cmd_pos_req[2].link_to:                 0                     
+ cmd_pos_req[2].time:                    0                     
+ cmd_pos_req[2].request_time:            0                     
+ cmd_pos_req[2].lr_sollwert:             0                     
+ cmd_pos_req[3].channel:                 0                     
+ cmd_pos_req[3].link_to:                 0                     
+ cmd_pos_req[3].time:                    0                     
+ cmd_pos_req[3].request_time:            0                     
+ cmd_pos_req[3].lr_sollwert:             0                     
+ cmd_pos_req[4].channel:                 0                     
+ cmd_pos_req[4].link_to:                 0                     
+ cmd_pos_req[4].time:                    0                     
+ cmd_pos_req[4].request_time:            0                     
+ cmd_pos_req[4].lr_sollwert:             0                     
+ ax_pos_invalid[0].time:                 0                     
+ ax_pos_invalid[0].reason:               0x0
+ ax_pos_invalid[1].time:                 0                     
+ ax_pos_invalid[1].reason:               0x0
+ ax_pos_invalid[2].time:                 0                     
+ ax_pos_invalid[2].reason:               0x0
+ ax_pos_invalid[3].time:                 0                     
+ ax_pos_invalid[3].reason:               0x0
+ ax_pos_invalid[4].time:                 0                     
+ ax_pos_invalid[4].reason:               0x0
+ suspend_axis_data[0].channel:           0                     
+ suspend_axis_data[0].link_to:           0                     
+ suspend_axis_data[0].time:              0                     
+ suspend_axis_data[0].abs_pos_offset:    0                     
+ suspend_axis_data[0].m_sollw_absolut:   0                     
+ suspend_axis_data[0].lr_fehler:         0                     
+ suspend_axis_data[1].channel:           0                     
+ suspend_axis_data[1].link_to:           0                     
+ suspend_axis_data[1].time:              0                     
+ suspend_axis_data[1].abs_pos_offset:    0                     
+ suspend_axis_data[1].m_sollw_absolut:   0                     
+ suspend_axis_data[1].lr_fehler:         0                     
+ suspend_axis_data[2].channel:           0                     
+ suspend_axis_data[2].link_to:           0                     
+ suspend_axis_data[2].time:              0                     
+ suspend_axis_data[2].abs_pos_offset:    0                     
+ suspend_axis_data[2].m_sollw_absolut:   0                     
+ suspend_axis_data[2].lr_fehler:         0                     
+ suspend_axis_data[3].channel:           0                     
+ suspend_axis_data[3].link_to:           0                     
+ suspend_axis_data[3].time:              0                     
+ suspend_axis_data[3].abs_pos_offset:    0                     
+ suspend_axis_data[3].m_sollw_absolut:   0                     
+ suspend_axis_data[3].lr_fehler:         0                     
+ suspend_axis_data[4].channel:           0                     
+ suspend_axis_data[4].link_to:           0                     
+ suspend_axis_data[4].time:              0                     
+ suspend_axis_data[4].abs_pos_offset:    0                     
+ suspend_axis_data[4].m_sollw_absolut:   0                     
+ suspend_axis_data[4].lr_fehler:         0                     
+ suspend_axis_data[5].channel:           0                     
+ suspend_axis_data[5].link_to:           0                     
+ suspend_axis_data[5].time:              0                     
+ suspend_axis_data[5].abs_pos_offset:    0                     
+ suspend_axis_data[5].m_sollw_absolut:   0                     
+ suspend_axis_data[5].lr_fehler:         0                     
+ suspend_axis_data[6].channel:           0                     
+ suspend_axis_data[6].link_to:           0                     
+ suspend_axis_data[6].time:              0                     
+ suspend_axis_data[6].abs_pos_offset:    0                     
+ suspend_axis_data[6].m_sollw_absolut:   0                     
+ suspend_axis_data[6].lr_fehler:         0                     
+ suspend_axis_data[7].channel:           0                     
+ suspend_axis_data[7].link_to:           0                     
+ suspend_axis_data[7].time:              0                     
+ suspend_axis_data[7].abs_pos_offset:    0                     
+ suspend_axis_data[7].m_sollw_absolut:   0                     
+ suspend_axis_data[7].lr_fehler:         0                     
+ profidrive_abs_pos:                     0                     
+ profidrive_calc_abs_pos:                0
+ profidrive_abs_pos_read_time:           0                     
+ profidrive_abs_pos_first_read_time:     0                     
+ profidrive_abs_pos_first_reuqest_time:  0                     
+ profidrive_abs_pos_first_request:       0                     
+ profidrive_dig_drv_act_pos_first_req:   0                     
+ profidrive feinaufloesung:              0                     
+ profidrive pos_req_timout:              0                     
+ profidrive timeout_time:                0                     
+ profidrive internal state:              0                     
+ profidrive drive modulo range x_ist_2:  0
+ profidrive_read_abs_pos_diag_err:       0                     
+ delay_tracking:                         0                     
+ abs_pos_in_initialized:                 1                     
+ ino_to_lr:                              0                     
+ error_reaction_active:                  0                     
+ tast_nip_offset:                        0                     
+ shift_offset_zero_pulse_activation:     0
+ drive_deactivated:                      0                     
+ kw_update_time:                         0                     
+ temp_comp_param_update_time:            0                     
+ nfb_start_time:                         0                     
+ nfb_end_time:                           836                   
+ nfb_active_cause:                       INTERNAL(1)
+ pos_corr_active:                        0                     
+ pos_corr_s_rest:                        0.000000              
+ ssfk: table_overflow_counter:           0                     
+ steuer_ext:                             0x0
+ touch_probing_mode:                     1         
+ object_rw_state:                        0         
+ messf_abbrechen:                        0                     
+ meas_abort_ok:                          0                     
+ meas_finished:                          0                     
+ meas_value_latched:                     0                     
+ meas_read_val:                          0                     
+ vz_stellgr:                             0                     
+ vz_istw:                                0                     
+ mode_cmd_pos:                           2                     
+ mode_act_pos:                           2                     
+ ipo_lr_delay_cycles:                    5                     
+ gear_change_time:                       778                   
+ unhome_time:                            0                     
+ disable_drive_on_position_lag_err:      0                     
+ error_reaction_class:                   1                     
+ glob_bus_error_counter:                 0                     
+ disable_drive_on_bus_error:             0                     
+
+
+ axis index:                             3                     
+ log. axis nr:                           4                     
+ homing_diag_start_timestamp             0                     
+ homing_diag_m_sollw_abs_old             0
+ homing_diag_m_sollw_abs_old_wo_comp     0
+ homing_diag_m_sollw_abs_new             0
+ homing_diag_istw_absolut_old            0
+ homing_diag_istw_absolut_new            0
+ homing_diag_pos_refpkt                  0
+ homing_diag_zero_pulse_offset           0
+ homing_diag_istw_rel                    0
+ homing_diag_rel_sollw                   0
+ homing_diag_diff_act_position           0
+ homing_diag_dig_drv_act_pos             0                     
+ homing_diag_timestamp                   0                     
+ vol_comp.initialized:                   1                     
+ vol_comp.limit_exceeded:                0                     
+ vol_comp[0].active:                     0                     
+ vol_comp[0].cartesian:                  1                     
+ vol_comp[0].last_offset:                0
+ vol_comp[0].actual_offset:              0
+ vol_comp[0].next_offset:                0
+ vol_comp[0].offset_delta:               0
+ vol_comp[1].active:                     0                     
+ vol_comp[1].cartesian:                  1                     
+ vol_comp[1].last_offset:                0
+ vol_comp[1].actual_offset:              0
+ vol_comp[1].next_offset:                0
+ vol_comp[1].offset_delta:               0
+ vol_comp[2].active:                     0                     
+ vol_comp[2].cartesian:                  1                     
+ vol_comp[2].last_offset:                0
+ vol_comp[2].actual_offset:              0
+ vol_comp[2].next_offset:                0
+ vol_comp[2].offset_delta:               0
+ vol_comp[3].active:                     0                     
+ vol_comp[3].cartesian:                  1                     
+ vol_comp[3].last_offset:                0
+ vol_comp[3].actual_offset:              0
+ vol_comp[3].next_offset:                0
+ vol_comp[3].offset_delta:               0
+ vol_comp[4].active:                     0                     
+ vol_comp[4].cartesian:                  1                     
+ vol_comp[4].last_offset:                0
+ vol_comp[4].actual_offset:              0
+ vol_comp[4].next_offset:                0
+ vol_comp[4].offset_delta:               0
+ vol_comp.offset_sum_mm:                 0                     
+ SSFK Events:
+
+
+ log. axis nr:                           4                     
+ last_logged_data[1207].position:   0                     
+ last_logged_data[1207].state:      0x40
+ last_logged_data[1207].set_val:    0                     
+ last_logged_data[1207].ctrl:       0x0
+ last_logged_data[1206].position:   0                     
+ last_logged_data[1206].state:      0x40
+ last_logged_data[1206].set_val:    0                     
+ last_logged_data[1206].ctrl:       0x0
+ last_logged_data[1205].position:   0                     
+ last_logged_data[1205].state:      0x40
+ last_logged_data[1205].set_val:    0                     
+ last_logged_data[1205].ctrl:       0x0
+ last_logged_data[1204].position:   0                     
+ last_logged_data[1204].state:      0x40
+ last_logged_data[1204].set_val:    0                     
+ last_logged_data[1204].ctrl:       0x0
+ last_logged_data[1203].position:   0                     
+ last_logged_data[1203].state:      0x40
+ last_logged_data[1203].set_val:    0                     
+ last_logged_data[1203].ctrl:       0x0
+ keep_drive_cyclic_log_over_reset:       0                     
+
+ Drive control word: (mask = 0x019f)
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+   control[0] = 0x0000
+
+ Drive status word: (mask = 0x307f)
+   status[835] = 0x0040
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+   status[0] = 0x0000
+
+ cam_diag_log:number entries:            0         
+
+ meas_type:                              0
+ fs_active:                              0                     
+ fs_detected:                            0                     
+ fs_state:                               0                     
+ fs_initialized:                         1                     
+ fs_aborted:                             0                     
+ fs_position:                            0                     
+ fs_ident_act_value[0]:                  0.000000              
+ fs_ident_act_value[1]:                  0.000000              
+ fs_ident_act_value[2]:                  0.000000              
+ fs_ident_act_value[3]:                  0.000000              
+ gantry_on_mode[        778].new:        0                     
+ gantry_on_mode[        778].old:        0                     
+ gantry_on_mode[          0].new:        0                     
+ gantry_on_mode[          0].old:        0                     
+ gantry_ctrl[0].f_is_gantry_master       0                     
+ gantry_ctrl[0].f_is_gantry_slave        0                     
+ gantry_ctrl[0].channel_id               0                     
+ gantry_ctrl[0].release_channel_id       0                     
+ gantry_ctrl[0].cmd                      0                     
+ sollw_absolut_alt                       0
+ axis_coupling_offset:                   0
+ meas_fixed_stop_delta_position          0                     
+ meas_fixed_stop_delta_position_window   0                     
+ meas_fixed_stop_pos_lag_limit           0                     
+ meas_fixed_stop_detect_axis             0                     
+ write_refpos_state                      0                     
+ write_refpos_up_to_date                 0                     
+ write_refpos_drive_refpos               0                     
+ write_refpos_start_timestamp            0                     
+ write_refpos_end_timestamp              0                     
+ restore_axis_position                   0                     
+ dig_act_pos_max[          0]            0            
+ dig_act_pos_min[          0]            0            
+ max_delta_act_pos[        0]            0            
+ m_solw_abs_alt[        0]               0            
+ m_solw_abs_new[        0]               0            
+ solw_absolut[          0]               0            
+ bus_data_event[0]:   time:              836          rising edge          Actual position: 0
+ bus_data_event[1]:   time:              0           
+ bus_data_event[2]:   time:              0           
+ bus_data_event[3]:   time:              0           
+ bus_data_event[4]:   time:              0           
+ measure_done_cycle_ctr                  0
+ restore_position_istw_rel:               0
+ restore_position_act_pos:                0
+ restore_position_dig_act_pos:           0                     
+ restore_position_delta_act_pos_on_off:  0                     
+ restore_position_time:                  0                     
+ homing_done in retain data was false:   -1                    
+ restore_pos_data_read_time:             0                     
+ restore_pos_data_read_drv_act_pos_64:   0                     
+ restore_pos_data_read_istw_abs:         0                     
+ restore_pos_data_read_valid:            0                     
+ restore_pos_data_write_time:            0                     
+ restore_pos_data_write_drv_act_pos_64:  0                     
+ restore_pos_data_write_istw_abs:        0                     
+ restore_pos_data_write_restore_data:    0                     
+ run_down: activation_cycle              0                     
+ run_down: drive_ctrl_at_activation      0                     
+ run_down: state                         0                     
+ run_down: suppress_drive_enable_errors  0                     
+ modulo_swe_error state:                 0                     
+ lr_unhome_cause:                        NONE(0)
+ lr_unhome_time:                         0                     
+ f_unhome_bus_error:                     0                     
+ axis_coupling_acc               4294967295
+ axis_coupling_slope_active      0         
+ axis_coupling_mode                      E_GEAR_LINK_MODE_NOT_PROG
+ torq_homing_detect_torque_limit         0         
+ torq_homing_detect_velocity_limit       1000      
+ torq_homing_detect_pos_lag_limit        0                     
+ torq_homing LR_STATE:                   1                     
+
+LR : AXIS SPEC. RETAIN DIAGNOSES DATA                                                                                             [##PosCtrlAxisRetainData#B#0##]
+=======================================================================
+
+ log. axis nr:                         0                   
+ homing done:                          0                   
+ act position:                         0                   
+ movment dir.:                         0                   
+ summ_epsilon:                         0                   
+ summ_lose:                            0                   
+ akt_lose:                             0                   
+ ref_pos_set:                          0                   
+ ref_pos_offset:                       0                   
+ dig_drv_act_pos_32:                   0                   
+ act_pos_ipo:                          0
+ auto_restore_link_axis_pos:           0                   
+ cross_comp_active:                    0                   
+ cross_comp_offset:                    0                   
+ cross_comp2_active:                   0                   
+ cross_comp2_offset:                   0                   
+ crosstalk_comp_active:                0                   
+ crosstalk_comp_offset:                0                   
+ dist_control_active:                  0                   
+ dist_control_offset:                  0                   
+ temp_comp_active:                     0                   
+ temp_comp_offset:                     0                   
+ lr_unhome_cause:                      NONE(0)
+ lr_unhome_time:                       0                   
+ lr_shutdown_time:                     0                   
+ last_bus_valid_time:                  0                   
+
+LR : AXIS SPEC. RETAIN DIAGNOSES DATA                                                                                             [##PosCtrlAxisRetainData#B#0##]
+=======================================================================
+
+ log. axis nr:                         0                   
+ homing done:                          0                   
+ act position:                         0                   
+ movment dir.:                         0                   
+ summ_epsilon:                         0                   
+ summ_lose:                            0                   
+ akt_lose:                             0                   
+ ref_pos_set:                          0                   
+ ref_pos_offset:                       0                   
+ dig_drv_act_pos_32:                   0                   
+ act_pos_ipo:                          0
+ auto_restore_link_axis_pos:           0                   
+ cross_comp_active:                    0                   
+ cross_comp_offset:                    0                   
+ cross_comp2_active:                   0                   
+ cross_comp2_offset:                   0                   
+ crosstalk_comp_active:                0                   
+ crosstalk_comp_offset:                0                   
+ dist_control_active:                  0                   
+ dist_control_offset:                  0                   
+ temp_comp_active:                     0                   
+ temp_comp_offset:                     0                   
+ lr_unhome_cause:                      NONE(0)
+ lr_unhome_time:                       0                   
+ lr_shutdown_time:                     0                   
+ last_bus_valid_time:                  0                   
+
+LR : AXIS SPEC. RETAIN DIAGNOSES DATA                                                                                             [##PosCtrlAxisRetainData#B#0##]
+=======================================================================
+
+ log. axis nr:                         0                   
+ homing done:                          0                   
+ act position:                         0                   
+ movment dir.:                         0                   
+ summ_epsilon:                         0                   
+ summ_lose:                            0                   
+ akt_lose:                             0                   
+ ref_pos_set:                          0                   
+ ref_pos_offset:                       0                   
+ dig_drv_act_pos_32:                   0                   
+ act_pos_ipo:                          0
+ auto_restore_link_axis_pos:           0                   
+ cross_comp_active:                    0                   
+ cross_comp_offset:                    0                   
+ cross_comp2_active:                   0                   
+ cross_comp2_offset:                   0                   
+ crossta

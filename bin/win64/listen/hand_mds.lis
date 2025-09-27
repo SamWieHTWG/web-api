@@ -1,0 +1,31 @@
+# ****************************************
+#
+# Manual_MDS-Parameter
+#
+# ****************************************
+#
+feedhold.hr_inkr_verwerfen                            0         ( P-MANU-00010 : Discard handwheel increments on feedhold 
+feedhold.jog_inkr_verwerfen                           0         ( P-MANU-00011 : Discard jog mode increments on feedhold
+#
+hr_anzahl                                             1         ( P-MANU-00001 : Number of physical handwheels
+#
+hr_data[0].log_hr_nr                                  1         ( P-MANU-00002 : Logical handwheel number
+hr_data[0].hr_aufl_z                                  400       ( P-MANU-00005 : Handwheel resolution numerator
+hr_data[0].hr_aufl_n                                  1         ( P-MANU-00006 : Handwheel resolution denominator
+hr_data[0].hr_zaehler_direct_access                   0         ( P-MANU-00003 : Handwheel counter hardware access / HLI access
+hr_data[0].adr_hr_zaehler                             0x0       ( P-MANU-00006 : Handwheel counter address / HLI index
+hr_data[0].max_inkr_pro_takt                          100       ( P-MANU-00007 : Upper limits for handwheel increments per cycle
+#
+tasten_anzahl                                         9         ( P-MANU-00008 : Number of inching key pairs    
+#
+tasten_data[0].log_tasten_nr                          1         ( P-MANU-00009 : Logical key number   
+tasten_data[1].log_tasten_nr                          2         ( P-MANU-00009 : Logical key number   
+tasten_data[2].log_tasten_nr                          3         ( P-MANU-00009 : Logical key number   
+tasten_data[3].log_tasten_nr                          4         ( P-MANU-00009 : Logical key number   
+tasten_data[4].log_tasten_nr                          5         ( P-MANU-00009 : Logical key number   
+tasten_data[5].log_tasten_nr                          6         ( P-MANU-00009 : Logical key number   
+tasten_data[6].log_tasten_nr                          7         ( P-MANU-00009 : Logical key number   
+tasten_data[7].log_tasten_nr                          8         ( P-MANU-00009 : Logical key number   
+tasten_data[8].log_tasten_nr                          9         ( P-MANU-00009 : Logical key number   
+#
+Ende

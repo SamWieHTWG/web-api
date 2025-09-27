@@ -1,0 +1,72 @@
+# ****************************************
+#
+#  RT-Konfigurierung
+#
+# ****************************************
+#	RTX 	   [0; 127]	127 highest
+#	VXWORKS    [0; 255]	0   highest
+#	WindowsCE  [0; 255]	0   highest, 9 CANopen, 10-15 CNC, 16-64 PLC
+#
+# trace bit : 0 - off, 1 - DTR on COM1, 2 - RTS on COM1, 3 - DTR on COM2, 4 - RTS on COM2
+# 
+#
+interrupt_source                           3       # 1 == internal Timer, 2 == external IRQ, 3 == external Semaphore, 4 == external Scheduling
+cycle_time                                 1000    # Zykluszeit in mikro s
+time_slice                                 1000
+windows_time                               1000    # 0 turned off
+#
+thread[0].name                             CNC_IPO
+thread[0].cycle                            1000
+thread[0].priority                         68
+thread[0].cpu                              2
+thread[0].error_on_overflow                1
+thread[0].function[0].name                 cnc_user_event_ipo_pre
+thread[0].function[0].calls_per_cycle      1
+thread[0].function[0].trace_bit            0
+thread[0].function[1].name                 task_int
+thread[0].function[1].calls_per_cycle      1
+thread[0].function[1].trace_bit            0
+thread[0].function[2].name                 cnc_user_event_ipo_post
+thread[0].function[2].calls_per_cycle      1
+thread[0].function[2].trace_bit            0
+#
+thread[1].name                             CNC_DEC
+thread[1].cycle                            1000
+thread[1].priority                         51
+thread[1].cpu                              1
+thread[1].error_on_overflow                1
+thread[1].function[0].name                 task_rnd
+thread[1].function[0].calls_per_cycle      4
+thread[1].function[0].trace_bit            0
+#
+thread[2].name                             CNC_HMI
+thread[2].cycle                            2000
+thread[2].priority                         41
+thread[2].cpu                              1
+thread[2].error_on_overflow                1
+thread[2].function[0].name                 task_com
+thread[2].function[0].calls_per_cycle      1
+thread[2].function[0].trace_bit            0
+#
+thread[3].name                             CNC_SYS
+thread[3].cycle                            4000
+thread[3].priority                         31
+thread[3].cpu                              1
+thread[3].error_on_overflow                1
+thread[3].function[0].name                 task_mmi_driver
+thread[3].function[0].calls_per_cycle      1
+thread[3].function[0].trace_bit            0
+#
+thread[4].name                             CNC_TCP
+thread[4].cycle                            4000
+thread[4].priority                         32
+thread[4].cpu                              1
+thread[4].error_on_overflow                1
+thread[4].function[0].name                 task_tcp
+thread[4].function[0].calls_per_cycle      1
+thread[4].function[0].trace_bit            0
+
+# external_thread[0].semaphore_name     external_sps
+# external_thread[0].cycle              10000
+#
+Ende

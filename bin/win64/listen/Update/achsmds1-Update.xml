@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ******************************* -->
+<!-- Axis parameter                  -->
+<!-- ******************************* -->
+<AX_MDS>
+    <!-- Logical Axis number - always needed for double check of axis number -->
+    <P-AXIS-00016 Value="1" />
+
+    <!-- Data to be changed -->
+    <P-AXIS-00297 Value="Name-Changed" />
+</AX_MDS>

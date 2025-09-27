@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- ******************************** -->
+<!-- Axis parameter, default settings -->
+<!-- ******************************** -->
+<Default_AX_MDS>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+  <!-- General Settings -->
+  <!-- ================ -->
+  <GeneralSettings>
+    <!-- Drive type - 4=SIMU, 8=CANopen - 'antr_typ' -->
+    <P-AXIS-00020 Value="4" />
+    <!-- Operating mode of an axis - linear axis, ALLOW_RESOLUTION_CHANGE - 'achs_mode' -->
+    <P-AXIS-00015 Value="0x400001" />
+    <!-- Axis type - #1=linear, #2=rotatory, #4=spindle - 'achs_typ' -->
+    <P-AXIS-00018 Value="1" />
+    <!-- Configuration of a SAI-axis - 'configure_sai' -->
+    <P-AXIS-00250 Value="0" />
+    <!-- Software limit switch in internal unit -->
+    <!-- ====================================== -->
+    <!-- Tolerance range for software limit switch - 'swe_toleranz' -->
+    <P-AXIS-00179 Value="5000" />
+    <!-- Positive software limit switch - 'swe_pos' -->
+    <P-AXIS-00178 Value="10000000" />
+    <!-- Negative software limit switch - 'swe_neg' -->
+    <P-AXIS-00177 Value="-10000000" />
+    <!-- Speed and position monitoring -->
+    <!-- ============================= -->
+    <!-- Max. permissible position difference when enabling drive controller - 'max_diff_soll_ist' -->
+    <P-AXIS-00108 Value="10000" />
+    <!-- Maximum permissible velocity override - 'max_vb_override' -->
+    <P-AXIS-00109 Value="1000" />
+    <!-- "Speed-value attained" - tolerance band - 'vb_prozent' -->
+    <P-AXIS-00217 Value="50" />
+    <!-- Warning level for velocity - values in 0.1%, allowed velocity exceeding - 'dyn_monitoring_v_warn' -->
+    <P-AXIS-00439 Value="85" />
+    <!-- Warning level for acceleration - allowed acceleration exceeding - 'dyn_monitoring_a_warn' -->
+    <P-AXIS-00441 Value="2000" />
+    <!-- Warning level for acceleration - allowed jerk exceeding - 'dyn_monitoring_j_warn' -->
+    <P-AXIS-00443 Value="0" />
+    <!-- Warning level for velocity - values in 0.1%, allowed velocity exceeding - 'dyn_monitoring_v_err' -->
+    <P-AXIS-00440 Value="90" />
+    <!-- Warning level for acceleration - allowed acceleration exceeding - 'dyn_monitoring_a_err' -->
+    <P-AXIS-00442 Value="10000" />
+    <!-- Warning level for acceleration - allowed jerk exceeding - 'dyn_monitoring_j_err' -->
+    <P-AXIS-00444 Value="0" />
+    <!-- Homing -->
+    <!-- ====== -->
+    <!-- Identific. code for absolute path measurement system - 'abs_pos_gueltig' -->
+    <P-AXIS-00014 Value="0" />
+    <!-- Homing -->
+    <!-- ====== -->
+    <Homing>
+      <!-- Homing type - 'homing_type' -->
+      <P-AXIS-00299 Value="CNC_CONTROLLED" />
+      <!-- Minimum distance - 'torq_min_distance' -->
+      <P-AXIS-00344 Value="10000" />
+      <!-- Maximum distance - 'torq_max_distance' -->
+      <P-AXIS-00345 Value="30000000" />
+      <!-- Direction - 'torq_homing_dir' -->
+      <P-AXIS-00346 Value="POSITIVE" />
+      <!-- Velocity limit value - value in 0.1% - 'torq_detect_velocity_limit' -->
+      <P-AXIS-00347 Value="100" />
+      <!-- Retraction distance - 'torq_retraction_distance' -->
+      <P-AXIS-00348 Value="4000000" />
+      <!-- Reference position - 'torq_homing_position' -->
+      <P-AXIS-00349 Value="5000000" />
+      <!-- Minimum time - 'torq_detect_time' -->
+      <P-AXIS-00350 Value="4000" />
+      <!-- SetPos mode - 'set_refpos_mode' -->
+      <P-AXIS-00278 Value="PLC" />
+    </Homing>
+
+    <!-- Measurement -->
+    <!-- =========== -->
+    <Measurement>
+      <!-- Measurement axis - 'messachse' -->
+      <P-AXIS-00118 Value="1" />
+      <!-- Measurement methods - 'measure.signal' -->
+      <P-AXIS-00516 Value="PLC" />
+      <!-- Measurement - 'measure.input' -->
+      <P-AXIS-00517 Value="1" />
+      <!-- Edge of measurement signal - 'measure.edge' -->
+      <P-AXIS-00518 Value="POS" />
+      <!-- Measurement travel offset for all measurement types - 'probing_offset' -->
+      <P-AXIS-00467 Value="0" />
+      <!-- Range for probe - 'hub_messtaster' -->
+      <P-AXIS-00086 Value="2000" />
+      <!-- Measurement speed - 'vb_messen' -->
+      <P-AXIS-00215 Value="20000" />
+      <!-- Activation of edge banding - 'kasto_achse' -->
+      <P-AXIS-00098 Value="0" />
+    </Measurement>
+
+    <!-- Gantry -->
+    <!-- ====== -->
+    <!-- Axis number of master axis - 'gantry_ax_nr' -->
+    <P-AXIS-00070 Value="0" />
+    <!-- Maximum path distance - 'gantry_max_diff_reset_locked' -->
+    <P-AXIS-00071 Value="0" />
+    <!-- Resetable path distance  - 'gantry_max_diff_resetable' -->
+    <P-AXIS-00072 Value="0" />
+    <!-- Static offset - 'gantry_offset' -->
+    <P-AXIS-00073 Value="0" />
+    <!-- Velocity of correction - 'gantry_vb_korr' -->
+    <P-AXIS-00075 Value="0" />
+    <!-- Other settings -->
+    <!-- ============== -->
+    <!-- Virtual radius - 'virtuel_rad' -->
+    <P-AXIS-00222 Value="0" />
+    <!-- Maximum permissible acceleration override - 'max_a_override' -->
+    <P-AXIS-00107 Value="1000" />
+    <!-- Default gear step number - 'getriebe_stufe' -->
+    <P-AXIS-00079 Value="1" />
+    <!-- Logical axis identifier - 'coll_check_ax_nr' -->
+    <P-AXIS-00043 Value="0" />
+    <!-- Security distance - 'coll_offset' -->
+    <P-AXIS-00045 Value="0" />
+    <!-- Maximum difference after deactivation - 'diff_pos_tracking' -->
+    <P-AXIS-00056 Value="100000" />
+    <!-- Physical number of axis pair - 'paar_ax_nr' -->
+    <P-AXIS-00143 Value="0" />
+    <!-- Activation of display function - 'anzeige' -->
+    <P-AXIS-00023 Value="1" />
+    <!-- Axis pair present - 'paar_achse' -->
+    <P-AXIS-00142 Value="0" />
+    <!-- Homing direction for axis pair  - 'paar_ref_richt' -->
+    <P-AXIS-00144 Value="0" />
+    <!-- Preferred direction of axis for homing - 'ref_richt' -->
+    <P-AXIS-00158 Value="1" />
+    <!-- Homing without cam - 'ref_ohne_nocken' -->
+    <P-AXIS-00156 Value="1" />
+    <!-- Restriction of direction of rotation- 'vorz_richtung' -->
+    <P-AXIS-00224 Value="0" />
+    <!-- Definition of preferred direction of rotation - 'beweg_richt' -->
+    <P-AXIS-00031 Value="0" />
+    <!-- Homing without reverting - 'ref_ohne_rev' -->
+    <P-AXIS-00157 Value="0" />
+    <!-- Activation of modulo calculation - 'mod_rechng' -->
+    <P-AXIS-00121 Value="0" />
+    <!-- Tendency Test - 'tendenz_pruef' -->
+    <P-AXIS-00189 Value="0" />
+    <!-- Activation of (additional) interface for loading application-specific command values - 'in_add_interface/in_zus_schn' -->
+    <P-AXIS-00091 Value="1" />
+    <!-- Activation of (additional) interface for loading of command and actual values - 'out_add_interface/out_zus_schn' -->
+    <P-AXIS-00141 Value="0" />
+    <!-- Default gear step number for C-axis mode - 'def_cax_gear_st' -->
+    <P-AXIS-00052 Value="1" />
+    <!-- Absolute diameter programming - diameter programming (G51) in G90 mode active (only for plane axis) - 'durchm_prog_abs' -->
+    <P-AXIS-00058 Value="0" />
+    <!-- Relative diameter programming  - diameter programming (G51) in G90 mode active (only for plane axis) - 'durchm_prog_rel' -->
+    <P-AXIS-00059 Value="0" />
+    <!-- Activation of speed monitoring - 'enable_speed_monitoring' -->
+    <P-AXIS-00312 Value="0" />
+    <!-- Activation of feed enable via PLC - 'enable_feed_enable' -->
+    <P-AXIS-00313 Value="0" />
+    <!-- Handling of the loaded position command values - 'in_add_interface_pos_as_offset' -->
+    <P-AXIS-00322 Value="1" />
+  </GeneralSettings>
+
+  <!-- Gear settings -->
+  <!-- ============= -->
+  <GearSettings>
+    <Gear>
+      <!-- Feedback system -->
+      <!-- =============== -->
+      <!-- Path resolution of the measuring system - increments per 360 degree or meter - numerator - 'wegaufz' -->
+      <P-AXIS-00234.0 Value="1" />
+      <!-- Path resolution of the measuring system - increments per 360 degree or meter - denominator - 'wegaufn' -->
+      <P-AXIS-00233.0 Value="1" />
+      <!-- Position controller increments per revolution - 'incr_per_rev' -->
+      <P-AXIS-00092.0 Value="1" />
+      <!-- Gearbox ratio numerator - 'gear_fact_num' -->
+      <P-AXIS-00511.0 Value="1" />
+      <!-- Gearbox ratio denominator - 'gear_fact_denom' -->
+      <P-AXIS-00512.0 Value="1" />
+      <!-- Dynamics -->
+      <!-- ======== -->
+      <DynamicGear>
+        <!-- Maximum permissible axis acceleration - 'a_max' -->
+        <P-AXIS-00008.0 Value="3333" />
+        <!-- Maximum permissible axis velocity - 'vb_max' -->
+        <P-AXIS-00212.0 Value="120000" />
+        <!-- Deceleration for an emergency stop - =P-AXIS-00008 - 'a_emergency' -->
+        <P-AXIS-00003.0 Value="3333" />
+        <!-- Weighting of acceleration at motion block transition  - in 0.1% - 'a_trans_weight' -->
+        <P-AXIS-00013.0 Value="50" />
+        <!-- Minimum permissible ramp time - 'tr_min' -->
+        <P-AXIS-00201.0 Value="5000" />
+        <!-- Geometric ramp time - 'tr_geom' -->
+        <P-AXIS-00199.0 Value="200000" />
+      </DynamicGear>
+      <!-- Rapid mode velocity - =P-AXIS-00212 - 'vb_eilgang' -->
+      <P-AXIS-00209.0 Value="120000" />
+      <SlopeProfile>
+        <!-- Acceleration at machining feed - =P-AXIS-00008 - 'a_beschl' -->
+        <P-AXIS-00001.0 Value="3333" />
+        <!-- Deceleration at machining feed - =P-AXIS-00008 - 'a_brems' -->
+        <P-AXIS-00002.0 Value="3333" />
+        <!-- Acceleration at rapid movement - =P-AXIS-00008 - 'a_grenz' -->
+        <P-AXIS-00004.0 Value="3333" />
+        <!-- Ramp time for acceleration up-gradation - =P-AXIS-00200 - 'tr_beschl_zu' -->
+        <P-AXIS-00196.0 Value="100000" />
+        <!-- Ramp time for acceleration down-gradation - =P-AXIS-00200 - 'tr_beschl_ab' -->
+        <P-AXIS-00195.0 Value="100000" />
+        <!-- Ramp time for deceleration up-gradation - =P-AXIS-00200 - 'tr_brems_zu' -->
+        <P-AXIS-00198.0 Value="100000" />
+        <!-- Ramp time for deceleration down-gradation - =P-AXIS-00200 - 'tr_brems_ab' -->
+        <P-AXIS-00197.0 Value="100000" />
+        <!-- Ramp time at rapid movement - 'tr_grenz' -->
+        <P-AXIS-00200.0 Value="100000" />
+      </SlopeProfile>
+      <LSlopeProfile>
+        <!-- Acceleration/ deceleration of step 1 - <=P-AXIS-00008 - 'a_stufe_1' -->
+        <P-AXIS-00011.0 Value="300" />
+        <!-- Acceleration/ deceleration of step 2 - <=P-AXIS-00008 - 'a_stufe_2' -->
+        <P-AXIS-00012.0 Value="300" />
+        <!-- Changeover speed - <=P-AXIS-00212 - 'vb_stufe_1_2' -->
+        <P-AXIS-00221.0 Value="100000" />
+        <!-- Acceleration/ deceleration of step 1 in rapid mode - <=P-AXIS-00008 - 'a_grenz_stufe_1' -->
+        <P-AXIS-00005.0 Value="300" />
+        <!-- Acceleration/ deceleration of step 2 in rapid mode - <=P-AXIS-00008 - 'a_grenz_stufe_2' -->
+        <P-AXIS-00006.0 Value="300" />
+        <!-- Changeover speed in rapid mode - <=P-AXIS-00212 - 'vb_grenz_stufe_1_2' -->
+        <P-AXIS-00211.0 Value="100000" />
+      </LSlopeProfile>
+      <AccelerationCharacteristic>
+        <!-- Limit speed from which onwards the acceleration is specified in a polynomial form - 'n_grenz' -->
+        <P-AXIS-00130.0 Value="18000000" />
+        <!-- Constant acceleration in the range n<n_grenz - 'a_konst' -->
+        <P-AXIS-00007.0 Value="25000" />
+        <!-- Type of the characteristic acceleration curve - 'typ' -->
+        <P-AXIS-00202.0 Value="0" />
+        <!-- Minimum value of acceleration for high speed - 'a_min' -->
+        <P-AXIS-00010.0 Value="500" />
+        <!-- Parameters of the a(n) Polynomial - 'b1' -->
+        <P-AXIS-00026.0 Value="-1.3E-3" />
+        <!-- Parameters of the a(n) Polynomial - 'b2' -->
+        <P-AXIS-00027.0 Value="3.5E-11" />
+        <!-- Parameters of the a(n) Polynomial - 'b3' -->
+        <P-AXIS-00028.0 Value="-5.0E-19" />
+      </AccelerationCharacteristic>
+      <!-- Other parameter -->
+      <!-- =============== -->
+      <!-- Gear step number - 'nummer' -->
+      <P-AXIS-00135.0 Value="1" />
+      <!-- Proportional factor kv for P-positional control - 'kv' -->
+      <P-AXIS-00099.0 Value="4000" />
+      <!-- Maximum homing velocity - 'vb_refmax' -->
+      <P-AXIS-00219.0 Value="20000" />
+      <!-- Minimum homing velocity - 'vb_reflow' -->
+      <P-AXIS-00218.0 Value="20000" />
+      <!-- Adaptation of command value of drive to the D/A-converter - 'multi_gain_z' -->
+      <P-AXIS-00129.0 Value="2252" />
+      <!-- Adaptation of command value of drive to the D/A-converter - 'multi_gain_n' -->
+      <P-AXIS-00128.0 Value="1" />
+      <!-- Gear change position - 'getr_schalt_pos' -->
+      <P-AXIS-00078.0 Value="0" />
+      <!-- Maximum following error - 'slep_max'  -->
+      <P-AXIS-00168.0 Value="2000000000" />
+      <!-- Minimum following error - 'slep_min' -->
+      <P-AXIS-00169.0 Value="200000" />
+      <!-- Traverse distance - 'wsi_meldung' -->
+      <P-AXIS-00237.0 Value="0" />
+      <!-- Error in modulo circle - 'modulo_fehler' -->
+      <P-AXIS-00124.0 Value="0" />
+      <!-- Number of rotations in case of modulo error - 'modulo_umdreh' -->
+      <P-AXIS-00125.0 Value="0" />
+      <!-- Type of following error monitoring - 'slep_ueberw_typ' -->
+      <P-AXIS-00172.0 Value="1" />
+      <!-- Remaining deviation for non linear following error monitoring - 'slep_abw' -->
+      <P-AXIS-00166.0 Value="512" />
+      <!-- Factor for dynamic following error monitoring - 'slep_dyn' -->
+      <P-AXIS-00167.0 Value="1024" />
+      <!-- Maximum transient time - 'pos_einschw_zeit' -->
+      <P-AXIS-00151.0 Value="0" />
+      <!-- Size of backlash - 'lose' -->
+      <P-AXIS-00103.0 Value="0" />
+      <!-- Reverse of sign for setpoint and actual value - 'reverse' -->
+      <P-AXIS-00159.0 Value="0" />
+      <!-- Number of selected hardware specific parameter set - 'default_lr_hw_nbr' -->
+      <P-AXIS-00054.0 Value="0" />
+      <!-- Speed and position monitoring -->
+      <!-- ============================= -->
+      <!-- Limit for spindle speed "zero" - 'vb_min_null' -->
+      <P-AXIS-00216.0 Value="1000" />
+      <!-- Control window - 'window' -->
+      <P-AXIS-00236.0 Value="25000" />
+      <!-- Limiting velocity for the measuring system - =P-AXIS-00212 - 'vb_regelgrenze' -->
+      <P-AXIS-00220.0 Value="18000000" />
+      <!-- Speed monitoring during torque limitation - <=P-AXIS-00212 - 'vb_torq_limit_max' -->
+      <P-AXIS-00314.0 Value="18000000" />
+      <!-- Monitoring of current velocity - =P-AXIS-00212 - 'vb_monitor' -->
+      <P-AXIS-00311.0 Value="120000" />
+      <!-- Reduced maximum speed at active G00 - <=P-AXIS-00311 - 'rapid_speed_red' -->
+      <P-AXIS-00155.0 Value="120000" />
+      <!-- Reduced maximum speed at active G01 - <=P-AXIS-00311 - 'vb_max_red' -->
+      <P-AXIS-00214.0 Value="120000" />
+      <!-- Homing -->
+      <!-- ====== -->
+      <!-- Maximum velocity for unreferenced axes in 0.1um/s - 'vb_not_referenced' -->
+      <P-AXIS-00268.0 Value="30000" />
+      <!-- Position of the reference point in 0.1um - 'pos_refpkt' -->
+      <P-AXIS-00152.0 Value="0" />
+      <Homing>
+        <!-- Jerk - 'torq_move_jerk' -->
+        <P-AXIS-00335.0 Value="10000" />
+        <!-- Acceleration - <=P-AXIS-00008 - 'torq_move_acceleration' -->
+        <P-AXIS-00334.0 Value="100" />
+        <!-- Velocity - <=P-AXIS-00212 - 'torq_move_velocity' -->
+        <P-AXIS-00333.0 Value="30000" />
+        <!-- Torque limit value in 0.1% - 'torq_move_torque_limit' -->
+        <P-AXIS-00342.0 Value="60" />
+        <!-- Torque limit for detection in 0.1% - 'torq_detect_torque_limit' -->
+        <P-AXIS-00343.0 Value="200" />
+      </Homing>
+      <!-- Modulo range -->
+      <!-- ============ -->
+      <!-- Upper modulo limit - upper modulo limit in 0,0001 mm or 0.0001 degree - 'moduloo' -->
+      <P-AXIS-00126.0 Value="3600000" />
+      <!-- Lower modulo limit - lower modulo limit in 0,0001 mm or 0.0001 degree - 'modulou' -->
+      <P-AXIS-00127.0 Value="0" />
+    </Gear>
+  </GearSettings>
+
+  <!-- Camming and gearing -->
+  <!-- =================== -->
+  <CamGear>
+    <!-- Define axis as Camming/Gearing –Master - 'is_master' -->
+    <P-AXIS-00288 Value="1" />
+    <!-- Velocity tolerance range - 'v_diff_percent' -->
+    <P-AXIS-00289 Value="10" />
+    <!-- Minimum time in tolerance range for speed synchronisation - 'time_in_window' -->
+    <P-AXIS-00290 Value="8000" />
+    <!-- Maximum time for velocity synchronisation - 'time_out_in_window' -->
+    <P-AXIS-00291 Value="1000000" />
+    <!-- Average value filter for current master velocity - 'mv_type' -->
+    <P-AXIS-00300 Value="0" />
+    <!-- Number of scanning cycles for average value filter - 'mv_nbr_cycles' -->
+    <P-AXIS-00301 Value="0" />
+    <!-- Maximum commanded velocity for slave axis - 'v_max_slave' -->
+    <P-AXIS-00303 Value="120000" />
+    <!-- Maximum commanded acceleration for slave axis - 'a_max_slave' -->
+    <P-AXIS-00304 Value="3333" />
+    <!-- Delay time on gearing with current master velocity - 'delay_time' -->
+    <P-AXIS-00302 Value="0" />
+    <!-- Velocity for phase synchronization - 'v_phasing' -->
+    <P-AXIS-00305 Value="60000" />
+    <!-- Acceleration for phase synchronization - 'a_phasing' -->
+    <P-AXIS-00306 Value="180" />
+    <!-- Deceleration for phase synchronization - 'd_phasing' -->
+    <P-AXIS-00307 Value="180" />
+    <!-- Coupling behaviour on error from position control - 'keep_coupling_on_lr_error' -->
+    <P-AXIS-00308 Value="0" />
+    <!-- Coupling behaviour on feed enable drop - 'keep_coupling_on_fe_drop' -->
+    <P-AXIS-00309 Value="0" />
+    <!-- Jerk for phase synchronization - 'j_phasing' -->
+    <P-AXIS-00376 Value="10000" />
+    <!-- Jerk for velocity synchronization - 'j_vel_sync' -->
+    <P-AXIS-00377 Value="10000" />
+  </CamGear>
+
+  <!-- Drive settings -->
+  <!-- ============== -->
+  <Drive>
+    <!-- Drive bus system -->
+    <!-- ================ -->
+    <Simu>
+      <!-- Drive time constant (Nominator/ Denominator) - 'zeitkonstante_n' -->
+      <P-AXIS-00238 Value="100" />
+      <!-- Drive time constant (Nominator/ Denominator) - 'zeitkonstante_z' -->
+      <P-AXIS-00239 Value="1" />
+      <!-- Drive damping (Nominator/ Denominator) - 'daempfung_n' -->
+      <P-AXIS-00050 Value="10" />
+      <!-- Drive damping (Nominator/ Denominator) - 'daempfung_z' -->
+      <P-AXIS-00051 Value="6" />
+      <!-- Natural frequency of drive (Nominator/ Denominator) - 'eigenfrequenz_n' -->
+      <P-AXIS-00061 Value="1" />
+      <!-- Natural frequency of drive (Nominator/ Denominator) - 'eigenfrequenz_z' -->
+      <P-AXIS-00062 Value="100" />
+      <!-- Dead time - 'totzeit' -->
+      <P-AXIS-00194 Value="0" />
+      <!-- Toolpath up to zero pulse during homing simulation - 'rpf_weg_bis_nip' -->
+      <P-AXIS-00161 Value="10000" />
+      <!-- Set actual position equal to command position - 'ist_gleich_soll' -->
+      <P-AXIS-00096 Value="0" />
+    </Simu>
+    
+    <!-- Feedback system -->
+    <!-- =============== -->
+    <!-- Normalization of the velocity - numerator - 'v_reso_num' -->
+    <P-AXIS-00206 Value="1" />
+    <!-- Normalization of the velocity - denominator - 'v_reso_denom' -->
+    <P-AXIS-00205 Value="1" />
+    <!-- Encoder resolution via feed constant (Numerator) - 'feed_const_num' -->
+    <P-AXIS-00362 Value="1" />
+    <!-- Encoder resolution via feed constant (Denominator) - 'feed_const_denom' -->
+    <P-AXIS-00363 Value="1" />
+
+    <!-- Other parameter -->
+    <!-- =============== -->
+    <!-- Positioning operation mode of an axis - 'operation_mode' -->
+    <P-AXIS-00320 Value="DRIVE_DEFAULT" />
+    <!-- Time base for normalization of velocity - 0=per minute - 'v_time_base' -->
+    <P-AXIS-00207 Value="0" />
+    <!-- Normalization of actual position - OUTPUT : 0 = acc. to axis type (linear, rotatory) - 'mode_act_pos' -->
+    <P-AXIS-00122 Value="1" />
+    <!-- Normalization of command position - INPUT  : 0 = acc. to axis type (linear, rotatory) - 'mode_cmd_pos' -->
+    <P-AXIS-00123 Value="1" />
+  </Drive>
+
+  <!-- Feed forward settings -->
+  <!-- ===================== -->
+  <FeedForward>
+    <!-- Other parameter -->
+    <!-- =============== -->
+    <!-- Permanent deactivation of feedforward control - 'global_disable' -->
+    <P-AXIS-00256 Value="1" />
+    <!-- Weighting factor for feedforward control - 'vs_v_faktor' -->
+    <P-AXIS-00228 Value="1" />
+    <!-- Weighting factor for feedforward control - 'vs_a_nenner' -->
+    <P-AXIS-00229 Value="1" />
+    <!-- Equivalent time constant for feedforward control of acceleration - 'vs_a_faktor' -->
+    <P-AXIS-00225 Value="1" />
+    <!-- Equivalent time constant for feedforward control of acceleration - 'vs_a_nenner' -->
+    <P-AXIS-00226 Value="1" />
+    <!-- Feedforward control mode - 'vorsteuerung' -->
+    <P-AXIS-00223 Value="0" />
+  </FeedForward>
+
+  <!-- Measurement simulation settings -->
+  <!-- =============================== -->
+  <MeasSimu>
+    <!-- Measurement methods - FIX_POS - 'meas_simu_mode' -->
+    <P-AXIS-00112 Value="1" />
+    <!-- Setting of Parameter 1 - 'parameter1' -->
+    <P-AXIS-00145 Value="1000000" />
+    <!-- Setting of Parameter 2 - 'parameter2' -->
+    <P-AXIS-00146 Value="0" />
+    <!-- Setting of Parameter 3 - 'parameter3' -->
+    <P-AXIS-00147 Value="0" />
+    <!-- Setting of Parameter 4 - 'parameter4' -->
+    <P-AXIS-00148 Value="0" />
+    <!-- Setting of Parameter 5 - 'parameter5' -->
+    <P-AXIS-00149 Value="0" />
+  </MeasSimu>
+
+  <!-- Axis filter -->
+  <!-- =========== -->
+  <AxisFilter>
+    <Filter>
+      <!-- Filter - 'enable' -->
+      <P-AXIS-00319.0 Value="0" />
+      <!-- Filter - order - 0=Filter is switched off - 'order' -->
+      <P-AXIS-00140.0 Value="0" />
+      <!-- Filter - characteristic - 1=Critical damp, 2=Butterworth, 3=Bessel 5=HSC - 'prototype' -->
+      <P-AXIS-00153.0 Value="1" />
+      <!-- Filter - type - 1=Lowpass, 2=Highpass, 3=Bandpass, 4=Bandstop, 5=Allpass - 'type' -->
+      <P-AXIS-00204.0 Value="1" />
+      <!-- Filter - typical frequency - 'fg_f0' -->
+      <P-AXIS-00067.0 Value="10" />
+      <!-- Filter - grade - 'guete' -->
+      <P-AXIS-00080.0 Value="1" />
+      <!-- Filter - signal share in percent [%], which is processed by the filter - 'share_percent' -->
+      <P-AXIS-00164.0 Value="100" />
+      <!-- Filter - parameter - 'time_constant' -->
+      <P-AXIS-00357.0 Value="10000" />
+    </Filter>
+    <Filter>
+      <!-- Filter - 'enable' -->
+      <P-AXIS-00319.1 Value="0" />
+      <!-- Filter - order - 0=Filter is switched off - 'order' -->
+      <P-AXIS-00140.1 Value="0" />
+      <!-- Filter - characteristic - 1=Critical damp, 2=Butterworth, 3=Bessel 5=HSC - 'prototype' -->
+      <P-AXIS-00153.1 Value="1" />
+      <!-- Filter - type - 1=Lowpass, 2=Highpass, 3=Bandpass, 4=Bandstop, 5=Allpass - 'type' -->
+      <P-AXIS-00204.1 Value="1" />
+      <!-- Filter - typical frequency - 'fg_f0' -->
+      <P-AXIS-00067.1 Value="20" />
+      <!-- Filter - parameter - 'guete' -->
+      <P-AXIS-00080.1 Value="1" />
+      <!-- Filter - signal share in percent [%], which is processed by the filter - 'share_percent' -->
+      <P-AXIS-00164.1 Value="100" />
+      <!-- Filter - parameter - 'time_constant' -->
+      <P-AXIS-00357.1 Value="10000" />
+    </Filter>
+  </AxisFilter>
+
+  <!-- Position control settings -->
+  <!-- ========================= -->
+  <PositionControl>
+    <!-- Selection of backlash compensation - 'anwahl_losekomp' -->
+    <P-AXIS-00021 Value="0" />
+    <!-- Activation of SSFK - 'ssfk' -->
+    <P-AXIS-00175 Value="0" />
+    <!-- Activation of modulo compensation - mod_komp -->
+    <P-AXIS-00120 Value="0" />
+    <!-- Quantization of the measuring system increments - incr_quant -->
+    <P-AXIS-00323 Value="1" />
+    <!-- 'prog_movement_requires_compensations - BACKLASH/LEAD/TEMP/CROSS/PLANE' -->
+    <P-AXIS-00465 Value="" />
+    <!-- 'allow_comp_movement_while_feedhold' -->
+    <P-AXIS-00454 Value="0" />
+    <!-- 'n_backlash_cyc' -->
+    <P-AXIS-00243 Value="0" />
+    <!-- 'temp_comp' -->
+    <P-AXIS-00271 Value="0" />
+    <!-- 'temp_comp_position_0' -->
+    <P-AXIS-00272 Value="0" />
+    <!-- 'temp_comp_offset_0' -->
+    <P-AXIS-00273 Value="0" />
+    <!-- 'temp_comp_coefficient' -->
+    <P-AXIS-00274 Value="0" />
+    <!-- 'temp_comp_n_cycles' -->
+    <P-AXIS-00275 Value="0" />
+    <!-- 'temp_comp_manual_activation' -->
+    <P-AXIS-00482 Value="0" />
+    <!-- 'crosscomp' -->
+    <P-AXIS-00047 Value="0" />
+    <!-- 'crosscomp2' -->
+    <P-AXIS-00174 Value="0" />
+    <!-- 'frict_comp' -->
+    <P-AXIS-00522 Value="0" />
+    <!-- 'vol_comp.s_limit' -->
+    <P-AXIS-00525 Value="10000" />
+  </PositionControl>
+
+  <!-- Hardware settings -->
+  <!-- ================= -->
+  <HardwareSettings>
+    <Hardware>
+      <!-- Sign reversal of axis position -->
+      <!-- ============================== -->
+      <!-- Sign reversal of command value - 'vz_stellgr' -->
+      <P-AXIS-00231.0 Value="0" />
+      <!-- Sign reversal of actual value - 'vz_istw' -->
+      <P-AXIS-00230.0 Value="0" />
+      <!-- Other parameter -->
+      <!-- =============== -->
+      <!-- Identifier for hardware specific parameter set - 'nummer' -->
+      <P-AXIS-00136.0 Value="1" />
+      <!-- Value of degradation compensation - 'drift_wert' -->
+      <P-AXIS-00057.0 Value="0" />
+      <!-- Name of counter hardware - 'cntr_hw_id_string' -->
+      <P-AXIS-00042.0 Value="ISG_8_ACHS_K1" />
+      <!-- Channel identifier for counter - 'cntr_channel' -->
+      <P-AXIS-00041.0 Value="5" />
+      <!-- Name of D/A-hardware - 'da_hw_id_string' -->
+      <P-AXIS-00049.0 Value="ISG_8_ACHS_K1" />
+      <!-- D/A-channel number - 'da_channel' -->
+      <P-AXIS-00048.0 Value="5" />
+      <!-- Name of hardware - 'cam_hw_id_string' -->
+      <P-AXIS-00037.0 Value="ISG_8_ACHS_K1" />
+      <!-- Access to cam signals - 'cam_direct_access' -->
+      <P-AXIS-00036.0 Value="1" />
+      <!-- Level of cam signals - 'cam_level' -->
+      <P-AXIS-00038.0 Value="1" />
+      <!-- Bit variable for cam signals - 'cam_mask' -->
+      <P-AXIS-00039.0 Value="0x0020" />
+      <!-- SERCOS-status bit for measurement - 'mask_mess_1' -->
+      <P-AXIS-00106.0 Value="0x0001" />
+    </Hardware>
+  </HardwareSettings>
+
+  <!-- Manual mode settings -->
+  <!-- ==================== -->
+  <ManualMode>
+    <!-- Negative Offset limit - 'offsetgrenze_neg' -->
+    <!-- motion range of manual mode in negative direction -->
+    <P-AXIS-00137 Value="-40000000" />
+    <!-- Positive Offset limit - 'offsetgrenze_pos' -->
+    <!-- motion range of manual mode in positive direction -->
+    <P-AXIS-00138 Value="40000000" />
+    <Default>
+      <!-- Operation mode - #1 handwheel, #2 continuous, #3 incremental - 'operation_mode' -->
+      <P-AXIS-00139 Value="2" />
+      <!-- Logical identifier of control element - logical handwheel/key - 'control_element' -->
+      <P-AXIS-00046 Value="2" />
+    </Default>
+    <Dynamic>
+      <!-- Maximum acceleration - 'a_max' -->
+      <P-AXIS-00009 Value="300" />
+      <!-- Maximum velocity - 'vb_max' -->
+      <P-AXIS-00213 Value="120000" />
+      <!-- Feedhold acceleration - 'a_feedh' -->
+      <P-AXIS-00259 Value="300" />
+      <!-- Ramp time during maximum acceleration - =tr_grenz - 'tr' -->
+      <P-AXIS-00359 Value="100000" />
+      <!-- Ramp time at feedhold - =tr_grenz - 'tr_feedh' -->
+      <P-AXIS-00360 Value="100000" />
+    </Dynamic>
+    <HandWheel>
+      <!-- Handwheel resolutions - 'aufl' -->
+      <P-AXIS-00025.0 Value="10" />
+      <!-- Handwheel resolutions - 'aufl' -->
+      <P-AXIS-00025.1 Value="20" />
+      <!-- Handwheel resolutions - 'aufl' -->
+      <P-AXIS-00025.2 Value="30" />
+      <!-- Filter time constant - 'filter_zeit' -->
+      <P-AXIS-00069 Value="5" />
+    </HandWheel>
+    <Tipp>
+      <!-- Rapid mode velocity for continuous jog mode - 'vb_eilgang' -->
+      <P-AXIS-00210 Value="108000" />
+      <!-- Velocity for the continuous jog mode - 'geschw' -->
+      <P-AXIS-00076.0 Value="108000" />
+      <!-- Velocity for the continuous jog mode - 'geschw' -->
+      <P-AXIS-00076.1 Value="108000" />
+      <!-- Velocity for the continuous jog mode - 'geschw' -->
+      <P-AXIS-00076.2 Value="108000" />
+    </Tipp>
+    <Jog>
+      <JogVel>
+        <!-- Incremental jog velocities - 'geschw' -->
+        <P-AXIS-00076.0 Value="108000" />
+        <!-- Jog incremental widths - 'weg' -->
+        <P-AXIS-00232.0 Value="50" />
+      </JogVel>
+      <JogVel>
+        <!-- Incremental jog velocities - 'geschw' -->
+        <P-AXIS-00076.1 Value="108000" />
+        <!-- Jog incremental widths - 'weg' -->
+        <P-AXIS-00232.1 Value="10000" />
+      </JogVel>
+      <JogVel>
+        <!-- Incremental jog velocities - 'geschw' -->
+        <P-AXIS-00076.2 Value="108000" />
+        <!-- Jog incremental widths - 'weg' -->
+        <P-AXIS-00232.2 Value="30000" />
+      </JogVel>
+      <JogVel>
+        <!-- Incremental jog velocities - 'geschw' -->
+        <P-AXIS-00076.3 Value="108000" />
+        <!-- Jog incremental widths - 'weg' -->
+        <P-AXIS-00232.3 Value="100000" />
+      </JogVel>
+    </Jog>
+    <IPO>
+      <!-- Acceleration part of manual operation - 'hb_proz_a_max' -->
+      <P-AXIS-00082 Value="90" />
+      <!-- Velocity part of manual operation - 'hb_proz_v_max' -->
+      <P-AXIS-00083 Value="90" />
+      <!-- Acceleration part of interpolation - 'ipo_proz_a_max' -->
+      <P-AXIS-00094 Value="90" />
+      <!-- Velocity part of interpolation - 'ipo_proz_v_max' -->
+      <P-AXIS-00095 Value="90" />
+    </IPO>
+  </ManualMode>
+</Default_AX_MDS>

@@ -1,0 +1,30 @@
+# ****************************************
+#
+# Axis Parameter
+#
+# ****************************************
+#
+kopf.achs_nr                                          4              ( P-AXIS-00016 : logical axis number
+kopf.mds_ident                                        1              ( P-AXIS-00110 : Identification of axis data
+kopf.log_achs_name                                    B_Achse        ( P-AXIS-00297 : Default name of an axis
+
+# ---------------------------------------------------                Drive bus system
+antr.addroffs.input                                   3              ( P-AXIS-00707 : Input Address offset for digital drive types
+antr.addroffs.output                                  3              ( P-AXIS-00580 : Output Address offset for digital drive types
+
+kenngr.antr_typ                                       2
+antr.sercos.telegramm_typ                             7
+antr.sercos.ethercat                                  1
+antr.sercos.at[0].ident_len                           2
+antr.sercos.at[0].nc_ref                              STATUS_WORD
+antr.sercos.at[1].ident_len                           4
+antr.sercos.at[1].nc_ref                              POSITION_FEEDBACK_VALUE_1
+antr.sercos.at[2].ident_len                           2
+antr.sercos.at[2].nc_ref                              BUS_STATE
+antr.sercos.mdt[0].ident_len                          2
+antr.sercos.mdt[0].nc_ref                             CONTROL_WORD
+antr.sercos.mdt[1].ident_len                          4
+antr.sercos.mdt[1].nc_ref                             POSITION_COMMAND_VALUE
+
+Ende
+

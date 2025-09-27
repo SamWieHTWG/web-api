@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- *********************** -->
+<!-- Tool data               -->
+<!-- unit: 0.1um             -->
+<!-- *********************** -->
+<ToolData>
+  <Version Label="1">
+    <Schema Version="1" />
+  </Version>
+  <Tool>
+    <!-- Validity flag - gueltig -->
+    <P-TOOL-00005.1 Value="1" />
+    <!-- Unit of length, radius and axes offsets - mass_einheit -->
+    <P-TOOL-00008.1 Value="0" />
+    <!-- Tool length - laenge -->
+    <P-TOOL-00003.1 Value="0" />
+    <!-- Tool radius - radius -->
+    <P-TOOL-00004.1 Value="0" />
+    <AxOffset>
+      <!-- Axis offset - ax_versatz -->
+      <P-TOOL-00006.1.0 Value="0" />
+      <P-TOOL-00006.1.1 Value="0" />
+      <P-TOOL-00006.1.2 Value="0" />
+    </AxOffset>
+    <Parameter>
+      <!-- Additional tool parameter - param -->
+      <P-TOOL-00007.1.0 Value="0" />
+      <P-TOOL-00007.1.1 Value="0" />
+      <P-TOOL-00007.1.2 Value="0" />
+      <P-TOOL-00007.1.3 Value="0" />
+      <P-TOOL-00007.1.4 Value="0" />
+      <P-TOOL-00007.1.5 Value="0" />
+    </Parameter>
+  </Tool>
+  <Tool>
+    <!-- Validity flag - gueltig -->
+    <P-TOOL-00005.2 Value="1" />
+    <!-- Unit of length, radius and axes offsets - mass_einheit -->
+    <P-TOOL-00008.2 Value="0" />
+    <!-- Tool length - laenge -->
+    <P-TOOL-00003.2 Value="0" />
+    <!-- Tool radius - radius -->
+    <P-TOOL-00004.2 Value="0" />
+    <AxOffset>
+      <!-- Axis offset - ax_versatz -->
+      <P-TOOL-00006.2.0 Value="0" />
+      <P-TOOL-00006.2.1 Value="0" />
+      <P-TOOL-00006.2.2 Value="0" />
+    </AxOffset>
+    <Parameter>
+      <!-- Additional tool parameter - param -->
+      <P-TOOL-00007.2.0 Value="0" />
+      <P-TOOL-00007.2.1 Value="0" />
+      <P-TOOL-00007.2.2 Value="0" />
+      <P-TOOL-00007.2.3 Value="0" />
+      <P-TOOL-00007.2.4 Value="0" />
+      <P-TOOL-00007.2.5 Value="0" />
+    </Parameter>
+  </Tool>
+  <Tool>
+    <!-- Validity flag - gueltig -->
+    <P-TOOL-00005.3 Value="1" />
+    <!-- Unit of length, radius and axes offsets - mass_einheit -->
+    <P-TOOL-00008.3 Value="0" />
+    <!-- Tool length - laenge -->
+    <P-TOOL-00003.3 Value="0" />
+    <!-- Tool radius - radius -->
+    <P-TOOL-00004.3 Value="0" />
+    <AxOffset>
+      <!-- Axis offset - ax_versatz -->
+      <P-TOOL-00006.3.0 Value="0" />
+      <P-TOOL-00006.3.1 Value="0" />
+      <P-TOOL-00006.3.2 Value="0" />
+    </AxOffset>
+    <Parameter>
+      <!-- Additional tool parameter - param -->
+      <P-TOOL-00007.3.0 Value="0" />
+      <P-TOOL-00007.3.1 Value="0" />
+      <P-TOOL-00007.3.2 Value="0" />
+      <P-TOOL-00007.3.3 Value="0" />
+      <P-TOOL-00007.3.4 Value="0" />
+      <P-TOOL-00007.3.5 Value="0" />
+    </Parameter>
+  </Tool>
+  <Tool>
+    <!-- Validity flag - gueltig -->
+    <P-TOOL-00005.4 Value="1" />
+    <!-- Unit of length, radius and axes offsets - mass_einheit -->
+    <P-TOOL-00008.4 Value="0" />
+    <!-- Tool length - laenge -->
+    <P-TOOL-00003.4 Value="0" />
+    <!-- Tool radius - radius -->
+    <P-TOOL-00004.4 Value="0" />
+    <AxOffset>
+      <!-- Axis offset - ax_versatz -->
+      <P-TOOL-00006.4.0 Value="0" />
+      <P-TOOL-00006.4.1 Value="0" />
+      <P-TOOL-00006.4.2 Value="0" />
+    </AxOffset>
+    <Parameter>
+      <!-- Additional tool parameter - param -->
+      <P-TOOL-00007.4.0 Value="0" />
+      <P-TOOL-00007.4.1 Value="0" />
+      <P-TOOL-00007.4.2 Value="0" />
+      <P-TOOL-00007.4.3 Value="0" />
+      <P-TOOL-00007.4.4 Value="0" />
+      <P-TOOL-00007.4.5 Value="0" />
+    </Parameter>
+  </Tool>
+  <Tool>
+    <!-- Validity flag - gueltig -->
+    <P-TOOL-00005.5 Value="1" />
+    <!-- Unit of length, radius and axes offsets - mass_einheit -->
+    <P-TOOL-00008.5 Value="0" />
+    <!-- Tool length - laenge -->
+    <P-TOOL-00003.5 Value="0" />
+    <!-- Tool radius - radius -->
+    <P-TOOL-00004.5 Value="0" />
+    <AxOffset>
+      <!-- Axis offset - ax_versatz -->
+      <P-TOOL-00006.5.0 Value="0" />
+      <P-TOOL-00006.5.1 Value="0" />
+      <P-TOOL-00006.5.2 Value="0" />
+    </AxOffset>
+    <Parameter>
+      <!-- Additional tool parameter - param -->
+      <P-TOOL-00007.5.0 Value="0" />
+      <P-TOOL-00007.5.1 Value="0" />
+      <P-TOOL-00007.5.2 Value="0" />
+      <P-TOOL-00007.5.3 Value="0" />
+      <P-TOOL-00007.5.4 Value="0" />
+      <P-TOOL-00007.5.5 Value="0" />
+    </Parameter>
+  </Tool>
+</ToolData>

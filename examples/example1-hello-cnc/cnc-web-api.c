@@ -39,11 +39,32 @@ typedef unsigned (__stdcall *PTHREAD_START) (void *);
 #include "cnc-web-api.h"
 #include "cJSON.h"
 
+#ifdef _WIN32
+#include <wincrypt.h>
+#pragma comment(lib, "crypt32.lib")
+#endif
+
 #define HTTP_PORT 8080
 #define BUFFER_SIZE 4096
 #define MAX_RESPONSE_SIZE 8192
+#define WS_MAGIC_STRING "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
+
+// WebSocket opcodes
+#define WS_OPCODE_TEXT 0x1
+#define WS_OPCODE_CLOSE 0x8
+#define WS_OPCODE_PING 0x9
+#define WS_OPCODE_PONG 0xA
+
+// Windows compatibility
+#ifdef _WIN32
+#define strdup _strdup
+#endif
 
 extern bool f_cnc_shutdown;
+
+// Function prototypes
+static char* handle_websocket_read_request(cJSON* request);
+static char* handle_websocket_write_request(cJSON* request);
 
 #ifdef _WIN32
 static SOCKET api_server_socket = INVALID_SOCKET;
@@ -81,7 +102,11 @@ static cJSON* value_to_json(const void* value, CNC_DATA_TYPE type, uint32_t leng
         case CNC_TYPE_REAL32:
             return cJSON_CreateNumber(*(float*)value);
         case CNC_TYPE_REAL64:
-            return cJSON_CreateNumber(*(double*)value);
+            {
+                double val = *(double*)value;
+                printf("[CNC-WEB-API] Converting REAL64: %f\n", val);
+                return cJSON_CreateNumber(val);
+            }
         case CNC_TYPE_CHAR:
             {
                 char str[2] = {*(char*)value, '\0'};
@@ -97,6 +122,7 @@ static cJSON* value_to_json(const void* value, CNC_DATA_TYPE type, uint32_t leng
         case CNC_TYPE_NONE:
         default:
             // For STRUCT, NONE, or unknown types, return as hex string
+            printf("[CNC-WEB-API] WARNING: Converting type %d to hex string (not handled in switch)\n", (int)type);
             {
                 char* hex_str = malloc(length * 2 + 1);
                 if (hex_str) {
@@ -254,6 +280,423 @@ static void send_error_response(int client_socket, int status_code, const char* 
         free(json_string);
     }
     cJSON_Delete(response);
+}
+
+// WebSocket utility functions
+static void base64_encode(const unsigned char* input, int length, char* output) {
+    const char base64_chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    int i, j;
+    for (i = 0, j = 0; i < length; i += 3, j += 4) {
+        uint32_t octet_a = i < length ? input[i] : 0;
+        uint32_t octet_b = i + 1 < length ? input[i + 1] : 0;
+        uint32_t octet_c = i + 2 < length ? input[i + 2] : 0;
+        uint32_t triple = (octet_a << 0x10) + (octet_b << 0x08) + octet_c;
+
+        output[j] = base64_chars[(triple >> 3 * 6) & 0x3F];
+        output[j + 1] = base64_chars[(triple >> 2 * 6) & 0x3F];
+        output[j + 2] = base64_chars[(triple >> 1 * 6) & 0x3F];
+        output[j + 3] = base64_chars[(triple >> 0 * 6) & 0x3F];
+    }
+
+    int padding = length % 3;
+    if (padding) {
+        for (int k = 0; k < 3 - padding; k++) {
+            output[j - 1 - k] = '=';
+        }
+    }
+    output[j] = '\0';
+}
+
+static void sha1_hash(const char* input, unsigned char* output) {
+#ifdef _WIN32
+    HCRYPTPROV hProv = 0;
+    HCRYPTHASH hHash = 0;
+    DWORD cbHash = 20;
+
+    if (CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT)) {
+        if (CryptCreateHash(hProv, CALG_SHA1, 0, 0, &hHash)) {
+            if (CryptHashData(hHash, (BYTE*)input, strlen(input), 0)) {
+                CryptGetHashParam(hHash, HP_HASHVAL, output, &cbHash, 0);
+            }
+            CryptDestroyHash(hHash);
+        }
+        CryptReleaseContext(hProv, 0);
+    }
+#else
+    // For Linux, would need to link with OpenSSL or implement simple SHA1
+    // For now, just zero out (will need proper implementation)
+    memset(output, 0, 20);
+#endif
+}
+
+#ifdef _WIN32
+static bool handle_websocket_handshake(SOCKET client_socket, const char* key) {
+#else
+static bool handle_websocket_handshake(int client_socket, const char* key) {
+#endif
+    char concat_key[256];
+    snprintf(concat_key, sizeof(concat_key), "%s%s", key, WS_MAGIC_STRING);
+
+    unsigned char sha1_result[20];
+    sha1_hash(concat_key, sha1_result);
+
+    char accept_key[32];
+    base64_encode(sha1_result, 20, accept_key);
+
+    char response[512];
+    snprintf(response, sizeof(response),
+        "HTTP/1.1 101 Switching Protocols\r\n"
+        "Upgrade: websocket\r\n"
+        "Connection: Upgrade\r\n"
+        "Sec-WebSocket-Accept: %s\r\n"
+        "\r\n", accept_key);
+
+    send(client_socket, response, strlen(response), 0);
+    printf("[CNC-WEB-API] WebSocket handshake completed\n");
+    return true;
+}
+
+#ifdef _WIN32
+static int websocket_send_text(SOCKET client_socket, const char* message) {
+#else
+static int websocket_send_text(int client_socket, const char* message) {
+#endif
+    int msg_len = strlen(message);
+    unsigned char* frame = malloc(msg_len + 10);
+    if (!frame) return -1;
+    int frame_len = 0;
+
+    // Frame format: FIN(1) + RSV(3) + OPCODE(4) + MASK(1) + PAYLOAD_LEN(7/16/64) + PAYLOAD
+    frame[0] = 0x80 | WS_OPCODE_TEXT; // FIN=1, OPCODE=TEXT
+
+    if (msg_len < 126) {
+        frame[1] = msg_len;
+        frame_len = 2;
+    } else if (msg_len < 65536) {
+        frame[1] = 126;
+        frame[2] = (msg_len >> 8) & 0xFF;
+        frame[3] = msg_len & 0xFF;
+        frame_len = 4;
+    } else {
+        // For simplicity, not implementing 64-bit length
+        return -1;
+    }
+
+    memcpy(frame + frame_len, message, msg_len);
+    frame_len += msg_len;
+
+    int result = send(client_socket, (char*)frame, frame_len, 0);
+    free(frame);
+    return result;
+}
+
+#ifdef _WIN32
+static int websocket_receive_text(SOCKET client_socket, char* buffer, int buffer_size) {
+#else
+static int websocket_receive_text(int client_socket, char* buffer, int buffer_size) {
+#endif
+    unsigned char header[14];
+    int bytes_received = recv(client_socket, (char*)header, 2, 0);
+    if (bytes_received != 2) return -1;
+
+    bool fin = (header[0] & 0x80) != 0;
+    int opcode = header[0] & 0x0F;
+    bool masked = (header[1] & 0x80) != 0;
+    int payload_len = header[1] & 0x7F;
+
+    if (opcode == WS_OPCODE_CLOSE) return 0;
+    if (opcode != WS_OPCODE_TEXT) return -1;
+
+    int header_len = 2;
+    if (payload_len == 126) {
+        bytes_received = recv(client_socket, (char*)header + 2, 2, 0);
+        if (bytes_received != 2) return -1;
+        payload_len = (header[2] << 8) | header[3];
+        header_len = 4;
+    }
+
+    unsigned char mask[4];
+    if (masked) {
+        bytes_received = recv(client_socket, (char*)mask, 4, 0);
+        if (bytes_received != 4) return -1;
+    }
+
+    if (payload_len >= buffer_size) return -1;
+
+    bytes_received = recv(client_socket, buffer, payload_len, 0);
+    if (bytes_received != payload_len) return -1;
+
+    if (masked) {
+        for (int i = 0; i < payload_len; i++) {
+            buffer[i] ^= mask[i % 4];
+        }
+    }
+
+    buffer[payload_len] = '\0';
+    return payload_len;
+}
+
+#ifdef _WIN32
+static void handle_websocket_session(SOCKET client_socket) {
+#else
+static void handle_websocket_session(int client_socket) {
+#endif
+    printf("[CNC-WEB-API] WebSocket session started\n");
+
+    char message_buffer[BUFFER_SIZE];
+
+    while (!f_cnc_shutdown) {
+        int message_len = websocket_receive_text(client_socket, message_buffer, sizeof(message_buffer));
+
+        if (message_len <= 0) {
+            printf("[CNC-WEB-API] WebSocket connection closed or error\n");
+            break;
+        }
+
+        printf("[CNC-WEB-API] WebSocket message received: %s\n", message_buffer);
+
+        // Parse JSON message
+        cJSON* request = cJSON_Parse(message_buffer);
+        if (!request) {
+            websocket_send_text(client_socket, "{\"error\":\"Invalid JSON\",\"success\":false}");
+            continue;
+        }
+
+        cJSON* type_json = cJSON_GetObjectItem(request, "type");
+        if (!type_json || !cJSON_IsString(type_json)) {
+            websocket_send_text(client_socket, "{\"error\":\"Missing type field\",\"success\":false}");
+            cJSON_Delete(request);
+            continue;
+        }
+
+        char* response_json = NULL;
+        const char* type = cJSON_GetStringValue(type_json);
+
+        if (strcmp(type, "read") == 0) {
+            // Handle read request
+            response_json = handle_websocket_read_request(request);
+        } else if (strcmp(type, "write") == 0) {
+            // Handle write request
+            response_json = handle_websocket_write_request(request);
+        } else {
+            websocket_send_text(client_socket, "{\"error\":\"Unknown request type\",\"success\":false}");
+            cJSON_Delete(request);
+            continue;
+        }
+
+        if (response_json) {
+            websocket_send_text(client_socket, response_json);
+            free(response_json);
+        }
+
+        cJSON_Delete(request);
+    }
+
+    printf("[CNC-WEB-API] WebSocket session ended\n");
+}
+
+static char* handle_websocket_read_request(cJSON* request) {
+    // Start timing
+    clock_t start_time = clock();
+    time_t start_wall_time = time(NULL);
+
+    // Extract request ID for response correlation
+    cJSON* id_json = cJSON_GetObjectItem(request, "id");
+    int request_id = cJSON_IsNumber(id_json) ? (int)cJSON_GetNumberValue(id_json) : 0;
+
+    cJSON* thread_json = cJSON_GetObjectItem(request, "thread");
+    cJSON* group_json = cJSON_GetObjectItem(request, "group");
+    cJSON* offset_json = cJSON_GetObjectItem(request, "offset");
+
+    if (!cJSON_IsNumber(thread_json) || !cJSON_IsNumber(group_json) || !cJSON_IsNumber(offset_json)) {
+        char error_response[256];
+        snprintf(error_response, sizeof(error_response),
+                "{\"id\":%d,\"error\":\"Missing required fields\",\"success\":false}", request_id);
+        return strdup(error_response);
+    }
+
+    uint32_t thread = (uint32_t)cJSON_GetNumberValue(thread_json);
+    uint32_t group = (uint32_t)cJSON_GetNumberValue(group_json);
+    uint32_t offset = (uint32_t)cJSON_GetNumberValue(offset_json);
+
+    // Get optional parameters
+    cJSON* length_json = cJSON_GetObjectItem(request, "length");
+    cJSON* datatype_json = cJSON_GetObjectItem(request, "datatype");
+
+    uint32_t length = 0;
+    CNC_DATA_TYPE datatype = CNC_TYPE_NONE;
+
+    if (cJSON_IsNumber(length_json)) {
+        length = (uint32_t)cJSON_GetNumberValue(length_json);
+    }
+
+    if (cJSON_IsNumber(datatype_json)) {
+        datatype = (CNC_DATA_TYPE)cJSON_GetNumberValue(datatype_json);
+    }
+
+    // If datatype not provided, get it from CNC
+    if (datatype == CNC_TYPE_NONE) {
+        datatype = cnc_get_object_data_type_wrapper(thread, group, offset);
+    }
+
+    // If length not provided, determine from datatype
+    if (length == 0) {
+        length = cnc_get_type_size(datatype);
+        if (length == 0) length = 32; // Default for variable-length types
+    }
+
+    // Allocate buffer and perform read
+    void* buffer = malloc(length);
+    if (!buffer) {
+        char error_response[256];
+        snprintf(error_response, sizeof(error_response),
+                "{\"id\":%d,\"error\":\"Memory allocation failed\",\"success\":false}", request_id);
+        return strdup(error_response);
+    }
+
+    printf("[CNC-WEB-API] WS READ: thread=%u, group=0x%x(%u), offset=0x%x(%u), type=%s(%d), length=%u\n",
+           thread, group, group, offset, offset, cnc_get_type_name(datatype), (int)datatype, length);
+
+    int32_t result = cnc_read_value_wrapper(thread, group, offset, buffer, length);
+
+    // Create response
+    cJSON* response = cJSON_CreateObject();
+    cJSON_AddNumberToObject(response, "id", request_id);
+    cJSON_AddNumberToObject(response, "thread", thread);
+    cJSON_AddNumberToObject(response, "group", group);
+    cJSON_AddNumberToObject(response, "offset", offset);
+    cJSON_AddStringToObject(response, "type", cnc_get_type_name(datatype));
+    cJSON_AddNumberToObject(response, "length", length);
+    cJSON_AddNumberToObject(response, "result", result);
+
+    if (result == 0) {
+        // Success - add value
+        printf("[CNC-WEB-API] Converting value to JSON with type %s(%d)\n", cnc_get_type_name(datatype), (int)datatype);
+        cJSON* value_json = value_to_json(buffer, datatype, length);
+        cJSON_AddItemToObject(response, "value", value_json);
+        cJSON_AddBoolToObject(response, "success", true);
+        printf("[CNC-WEB-API] WS READ RESULT: 0 (SUCCESS)\n");
+    } else {
+        // Error
+        cJSON_AddBoolToObject(response, "success", false);
+        printf("[CNC-WEB-API] WS READ RESULT: %d (ERROR)\n", result);
+    }
+
+    // End timing
+    clock_t end_time = clock();
+    time_t end_wall_time = time(NULL);
+    double cpu_time = ((double)(end_time - start_time) / CLOCKS_PER_SEC) * 1000.0;
+    long wall_time = end_wall_time - start_wall_time;
+
+    printf("[CNC-WEB-API] WS READ REQUEST END: %ld (CPU: %.2fms, Wall: %ldms)\n",
+           (long)end_wall_time, cpu_time, wall_time * 1000);
+
+    char* json_string = cJSON_Print(response);
+    cJSON_Delete(response);
+    free(buffer);
+
+    return json_string;
+}
+
+static char* handle_websocket_write_request(cJSON* request) {
+    // Start timing
+    clock_t start_time = clock();
+    time_t start_wall_time = time(NULL);
+
+    // Extract request ID for response correlation
+    cJSON* id_json = cJSON_GetObjectItem(request, "id");
+    int request_id = cJSON_IsNumber(id_json) ? (int)cJSON_GetNumberValue(id_json) : 0;
+
+    cJSON* thread_json = cJSON_GetObjectItem(request, "thread");
+    cJSON* group_json = cJSON_GetObjectItem(request, "group");
+    cJSON* offset_json = cJSON_GetObjectItem(request, "offset");
+    cJSON* value_json = cJSON_GetObjectItem(request, "value");
+
+    if (!cJSON_IsNumber(thread_json) || !cJSON_IsNumber(group_json) ||
+        !cJSON_IsNumber(offset_json) || !value_json) {
+        char error_response[256];
+        snprintf(error_response, sizeof(error_response),
+                "{\"id\":%d,\"error\":\"Missing required fields\",\"success\":false}", request_id);
+        return strdup(error_response);
+    }
+
+    uint32_t thread = (uint32_t)cJSON_GetNumberValue(thread_json);
+    uint32_t group = (uint32_t)cJSON_GetNumberValue(group_json);
+    uint32_t offset = (uint32_t)cJSON_GetNumberValue(offset_json);
+
+    // Get optional datatype parameter
+    cJSON* datatype_json = cJSON_GetObjectItem(request, "datatype");
+    CNC_DATA_TYPE datatype = CNC_TYPE_NONE;
+
+    if (cJSON_IsNumber(datatype_json)) {
+        datatype = (CNC_DATA_TYPE)cJSON_GetNumberValue(datatype_json);
+    }
+
+    // If datatype not provided, get it from CNC
+    if (datatype == CNC_TYPE_NONE) {
+        datatype = cnc_get_object_data_type_wrapper(thread, group, offset);
+    }
+
+    // Get type size and allocate buffer
+    uint32_t length = cnc_get_type_size(datatype);
+    if (length == 0) length = 32; // Default for variable-length types
+
+    void* buffer = malloc(length);
+    if (!buffer) {
+        char error_response[256];
+        snprintf(error_response, sizeof(error_response),
+                "{\"id\":%d,\"error\":\"Memory allocation failed\",\"success\":false}", request_id);
+        return strdup(error_response);
+    }
+
+    // Convert JSON value to C value based on datatype
+    if (!json_to_value(value_json, buffer, datatype)) {
+        free(buffer);
+        char error_response[256];
+        snprintf(error_response, sizeof(error_response),
+                "{\"id\":%d,\"error\":\"Invalid value for datatype\",\"success\":false}", request_id);
+        return strdup(error_response);
+    }
+
+    printf("[CNC-WEB-API] WS WRITE: thread=%u, group=0x%x(%u), offset=0x%x(%u), type=%s, length=%u\n",
+           thread, group, group, offset, offset, cnc_get_type_name(datatype), length);
+
+    int32_t result = cnc_write_value_wrapper(thread, group, offset, buffer, length);
+
+    // Create response
+    cJSON* response = cJSON_CreateObject();
+    cJSON_AddNumberToObject(response, "id", request_id);
+    cJSON_AddNumberToObject(response, "thread", thread);
+    cJSON_AddNumberToObject(response, "group", group);
+    cJSON_AddNumberToObject(response, "offset", offset);
+    cJSON_AddStringToObject(response, "type", cnc_get_type_name(datatype));
+    cJSON_AddNumberToObject(response, "length", length);
+    cJSON_AddNumberToObject(response, "result", result);
+
+    if (result == 0) {
+        // Success
+        cJSON_AddBoolToObject(response, "success", true);
+        printf("[CNC-WEB-API] WS WRITE RESULT: 0 (SUCCESS)\n");
+    } else {
+        // Error
+        cJSON_AddBoolToObject(response, "success", false);
+        printf("[CNC-WEB-API] WS WRITE RESULT: %d (ERROR)\n", result);
+    }
+
+    // End timing
+    clock_t end_time = clock();
+    time_t end_wall_time = time(NULL);
+    double cpu_time = ((double)(end_time - start_time) / CLOCKS_PER_SEC) * 1000.0;
+    long wall_time = end_wall_time - start_wall_time;
+
+    printf("[CNC-WEB-API] WS WRITE REQUEST END: %ld (CPU: %.2fms, Wall: %ldms)\n",
+           (long)end_wall_time, cpu_time, wall_time * 1000);
+
+    char* json_string = cJSON_Print(response);
+    cJSON_Delete(response);
+    free(buffer);
+
+    return json_string;
 }
 
 #ifdef _WIN32
@@ -620,6 +1063,33 @@ static void handle_client_request(int client_socket) {
     char* body = strstr(buffer, "\r\n\r\n");
     if (body) {
         body += 4;
+    }
+
+    // Check for WebSocket upgrade
+    if (strcmp(method, "GET") == 0 && strstr(buffer, "Upgrade: websocket")) {
+        printf("[CNC-WEB-API] WebSocket upgrade request detected\n");
+
+        // Extract the Sec-WebSocket-Key
+        char* key_header = strstr(buffer, "Sec-WebSocket-Key: ");
+        if (key_header) {
+            key_header += 19; // Skip "Sec-WebSocket-Key: "
+            char* key_end = strstr(key_header, "\r\n");
+            if (key_end) {
+                char ws_key[32];
+                int key_len = key_end - key_header;
+                if (key_len < 32) {
+                    strncpy(ws_key, key_header, key_len);
+                    ws_key[key_len] = '\0';
+
+                    if (handle_websocket_handshake(client_socket, ws_key)) {
+                        // Handle WebSocket communication
+                        handle_websocket_session(client_socket);
+                    }
+                }
+            }
+        }
+        close(client_socket);
+        return;
     }
 
     if (strcmp(method, "OPTIONS") == 0) {

@@ -146,46 +146,130 @@
     </div>
 
     <script>
-        const API_BASE = 'http://localhost:8080';
+        const WS_URL = 'ws://localhost:8080';
         let drivesEnabled = false;
         let programStopped = false;
 
-        // Core API functions
+        // WebSocket connection management
+        let ws = null;
+        let wsConnected = false;
+        let messageCallbacks = new Map();
+        let messageId = 0;
+
+        function initWebSocket() {
+            return new Promise((resolve, reject) => {
+                ws = new WebSocket(WS_URL);
+
+                ws.onopen = () => {
+                    console.log('[WS] Connected to WebSocket server');
+                    wsConnected = true;
+                    updateConnectionStatus('connected');
+                    resolve();
+                };
+
+                ws.onmessage = (event) => {
+                    try {
+                        const response = JSON.parse(event.data);
+                        console.log('[WS] Message received:', response);
+
+                        // Handle response with callback if available
+                        if (response.id && messageCallbacks.has(response.id)) {
+                            const callback = messageCallbacks.get(response.id);
+                            messageCallbacks.delete(response.id);
+                            callback.resolve(response);
+                        }
+                    } catch (error) {
+                        console.error('[WS] Failed to parse message:', error);
+                    }
+                };
+
+                ws.onclose = () => {
+                    console.log('[WS] WebSocket connection closed');
+                    wsConnected = false;
+                    updateConnectionStatus('disconnected');
+                };
+
+                ws.onerror = (error) => {
+                    console.error('[WS] WebSocket error:', error);
+                    wsConnected = false;
+                    updateConnectionStatus('error');
+                    reject(error);
+                };
+            });
+        }
+
+        function sendWebSocketMessage(payload) {
+            return new Promise((resolve, reject) => {
+                if (!wsConnected || !ws) {
+                    reject(new Error('WebSocket not connected'));
+                    return;
+                }
+
+                const currentId = ++messageId;
+                payload.id = currentId;
+
+                // Store callback for response
+                messageCallbacks.set(currentId, { resolve, reject });
+
+                // Set timeout for request
+                setTimeout(() => {
+                    if (messageCallbacks.has(currentId)) {
+                        messageCallbacks.delete(currentId);
+                        reject(new Error('Request timeout'));
+                    }
+                }, 5000);
+
+                ws.send(JSON.stringify(payload));
+            });
+        }
+
+        // Core API functions (WebSocket-based)
         async function apiRead(thread, group, offset, length = null, datatype = null) {
             const startTime = performance.now();
-            const payload = { thread, group, offset };
+            const payload = {
+                type: 'read',
+                thread,
+                group,
+                offset
+            };
             if (length) payload.length = length;
             if (datatype !== null) payload.datatype = datatype;
 
-            const response = await fetch(`${API_BASE}/read`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const result = await response.json();
-            const endTime = performance.now();
-            const duration = endTime - startTime;
+            try {
+                const result = await sendWebSocketMessage(payload);
+                const endTime = performance.now();
+                const duration = endTime - startTime;
 
-            console.log(`[CLIENT-TIMING] READ(${thread},${group},${offset}) -> ${duration.toFixed(2)}ms`);
-            return result;
+                console.log(`[CLIENT-WS-TIMING] READ(${thread},${group},${offset}) -> ${duration.toFixed(2)}ms`);
+                return result;
+            } catch (error) {
+                console.error(`[CLIENT-WS-ERROR] READ(${thread},${group},${offset}) failed:`, error);
+                return { success: false, error: error.message };
+            }
         }
 
         async function apiWrite(thread, group, offset, value, datatype = null) {
             const startTime = performance.now();
-            const payload = { thread, group, offset, value };
+            const payload = {
+                type: 'write',
+                thread,
+                group,
+                offset,
+                value
+            };
             if (datatype !== null) payload.datatype = datatype;
 
-            const response = await fetch(`${API_BASE}/write`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const result = await response.json();
-            const endTime = performance.now();
-            const duration = endTime - startTime;
+            try {
+                const result = await sendWebSocketMessage(payload);
+                const endTime = performance.now();
+                const duration = endTime - startTime;
 
-            console.log(`[CLIENT-TIMING] WRITE(${thread},${group},${offset},${JSON.stringify(value)}) -> ${duration.toFixed(2)}ms`);
-            return result;
+                console.log(`[CLIENT-WS-TIMING] WRITE(${thread},${group},${offset},${JSON.stringify(value)}) -> ${duration.toFixed(2)}ms`);
+                return result;
+            } catch (error) {
+                console.error(`[CLIENT-WS-ERROR] WRITE(${thread},${group},${offset}) failed:`, error);
+                return { success: false, error: error.message };
+            }
         }
 
         // CNC Demo Functions Implementation
@@ -731,7 +815,7 @@
             // Initial update
             updateTickCounter();
             // Set up interval for every 0.1 seconds (100ms)
-            tickCounterInterval = setInterval(updateTickCounter, 10000);
+            tickCounterInterval = setInterval(updateTickCounter, 100);
         }
 
         function stopTickCounterUpdates() {
@@ -741,11 +825,26 @@
             }
         }
 
-        // Start tick counter updates when page loads
-        window.addEventListener('load', startTickCounterUpdates);
+        // Initialize WebSocket and start tick counter updates when page loads
+        window.addEventListener('load', async () => {
+            try {
+                updateConnectionStatus('connecting');
+                await initWebSocket();
+                startTickCounterUpdates();
+                console.log('[INIT] WebSocket initialized and tick counter started');
+            } catch (error) {
+                console.error('[INIT] Failed to initialize WebSocket:', error);
+                updateConnectionStatus('error');
+            }
+        });
 
-        // Stop updates when page unloads to prevent errors
-        window.addEventListener('beforeunload', stopTickCounterUpdates);
+        // Stop updates and close WebSocket when page unloads
+        window.addEventListener('beforeunload', () => {
+            stopTickCounterUpdates();
+            if (ws && wsConnected) {
+                ws.close();
+            }
+        });
     </script>
 </body>
 </html>

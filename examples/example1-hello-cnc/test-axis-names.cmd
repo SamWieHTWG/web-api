@@ -1,31 +1,67 @@
 @echo off
-echo Testing CNC Axis Names via JSON API with Automatic Type Conversion
-echo ================================================================
-echo.
-echo Reading axis names using JSON API...
-echo.
-echo Object details:
-echo - Thread: 3 (CNC_TASK_HMI)
-echo - Group: 131585 (0x20201 = CNC_IGRP_AC_AXIS + 1)
-echo - Offset: 4355 (0x1103 = AC_X_AXES_NAMES)
-echo - Type: STRUCT (automatically detected)
-echo - Length: 68 bytes (automatically calculated)
+echo Testing CNC Web API Server Connection and Axis Names
+echo ====================================================
 echo.
 
+REM First test if server is running
+echo 1. Testing server connection...
+curl -X GET "http://localhost:8080/" --connect-timeout 3 --max-time 5 > nul 2>&1
+if errorlevel 1 (
+    echo ERROR: Cannot connect to CNC Web API server on localhost:8080
+    echo.
+    echo Please check:
+    echo - Is the CncSdkExample.exe running?
+    echo - Is the web API server started?
+    echo - Is port 8080 available?
+    echo.
+    echo You can start the server by running: CncSdkExample.exe
+    pause
+    exit /b 1
+)
+echo ✓ Server is responding
+
+echo.
+echo 2. Testing server info page...
+curl -X GET "http://localhost:8080/" -H "Accept: text/html" --silent
+echo.
+
+echo.
+echo 3. Testing number of axes...
+echo Object: Thread=1, Group=131840, Offset=7 (number_of_axes)
 curl -X POST "http://localhost:8080/read" ^
   -H "Content-Type: application/json" ^
-  -d "{\"thread\": 3, \"group\": 131585, \"offset\": 4355, \"length\": 68}"
+  -d "{\"thread\": 1, \"group\": 131840, \"offset\": 7}" ^
+  --silent
+echo.
 
 echo.
+echo 4. Testing axis names...
+echo Object: Thread=3, Group=131585, Offset=4355 (axis_names structure)
+curl -X POST "http://localhost:8080/read" ^
+  -H "Content-Type: application/json" ^
+  -d "{\"thread\": 3, \"group\": 131585, \"offset\": 4355, \"length\": 68}" ^
+  --silent
 echo.
-echo Done! The JSON API automatically:
-echo - Detected the data type (STRUCT for axis names)
-echo - Provided the raw structure data
-echo - No manual hex conversion needed!
+
 echo.
-echo The 'value' field contains the axis names structure:
-echo - Use a hex-to-ASCII converter to decode axis names
-echo - First 4 bytes = number of axes
-echo - Next 64 bytes = axis names (4 axes * 16 chars each)
+echo 5. Testing WebSocket endpoint availability...
+echo Attempting WebSocket connection test...
+curl -X GET "http://localhost:8080/" ^
+  -H "Connection: Upgrade" ^
+  -H "Upgrade: websocket" ^
+  -H "Sec-WebSocket-Key: dGVzdA==" ^
+  --connect-timeout 2 --max-time 3 --silent --include
+echo.
+
+echo.
+echo ====================================================
+echo Connection Test Summary:
+echo - HTTP REST API: Available on http://localhost:8080
+echo - WebSocket API: Available on ws://localhost:8080
+echo - Use /read endpoint for reading CNC objects
+echo - Use /write endpoint for writing CNC objects
+echo.
+echo For the web HMI to work properly, both HTTP and WebSocket
+echo endpoints must be responding correctly.
 echo.
 pause

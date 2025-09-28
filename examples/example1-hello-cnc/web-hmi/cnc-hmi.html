@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern CNC HMI Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/cncWebSocket.js"></script>
+    <script src="js/cncObjects.js"></script>
+    <style>
+        /* Custom animations and effects */
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+    </style>
+    <script>
+        // Tailwind CSS class definitions - Clean modern borders without hover effects
+        const btnPrimary = "bg-white text-black border border-gray-800 font-semibold shadow-md";
+
+        const btnSecondary = "bg-gray-100 text-black border border-gray-400 font-semibold shadow-md";
+
+        const btnDanger = "bg-gray-800 text-white border border-gray-900 font-semibold shadow-md";
+
+        const btnActive = "bg-black text-white border border-gray-900 font-semibold shadow-md ring-1 ring-gray-400";
+
+        const panelClass = "bg-white border border-gray-300 shadow-lg";
+
+        const infoPanelClass = "bg-gray-50 border border-gray-400 shadow-md";
+
+        const statusIndicator = "w-3 h-3 rounded-full mr-3";
+
+        const inputModern = "bg-white text-black border border-gray-400 shadow-sm focus:ring-1 focus:ring-gray-300 focus:border-gray-600";
+
+        const headerCard = "bg-gradient-to-r from-black to-gray-800 border border-gray-700 shadow-lg";
+
+        const statusBarModern = "bg-gradient-to-r from-black to-gray-800 text-white border border-gray-700 shadow-lg";
+
+        const infoCard = "bg-white border border-gray-300 shadow-md";
+    </script>
+</head>
+<body class="bg-gray-100 font-mono text-sm min-h-screen">
+    <!-- Main Container -->
+    <div class="min-h-screen p-4">
+        <!-- WebSocket Status Bar -->
+        <div id="wsStatusBar" class="px-4 py-2 mb-2 border border-gray-400 bg-gray-200 text-sm font-medium">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div id="wsStatusDot" class="w-2 h-2 bg-gray-400 mr-2"></div>
+                    <span id="wsStatusText">WebSocket: Connecting...</span>
+                </div>
+                <div id="wsStatusDetails" class="text-xs text-gray-600">
+                    ws://localhost:8080
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Call Result Bar -->
+        <div id="lastCallBar" class="px-4 py-2 mb-4 border border-gray-300 bg-gray-50 text-xs font-mono" style="display: none;">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div id="lastCallDot" class="w-1.5 h-1.5 bg-gray-400 mr-2"></div>
+                    <span id="lastCallText">No API calls yet</span>
+                </div>
+                <div id="lastCallDetails" class="text-gray-500">
+                    --
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex gap-6 mt-4">
+            <!-- Left Panel - Execution Modes -->
+            <div class="flex-1 panel p-6">
+                <div class="flex items-center mb-6">
+                    <div class="status-indicator bg-black"></div>
+                    <h2 class="text-black font-bold text-lg">Execution Modes</h2>
+                </div>
+                
+                <!-- Mode Selection -->
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <button class="px-6 py-3 btn-secondary">AUTO</button>
+                    <button class="px-6 py-3 btn-secondary">MDI</button>
+                    <button class="px-6 py-3 btn-active">MANUAL</button>
+                </div>
+
+                <!-- Axis Selection -->
+                <div class="info-panel p-4 mb-6">
+                    <div class="text-black font-bold mb-3 text-center">SELECT AXES</div>
+                    <div id="axesCountDisplay" class="text-xs text-gray-600 text-center mb-3">
+                        Axes count: --
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 mb-3">
+                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">X</button>
+                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">Y</button>
+                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">Z</button>
+                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">U</button>
+                    </div>
+                    <div class="text-xs text-black text-center">
+                        <label class="flex items-center justify-center cursor-pointer">
+                            <input type="checkbox" checked class="mr-2 rounded">
+                            <span>ALLOW MULTI-AXIS SELECT</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Homing and Enable -->
+                <div class="info-panel p-4 mb-6">
+                    <div class="text-black font-bold mb-3 text-center">HOMING AND ENABLE</div>
+                    <div class="grid grid-cols-3 gap-2 mb-3">
+                        <button class="px-4 py-2 btn-primary">ENABLE</button>
+                        <button class="px-4 py-2 btn-primary">DISABLE</button>
+                        <button class="px-4 py-2 btn-primary">HOME</button>
+                    </div>
+                    <button class="w-full px-4 py-2 btn-primary">HOME ALL</button>
+                </div>
+
+                <!-- Jogging -->
+                <div class="info-panel p-4">
+                    <div class="text-black font-bold mb-3 text-center">JOGGING CONTROLS</div>
+
+                    <!-- Speed Selection -->
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <button class="px-4 py-2 btn-primary">SLOW</button>
+                        <button class="px-4 py-2 btn-primary">MEDIUM</button>
+                        <button class="px-4 py-2 btn-active">FAST</button>
+                    </div>
+
+                    <!-- Mode Selection -->
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <button class="px-6 py-2 btn-active">INCREMENTAL</button>
+                        <button class="px-6 py-2 btn-secondary">CONTINUOUS</button>
+                    </div>
+
+                    <!-- Distance Input -->
+                    <div class="mb-4">
+                        <label class="text-black font-semibold text-sm block mb-2">INCREMENTAL DISTANCE (mm)</label>
+                        <input type="text" value="10" class="w-full p-3 input-modern">
+                    </div>
+
+                    <!-- Jog Controls -->
+                    <div class="grid grid-cols-3 gap-2">
+                        <button class="px-4 py-3 btn-primary transform hover:scale-105">-JOG</button>
+                        <button class="px-4 py-3 btn-danger transform hover:scale-105">STOP</button>
+                        <button class="px-4 py-3 btn-primary transform hover:scale-105">JOG+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Override and Run Options -->
+            <div class="w-72 panel p-6">
+                <div class="text-center mb-6">
+                    <div class="w-4 h-4 bg-black mx-auto mb-2"></div>
+                    <h2 class="text-black font-bold text-lg">OVERRIDE & RUN</h2>
+                    <h3 class="text-black font-semibold">OPTIONS</h3>
+                </div>
+
+                <div class="flex flex-col gap-4 items-center">
+                    <button class="w-48 h-16 btn-secondary flex items-center justify-center">
+                        <span class="text-center leading-tight">OPTION<br>STOP</span>
+                    </button>
+                    <button class="w-48 h-16 btn-secondary flex items-center justify-center">
+                        <span class="text-center leading-tight">SINGLE<br>BLOCK</span>
+                    </button>
+                    <div class="w-48 h-16 btn-active flex items-center justify-center">
+                        <span class="text-center leading-tight">BLOCK<br>SKIP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Information -->
+            <div class="flex-1 panel p-6">
+                <div class="flex items-center mb-6">
+                    <div class="status-indicator bg-black"></div>
+                    <h2 class="text-black font-bold text-lg">System Information</h2>
+                </div>
+
+                <!-- Current Position -->
+                <div class="info-panel p-6 mb-6">
+                    <h3 class="text-black font-bold text-center mb-4 text-lg">CURRENT POSITION</h3>
+                    <div id="currentPositionGrid" class="grid grid-cols-2 gap-6 text-black">
+                        <div class="space-y-3" id="currentPositionContainer">
+                            <!-- Dynamic position entries will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Information -->
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Following Error -->
+                    <div class="info-panel p-4 text-black">
+                        <div class="font-bold text-center border-b border-gray-400 pb-2 mb-3 text-sm">FOLLOWING ERROR</div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between"><span>X</span><span>0.00 mm</span></div>
+                            <div class="flex justify-between"><span>Y</span><span>0.00 mm</span></div>
+                            <div class="flex justify-between"><span>Z</span><span>0.00 mm</span></div>
+                            <div class="flex justify-between"><span>U</span><span>0.00 mm</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Distance to Go -->
+                    <div class="info-panel p-4 text-black">
+                        <div class="font-bold text-center border-b border-gray-400 pb-2 mb-3 text-sm">DISTANCE TO GO</div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between"><span>X</span><span>0.00 mm</span></div>
+                            <div class="flex justify-between"><span>Y</span><span>0.00 mm</span></div>
+                            <div class="flex justify-between"><span>Z</span><span>0.00 mm</span></div>
+                            <div class="flex justify-between"><span>U</span><span>0.00 mm</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Feed Rate -->
+                    <div class="info-panel p-4 text-black">
+                        <div class="font-bold text-center border-b border-gray-400 pb-2 mb-3 text-sm">FEED RATE</div>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span>COMMAND:</span><span>0</span></div>
+                            <div class="flex justify-between"><span>ACTUAL:</span><span>0</span></div>
+                            <div class="flex justify-between"><span>OVERRIDE:</span><span>100%</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Tool Offsets -->
+                    <div class="info-panel p-4 text-black">
+                        <div class="font-bold text-center border-b border-gray-400 pb-2 mb-3 text-sm">TOOL OFFSETS</div>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span>D:</span><span>0.000</span></div>
+                            <div class="flex justify-between"><span>H:</span><span>0.000</span></div>
+                        </div>
+                    </div>
+
+                    <!-- G-Codes -->
+                    <div class="info-panel p-4 text-black">
+                        <div class="font-bold text-center border-b border-gray-400 pb-2 mb-3 text-sm">G-CODES</div>
+                        <div class="text-xs leading-relaxed">
+                            <div>G00 G17 G21 G40</div>
+                            <div>G49 G52 G64 G90</div>
+                        </div>
+                    </div>
+
+                    <!-- M-Codes -->
+                    <div class="info-panel p-4 text-black">
+                        <div class="font-bold text-center border-b border-gray-400 pb-2 mb-3 text-sm">M-CODES</div>
+                        <div class="text-xs text-center opacity-60">
+                            (None Active)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <span class="bg-black text-white px-4 py-2 text-sm font-semibold shadow-md flex items-center">
+                        <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                        SIMULATOR MODE
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Control Panel -->
+        <div class="flex gap-6 mt-6">
+            <!-- Execution Options -->
+            <div class="panel p-6">
+                <div class="text-black font-bold mb-4 text-center text-lg">EXECUTION CONTROLS</div>
+                <div class="grid grid-cols-4 gap-3">
+                    <button class="px-4 py-3 btn-primary transform hover:scale-105">
+                        <span class="text-center leading-tight">CYCLE<br>START</span>
+                    </button>
+                    <button class="px-4 py-3 btn-primary transform hover:scale-105">
+                        <span class="text-center leading-tight">FEED<br>HOLD</span>
+                    </button>
+                    <button class="px-4 py-3 btn-danger transform hover:scale-105">ABORT</button>
+                    <button class="px-4 py-3 btn-secondary transform hover:scale-105">RESET</button>
+                </div>
+            </div>
+
+            <!-- Status Bar -->
+            <div class="flex-1 status-bar-modern px-6 py-4 card-hover">
+                <div class="flex items-center">
+                    <div class="w-3 h-3 bg-white rounded-full mr-3 animate-pulse shadow-lg"></div>
+                    <div class="text-sm font-semibold">PROGRAM LOADED: Press CYCLE START to run, or CLEAR FILE to select another program.</div>
+                </div>
+            </div>
+
+            <!-- Right Controls -->
+            <div class="panel p-6">
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="text-center">
+                        <div class="info-card p-4 mb-2">
+                            <div class="text-black font-bold text-sm">ALARMS</div>
+                            <div class="text-black text-2xl font-bold">0</div>
+                        </div>
+                    </div>
+                    <button class="px-4 py-3 btn-secondary transform hover:scale-105">SETTINGS</button>
+                    <button class="px-4 py-3 btn-danger transform hover:scale-105">
+                        <span class="text-center leading-tight">LOG<br>OUT</span>
+                    </button>
+                </div>
+                <div class="text-right text-black text-xs mt-4 font-semibold flex items-center justify-end">
+                    <div class="w-2 h-2 bg-black mr-2"></div>
+                    Administrator
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Status -->
+        <div class="panel px-6 py-3 mt-6">
+            <div class="flex justify-between items-center">
+                <div class="text-black text-sm font-semibold">
+                    🤖 CNC HMI System Ready
+                </div>
+                <div id="time-display" class="text-black text-sm font-mono">
+                    03-Apr-16 23:03:12
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Helper function to add classes without removing existing ones
+        function addClasses(element, newClasses) {
+            const classesToAdd = newClasses.split(' ');
+            classesToAdd.forEach(cls => {
+                if (cls.trim()) element.classList.add(cls.trim());
+            });
+        }
+
+        // Apply dynamic classes when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+
+
+            // Apply panel classes
+            document.querySelectorAll('.panel').forEach(panel => {
+                addClasses(panel, panelClass);
+            });
+
+            // Apply info-panel classes
+            document.querySelectorAll('.info-panel').forEach(panel => {
+                addClasses(panel, infoPanelClass);
+            });
+
+            // Apply button classes
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                addClasses(btn, btnPrimary);
+            });
+
+            document.querySelectorAll('.btn-secondary').forEach(btn => {
+                addClasses(btn, btnSecondary);
+            });
+
+            document.querySelectorAll('.btn-danger').forEach(btn => {
+                addClasses(btn, btnDanger);
+            });
+
+            document.querySelectorAll('.btn-active').forEach(btn => {
+                addClasses(btn, btnActive);
+            });
+
+            // Apply input classes
+            document.querySelectorAll('.input-modern').forEach(input => {
+                addClasses(input, inputModern);
+            });
+
+            // Apply status bar classes
+            document.querySelectorAll('.status-bar-modern').forEach(bar => {
+                addClasses(bar, statusBarModern);
+            });
+
+            // Apply info card classes
+            document.querySelectorAll('.info-card').forEach(card => {
+                addClasses(card, infoCard);
+            });
+
+            // Apply status indicator classes
+            document.querySelectorAll('.status-indicator').forEach(indicator => {
+                addClasses(indicator, statusIndicator);
+                indicator.classList.add('bg-black');
+            });
+        });
+
+        // Add basic interactivity
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('Button clicked:', this.textContent.trim());
+            });
+        });
+
+        // CNC WebSocket integration
+        let cncWs = null;
+        let cncReader = null;
+        let cncMonitor = null;
+
+        // Initialize CNC WebSocket connection
+        async function initializeCncConnection() {
+            try {
+                // Create WebSocket connection
+                cncWs = new CncWebSocket('ws://localhost:8080');
+                cncReader = new CncObjectReader(cncWs);
+                cncMonitor = new CncStatusMonitor(cncWs, cncReader);
+
+                // Set up connection event listeners
+                cncWs.on('connected', () => {
+                    console.log('[CNC-HMI] Connected to CNC system');
+                    updateCncConnectionStatus('connected');
+                    startCncMonitoring();
+                });
+
+                cncWs.on('disconnected', () => {
+                    console.log('[CNC-HMI] Disconnected from CNC system');
+                    updateCncConnectionStatus('disconnected');
+                });
+
+                cncWs.on('error', (error) => {
+                    console.error('[CNC-HMI] CNC connection error:', error);
+                    updateCncConnectionStatus('error');
+                });
+
+                // Connect to CNC system
+                await cncWs.connect();
+            } catch (error) {
+                console.error('[CNC-HMI] Failed to initialize CNC connection:', error);
+                updateCncConnectionStatus('error');
+            }
+        }
+
+        // Start monitoring CNC objects
+        function startCncMonitoring() {
+            // Read axes count once on connection
+            readAxesCount();
+
+            // Set status to show system is connected
+            updateSystemStatus('SIMULATOR MODE', true);
+
+            // Start periodic position updates
+            startPositionMonitoring();
+        }
+
+        // Start periodic monitoring of axis positions
+        function startPositionMonitoring() {
+            // Update positions every 200ms (0.2 seconds)
+            window.positionMonitorInterval = setInterval(() => {
+                if (cncReader && cncWs && cncWs.isConnected()) {
+                    readAxisPositions();
+                }
+            }, 200);
+        }
+
+        // Read number of axes and update display
+        async function readAxesCount() {
+            const startTime = performance.now();
+            try {
+                const result = await cncReader.readAxesCount();
+                const duration = performance.now() - startTime;
+
+                if (result.success) {
+                    console.log(`[CNC-HMI] Number of axes: ${result.axisCount}`);
+
+                    // Now read the axis names
+                    const namesStartTime = performance.now();
+                    const namesResult = await cncReader.readAxisNames(result.axisCount);
+                    const namesDuration = performance.now() - namesStartTime;
+
+                    if (namesResult.success) {
+                        console.log(`[CNC-HMI] Axis names:`, namesResult.axisNames);
+                        updateAxesDisplay(result.axisCount, namesResult.axisNames);
+                        updateLastCallResult(
+                            'READ axis_names',
+                            true,
+                            `Names: ${namesResult.axisNames.join(', ')}`,
+                            namesDuration
+                        );
+                    } else {
+                        console.error('[CNC-HMI] Failed to read axis names:', namesResult.error);
+                        updateAxesDisplay(result.axisCount);
+                        updateLastCallResult(
+                            'READ axis_names',
+                            false,
+                            namesResult.error,
+                            namesDuration
+                        );
+                    }
+
+                    updateLastCallResult(
+                        'READ number_of_axes',
+                        true,
+                        `Found ${result.axisCount} axes`,
+                        duration
+                    );
+                } else {
+                    console.error('[CNC-HMI] Failed to read axes count:', result.error);
+                    updateLastCallResult(
+                        'READ number_of_axes',
+                        false,
+                        result.error,
+                        duration
+                    );
+                    // Default to 4 axes if reading fails
+                    updateAxesDisplay(4);
+                }
+            } catch (error) {
+                const duration = performance.now() - startTime;
+                console.error('[CNC-HMI] Error reading axes count:', error);
+                updateLastCallResult(
+                    'READ number_of_axes',
+                    false,
+                    error.message,
+                    duration
+                );
+                // Default to 4 axes if reading fails
+                updateAxesDisplay(4);
+            }
+        }
+
+        // Update axes display based on actual number of axes
+        function updateAxesDisplay(axisCount, realAxisNames = null) {
+            const axesContainer = document.querySelector('.grid.grid-cols-4.gap-2.mb-3');
+            const axesCountDisplay = document.getElementById('axesCountDisplay');
+
+            if (!axesContainer) return;
+
+            // Update axes count display
+            if (axesCountDisplay) {
+                const namesInfo = realAxisNames ? ` (${realAxisNames.join(', ')})` : '';
+                axesCountDisplay.textContent = `Axes count: ${axisCount}${namesInfo}`;
+            }
+
+            // Clear existing axes
+            axesContainer.innerHTML = '';
+
+            // Update grid class based on axis count
+            axesContainer.className = `grid gap-2 mb-3 ${getGridClass(axisCount)}`;
+
+            // Use real axis names if available, otherwise fallback to standard names
+            const axisNames = realAxisNames || ['X', 'Y', 'Z', 'U', 'V', 'W', 'A', 'B', 'C'];
+
+            // Create axis buttons
+            for (let i = 0; i < axisCount; i++) {
+                const button = document.createElement('button');
+                button.className = 'aspect-square btn-primary flex items-center justify-center text-sm font-bold';
+
+                // Use the real axis name or fallback to AXIS{i}
+                const displayName = i < axisNames.length ? axisNames[i] : `AXIS${i}`;
+                button.textContent = displayName;
+                button.title = `Axis ${i}: ${displayName}`; // Tooltip for full info
+
+                button.addEventListener('click', () => selectAxis(displayName, button));
+                axesContainer.appendChild(button);
+            }
+
+            // Apply styling to new buttons
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                addClasses(btn, btnPrimary);
+            });
+
+            // Update current position display with the same axes
+            updateCurrentPositionDisplay(axisCount, axisNames);
+
+            // Store axis information globally for position monitoring
+            window.currentAxesInfo = {
+                axisCount: axisCount,
+                axisNames: axisNames
+            };
+
+            const namesText = realAxisNames ? `with names: ${realAxisNames.join(', ')}` : 'with default names';
+            console.log(`[CNC-HMI] Updated axes display for ${axisCount} axes ${namesText}`);
+        }
+
+        // Update current position display based on number of axes and their names
+        function updateCurrentPositionDisplay(axisCount, axisNames) {
+            const positionContainer = document.getElementById('currentPositionContainer');
+            const positionGrid = document.getElementById('currentPositionGrid');
+
+            if (!positionContainer) return;
+
+            // Clear existing position entries
+            positionContainer.innerHTML = '';
+
+            // Determine grid layout based on axis count
+            let gridClass = 'grid gap-6 text-black';
+            if (axisCount <= 4) {
+                gridClass += ' grid-cols-1'; // Single column for 4 or fewer axes
+            } else if (axisCount <= 8) {
+                gridClass += ' grid-cols-2'; // Two columns for 5-8 axes
+            } else {
+                gridClass += ' grid-cols-3'; // Three columns for more than 8 axes
+            }
+            positionGrid.className = gridClass;
+
+            // Create position entries for each axis
+            for (let i = 0; i < axisCount; i++) {
+                const displayName = i < axisNames.length ? axisNames[i] : `AXIS${i}`;
+
+                const positionEntry = document.createElement('div');
+                positionEntry.className = 'flex items-center';
+                positionEntry.innerHTML = `
+                    <span class="w-8 h-8 bg-gray-300 flex items-center justify-center text-black font-bold mr-3">${displayName}</span>
+                    <span class="text-xl font-bold" id="position-${displayName}">0.00 mm</span>
+                `;
+
+                positionContainer.appendChild(positionEntry);
+            }
+
+            console.log(`[CNC-HMI] Updated current position display for ${axisCount} axes`);
+        }
+
+        // Read positions for all active axes
+        async function readAxisPositions() {
+            if (!cncReader || !window.currentAxesInfo) return;
+
+            const { axisCount, axisNames } = window.currentAxesInfo;
+
+            // Read positions for all axes in parallel
+            const positionPromises = [];
+            for (let axisIndex = 1; axisIndex <= axisCount; axisIndex++) {
+                const group = 0x20200 + axisIndex; // 0x20201 for axis 1, 0x20202 for axis 2, etc.
+                const offset = 0x00030; // ac_X_active_position_acs_hr_r
+
+                const promise = cncReader.readObjectValue(3, group, offset, 'REAL64', 8)
+                    .then(result => {
+                        const axisName = axisNames[axisIndex - 1] || `AXIS${axisIndex - 1}`;
+                        console.log(`[CNC-HMI] Raw API response for ${axisName}:`, result);
+
+                        return {
+                            axisIndex: axisIndex,
+                            axisName: axisName,
+                            success: result.success,
+                            position: result.success ? result.value : null,
+                            error: result.error,
+                            rawResult: result
+                        };
+                    })
+                    .catch(error => ({
+                        axisIndex: axisIndex,
+                        axisName: axisNames[axisIndex - 1] || `AXIS${axisIndex - 1}`,
+                        success: false,
+                        position: null,
+                        error: error.message
+                    }));
+
+                positionPromises.push(promise);
+            }
+
+            try {
+                const positionResults = await Promise.all(positionPromises);
+                updatePositionDisplay(positionResults);
+            } catch (error) {
+                console.error('[CNC-HMI] Error reading axis positions:', error);
+            }
+        }
+
+        // Update the position display with new values
+        function updatePositionDisplay(positionResults) {
+            positionResults.forEach(result => {
+                const positionElement = document.getElementById(`position-${result.axisName}`);
+                if (positionElement) {
+                    if (result.success && result.position !== null && result.position !== undefined) {
+                        // Debug logging for position values
+                        console.log(`[CNC-HMI] Position for ${result.axisName}:`, result.position, typeof result.position);
+
+                        // Convert to number and check if valid
+                        const numericPosition = Number(result.position);
+                        if (isNaN(numericPosition)) {
+                            console.warn(`[CNC-HMI] Invalid position value for ${result.axisName}:`, result.position);
+                            positionElement.textContent = 'ERR mm';
+                            positionElement.style.color = '#ff0000'; // Red for error
+                        } else {
+                            // Format position to 3 decimal places for better precision
+                            const formattedPosition = numericPosition.toFixed(3);
+                            positionElement.textContent = `${formattedPosition} mm`;
+                            positionElement.style.color = 'inherit'; // Normal color
+                        }
+                    } else {
+                        console.log(`[CNC-HMI] No valid position for ${result.axisName}:`, result);
+                        positionElement.textContent = '-- mm';
+                        positionElement.style.color = '#999'; // Gray for error/unavailable
+                    }
+                }
+            });
+        }
+
+        // Get appropriate grid class for axis count
+        function getGridClass(axisCount) {
+            if (axisCount <= 2) return 'grid-cols-2';
+            if (axisCount <= 3) return 'grid-cols-3';
+            if (axisCount <= 4) return 'grid-cols-4';
+            if (axisCount <= 6) return 'grid-cols-6';
+            return 'grid-cols-4'; // Default fallback
+        }
+
+        // Handle axis selection
+        function selectAxis(axisName, buttonElement) {
+            // Remove active class from all axis buttons
+            document.querySelectorAll('.aspect-square').forEach(btn => {
+                btn.classList.remove('btn-active');
+                addClasses(btn, btnPrimary);
+            });
+
+            // Add active class to selected button
+            buttonElement.classList.remove('btn-primary');
+            addClasses(buttonElement, btnActive);
+
+            console.log(`[CNC-HMI] Selected axis: ${axisName}`);
+        }
+
+        // Update CNC connection status in UI
+        function updateCncConnectionStatus(status) {
+            const statusBar = document.getElementById('wsStatusBar');
+            const statusDot = document.getElementById('wsStatusDot');
+            const statusText = document.getElementById('wsStatusText');
+            const statusDetails = document.getElementById('wsStatusDetails');
+
+            switch (status) {
+                case 'connected':
+                    statusBar.className = 'px-4 py-2 mb-4 border border-green-400 bg-green-100 text-sm font-medium';
+                    statusDot.className = 'w-2 h-2 bg-green-500 mr-2 animate-pulse';
+                    statusText.textContent = 'WebSocket: Connected';
+                    statusDetails.textContent = 'ws://localhost:8080 - CNC System Online';
+                    break;
+                case 'disconnected':
+                    statusBar.className = 'px-4 py-2 mb-4 border border-yellow-400 bg-yellow-100 text-sm font-medium';
+                    statusDot.className = 'w-2 h-2 bg-yellow-500 mr-2';
+                    statusText.textContent = 'WebSocket: Disconnected';
+                    statusDetails.textContent = 'ws://localhost:8080 - Attempting to reconnect...';
+                    break;
+                case 'error':
+                    statusBar.className = 'px-4 py-2 mb-4 border border-red-400 bg-red-100 text-sm font-medium';
+                    statusDot.className = 'w-2 h-2 bg-red-500 mr-2';
+                    statusText.textContent = 'WebSocket: Connection Error';
+                    statusDetails.textContent = 'ws://localhost:8080 - Failed to connect to CNC system';
+                    break;
+                default:
+                    statusBar.className = 'px-4 py-2 mb-4 border border-gray-400 bg-gray-200 text-sm font-medium';
+                    statusDot.className = 'w-2 h-2 bg-gray-400 mr-2';
+                    statusText.textContent = 'WebSocket: Connecting...';
+                    statusDetails.textContent = 'ws://localhost:8080';
+            }
+
+            console.log(`[CNC-HMI] Connection status: ${status}`);
+        }
+
+        // Update last API call result
+        function updateLastCallResult(operation, success, details, duration = null) {
+            const lastCallBar = document.getElementById('lastCallBar');
+            const lastCallDot = document.getElementById('lastCallDot');
+            const lastCallText = document.getElementById('lastCallText');
+            const lastCallDetails = document.getElementById('lastCallDetails');
+
+            // Show the bar
+            lastCallBar.style.display = 'block';
+
+            // Update based on success/failure
+            if (success) {
+                lastCallBar.className = 'px-4 py-2 mb-4 border border-green-300 bg-green-50 text-xs font-mono';
+                lastCallDot.className = 'w-1.5 h-1.5 bg-green-500 mr-2';
+                lastCallText.textContent = `✓ ${operation}`;
+            } else {
+                lastCallBar.className = 'px-4 py-2 mb-4 border border-red-300 bg-red-50 text-xs font-mono';
+                lastCallDot.className = 'w-1.5 h-1.5 bg-red-500 mr-2';
+                lastCallText.textContent = `✗ ${operation}`;
+            }
+
+            // Update details with timing if available
+            const timestamp = new Date().toLocaleTimeString();
+            let detailText = timestamp;
+
+            if (duration !== null) {
+                detailText += ` (${duration.toFixed(1)}ms)`;
+            }
+
+            if (details) {
+                detailText += ` - ${details}`;
+            }
+
+            lastCallDetails.textContent = detailText;
+        }
+
+        // Update system status indicator
+        function updateSystemStatus(message, isConnected) {
+            const statusElement = document.querySelector('span.bg-black.text-white.px-4.py-2.text-sm.font-semibold.shadow-md.flex.items-center');
+            if (statusElement) {
+                const statusDot = statusElement.querySelector('div');
+                const statusText = statusElement.childNodes[statusElement.childNodes.length - 1];
+
+                if (statusDot) {
+                    statusDot.className = `w-2 h-2 mr-2 ${isConnected ? 'bg-white animate-pulse' : 'bg-red-400'}`;
+                }
+
+                if (statusText && statusText.nodeType === Node.TEXT_NODE) {
+                    statusText.textContent = message;
+                }
+            }
+        }
+
+        // Update time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: '2-digit'
+            }) + ' ' + now.toLocaleTimeString('en-GB');
+
+            // Use specific ID to target the time element
+            const timeElement = document.getElementById('time-display');
+            if (timeElement) {
+                timeElement.textContent = timeString;
+            }
+        }
+
+        setInterval(updateTime, 1000);
+
+        // Initialize everything when page loads
+        window.addEventListener('load', async () => {
+            await initializeCncConnection();
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (window.positionMonitorInterval) {
+                clearInterval(window.positionMonitorInterval);
+                window.positionMonitorInterval = null;
+            }
+            if (cncMonitor) {
+                cncMonitor.stopAll();
+            }
+            if (cncWs) {
+                cncWs.disconnect();
+            }
+        });
+    </script>
+</body>
+</html>

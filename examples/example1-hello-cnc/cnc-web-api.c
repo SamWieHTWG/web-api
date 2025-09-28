@@ -139,6 +139,30 @@ static cJSON* value_to_json(const void* value, CNC_DATA_TYPE type, uint32_t leng
     }
 }
 
+// Helper function to parse datatype string to CNC_DATA_TYPE enum
+static CNC_DATA_TYPE parse_datatype_string(const char* datatype_str) {
+    if (!datatype_str) return CNC_TYPE_NONE;
+
+    if (strcmp(datatype_str, "NONE") == 0) return CNC_TYPE_NONE;
+    if (strcmp(datatype_str, "BOOLEAN") == 0) return CNC_TYPE_BOOLEAN;
+    if (strcmp(datatype_str, "UNS08") == 0) return CNC_TYPE_UNS08;
+    if (strcmp(datatype_str, "SGN08") == 0) return CNC_TYPE_SGN08;
+    if (strcmp(datatype_str, "UNS16") == 0) return CNC_TYPE_UNS16;
+    if (strcmp(datatype_str, "SGN16") == 0) return CNC_TYPE_SGN16;
+    if (strcmp(datatype_str, "UNS32") == 0) return CNC_TYPE_UNS32;
+    if (strcmp(datatype_str, "SGN32") == 0) return CNC_TYPE_SGN32;
+    if (strcmp(datatype_str, "UNS64") == 0) return CNC_TYPE_UNS64;
+    if (strcmp(datatype_str, "SGN64") == 0) return CNC_TYPE_SGN64;
+    if (strcmp(datatype_str, "REAL64") == 0) return CNC_TYPE_REAL64;
+    if (strcmp(datatype_str, "STRUCT") == 0) return CNC_TYPE_STRUCT;
+    if (strcmp(datatype_str, "REAL32") == 0) return CNC_TYPE_REAL32;
+    if (strcmp(datatype_str, "CHAR") == 0) return CNC_TYPE_CHAR;
+    if (strcmp(datatype_str, "STRING") == 0) return CNC_TYPE_STRING;
+
+    printf("[CNC-WEB-API] WARNING: Unknown datatype string '%s', using NONE\n", datatype_str);
+    return CNC_TYPE_NONE;
+}
+
 // Helper function to convert cJSON value to C value based on type
 static bool json_to_value(cJSON* json, void* value, CNC_DATA_TYPE type) {
     if (!json || !value) return false;
@@ -530,8 +554,15 @@ static char* handle_websocket_read_request(cJSON* request) {
         length = (uint32_t)cJSON_GetNumberValue(length_json);
     }
 
-    if (cJSON_IsNumber(datatype_json)) {
+    if (cJSON_IsString(datatype_json)) {
+        // Parse datatype string (e.g., "REAL64", "UNS32", etc.)
+        const char* datatype_str = cJSON_GetStringValue(datatype_json);
+        datatype = parse_datatype_string(datatype_str);
+        printf("[CNC-WEB-API] WS READ: Parsed datatype string '%s' to enum %d\n", datatype_str, (int)datatype);
+    } else if (cJSON_IsNumber(datatype_json)) {
+        // Legacy support for numeric datatypes
         datatype = (CNC_DATA_TYPE)cJSON_GetNumberValue(datatype_json);
+        printf("[CNC-WEB-API] WS READ: Using legacy numeric datatype %d\n", (int)datatype);
     }
 
     // If datatype not provided, get it from CNC
@@ -628,8 +659,15 @@ static char* handle_websocket_write_request(cJSON* request) {
     cJSON* datatype_json = cJSON_GetObjectItem(request, "datatype");
     CNC_DATA_TYPE datatype = CNC_TYPE_NONE;
 
-    if (cJSON_IsNumber(datatype_json)) {
+    if (cJSON_IsString(datatype_json)) {
+        // Parse datatype string (e.g., "REAL64", "UNS32", etc.)
+        const char* datatype_str = cJSON_GetStringValue(datatype_json);
+        datatype = parse_datatype_string(datatype_str);
+        printf("[CNC-WEB-API] WS WRITE: Parsed datatype string '%s' to enum %d\n", datatype_str, (int)datatype);
+    } else if (cJSON_IsNumber(datatype_json)) {
+        // Legacy support for numeric datatypes
         datatype = (CNC_DATA_TYPE)cJSON_GetNumberValue(datatype_json);
+        printf("[CNC-WEB-API] WS WRITE: Using legacy numeric datatype %d\n", (int)datatype);
     }
 
     // If datatype not provided, get it from CNC
@@ -735,14 +773,22 @@ static void handle_read_request(int client_socket, const char* body) {
     CNC_DATA_TYPE data_type;
     uint32_t type_size;
 
-    if (cJSON_IsNumber(datatype_json)) {
-        // Use provided datatype
+    if (cJSON_IsString(datatype_json)) {
+        // Parse datatype string (e.g., "REAL64", "UNS32", etc.)
+        const char* datatype_str = cJSON_GetStringValue(datatype_json);
+        data_type = parse_datatype_string(datatype_str);
+        type_size = cnc_get_type_size(data_type);
+        printf("[CNC-WEB-API] HTTP: Parsed datatype string '%s' to enum %d\n", datatype_str, (int)data_type);
+    } else if (cJSON_IsNumber(datatype_json)) {
+        // Legacy support for numeric datatypes
         data_type = (CNC_DATA_TYPE)cJSON_GetNumberValue(datatype_json);
         type_size = cnc_get_type_size(data_type);
+        printf("[CNC-WEB-API] HTTP: Using legacy numeric datatype %d\n", (int)data_type);
     } else {
         // Get the data type automatically (fallback)
         data_type = cnc_get_object_data_type_wrapper(thread_id, group_id, offset_id);
         type_size = cnc_get_type_size(data_type);
+        printf("[CNC-WEB-API] HTTP: Auto-detected datatype %d\n", (int)data_type);
     }
 
     // Check for optional length parameter
@@ -861,14 +907,22 @@ static void handle_write_request(int client_socket, const char* body) {
     CNC_DATA_TYPE data_type;
     uint32_t type_size;
 
-    if (cJSON_IsNumber(datatype_json)) {
-        // Use provided datatype
+    if (cJSON_IsString(datatype_json)) {
+        // Parse datatype string (e.g., "REAL64", "UNS32", etc.)
+        const char* datatype_str = cJSON_GetStringValue(datatype_json);
+        data_type = parse_datatype_string(datatype_str);
+        type_size = cnc_get_type_size(data_type);
+        printf("[CNC-WEB-API] HTTP: Parsed datatype string '%s' to enum %d\n", datatype_str, (int)data_type);
+    } else if (cJSON_IsNumber(datatype_json)) {
+        // Legacy support for numeric datatypes
         data_type = (CNC_DATA_TYPE)cJSON_GetNumberValue(datatype_json);
         type_size = cnc_get_type_size(data_type);
+        printf("[CNC-WEB-API] HTTP: Using legacy numeric datatype %d\n", (int)data_type);
     } else {
         // Get the data type automatically (fallback)
         data_type = cnc_get_object_data_type_wrapper(thread_id, group_id, offset_id);
         type_size = cnc_get_type_size(data_type);
+        printf("[CNC-WEB-API] HTTP: Auto-detected datatype %d\n", (int)data_type);
     }
 
     // Log the write operation request

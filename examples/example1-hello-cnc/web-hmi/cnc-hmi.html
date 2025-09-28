@@ -87,28 +87,65 @@
                 
                 <!-- Mode Selection -->
                 <div class="grid grid-cols-3 gap-3 mb-6">
-                    <button class="px-6 py-3 btn-secondary">AUTO</button>
-                    <button class="px-6 py-3 btn-secondary">MDI</button>
-                    <button class="px-6 py-3 btn-active">MANUAL</button>
+                    <button class="px-6 py-3 btn-secondary" onclick="setMode('AUTO')">AUTO</button>
+                    <button class="px-6 py-3 btn-secondary" id="mdiModeBtn" onclick="setMode('MDI')">MDI</button>
+                    <button class="px-6 py-3 btn-active" id="manualModeBtn" onclick="setMode('MANUAL')">MANUAL</button>
                 </div>
 
-                <!-- Axis Selection -->
+                <!-- Axis Selection / MDI Input Area -->
                 <div class="info-panel p-4 mb-6">
-                    <div class="text-black font-bold mb-3 text-center">SELECT AXES</div>
-                    <div id="axesCountDisplay" class="text-xs text-gray-600 text-center mb-3">
-                        Axes count: --
+                    <!-- Manual Mode: Axis Selection -->
+                    <div id="axisSelectionPanel">
+                        <div class="text-black font-bold mb-3 text-center">SELECT AXES</div>
+                        <div id="axesCountDisplay" class="text-xs text-gray-600 text-center mb-3">
+                            Axes count: --
+                        </div>
+                        <div class="grid grid-cols-4 gap-2 mb-3">
+                            <button class="aspect-square btn-primary flex items-center justify-center text-xl">X</button>
+                            <button class="aspect-square btn-primary flex items-center justify-center text-xl">Y</button>
+                            <button class="aspect-square btn-primary flex items-center justify-center text-xl">Z</button>
+                            <button class="aspect-square btn-primary flex items-center justify-center text-xl">U</button>
+                        </div>
+                        <div class="text-xs text-black text-center">
+                            <label class="flex items-center justify-center cursor-pointer">
+                                <input type="checkbox" checked class="mr-2 rounded">
+                                <span>ALLOW MULTI-AXIS SELECT</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-4 gap-2 mb-3">
-                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">X</button>
-                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">Y</button>
-                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">Z</button>
-                        <button class="aspect-square btn-primary flex items-center justify-center text-xl">U</button>
-                    </div>
-                    <div class="text-xs text-black text-center">
-                        <label class="flex items-center justify-center cursor-pointer">
-                            <input type="checkbox" checked class="mr-2 rounded">
-                            <span>ALLOW MULTI-AXIS SELECT</span>
-                        </label>
+
+                    <!-- MDI Mode: Input Panel -->
+                    <div id="mdiInputPanel" class="hidden">
+                        <div class="text-black font-bold mb-3 text-center">MANUAL DATA INPUT</div>
+                        <div class="mb-3">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Enter G-code command:</label>
+                            <input
+                                type="text"
+                                id="mdiInputField"
+                                placeholder="e.g., G01 X100 Y200 F500"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                onkeypress="handleMdiKeyPress(event)"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <div id="mdiResultPanel" class="min-h-[60px] bg-gray-50 border border-gray-200 rounded-md p-3">
+                                <p class="text-gray-500 text-sm">Enter MDI command and press Execute</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="executeMdiInline()"
+                                class="flex-1 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded-md transition-colors"
+                            >
+                                Execute
+                            </button>
+                            <button
+                                onclick="clearMdiInput()"
+                                class="px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-md transition-colors"
+                            >
+                                Clear
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -443,12 +480,12 @@
 
         // Start periodic monitoring of axis positions
         function startPositionMonitoring() {
-            // Update positions every 200ms (0.2 seconds)
+            // Update positions every 100ms (0.1 seconds)
             window.positionMonitorInterval = setInterval(() => {
                 if (cncReader && cncWs && cncWs.isConnected()) {
                     readAxisPositions();
                 }
-            }, 200);
+            }, 100);
         }
 
         // Read number of axes and update display
@@ -833,6 +870,209 @@
                 cncWs.disconnect();
             }
         });
+
+        // ===== Mode Management Functions =====
+
+        // Set execution mode (AUTO, MDI, MANUAL)
+        function setMode(mode) {
+            // Update button styles
+            document.querySelectorAll('#mdiModeBtn, #manualModeBtn').forEach(btn => {
+                btn.className = 'px-6 py-3 btn-secondary';
+            });
+
+            // Show/hide appropriate panels
+            const axisPanel = document.getElementById('axisSelectionPanel');
+            const mdiPanel = document.getElementById('mdiInputPanel');
+
+            if (mode === 'MDI') {
+                // Set MDI button as active
+                document.getElementById('mdiModeBtn').className = 'px-6 py-3 btn-active';
+
+                // Switch to MDI panel
+                axisPanel.classList.add('hidden');
+                mdiPanel.classList.remove('hidden');
+
+                // Focus on MDI input
+                setTimeout(() => {
+                    document.getElementById('mdiInputField').focus();
+                }, 100);
+
+                console.log('[HMI] Switched to MDI mode');
+            } else {
+                // Set Manual button as active (default)
+                document.getElementById('manualModeBtn').className = 'px-6 py-3 btn-active';
+
+                // Switch to axis selection panel
+                mdiPanel.classList.add('hidden');
+                axisPanel.classList.remove('hidden');
+
+                console.log('[HMI] Switched to Manual mode');
+            }
+        }
+
+        // Execute MDI Command (inline version)
+        async function executeMdiInline() {
+            const mdiCommand = document.getElementById('mdiInputField').value.trim();
+            if (!mdiCommand) {
+                showMdiResultInline('Please enter an MDI command', false);
+                return;
+            }
+
+            try {
+                showMdiResultInline('Executing MDI command...', null);
+
+                // Constants from web-hmi.html implementation
+                const MCM_MODE_MDI = 3;
+                const MCM_STATE_SELECTED = 2;
+                const MCM_STATE_ACTIVE = 4;
+                const MCM_ACTIVE = 259;
+                const MCM_COMMAND_TO_MODE = 260;
+                const MCM_COMMAND_TO_STATE = 261;
+                const MCM_COMMAND_FROM_MODE = 262;
+                const MCM_COMMAND_FROM_STATE = 263;
+                const MCM_COMMAND_PARAMETER = 264;
+
+                console.log(`[MDI] Starting MDI command: "${mdiCommand}"`);
+
+                // Phase 1: Set to MDI mode and SELECTED state
+                console.log('[MDI] Setting to MDI + SELECTED state');
+                await cncWs.write(3, 131329, MCM_COMMAND_TO_MODE, MCM_MODE_MDI);
+                await cncWs.write(3, 131329, MCM_COMMAND_TO_STATE, MCM_STATE_SELECTED);
+                await cncWs.write(3, 131329, MCM_COMMAND_FROM_MODE, 0);
+                await cncWs.write(3, 131329, MCM_COMMAND_FROM_STATE, 0);
+                await cncWs.write(3, 131329, MCM_COMMAND_PARAMETER, mdiCommand);
+
+                // Wait 10ms
+                await sleep(10);
+
+                // Phase 2: Wait for state change (up to 100 iterations)
+                let stateReached = false;
+                for (let i = 0; i < 100; i++) {
+                    const activeStateResult = await cncWs.read(3, 131329, MCM_ACTIVE);
+                    console.log(`[MDI] Wait loop iteration ${i + 1}, state read:`, activeStateResult);
+
+                    const currentState = parseMcmState(activeStateResult);
+                    if (currentState) {
+                        console.log(`[MDI] Current state: ${getModeStateName(currentState.mode, currentState.state)}`);
+
+                        if (currentState.mode === MCM_MODE_MDI && currentState.state === MCM_STATE_SELECTED) {
+                            console.log('[MDI] Successfully reached MDI/SELECTED state');
+                            stateReached = true;
+                            break;
+                        }
+                    }
+
+                    await sleep(10);
+                }
+
+                if (!stateReached) {
+                    showMdiResultInline('Timeout waiting for MDI SELECTED state', false);
+                    return;
+                }
+
+                // Phase 3: Set to ACTIVE state
+                console.log('[MDI] Setting to MDI + ACTIVE state');
+                await cncWs.write(3, 131329, MCM_COMMAND_TO_MODE, MCM_MODE_MDI);
+                await cncWs.write(3, 131329, MCM_COMMAND_TO_STATE, MCM_STATE_ACTIVE);
+                await cncWs.write(3, 131329, MCM_COMMAND_FROM_MODE, 0);
+                await cncWs.write(3, 131329, MCM_COMMAND_FROM_STATE, 0);
+                await cncWs.write(3, 131329, MCM_COMMAND_PARAMETER, mdiCommand);
+
+                console.log('[MDI] MDI command execution completed successfully');
+                showMdiResultInline(`Successfully executed: ${mdiCommand}`, true);
+
+            } catch (error) {
+                console.error('[MDI] Error executing command:', error);
+                showMdiResultInline(`Error: ${error.message}`, false);
+            }
+        }
+
+        // Helper function to parse MCM state
+        function parseMcmState(apiResult) {
+            if (!apiResult.success || !apiResult.value) {
+                return null;
+            }
+
+            let data = apiResult.value;
+            if (typeof data === 'string') {
+                data = data.match(/.{2}/g)?.map(byte => parseInt(byte, 16)) || [];
+            }
+
+            if (data.length < 8) {
+                console.log('[MCM] Warning: MCM state data too short:', data);
+                return null;
+            }
+
+            const mode = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
+            const state = data[4] | (data[5] << 8) | (data[6] << 16) | (data[7] << 24);
+
+            return { mode, state };
+        }
+
+        // Helper function to get mode/state names
+        function getModeStateName(mode, state) {
+            const MCM_MODE_STANDBY = 1;
+            const MCM_MODE_AUTOMATIC = 2;
+            const MCM_MODE_MDI = 3;
+            const MCM_STATE_DESELECT = 1;
+            const MCM_STATE_SELECTED = 2;
+            const MCM_STATE_READY = 3;
+            const MCM_STATE_ACTIVE = 4;
+            const MCM_STATE_HOLD = 5;
+            const MCM_STATE_ERROR = 6;
+
+            const modeNames = {
+                [MCM_MODE_STANDBY]: 'STANDBY',
+                [MCM_MODE_AUTOMATIC]: 'AUTOMATIC',
+                [MCM_MODE_MDI]: 'MDI'
+            };
+            const stateNames = {
+                [MCM_STATE_DESELECT]: 'DESELECT',
+                [MCM_STATE_SELECTED]: 'SELECTED',
+                [MCM_STATE_READY]: 'READY',
+                [MCM_STATE_ACTIVE]: 'ACTIVE',
+                [MCM_STATE_HOLD]: 'HOLD',
+                [MCM_STATE_ERROR]: 'ERROR'
+            };
+            return `${modeNames[mode] || mode}/${stateNames[state] || state}`;
+        }
+
+        // Show MDI result (inline version)
+        function showMdiResultInline(message, success) {
+            const resultDiv = document.getElementById('mdiResultPanel');
+            let className = 'p-3 rounded-md ';
+            if (success === true) {
+                className += 'bg-green-100 text-green-800 border border-green-200';
+            } else if (success === false) {
+                className += 'bg-red-100 text-red-800 border border-red-200';
+            } else {
+                className += 'bg-blue-100 text-blue-800 border border-blue-200';
+            }
+
+            resultDiv.innerHTML = `<p class="${className}">${message}</p>`;
+        }
+
+        // Clear MDI input and result
+        function clearMdiInput() {
+            document.getElementById('mdiInputField').value = '';
+            document.getElementById('mdiResultPanel').innerHTML = '<p class="text-gray-500 text-sm">Enter MDI command and press Execute</p>';
+            document.getElementById('mdiInputField').focus();
+        }
+
+        // Sleep utility function
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        // Handle Enter key in MDI input
+        function handleMdiKeyPress(event) {
+            if (event.key === 'Enter') {
+                executeMdiInline();
+            }
+        }
+
     </script>
+
+
 </body>
 </html>

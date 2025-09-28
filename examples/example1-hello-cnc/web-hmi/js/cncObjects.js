@@ -160,14 +160,13 @@ class CncObjectReader {
      */
     async readObjectValue(thread, group, offset, datatype, length) {
         try {
-            const dataType = CncDataTypes[datatype] || CncDataTypes.NONE;
-
+            // Pass datatype as string directly (e.g., "REAL64", "UNS32")
             const result = await this.ws.read(
                 thread,
                 group,
                 offset,
                 length,
-                dataType
+                datatype  // Send as string instead of enum number
             );
 
             return {

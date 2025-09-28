@@ -114,7 +114,7 @@ class CncWebSocket {
      * @param {number} group - Group ID
      * @param {number} offset - Offset ID
      * @param {number} length - Optional length
-     * @param {number} datatype - Optional datatype
+     * @param {string} datatype - Optional datatype string (e.g., "REAL64", "UNS32")
      * @returns {Promise<Object>}
      */
     async read(thread, group, offset, length = null, datatype = null) {
@@ -240,31 +240,9 @@ class CncWebSocket {
     }
 }
 
-// Data type constants for CNC communication
-// CNC Data Types - Must match the C enum in cnc-wrapper.h exactly!
-const CncDataTypes = {
-    NONE: 0,        // CNC_TYPE_NONE
-    BOOLEAN: 1,     // CNC_TYPE_BOOLEAN
-    UNS08: 2,       // CNC_TYPE_UNS08
-    SGN08: 3,       // CNC_TYPE_SGN08
-    UNS16: 4,       // CNC_TYPE_UNS16
-    SGN16: 5,       // CNC_TYPE_SGN16
-    UNS32: 6,       // CNC_TYPE_UNS32
-    SGN32: 7,       // CNC_TYPE_SGN32
-    UNS64: 8,       // CNC_TYPE_UNS64
-    SGN64: 9,       // CNC_TYPE_SGN64
-    REAL64: 10,     // CNC_TYPE_REAL64 ← CORRECT VALUE!
-    STRUCT: 11,     // CNC_TYPE_STRUCT
-    REAL32: 12,     // CNC_TYPE_REAL32
-    CHAR: 13,       // CNC_TYPE_CHAR
-    STRING: 14,     // CNC_TYPE_STRING
-    ERROR: 99       // CNC_TYPE_ERROR
-};
-
 // Export for use in modules or global scope
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { CncWebSocket, CncDataTypes };
+    module.exports = { CncWebSocket };
 } else {
     window.CncWebSocket = CncWebSocket;
-    window.CncDataTypes = CncDataTypes;
 }

@@ -26,12 +26,12 @@ echo Object details:
 echo - Thread: 3 (CNC_TASK_HMI)
 echo - Group: 0x20201 (131585 - Axis 1 position group)
 echo - Offset: 0x00030 (48 - ac_1_active_position_acs_hr_r)
-echo - Type: REAL64 (datatype 10, 8 bytes)
+echo - Type: REAL64 (datatype string, 8 bytes)
 echo.
 
 curl -X POST "http://localhost:8080/read" ^
   -H "Content-Type: application/json" ^
-  -d "{\"thread\": 3, \"group\": 131585, \"offset\": 48, \"datatype\": 10, \"length\": 8}" ^
+  -d "{\"thread\": 3, \"group\": 131585, \"offset\": 48, \"datatype\": \"REAL64\", \"length\": 8}" ^
   --silent --show-error
 echo.
 
